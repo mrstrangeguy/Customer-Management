@@ -1,0 +1,92 @@
+*{
+  box-sizing: border-box
+}
+
+.default-icon {
+  font-style: normal;
+  font-family: 'DX Icons';
+  
+}
+
+.dx-icon-menu::before {
+  content: "";
+}
+
+.dx-icon-moon::before {
+  content: "";
+}
+
+.dx-icon-belloutline:before {
+  content: "";
+}
+
+.dx-icon-user:before {
+  content: "";
+}
+
+.dx-treeview-toggle-item-visibility:before {
+  content: "";
+}
+
+.dx-treeview-toggle-item-visibility.dx-treeview-toggle-item-visibility-opened:before {
+  content: "";
+}
+
+.dx-icon-event:before {
+  content: "";
+}
+
+.dx-icon-chart:before { 
+  content: "";
+}
+
+.dx-icon-card:before {
+  content: "";
+}
+
+.dx-icon-box:before {
+  content: "";
+}
+
+.dx-icon-refresh:before {
+  content: "";
+}
+
+.dx-icon-export:before {
+  content: "";
+}
+
+.dx-icon-column-chooser:before {
+  content: "";
+}
+
+.dx-icon-spindown:before {
+  content: "";
+}
+
+.dx-icon-plus:before {
+  content: "";
+}
+
+.dx-icon-tel:before {
+  content: "";
+}
+
+.dx-icon-email:before {
+  content: "";
+}
+
+.dx-icon-home:before {
+  content: "";
+}
+
+.dx-icon-edit:before {
+  content: "";
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+  font-family: 'DX Icons';
+  src: url('./fonts/Icons.woff2');
+}
