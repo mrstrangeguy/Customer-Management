@@ -1,0 +1,127 @@
+{
+    "sidebarDropDown": [
+        {
+            "header": {
+                "title": "CRM",
+                "icons": {
+                    "main": "dx-icon dx-icon-user",
+                    "arrow": "dx-treeview-toggle-item-visibility dx-treeview-toggle-item-visibility-opened"
+                }
+            },
+            "items": [
+                {
+                    "text": "Contact List"
+                },
+                {
+                    "text": "Contact Details"
+                }
+            ]
+        },
+        {
+            "header": {
+                "title": "Planning",
+                "icons": {
+                    "main": "dx-icon dx-icon-event",
+                    "arrow": "dx-treeview-toggle-item-visibility dx-treeview-toggle-item-visibility-opened"
+                }
+            },
+            "items": [
+                {
+                    "text": "Task List"
+                },
+                {
+                    "text": "Task Details"
+                },
+                {
+                    "text": "Scheduler"
+                }
+            ]
+        },
+        {
+            "header": {
+                "title": "Analytics",
+                "icons": {
+                    "main": "dx-icon dx-icon-chart",
+                    "arrow": "dx-treeview-toggle-item-visibility dx-treeview-toggle-item-visibility-opened"
+                }
+            },
+            "items": [
+                {
+                    "text": "Dashboard"
+                },
+                {
+                    "text": "Sales Report"
+                },
+                {
+                    "text": "Geography"
+                }
+            ]
+        },
+        {
+            "header": {
+                "title": "Authentication",
+                "icons": {
+                    "main": "dx-icon dx-icon-card",
+                    "arrow": "dx-treeview-toggle-item-visibility dx-treeview-toggle-item-visibility-opened"
+                }
+            },
+            "items": [
+                {
+                    "text": "Sign In Form"
+                },
+                {
+                    "text": "Sign Up Form"
+                },
+                {
+                    "text": "Reset Password Form"
+                }
+            ]
+        },
+        {
+            "header": {
+                "title": "Common",
+                "icons": {
+                    "main": "dx-icon dx-icon-box",
+                    "arrow": "dx-treeview-toggle-item-visibility dx-treeview-toggle-item-visibility-opened"
+                }
+            },
+            "items": [
+                {
+                    "text": "User Profile"
+                }
+            ]
+        }
+    ],
+    "contactsPopupDropDown": [
+        {
+            "text": "All"
+        },
+        {
+            "text": "Salaried"
+        },
+        {
+            "text": "Commission"
+        },
+        {
+            "text": "Terminated"
+        }
+    ],
+    "exportPopupDropDown": [
+        {
+            "icon": "dx-icon dx-icon-xlsxfile dx-list-item-icon",
+            "text": "Export all data to Excel"
+        },
+        {
+            "icon": "dx-icon dx-icon-exportselected dx-list-item-icon",
+            "text": "Export selected rows to Excel"
+        },
+        {
+            "icon": "dx-icon dx-icon-pdffile dx-list-item-icon",
+            "text": "Export all data to PDF"
+        },
+        {
+            "icon": "dx-icon dx-icon-exportselected dx-list-item-icon",
+            "text": "Export selected rows to PDF"
+        }
+    ]
+}

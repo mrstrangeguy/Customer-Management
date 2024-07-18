@@ -1,0 +1,314 @@
+{
+    "headerData": {
+        "title": "Contacts",
+        "searchBarPlaceholder": "Contact Search",
+        "dropDowns": {
+            "text": "ALL",
+            "icons": {
+                "export": "dx-icon dx-icon-export"
+            }
+        },
+        "icons": {
+            "refresh": "dx-icon dx-icon-refresh",
+            "choose": "dx-icon dx-icon-column-chooser"
+        }
+    },
+    "tableHeadData": [
+        {
+            "text": "Name",
+            "icons": {
+                "upArrow": "dx-sort dx-sort-up",
+                "filter": "dx-header-filter dx-header-filter-empty"
+            }
+        },
+        {
+            "text": "Company",
+            "icons": {
+                "filter": "dx-header-filter dx-header-filter-empty"
+            }
+        },
+        {
+            "text": "Status",
+            "icons": {
+                "filter": "dx-header-filter dx-header-filter-empty"
+            }
+        },
+        {
+            "text": "Assigned to",
+            "icons": {
+                "filter": "dx-header-filter dx-header-filter-empty"
+            }
+        },
+        {
+            "text": "Phone",
+            "icons": {
+                "filter": "dx-header-filter dx-header-filter-empty"
+            }
+        },
+        {
+            "text": "Email",
+            "icons": {
+                "filter": "dx-header-filter dx-header-filter-empty"
+            }
+        }
+    ],
+    "tableBodyData": {
+        "tableRows": [
+            {
+                "isChecked": false,
+                "description": {
+                    "name": "Antony Remmen",
+                    "position": "Support Assistant"
+                },
+                "company": "Clicker",
+                "status": "Salaried",
+                "assignedTo": "John Heart",
+                "phone": "+1(213)555-4276",
+                "email": "anthonyr@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "02/26/2020",
+                                "name": "John Heart"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "02/26/2020",
+                                "name": "John Heart"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "02/27/2020",
+                                "name": "John Heart"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "description": {
+                    "name": "Amelia Harper",
+                    "position": "Network Admin"
+                },
+                "company": "Clicker",
+                "status": "Salaried",
+                "assignedTo": "Samantha Bright",
+                "phone": "+1(310)555-6625",
+                "email": "anthonyr@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "06/10/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Incoming call logged",
+                            "details": {
+                                "date": "06/11/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Outbound call logged",
+                            "details": {
+                                "date": "06/11/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "description": {
+                    "name": "Arnie Schwartz",
+                    "position": "Engineer"
+                },
+                "company": "Screen Shop",
+                "status": "Salaried",
+                "assignedTo": "John Heart",
+                "phone": "+1(714)555-8882",
+                "email": "arnolds@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "02/26/2020",
+                                "name": "John Heart"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "02/26/2020",
+                                "name": "John Heart"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "02/27/2020",
+                                "name": "John Heart"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "description": {
+                    "name": "Arthur Miller",
+                    "position": "CTO"
+                },
+                "company": "Super Mart of the West",
+                "status": "Salaried",
+                "assignedTo": "Samantha Bright",
+                "phone": "+1(310)555-8583",
+                "email": "arthurm@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedTo": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
