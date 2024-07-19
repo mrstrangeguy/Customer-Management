@@ -1,4 +1,16 @@
 {
+    "headerNavData": {
+        "title": "UI Template Gallery",
+        "searchBarPlaceholder": "Search",
+        "icons": {
+            "menu": "dx-icon dx-icon-menu",
+            "moon": "dx-icon dx-icon-moon",
+            "bell": "dx-icon dx-icon-belloutline"
+        },
+        "images": {
+            "profile": "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png"
+        }
+    },
     "sidebarDropDown": [
         {
             "header": {
@@ -123,5 +135,19 @@
             "icon": "dx-icon dx-icon-exportselected dx-list-item-icon",
             "text": "Export selected rows to PDF"
         }
-    ]
+    ],
+    "usersPageData": {
+        "title": "Contacts",
+        "searchBarPlaceholder": "Contact Search",
+        "dropDowns": {
+            "text": "ALL",
+            "icons": {
+                "export": "dx-icon dx-icon-export"
+            }
+        },
+        "icons": {
+            "refresh": "dx-icon dx-icon-refresh",
+            "choose": "dx-icon dx-icon-column-chooser"
+        }
+    }
 }

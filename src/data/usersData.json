@@ -1,19 +1,5 @@
 {
-    "headerData": {
-        "title": "Contacts",
-        "searchBarPlaceholder": "Contact Search",
-        "dropDowns": {
-            "text": "ALL",
-            "icons": {
-                "export": "dx-icon dx-icon-export"
-            }
-        },
-        "icons": {
-            "refresh": "dx-icon dx-icon-refresh",
-            "choose": "dx-icon dx-icon-column-chooser"
-        }
-    },
-    "tableHeadData": [
+    "usersTableHeaderData": [
         {
             "text": "Name",
             "icons": {
@@ -52,8 +38,8 @@
             }
         }
     ],
-    "tableBodyData": {
-        "tableRows": [
+    "userDetails": {
+        "users": [
             {
                 "isChecked": false,
                 "description": {
