@@ -33,7 +33,6 @@ const isCurrentClass = (versionNumber:number) => {
    return props.version === versionNumber;
 }
 
-console.log(props.versionOneIcon)
 </script>
 
 <style lang="scss" scoped>
