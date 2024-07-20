@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Dropdown from './components/Dropdown.vue'
+</script>
 
-<template></template>
+<template>
+<Dropdown/>
+</template>
 
 <style lang="scss" scoped></style>
