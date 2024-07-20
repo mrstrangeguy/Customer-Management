@@ -43,6 +43,7 @@ const isCurrentClass = (versionNumber:number) => {
 
 .version-one-headerText {
   font-size: 13px;
+  line-height: 16.7141px;
 }
 
 </style>
