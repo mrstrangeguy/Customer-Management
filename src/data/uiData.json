@@ -1,0 +1,146 @@
+{
+    "headerNavData": {
+        "title": "UI Template Gallery",
+        "menuIcon": "dx-icon dx-icon-menu",
+        "displayMode": {
+            "lightModeIcon": "dx-icon dx-icon-moon",
+            "darkModeIcon": "dx-icon dx-icon-sun"
+        },
+        "notification": "dx-icon dx-icon-belloutline",
+        "profile": {
+            "imageURL": "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png"
+        }
+    },
+    "sidebarMenuItems": [
+        {
+            "title": "CRM",
+            "main": "dx-icon dx-icon-user",
+            "subMenuItems": [
+                {
+                    "title": "Contact List",
+                    "path": "./../"
+                },
+                {
+                    "title": "Contact Details",
+                    "path": "./../"
+                }
+            ]
+        },
+        {
+            "title": "Planning",
+            "main": "dx-icon dx-icon-event",
+            "subMenuItems": [
+                {
+                    "title": "Task List",
+                    "path": "./../"
+                },
+                {
+                    "title": "Task Details",
+                    "path": "./../"
+                },
+                {
+                    "title": "Scheduler",
+                    "path": "./../"
+                }
+            ]
+        },
+        {
+            "title": "Analytics",
+            "main": "dx-icon dx-icon-chart",
+            "subMenuItems": [
+                {
+                    "title": "Dashboard",
+                    "path": "./../"
+                },
+                {
+                    "title": "Sales Report",
+                    "path": "./../"
+                },
+                {
+                    "title": "Geography",
+                    "path": "./../"
+                }
+            ]
+        },
+        {
+            "title": "Authentication",
+            "main": "dx-icon dx-icon-card",
+            "subMenuItems": [
+                {
+                    "title": "Sign In Form",
+                    "path": "./../"
+                },
+                {
+                    "title": "Sign Up Form",
+                    "path": "./../"
+                },
+                {
+                    "title": "Reset Password Form",
+                    "path": "./../"
+                }
+            ]
+        },
+        {
+            "title": "Common",
+            "main": "dx-icon dx-icon-box",
+            "subMenuItems": [
+                {
+                    "text": "User Profile"
+                }
+            ]
+        }
+    ],
+    "contactsPopupDropDown": [
+        {
+            "text": "All"
+        },
+        {
+            "text": "Salaried"
+        },
+        {
+            "text": "Commission"
+        },
+        {
+            "text": "Terminated"
+        }
+    ],
+    "usersPageData": {
+        "title": "Contacts",
+        "searchBarPlaceholder": "Contact Search",
+        "filterDropDown": {
+            "title": "ALL",
+            "exportIcon": "dx-icon dx-icon-export",
+            "subOptions": [
+                "All",
+                "Salaried",
+                "Commission",
+                "Terminated"
+            ]
+        },
+        "exportDropDown": {
+            "titleIcon": "dx-icon dx-icon-export",
+            "subMenuItems": [
+                {
+                    "icon": "dx-icon dx-icon-xlsxfile dx-list-item-icon",
+                    "text": "Export all data to Excel"
+                },
+                {
+                    "icon": "dx-icon dx-icon-exportselected dx-list-item-icon",
+                    "text": "Export selected rows to Excel"
+                },
+                {
+                    "icon": "dx-icon dx-icon-pdffile dx-list-item-icon",
+                    "text": "Export all data to PDF"
+                },
+                {
+                    "icon": "dx-icon dx-icon-exportselected dx-list-item-icon",
+                    "text": "Export selected rows to PDF"
+                }
+            ]
+        },
+        "icons": {
+            "refresh": "dx-icon dx-icon-refresh",
+            "choose": "dx-icon dx-icon-column-chooser"
+        }
+    }
+}
