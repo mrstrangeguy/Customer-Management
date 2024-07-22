@@ -1,62 +1,92 @@
 <template>
-    <button :class="{'button-default':true}">
-    <i :class="{'default-icon':true,[icon]:true,'icon-version-1':true}"></i>
-    <!-- <span  :class="{'version-2-text':isCurrentClass(1)}">Add Contact</span> -->
+    <button :class="{ 'button-default': true, [buttonType]: true }">
+        <i :class="{ 'default-icon': true, [icon]: true, [`${getIconType()}`]: true }"></i>
+        <span :class="{ 'text-type': true }">{{ text }}</span>
     </button>
 </template>
 
 <script setup lang="ts">
+
 const props = defineProps({
-    version:String,
-    buttonType:{
-     type:String,
-     required:true
+    version: String,
+    buttonType: {
+        type: String,
+        required: true
     },
-    icon:{
-        type:String,
-        default:''
+    text: {
+        type: String,
+        required: true
+    },
+    icon: {
+        type: String,
+        default: ''
     }
 })
 
-//function
-const isCurrentClass = (versionNumber:number) => {
-   return props.version === versionNumber;
+//functions
+const getIconType = () => {
+    if (!props.buttonType) return
+
+    if (props.buttonType === 'common-button common-button--primary') {
+        return 'button-icon-type-1'
+    }
+    else if (props.buttonType === 'icon-button--primary') {
+        return 'button-icon-type-2'
+    }
 }
 
 </script>
 
 <style lang="scss" scoped>
-
 .button-default {
     cursor: pointer;
+    background-color: transparent;
+}
+
+.default-icon {
+    font-size: 16px;
+}
+
+.button-icon-type-1,
+.button-icon-type-2 {
+    color: rgba(0, 0, 0, 0.87);
+
+    &::before {
+        display: block;
+    }
 }
 
 .common-button {
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 500;
+
     &--primary {
-   padding: 5px 12px 5px 8px;
-   box-shadow: 0 1px 3px rgba(0,0,0,.24);
-   background-color: #03a9f4;
-   border-radius: 2px;
-   color: rgba(0, 0, 0, 0.87);
-   display: flex;
-   align-items: center;
-   height: 28px;
-   }
+        padding: 5px 12px 5px 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .24);
+        background-color: #03a9f4;
+        height: 28px;
+        color: white;
+    }
 
-   &--secondary {
-    padding: 5px;
-    border-radius: 50%;
-    transition: 0.5s;
-    background-color: white;
-   }
+    &--secondary {
+        padding: 5px 12px;
+        border: 1px solid rgba(0, 0, 0, 0.24);
+        color: rgba(0, 0, 0, 0.87);
+        min-width: 90px;
+        justify-content: center;
+        height: 26px;
+    }
 }
 
-.icon-version-1 {
-   margin-right: 4px;
-   font-size: 16px;
+.button-icon-type-1 {
+    margin-right: 4px;
+    color: white;
 }
 
-.version-1-text {
+.text-type {
     text-transform: uppercase;
     font-size: 13px;
     font-weight: 500;
@@ -64,20 +94,7 @@ const isCurrentClass = (versionNumber:number) => {
     letter-spacing: 0.52px;
 }
 
-.button-version-2 {
-   
-}
-
-.icon-version-2 {
+.button-icon-type-2 {
     font-size: 18px;
 }
-
-.icon-version-1,
-.icon-version-2 {
-    color: rgba(0, 0, 0, 0.87);
-    &::before {
-        display: block;
-    }
-}
-
 </style>
