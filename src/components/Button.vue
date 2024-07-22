@@ -1,11 +1,12 @@
 <template>
-    <button :class="{ 'button-default': true, [buttonType]: true }">
+    <button :class="{ 'button-default': true, [buttonType]: true,[variant]:true }">
         <i :class="{ 'default-icon': true, [icon]: true, [`${getIconType()}`]: true }"></i>
         <span :class="{ 'text-type': true }">{{ text }}</span>
     </button>
 </template>
 
 <script setup lang="ts">
+import {ButtonTypes} from '../types/buttonTypes'
 
 const props = defineProps({
     version: String,
@@ -20,6 +21,10 @@ const props = defineProps({
     icon: {
         type: String,
         default: ''
+    },
+    variant: {
+        type:String,
+        default:''
     }
 })
 
@@ -27,10 +32,10 @@ const props = defineProps({
 const getIconType = () => {
     if (!props.buttonType) return
 
-    if (props.buttonType === 'common-button common-button--primary') {
+    if (props.variant === ButtonTypes.common.variant.primary) {
         return 'button-icon-type-1'
     }
-    else if(props.buttonType === 'icon-button--primary'){
+    else if(props.variant === ButtonTypes.icon.variant.primary){
         return 'button-icon-type-2'
     }
 }
