@@ -30,7 +30,7 @@ const getIconType = () => {
     if (props.buttonType === 'common-button common-button--primary') {
         return 'button-icon-type-1'
     }
-    else if (props.buttonType === 'icon-button--primary') {
+    else if(props.buttonType === 'icon-button--primary'){
         return 'button-icon-type-2'
     }
 }
@@ -97,4 +97,5 @@ const getIconType = () => {
 .button-icon-type-2 {
     font-size: 18px;
 }
+
 </style>
