@@ -12,7 +12,7 @@ const props = defineProps({
     version: String,
     buttonType: {
         type: String,
-        required: true
+        default:''
     },
     text: {
         type: String,
@@ -32,12 +32,12 @@ const props = defineProps({
 const getIconType = () => {
     if (!props.buttonType) return
 
-    if (props.variant === ButtonTypes.common.variant.primary) {
-        return 'button-icon-type-1'
-    }
-    else if(props.variant === ButtonTypes.icon.variant.primary){
-        return 'button-icon-type-2'
-    }
+    // if (props.variant === ButtonTypes.common.variant.primary) {
+    //     return 'button-icon-type-1'
+    // }
+    // else if(props.variant === ButtonTypes.icon.variant.primary){
+    //     return 'button-icon-type-2'
+    // }
 }
 
 </script>
