@@ -3,15 +3,15 @@
     <div class="dropdown-header dropdown-wrapper" @click="isClicked = !isClicked">
 
     <div class="dropdown-header__sec-1">
-    <i :class="{'default-icon':true,'left-icon':true,[iconLeft]:true}"/>
+    <i :class="{'default-icon':true,'left-icon':true,[iconLeft]:true,'dx-treeview-toggle-item-visibility-opened':isClicked}"/>
     <span :class="{'header-text':true}">CRM</span>
     </div>
 
     <div class="dropdown-header__sec-2">
-    <i :class="{'default-icon':true,'right-icon':true,[iconRight]:true}"/>
+    <i :class="{'default-icon':true,'right-icon':true,[iconRight]:true,'dx-treeview-toggle-item-visibility-opened':isClicked}"/>
     </div>
     </div>
-    <div :class="{'dropdown-content':true,'disable-view':isClicked,'non-disabled-view':!isClicked}">
+    <div v-if="isClicked" class="dropdown-content">
       <div class="dropdown-content-item dropdown-wrapper">
         <span class="dropdown-content__text">Contact List</span>
       </div>
@@ -26,6 +26,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+
 defineProps({
   variant:{
     type:String,
@@ -37,7 +38,7 @@ defineProps({
   },
   iconRight:{
     type:String,
-    default:''
+    default:'dx-treeview-toggle-item-visibility'
   }
 })
 
@@ -49,22 +50,9 @@ const isClicked = ref<boolean>(false);
   font-size: 13px;
   line-height: 16.7141px;
 }
-.disable-view {
-  display: block;
-  transition: max-height 1s ease 0s,
-  display 2s ease 0s;
-  max-height: 0;
-}
-
-.non-disabled-view {
-  // display: none;
-  transition: max-height 1s ease 0s,
-  display 2s ease 0s;
-  max-height: 72px;
-}
 
 .dropdown-header {
-
+ cursor:pointer;
   &__sec-1,
   &__sec-2 {
     display: flex;
@@ -95,6 +83,7 @@ const isClicked = ref<boolean>(false);
 }
 
 .dropdown {
+  cursor: pointer;
   &--sidebar {
     background-color:rgb(242, 242, 242);
    
