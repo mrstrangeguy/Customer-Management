@@ -1,105 +1,134 @@
 <template>
-    <div>
-    <div style="width: 200px;">
-    <div :class="{'dropdown-header':true,'version-one-wrapper':isCurrentClass(1)}" @click="onHeaderClick">
-    <div class="dropdown-header__details">
-    <i v-if="version === 1" :class="{'default-icon':true,[versionOneIcon]:true,'version-one-icon':true}"></i>
-    <span :class="{'headerText':true,'version-one-headerText':isCurrentClass(1)}">CRM</span>
-    </div>
-    <i :class="{'default-icon':true,'version-one-arrow dx-treeview-toggle-item-visibility':isCurrentClass(1)}"></i>
-    </div>
-    <div :class="{'dropdown-content':true}">
-    <div :class="{'version-one-wrapper':isCurrentClass(1)}">
-    <div :class="{'version-one-item':isCurrentClass(1)}">
-      <span :class="{'version-one-item__text':true}">Contact List</span>
-    </div>
+    <div :class="{[variant]:true}" :style="{width:'250px'}">
+    <div class="dropdown-header dropdown-wrapper" @click="isClicked = !isClicked">
+
+    <div class="dropdown-header__sec-1">
+    <i :class="{'default-icon':true,'left-icon':true,[iconLeft]:true}"/>
+    <span :class="{'header-text':true}">CRM</span>
     </div>
 
-    <div :class="{'version-one-wrapper':isCurrentClass(1)}">
-    <div :class="{'version-one-item':isCurrentClass(1)}">
-      <span :class="{'version-one-item__text':true}">Contact Details</span>
+    <div class="dropdown-header__sec-2">
+    <i :class="{'default-icon':true,'right-icon':true,[iconRight]:true}"/>
     </div>
     </div>
+    <div :class="{'dropdown-content':true,'disable-view':isClicked,'non-disabled-view':!isClicked}">
+      <div class="dropdown-content-item dropdown-wrapper">
+        <span class="dropdown-content__text">Contact List</span>
+      </div>
+      <div class="dropdown-content-item dropdown-wrapper">
+        <span class="dropdown-content__text">Contact Details</span>
+      </div>
     </div>
-    </div>    
     </div>
+   
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  version:Number,
-  versionOneIcon:{
+import { ref } from 'vue';
+
+defineProps({
+  variant:{
+    type:String,
+    default:''
+  },
+  iconLeft:{
+    type:String,
+    default:''
+  },
+  iconRight:{
     type:String,
     default:''
   }
-});
+})
 
-const isCurrentClass = (versionNumber:number) => {
-   return props.version === versionNumber;
-}
-
-const onHeaderClick = () => {
-  if(props.version && props.version < 2) return
-}
-
+const isClicked = ref<boolean>(false);
 </script>
 
 <style lang="scss" scoped>
-.dropdown-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background-color: rgb(242, 242, 242);
-
-    &__details {
-      flex-grow: 1;
-      width: 100%;
-      display: flex;
-      align-items: center;
-    }
-}
-
-.version-one-wrapper {
-  padding: 9px 16px 9px 0px;
-}
-
-.headerText {
-  display: block;
-}
-
-.version-one-icon {
-  display: block;
-  font-size: 18px;
-  width: 48px;
-  text-align: center;
-  line-height: 18px;
-}
-
-.version-one-headerText {
+* {
   font-size: 13px;
   line-height: 16.7141px;
-  font-weight: 700;
 }
-
-.version-one-arrow {
+.disable-view {
   display: block;
-  font-size: 18px;
-  color: rgba(0, 0, 0, 0.54);
+  transition: max-height 1s ease 0s,
+  display 2s ease 0s;
+  max-height: 0;
 }
 
-.version-one-item {
-  padding-left: 48px;
-  
-  &__text {
-    display: block;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 18px;
+.non-disabled-view {
+  // display: none;
+  transition: max-height 1s ease 0s,
+  display 2s ease 0s;
+  max-height: 72px;
+}
+
+.dropdown-header {
+
+  &__sec-1,
+  &__sec-2 {
+    display: flex;
+    align-items: center;
+  }
+
+  &__sec-1 {
+    flex-grow: 1;
   }
 }
-
-.background-grey {
-  background-color: rgba(0, 0, 0, 0.12);
+.left-icon,
+.right-icon
+{
+  font-size: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
 }
 
+.right-icon {
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 400;
+}
+
+.left-icon {
+  width: 48px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.dropdown {
+  &--sidebar {
+    background-color:rgb(242, 242, 242);
+   
+    .dropdown-wrapper {
+      padding:9px 16px 9px 0px;
+    }
+
+    .dropdown-header {
+      display: flex;
+      color: rgba(0, 0, 0, 0.87);
+      gap: 12px;
+
+      .header-text {
+        line-height: 16.7141px;
+        font-weight: 700;
+      }
+    }
+
+    .dropdown-content {
+ 
+    &__text {
+      display: block;
+      padding-left: 48px;
+      line-height: 18px;
+    }
+    }
+  }
+
+  // &--tool {
+   
+  // }
+
+  // &--profile {
+   
+  // }
+}
 </style>
