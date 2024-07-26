@@ -97,7 +97,7 @@
         "filterDropDown": {
             "title": "ALL",
             "exportIcon": "dx-icon dx-icon-export",
-            "subOptions": [
+            "filterOptions": [
                 "All",
                 "Salaried",
                 "Commission",
