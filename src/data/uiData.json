@@ -83,7 +83,7 @@
         {
             "title": "Common",
             "main": "dx-icon dx-icon-box",
-            "subMenuItems": [
+            "exportOptions": [
                 {
                     "text": "User Profile"
                 }
