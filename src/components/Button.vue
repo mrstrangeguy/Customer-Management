@@ -1,20 +1,21 @@
 <template>
   <button
-    :class="{ 'button-default': true, [variant]: true }"
+    :class="{ 'button-default': true, [currentClass()]: true }"
     :style="{ background: bgColor }"
   >
     <i
       :class="{
         'default-icon': true,
         [icon]: true,
-        'enable-right-margin': isMarginRightEnabled(),
       }"
-    ></i>
-    <span :class="{ 'text-style': true }">{{ text }}</span>
+    />
+    <span class="text-style">{{ text }}</span>
   </button>
 </template>
 
 <script setup lang="ts">
+import { Buttonvariants } from "../types/buttonTypes";
+
 const props = defineProps({
   text: {
     type: String,
@@ -31,9 +32,15 @@ const props = defineProps({
   bgColor: String,
 });
 
-//functions
-const isMarginRightEnabled = () => {
-  return props.variant === "common common--primary";
+//computed
+const currentClass = () => {
+  if (props.variant === Buttonvariants.COMMONSECONDARY) {
+    return "common common--secondary";
+  } else if (props.variant === Buttonvariants.ICON) {
+    return "icon";
+  }
+
+  return "common common--primary";
 };
 </script>
 
@@ -52,15 +59,6 @@ const isMarginRightEnabled = () => {
   margin-right: 4px;
 }
 
-.button-icon-type-1,
-.button-icon-type-2 {
-  color: rgba(0, 0, 0, 0.87);
-
-  &::before {
-    display: block;
-  }
-}
-
 .button-default.common {
   border-radius: 2px;
   display: flex;
@@ -73,6 +71,10 @@ const isMarginRightEnabled = () => {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
     height: 28px;
     color: white;
+
+    .default-icon {
+      margin-right: 4px;
+    }
   }
 
   &--secondary {
@@ -93,11 +95,6 @@ const isMarginRightEnabled = () => {
   &:hover {
     background-color: rgba(0, 0, 0, 0.12);
   }
-}
-
-.button-icon-type-1 {
-  margin-right: 4px;
-  color: white;
 }
 
 .text-style {
