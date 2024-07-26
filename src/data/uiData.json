@@ -90,19 +90,13 @@
             ]
         }
     ],
-    "userStatuses":["All","Salaried","Commission","Terminated"],
     "usersPageData": {
         "title": "Contacts",
         "searchBarPlaceholder": "Contact Search",
         "filterDropDown": {
             "title": "ALL",
             "exportIcon": "dx-icon dx-icon-export",
-            "filterOptions": [
-                "All",
-                "Salaried",
-                "Commission",
-                "Terminated"
-            ]
+            "userStatuses":["All","Salaried","Commission","Terminated"] 
         },
         "exportOptionsDetails": {
             "titleIcon": "dx-icon dx-icon-export",
