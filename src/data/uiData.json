@@ -90,20 +90,7 @@
             ]
         }
     ],
-    "contactsPopupDropDown": [
-        {
-            "text": "All"
-        },
-        {
-            "text": "Salaried"
-        },
-        {
-            "text": "Commission"
-        },
-        {
-            "text": "Terminated"
-        }
-    ],
+    "userStatuses":["All","Salaried","Commission","Terminated"],
     "usersPageData": {
         "title": "Contacts",
         "searchBarPlaceholder": "Contact Search",
@@ -117,7 +104,7 @@
                 "Terminated"
             ]
         },
-        "exportDropDown": {
+        "exportOptionsDetails": {
             "titleIcon": "dx-icon dx-icon-export",
             "subMenuItems": [
                 {
@@ -138,9 +125,47 @@
                 }
             ]
         },
-        "icons": {
-            "refresh": "dx-icon dx-icon-refresh",
-            "choose": "dx-icon dx-icon-column-chooser"
-        }
+        "refreshIcon":"dx-icon dx-icon-refresh",
+        "columnChooserIcon":"dx-icon dx-icon-column-chooser",
+        "userAttributes": [
+            {
+                "text": "Name",
+                "icons": {
+                    "upArrow": "dx-sort dx-sort-up",
+                    "filter": "dx-header-filter dx-header-filter-empty"
+                }
+            },
+            {
+                "text": "Company",
+                "icons": {
+                    "filter": "dx-header-filter dx-header-filter-empty"
+                }
+            },
+            {
+                "text": "Status",
+                "icons": {
+                    "filter": "dx-header-filter dx-header-filter-empty"
+                }
+            },
+            {
+                "text": "Assigned to",
+                "icons": {
+                    "filter": "dx-header-filter dx-header-filter-empty"
+                }
+            },
+            {
+                "text": "Phone",
+                "icons": {
+                    "filter": "dx-header-filter dx-header-filter-empty"
+                }
+            },
+            {
+                "text": "Email",
+                "icons": {
+                    "filter": "dx-header-filter dx-header-filter-empty"
+                }
+            }
+        ]
     }
+ 
 }

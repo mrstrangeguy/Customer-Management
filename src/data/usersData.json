@@ -1,43 +1,4 @@
 {
-    "userAttributes": [
-        {
-            "text": "Name",
-            "icons": {
-                "upArrow": "dx-sort dx-sort-up",
-                "filter": "dx-header-filter dx-header-filter-empty"
-            }
-        },
-        {
-            "text": "Company",
-            "icons": {
-                "filter": "dx-header-filter dx-header-filter-empty"
-            }
-        },
-        {
-            "text": "Status",
-            "icons": {
-                "filter": "dx-header-filter dx-header-filter-empty"
-            }
-        },
-        {
-            "text": "Assigned to",
-            "icons": {
-                "filter": "dx-header-filter dx-header-filter-empty"
-            }
-        },
-        {
-            "text": "Phone",
-            "icons": {
-                "filter": "dx-header-filter dx-header-filter-empty"
-            }
-        },
-        {
-            "text": "Email",
-            "icons": {
-                "filter": "dx-header-filter dx-header-filter-empty"
-            }
-        }
-    ],
     "userDetails": {
         "users": [
             {
