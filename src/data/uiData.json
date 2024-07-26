@@ -83,7 +83,7 @@
         {
             "title": "Common",
             "main": "dx-icon dx-icon-box",
-            "exportOptions": [
+            "subMenuItems": [
                 {
                     "text": "User Profile"
                 }
@@ -100,7 +100,7 @@
         },
         "exportOptionsDetails": {
             "titleIcon": "dx-icon dx-icon-export",
-            "subMenuItems": [
+            "exportOptions": [
                 {
                     "icon": "dx-icon dx-icon-xlsxfile dx-list-item-icon",
                     "text": "Export all data to Excel"
