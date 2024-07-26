@@ -12,12 +12,7 @@
     </div>
     </div>
     <div v-if="isClicked" class="dropdown-content">
-      <div class="dropdown-content-item dropdown-wrapper">
-        <span class="dropdown-content__text">Contact List</span>
-      </div>
-      <div class="dropdown-content-item dropdown-wrapper">
-        <span class="dropdown-content__text">Contact Details</span>
-      </div>
+    <slot name="list-item-slot"></slot>
     </div>
     </div>
    
