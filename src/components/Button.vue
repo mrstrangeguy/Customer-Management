@@ -27,7 +27,7 @@ const props = defineProps({
   },
   variant: {
     type: String,
-    default: "common common--primary",
+    default: "",
   },
   bgColor: String,
 });
