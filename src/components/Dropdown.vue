@@ -1,118 +1,69 @@
 <template>
-    <div :class="{[variant]:true}" :style="{width:'250px'}">
-    <div class="dropdown-header dropdown-wrapper" @click="isClicked = !isClicked">
-
-    <div class="dropdown-header__sec-1">
-    <i :class="{'default-icon':true,'left-icon':true,[iconLeft]:true,'dx-treeview-toggle-item-visibility-opened':isClicked}"/>
-    <span :class="{'header-text':true}">CRM</span>
+    <div :class="{'cursor-pointer':true,[containerStyle]:true}" style="width: 250px;">
+    <div :class="{'dropdown-header':true,[headerStyle]:true}" @click="toggleContentVisibility">
+    <div class="dropdown-header__content">
+    <i :class="{'default-icon':true,[mainIcon]:true}"/>
+    <span :class="{[textStyle]:true}">{{ text }}</span>
     </div>
-
-    <div class="dropdown-header__sec-2">
-    <i :class="{'default-icon':true,'right-icon':true,[iconRight]:true,'dx-treeview-toggle-item-visibility-opened':isClicked}"/>
+     <i :class="{'default-icon dx-treeview-toggle-item-visibility':true,[arrowIcon]:true,'dx-treeview-toggle-item-visibility-opened':isHeaderClicked}"/>
     </div>
-    </div>
-    <div v-if="isClicked" class="dropdown-content">
-    <slot name="list-item-slot"></slot>
+    <div :class="{'dropdown__content transition-[height] transition-opacity duration-500 ease-linear':true,'visible':isHeaderClicked,'opacity-0':!isHeaderClicked,'opacity-100':isHeaderClicked,'invisible':!isHeaderClicked,'h-fit':isHeaderClicked,'h-0':!isHeaderClicked}">
+      <slot name="dropdown-items" ></slot>
     </div>
     </div>
-   
+   <!--'max-h-fit':isHeaderClicked,'max-h-0':!isHeaderClicked-->
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 
+const isHeaderClicked = ref(false);
 
-defineProps({
-  variant:{
+const toggleContentVisibility = () => {
+  isHeaderClicked.value = !isHeaderClicked.value;
+}
+ 
+const props = defineProps({
+  headerStyle: {
+   type:String,
+   required:true
+  },
+  mainIcon: {
     type:String,
     default:''
   },
-  iconLeft:{
+  text: {
     type:String,
     default:''
   },
-  iconRight:{
+  textStyle: {
     type:String,
-    default:'dx-treeview-toggle-item-visibility'
+    default:''
+  },
+  arrowIcon: {
+    type:String,
+    default:''
+  },
+  containerStyle: {
+    type:String,
+    default:''
   }
 })
-
-const isClicked = ref<boolean>(false);
 </script>
 
 <style lang="scss" scoped>
-* {
-  font-size: 13px;
-  line-height: 16.7141px;
-}
 
 .dropdown-header {
- cursor:pointer;
-  &__sec-1,
-  &__sec-2 {
+  display: flex;
+  align-items: center;
+  gap:12px;
+
+  &__content {
     display: flex;
     align-items: center;
-  }
-
-  &__sec-1 {
     flex-grow: 1;
   }
-}
-.left-icon,
-.right-icon
-{
-  font-size: 18px;
-  height: 18px;
-  line-height: 18px;
-  text-align: center;
+
 }
 
-.right-icon {
-  color: rgba(0, 0, 0, 0.54);
-  font-weight: 400;
-}
-
-.left-icon {
-  width: 48px;
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.dropdown {
-  cursor: pointer;
-  &--sidebar {
-    background-color:rgb(242, 242, 242);
-   
-    .dropdown-wrapper {
-      padding:9px 16px 9px 0px;
-    }
-
-    .dropdown-header {
-      display: flex;
-      color: rgba(0, 0, 0, 0.87);
-      gap: 12px;
-
-      .header-text {
-        line-height: 16.7141px;
-        font-weight: 700;
-      }
-    }
-
-    .dropdown-content {
- 
-    &__text {
-      display: block;
-      padding-left: 48px;
-      line-height: 18px;
-    }
-    }
-  }
-
-  // &--tool {
-   
-  // }
-
-  // &--profile {
-   
-  // }
-}
 </style>
