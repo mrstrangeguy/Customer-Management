@@ -7,8 +7,8 @@
     </div>
      <i :class="{'default-icon dx-treeview-toggle-item-visibility':true,[arrowIcon]:true,'dx-treeview-toggle-item-visibility-opened':isHeaderClicked}"/>
     </div>
-    <div :class="{'dropdown__content transition-[height] transition-opacity duration-500 ease-linear':true,'visible':isHeaderClicked,'opacity-0':!isHeaderClicked,'opacity-100':isHeaderClicked,'invisible':!isHeaderClicked,'h-fit':isHeaderClicked,'h-0':!isHeaderClicked}">
-      <slot name="dropdown-items" ></slot>
+    <div :class="{'dropdown__content transition-all duration-[700ms] ease-linear':true,'max-h-fit':isHeaderClicked,'max-h-0':!isHeaderClicked}">
+      <slot name="dropdown-items"></slot>
     </div>
     </div>
    <!--'max-h-fit':isHeaderClicked,'max-h-0':!isHeaderClicked-->
@@ -53,6 +53,16 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 
+.dropdown {
+  &__content {
+    -webkit-transition: max-height 1s;
+  -moz-transition: max-height 1s;
+  -ms-transition: max-height 1s;
+  -o-transition: max-height 1s;
+  transition: max-height 1s;
+  } 
+}
+
 .dropdown-header {
   display: flex;
   align-items: center;
@@ -62,8 +72,10 @@ const props = defineProps({
     display: flex;
     align-items: center;
     flex-grow: 1;
+   
   }
 
 }
+
 
 </style>
