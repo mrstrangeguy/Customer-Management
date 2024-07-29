@@ -11,7 +11,8 @@ export default {
       'opacity':'opacity'
      },
      transitionDuration: {
-      
+      'height':'700ms',
+      'opacity':'400ms'
      }
     },
   },
