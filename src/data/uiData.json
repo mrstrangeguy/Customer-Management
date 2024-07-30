@@ -1,0 +1,165 @@
+{
+    "headerNavData": {
+        "title": "UI Template Gallery",
+        "menuIcon": "dx-icon dx-icon-menu",
+        "displayMode": {
+            "lightModeIcon": "dx-icon dx-icon-moon",
+            "darkModeIcon": "dx-icon dx-icon-sun"
+        },
+        "notification": "dx-icon dx-icon-belloutline",
+        "profile": {
+            "imageURL": "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png"
+        }
+    },
+    "sidebarMenuItems": [
+        {
+            "title": "CRM",
+            "main": "dx-icon dx-icon-user",
+            "subMenuItems": [
+                {
+                    "title": "Contact List",
+                    "path": "./../"
+                },
+                {
+                    "title": "Contact Details",
+                    "path": "./../"
+                }
+            ]
+        },
+        {
+            "title": "Planning",
+            "main": "dx-icon dx-icon-event",
+            "subMenuItems": [
+                {
+                    "title": "Task List",
+                    "path": "./../"
+                },
+                {
+                    "title": "Task Details",
+                    "path": "./../"
+                },
+                {
+                    "title": "Scheduler",
+                    "path": "./../"
+                }
+            ]
+        },
+        {
+            "title": "Analytics",
+            "main": "dx-icon dx-icon-chart",
+            "subMenuItems": [
+                {
+                    "title": "Dashboard",
+                    "path": "./../"
+                },
+                {
+                    "title": "Sales Report",
+                    "path": "./../"
+                },
+                {
+                    "title": "Geography",
+                    "path": "./../"
+                }
+            ]
+        },
+        {
+            "title": "Authentication",
+            "main": "dx-icon dx-icon-card",
+            "subMenuItems": [
+                {
+                    "title": "Sign In Form",
+                    "path": "./../"
+                },
+                {
+                    "title": "Sign Up Form",
+                    "path": "./../"
+                },
+                {
+                    "title": "Reset Password Form",
+                    "path": "./../"
+                }
+            ]
+        },
+        {
+            "title": "Common",
+            "main": "dx-icon dx-icon-box",
+            "subMenuItems": [
+                {
+                    "text": "User Profile"
+                }
+            ]
+        }
+    ],
+    "usersPageData": {
+        "title": "Contacts",
+        "searchBarPlaceholder": "Contact Search",
+        "filterDropDown": {
+            "title": "ALL",
+            "exportIcon": "dx-icon dx-icon-export",
+            "userStatuses":["All","Salaried","Commission","Terminated"] 
+        },
+        "exportOptionsDetails": {
+            "titleIcon": "dx-icon dx-icon-export",
+            "exportOptions": [
+                {
+                    "icon": "dx-icon dx-icon-xlsxfile dx-list-item-icon",
+                    "text": "Export all data to Excel"
+                },
+                {
+                    "icon": "dx-icon dx-icon-exportselected dx-list-item-icon",
+                    "text": "Export selected rows to Excel"
+                },
+                {
+                    "icon": "dx-icon dx-icon-pdffile dx-list-item-icon",
+                    "text": "Export all data to PDF"
+                },
+                {
+                    "icon": "dx-icon dx-icon-exportselected dx-list-item-icon",
+                    "text": "Export selected rows to PDF"
+                }
+            ]
+        },
+        "refreshIcon":"dx-icon dx-icon-refresh",
+        "columnChooserIcon":"dx-icon dx-icon-column-chooser",
+        "userAttributes": [
+            {
+                "text": "Name",
+                "icons": {
+                    "upArrow": "dx-sort dx-sort-up",
+                    "filter": "dx-header-filter dx-header-filter-empty"
+                }
+            },
+            {
+                "text": "Company",
+                "icons": {
+                    "filter": "dx-header-filter dx-header-filter-empty"
+                }
+            },
+            {
+                "text": "Status",
+                "icons": {
+                    "filter": "dx-header-filter dx-header-filter-empty"
+                }
+            },
+            {
+                "text": "Assigned to",
+                "icons": {
+                    "filter": "dx-header-filter dx-header-filter-empty"
+                }
+            },
+            {
+                "text": "Phone",
+                "icons": {
+                    "filter": "dx-header-filter dx-header-filter-empty"
+                }
+            },
+            {
+                "text": "Email",
+                "icons": {
+                    "filter": "dx-header-filter dx-header-filter-empty"
+                }
+            }
+        ]
+    }
+ 
+}
