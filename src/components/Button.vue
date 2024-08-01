@@ -1,13 +1,10 @@
 <template>
   <button
-    :class="{ 'button-default': true, [currentClass()]: true }"
+    :class="`button-default ${currentButtonClass()}`"
     :style="{ background: bgColor }"
   >
     <i
-      :class="{
-        'default-icon': true,
-        [icon]: true,
-      }"
+      :class="`default-icon ${icon}`"
     />
     <span class="text-style">{{ text }}</span>
   </button>
@@ -33,14 +30,14 @@ const props = defineProps({
 });
 
 //computed
-const currentClass = () => {
-  if (props.variant === Buttonvariants.COMMONSECONDARY) {
-    return "common common--secondary";
+const currentButtonClass = () => {
+  if (props.variant === Buttonvariants.SECONDARY) {
+    return "common-secondary";
   } else if (props.variant === Buttonvariants.ICON) {
     return "icon";
   }
 
-  return "common common--primary";
+  return "common-primary";
 };
 </script>
 
@@ -59,33 +56,36 @@ const currentClass = () => {
   margin-right: 4px;
 }
 
-.button-default.common {
+.button-default.common-primary,
+.button-default.common-secondary
+{
   border-radius: 2px;
   display: flex;
   align-items: center;
   text-transform: uppercase;
   font-weight: 500;
+}
 
-  &--primary {
-    padding: 5px 12px 5px 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
-    height: 28px;
-    color: white;
+.button-default.common-primary {
+  padding: 5px 12px 5px 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
+  height: 28px;
+  color: white;
 
-    .default-icon {
+  .default-icon {
       margin-right: 4px;
-    }
-  }
-
-  &--secondary {
-    padding: 5px 12px;
-    border: 1px solid rgba(0, 0, 0, 0.24);
-    color: rgba(0, 0, 0, 0.87);
-    min-width: 90px;
-    justify-content: center;
-    height: 26px;
   }
 }
+
+.button-default.common-secondary {
+  padding: 5px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  color: rgba(0, 0, 0, 0.87);
+  min-width: 90px;
+  justify-content: center;
+  height: 26px;
+}
+
 
 .button-default.icon {
   padding: 5px;

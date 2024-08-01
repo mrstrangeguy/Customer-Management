@@ -1,5 +1,5 @@
 export enum Buttonvariants {
-  COMMONPRIMARY = "Primary",
-  COMMONSECONDARY = "Secondary",
+  PRIMARY = "Primary",
+  SECONDARY = "Secondary",
   ICON = "Icon",
 }
