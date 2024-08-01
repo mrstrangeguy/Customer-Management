@@ -1,19 +1,18 @@
 <template>
   <div
-    :class="{ 'cursor-pointer z-100 relative': true, [containerStyle]: true }"
+    :class="`cursor-pointer z-100 relative ${containerStyle}`"
   >
     <div
-      :class="{ 'dropdown-header z-100 relative': true, [headerStyle]: true }"
+      :class="`dropdown-header z-100 relative ${headerStyle}`"
       @click.stop="toggleContentVisibility"
     >
       <div class="dropdown-header__content">
-        <i :class="{ 'default-icon': true, [mainIcon]: true }" />
-        <span :class="{ [textStyle]: true }">{{ text }}</span>
+        <i :class="`default-icon ${mainIcon}`" />
+        <span :class="textStyle">{{ text }}</span>
       </div>
       <i
         :class="{
-          'default-icon dx-treeview-toggle-item-visibility': true,
-          [arrowIcon]: true,
+          [`default-icon dx-treeview-toggle-item-visibility ${arrowIcon}`]: true,
           'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
         }"
       />
@@ -76,6 +75,7 @@ defineProps({
   width: 20px;
   height: 20px;
 }
+
 .dropdown-header {
   display: flex;
   align-items: center;
