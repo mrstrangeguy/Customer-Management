@@ -12,9 +12,9 @@
           'default-icon block font-normal block leading-[16px] h-[18px] w-[16px] text-[16px] align-middle text-center': true,
           [icon]: true,
         }"
-      ></i>
+      />
       <span
-        class="block text-[13px] leading-[18px] font-medium tracking-[0.52px]"
+        class="block text-[13px] leading-[18px] text-[#000] font-medium tracking-[0.52px]"
         >{{ text }}</span
       >
       <i
@@ -22,7 +22,7 @@
           'default-icon ml-1 block leading-[16px] h-[18px] w-[16px] text-[16px] text-center align-middle': true,
           [arrowIcon]: true,
         }"
-      ></i>
+      />
     </div>
 
     <div
@@ -32,7 +32,9 @@
         'opacity-0 z-[-1]': !isHeaderClicked,
       }"
     >
-      <slot name="dropdown-items"></slot>
+      <slot name="dropdown-items">
+     
+      </slot>
     </div>
   </div>
 </template>
