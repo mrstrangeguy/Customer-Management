@@ -1,7 +1,5 @@
 <template>
-  <div
-    :class="`cursor-pointer z-100 relative ${containerStyle}`"
-  >
+  <div :class="`cursor-pointer z-100 relative ${containerStyle}`">
     <div
       :class="`dropdown-header z-100 relative ${headerStyle}`"
       @click.stop="toggleContentVisibility"
@@ -67,15 +65,6 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
-.red-box {
-  position: absolute;
-  top: 5px;
-  background-color: red;
-  left: 10px;
-  width: 20px;
-  height: 20px;
-}
-
 .dropdown-header {
   display: flex;
   align-items: center;
