@@ -1,40 +1,34 @@
 <template>
   <div class="relative z-100">
     <div
-      :class="{
-        'relative overflow-hidden flex py-[5px] z-[100] rounded-[2px] transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-[rgba(0,0,0,.08)]': true,
-      }"
+      class="relative overflow-hidden flex py-[5px] z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-[rgba(0,0,0,.08)]"
       @click="toggleContentVisibility"
     >
       <i
         v-if="icon"
         :class="{
-          'default-icon block font-normal block leading-[16px] h-[18px] w-[16px] text-[16px] align-middle text-center': true,
+          'default-icon block font-normal block h-[18px] w-4 text-base leading-4 align-middle text-center': true,
           [icon]: true,
         }"
       />
       <span
-        class="block text-[13px] leading-[18px] text-[#000] font-medium tracking-[0.52px]"
+        class="block text-[13px] leading-[18px] text-black font-medium tracking-[0.52px]"
         >{{ text }}</span
       >
       <i
         :class="{
-          'default-icon ml-1 block leading-[16px] h-[18px] w-[16px] text-[16px] text-center align-middle': true,
-          [arrowIcon]: true,
+          [`default-icon ml-1 block h-[18px] w-4 text-base leading-4 text-center align-middle ${arrowIcon}`]: true,
         }"
       />
     </div>
-
     <div
       :class="{
-        'absolute cursor-pointer bg-white transition-all duration-[200ms] border-b-[1px] w-auto left-0 top-[26px] p-[1px] shadow-[0_2px_4px_rgba(0,0,0,.2)]': true,
+        'absolute cursor-pointer bg-white transition-all duration-[200ms] border-b w-auto left-0 top-[26px] p-px shadow-[0_2px_4px_rgba(0,0,0,.2)]': true,
         'opacity-100 z-[1502]': isHeaderClicked,
         'opacity-0 z-[-1]': !isHeaderClicked,
       }"
     >
-      <slot name="dropdown-items">
-     
-      </slot>
+      <slot name="dropdown-items" />
     </div>
   </div>
 </template>
