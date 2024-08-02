@@ -1,7 +1,7 @@
 <template>
-  <div class="relative z-100 cursor-pointer w-fit" style="float: left;">
+  <div class="relative z-100 cursor-pointer w-fit" style="float: left">
     <div
-    v-if="!profileUrl"
+      v-if="!profileUrl"
       class="relative overflow-hidden flex py-[5px] z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-[rgba(0,0,0,.08)]"
       @click="toggleContentVisibility"
     >
@@ -21,15 +21,21 @@
         }"
       />
     </div>
-    <img v-if="profileUrl" class="block w-[28px] h-[28px] object-cover object-top aspect-square border rounded-full" :src="profileUrl" alt="profile-img" @click="toggleContentVisibility">
+    <img
+      v-if="profileUrl"
+      class="block w-[28px] h-[28px] object-cover object-top aspect-square border rounded-full"
+      :src="profileUrl"
+      alt="profile-img"
+      @click="toggleContentVisibility"
+    />
 
     <div
       :class="{
         'absolute cursor-pointer bg-white transition-all duration-[200ms] border-b w-auto p-px shadow-[0_2px_4px_rgba(0,0,0,.2)]': true,
         'opacity-100 z-[1502]': isHeaderClicked,
         'opacity-0 z-[-1]': !isHeaderClicked,
-        'top-[26px] left-0':!profileUrl,
-        'right-0':profileUrl
+        'top-[26px] left-0': !profileUrl,
+        'right-0': profileUrl,
       }"
     >
       <slot name="dropdown-items" />
@@ -50,10 +56,10 @@ defineProps({
     type: String,
     default: "",
   },
-  profileUrl:{
-    type:String,
-    required:false
-  }
+  profileUrl: {
+    type: String,
+    required: false,
+  },
 });
 
 const isHeaderClicked = ref(false);
