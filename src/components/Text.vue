@@ -37,9 +37,7 @@ defineProps({
 });
 </script>
 
-<style scoped>
-.hello {
-  color: #03a9f4;
-  color: #0000001a;
-}
-</style>
+<style scoped></style>
+
+<!-- <Text title="Position" description="ACME" description-color="#03a9f4" />
+<Text icon="dx-icon dx-icon-tel" description="sample5@gmail.com" /> -->
