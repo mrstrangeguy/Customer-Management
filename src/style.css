@@ -35,6 +35,10 @@
   content: "";
 }
 
+.dx-icon-runner::before {
+  content: "";
+}
+
 .dx-treeview-toggle-item-visibility:before {
   content: "";
 }
