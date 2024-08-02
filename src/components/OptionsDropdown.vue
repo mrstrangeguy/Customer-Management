@@ -7,8 +7,7 @@
       <i
         v-if="icon"
         :class="{
-          'default-icon block font-normal block h-[18px] w-4 text-base leading-4 align-middle text-center': true,
-          [icon]: true,
+          [`default-icon block font-normal block h-[18px] w-4 text-base leading-4 align-middle text-center ${icon}`]: true,
         }"
       />
       <span
@@ -21,6 +20,8 @@
         }"
       />
     </div>
+    <img v-if="profileUrl" class="block w-[28px] h-[28px] object-cover object-top aspect-square border-px" :src="profileUrl" alt="profile-img">
+
     <div
       :class="{
         'absolute cursor-pointer bg-white transition-all duration-[200ms] border-b w-auto left-0 top-[26px] p-px shadow-[0_2px_4px_rgba(0,0,0,.2)]': true,
@@ -46,6 +47,10 @@ defineProps({
     type: String,
     default: "",
   },
+  profileUrl:{
+    type:String,
+    required:false
+  }
 });
 
 const isHeaderClicked = ref(false);
