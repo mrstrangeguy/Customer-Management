@@ -44,7 +44,7 @@ const currentButtonClass = () => {
 <style lang="scss" scoped>
 .button-default {
   cursor: pointer;
-  background-color: transparent;
+  // background-color: transparent;
 }
 
 .default-icon {
@@ -74,6 +74,10 @@ const currentButtonClass = () => {
 
   .default-icon {
       margin-right: 4px;
+      color: black;
+      height: 16px;
+      width: 16px;
+      color: white;
   }
 }
 
