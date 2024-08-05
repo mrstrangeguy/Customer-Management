@@ -3,9 +3,12 @@
     :class="`button-default ${currentButtonClass()}`"
     :style="{ backgroundColor: bgColor }"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     @mouseover=""
 >>>>>>> ba623bf (save commit)
+=======
+>>>>>>> 534c82b (reafactor:configure sotrybook settings)
   >
     <i :class="`default-icon ${icon}`" />
     <span class="text-style">{{ text }}</span>
