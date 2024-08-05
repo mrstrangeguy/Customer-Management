@@ -2,17 +2,17 @@
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; 
 
 @font-face {
-  font-family: "DX Icons";
-  src: url("./fonts/Icons.woff2");
+  font-family: 'DX Icons';
+  src: url('./fonts/Icons.woff2');
 }
 
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-}
+} 
 
 .default-icon {
   font-style: normal;
