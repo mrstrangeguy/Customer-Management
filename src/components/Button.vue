@@ -2,7 +2,6 @@
   <button
     :class="`button-default ${currentButtonClass()}`"
     :style="{ backgroundColor: bgColor }"
-    @mouseover=""
   >
     <i
       :class="`default-icon ${icon}`"
