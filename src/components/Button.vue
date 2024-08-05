@@ -1,7 +1,8 @@
 <template>
   <button
     :class="`button-default ${currentButtonClass()}`"
-    :style="{ background: bgColor }"
+    :style="{ backgroundColor: bgColor }"
+    @mouseover=""
   >
     <i
       :class="`default-icon ${icon}`"
@@ -44,7 +45,6 @@ const currentButtonClass = () => {
 <style lang="scss" scoped>
 .button-default {
   cursor: pointer;
-  // background-color: transparent;
 }
 
 .default-icon {
@@ -74,6 +74,10 @@ const currentButtonClass = () => {
   display: flex;
   align-items: center;
 
+  &:hover {
+    background-color: rgb(2, 139, 201)!important;
+  }
+
   .default-icon {
       margin-right: 4px;
       color: white;
@@ -101,6 +105,7 @@ const currentButtonClass = () => {
   padding: 5px;
   border-radius: 50%;
   transition: 0.4s ease;
+  line-height: 16px;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.12);
