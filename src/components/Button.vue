@@ -2,6 +2,10 @@
   <button
     :class="`button-default ${currentButtonClass()}`"
     :style="{ backgroundColor: bgColor }"
+<<<<<<< HEAD
+=======
+    @mouseover=""
+>>>>>>> ba623bf (save commit)
   >
     <i :class="`default-icon ${icon}`" />
     <span class="text-style">{{ text }}</span>
@@ -71,7 +75,11 @@ const currentButtonClass = () => {
   align-items: center;
 
   &:hover {
+<<<<<<< HEAD
     background-color: rgb(2, 139, 201) !important;
+=======
+    background-color: rgb(2, 139, 201)!important;
+>>>>>>> ba623bf (save commit)
   }
 
   .default-icon {
