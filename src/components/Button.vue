@@ -71,13 +71,19 @@ const currentButtonClass = () => {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
   height: 28px;
   color: white;
+  display: flex;
+  align-items: center;
 
   .default-icon {
       margin-right: 4px;
-      color: black;
+      color: white;
       height: 16px;
       width: 16px;
-      color: white;
+      line-height: 16px;
+  }
+
+  .text-style {
+    line-height: 15px;
   }
 }
 
