@@ -3,9 +3,7 @@
     :class="`button-default ${currentButtonClass()}`"
     :style="{ backgroundColor: bgColor }"
   >
-    <i
-      :class="`default-icon ${icon}`"
-    />
+    <i :class="`default-icon ${icon}`" />
     <span class="text-style">{{ text }}</span>
   </button>
 </template>
@@ -56,8 +54,7 @@ const currentButtonClass = () => {
 }
 
 .button-default.common-primary,
-.button-default.common-secondary
-{
+.button-default.common-secondary {
   border-radius: 2px;
   display: flex;
   align-items: center;
@@ -74,15 +71,15 @@ const currentButtonClass = () => {
   align-items: center;
 
   &:hover {
-    background-color: rgb(2, 139, 201)!important;
+    background-color: rgb(2, 139, 201) !important;
   }
 
   .default-icon {
-      margin-right: 4px;
-      color: white;
-      height: 16px;
-      width: 16px;
-      line-height: 16px;
+    margin-right: 4px;
+    color: white;
+    height: 16px;
+    width: 16px;
+    line-height: 16px;
   }
 
   .text-style {
@@ -98,7 +95,6 @@ const currentButtonClass = () => {
   justify-content: center;
   height: 26px;
 }
-
 
 .button-default.icon {
   padding: 5px;
