@@ -6,9 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      lineHeight: {
-        'leading-0':'0'
-      }
     },
   },
   plugins: [],
