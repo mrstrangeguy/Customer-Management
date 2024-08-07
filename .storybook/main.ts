@@ -4,7 +4,7 @@ const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/preset-scss",
-    '@storybook/addon-links',
+    "@storybook/addon-links",
     "@storybook/addon-onboarding",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -15,6 +15,6 @@ const config: StorybookConfig = {
   framework: {
     name: "@storybook/vue3-vite",
     options: {},
-  }
+  },
 };
 export default config;
