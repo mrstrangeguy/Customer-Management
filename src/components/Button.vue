@@ -11,21 +11,35 @@
 <script setup lang="ts">
 import { Buttonvariants } from "../types/buttonTypes";
 
-const props = defineProps({
-  text: {
-    type: String,
-    default: "",
-  },
-  icon: {
-    type: String,
-    default: "",
-  },
-  variant: {
-    type: String,
-    default: "",
-  },
-  bgColor: String,
-});
+interface buttonsProps {
+   text?:string,
+   icon?:string,
+   variant?:string,
+   bgColor?:string
+}
+
+const props = withDefaults(defineProps<buttonsProps>(),{
+  text:"",
+  icon:"",
+  variant:"",
+  bgColor:""
+})
+
+// const props = defineProps({
+//   text: {
+//     type: String,
+//     default: "",
+//   },
+//   icon: {
+//     type: String,
+//     default: "",
+//   },
+//   variant: {
+//     type: String,
+//     default: "",
+//   },
+//   bgColor: String,
+// });
 
 //computed
 const currentButtonClass = () => {
