@@ -71,11 +71,7 @@ const currentButtonClass = () => {
   align-items: center;
 
   &:hover {
-<<<<<<< HEAD
     background-color: rgb(2, 139, 201) !important;
-=======
-    background-color: rgb(2, 139, 201)!important;
->>>>>>> ba623bf (save commit)
   }
 
   .default-icon {
