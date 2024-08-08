@@ -1,46 +1,35 @@
 <template>
   <div
-    :class="{
-      'relative bg-[#f2f2f2] before:absolute before:bottom-0 before:border-b before:w-full before:border-b-[#000000de] after:absolute after:bottom-0 after:border-b after:w-full after:border-b-[#000000de]': true,
-      'after:scale-0': !isInputFocused,
-      'after:transition-transform after:duration-[600ms] after:scale-100 after:border-b-2 after:border-b-[#03a9f4]':
-        isInputFocused,
-    }"
+    class="search-input-wrapper relative bg-[#f2f2f2] hover:bg-[#0000001f] before:absolute before:bottom-0 before:border-b before:w-full before:border-b-[#0000006b] hover:before:border-b-[#000000de] after:absolute after:bottom-0 after:border-b after:w-full after:border-b-[#000000de] after:scale-0 focus-within:after:transition-transform focus-within:after:duration-[600ms] focus-within:after:scale-100 focus-within:after:border-b-2 focus-within:after:border-b-[#03a9f4]"
   >
     <div
       class="default-icon block h-[34px] w-[34px] absolute bottom-0 py-[9px] pl-3 pr-1.5 dx-icon dx-icon-search text-center leading-4 font-normal text-[#0000008a]"
     />
     <input
       :placeholder="placeholder"
-      class="block z-10 w-full py-[9px] pl-[34px] pr-3 bg-transparent leading-[14px] text-xs placeholder:text-xs placeholder:text-[#00000099] outline-none"
+      class="search-input block z-10 w-full py-[9px] pl-[34px] pr-3 bg-transparent leading-[14px] text-xs placeholder:text-xs placeholder:text-[#00000099] outline-none"
       type="text"
-      @focus="onInputFocus"
-      @focusout="onInputFocusOut"
+      @input="emitInputValue"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-
 //props
 defineProps<{
   placeholder: string;
 }>();
 
-//refs
-const isInputFocused = ref(false);
+//emits
+const emits = defineEmits(["emitInputValue"]);
 
 //functions
-const onInputFocus = () => {
-  isInputFocused.value = true;
-};
-
-const onInputFocusOut = () => {
-  isInputFocused.value = false;
+const emitInputValue = (event: Event) => {
+  const el = event.target as HTMLInputElement;
+  emits("emitInputValue", el.value);
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>
 
-<!-- <Search placeholder="Search"/> -->
+<!-- <Search placeholder="Search"/>-->
