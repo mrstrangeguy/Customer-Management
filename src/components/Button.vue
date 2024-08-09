@@ -1,9 +1,9 @@
 <template>
   <button
-    :class="`button-default ${currentButtonClass()}`"
+    :class="{'button-default':true ,[currentButtonClass()]:true}"
     :style="{ backgroundColor: bgColor }"
   >
-    <i :class="`default-icon ${icon}`" />
+    <i :class="{'default-icon':true, [icon]:true}" />
     <span class="text-style">{{ text }}</span>
   </button>
 </template>
