@@ -3,6 +3,7 @@
     <div
       :class="`dropdown-header z-100 relative ${headerStyle}`"
       @click.stop="toggleContentVisibility"
+      role="button"
     >
       <div class="dropdown-header__content">
         <i :class="`default-icon ${mainIcon}`" />
