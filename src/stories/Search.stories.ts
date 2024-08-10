@@ -8,3 +8,6 @@ const meta:Meta<typeof Search> = {
 export default meta
 type Story = StoryObj<typeof Search>
 
+export const Primary:Story = {
+    
+}
