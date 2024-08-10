@@ -9,7 +9,7 @@
         v-if="icon"
         :class="{
           'default-icon block font-normal block h-[18px] w-4 text-base leading-4 align-middle text-center': true,
-          [icon]:true
+          [icon]: true,
         }"
       />
       <span
@@ -19,7 +19,7 @@
       <i
         :class="{
           'default-icon ml-1 block h-[18px] w-4 text-base leading-4 text-center align-middle': true,
-          [arrowIcon]:true
+          [arrowIcon]: true,
         }"
       />
     </div>
@@ -48,20 +48,16 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-defineProps({
-  text: String,
-  arrowIcon: {
-    type: String,
-    default: "",
-  },
-  icon: {
-    type: String,
-    default: "",
-  },
-  profileUrl: {
-    type: String,
-    required: false,
-  },
+type optionsDropdownProps = {
+  text: string;
+  arrowIcon: string;
+  icon: string;
+  profileUrl: string;
+};
+
+withDefaults(defineProps<optionsDropdownProps>(), {
+  arrowIcon: "",
+  icon: "",
 });
 
 const isHeaderClicked = ref(false);
