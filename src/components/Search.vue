@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import {SearchProps} from "../types/SearchProps"
+import { SearchProps } from "../types/SearchProps";
 
 //props
 defineProps<SearchProps>();
