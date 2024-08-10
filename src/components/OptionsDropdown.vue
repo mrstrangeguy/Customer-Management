@@ -47,13 +47,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-
-type optionsDropdownProps = {
-  text: string;
-  arrowIcon: string;
-  icon: string;
-  profileUrl: string;
-};
+import {optionsDropdownProps} from "../types/optionsDropdownProps"
 
 withDefaults(defineProps<optionsDropdownProps>(), {
   arrowIcon: "",
