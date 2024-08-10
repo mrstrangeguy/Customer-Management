@@ -1,0 +1,30 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`OptionsDropdown > check the snapshot 1`] = `
+<div
+  class="relative z-100 cursor-pointer w-fit"
+  style="float: left;"
+>
+  <div
+    class="relative overflow-hidden flex py-[5px] z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-[rgba(0,0,0,.08)]"
+  >
+    <!--v-if-->
+    <span
+      class="block text-[13px] leading-[18px] text-black font-medium tracking-[0.52px]"
+      id="heading-text"
+    >
+      This is header text
+    </span>
+    <i
+      class="default-icon ml-1 block h-[18px] w-4 text-base leading-4 text-center align-middle"
+    />
+  </div>
+  <!--v-if-->
+  <div
+    class="absolute cursor-pointer bg-white transition-all duration-[200ms] border-b w-auto p-px shadow-[0_2px_4px_rgba(0,0,0,.2)] opacity-0 z-[-1] top-[26px] left-0"
+  >
+    
+    
+  </div>
+</div>
+`;

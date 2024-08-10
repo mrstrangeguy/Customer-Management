@@ -14,6 +14,7 @@
         }"
       />
       <span
+        id="heading-text"
         class="block text-[13px] leading-[18px] text-black font-medium tracking-[0.52px]"
         >{{ text }}</span
       >
