@@ -8,7 +8,8 @@
       <i
         v-if="icon"
         :class="{
-          [`default-icon block font-normal block h-[18px] w-4 text-base leading-4 align-middle text-center ${icon}`]: true,
+          'default-icon block font-normal block h-[18px] w-4 text-base leading-4 align-middle text-center': true,
+          [icon]:true
         }"
       />
       <span
@@ -17,7 +18,8 @@
       >
       <i
         :class="{
-          [`default-icon ml-1 block h-[18px] w-4 text-base leading-4 text-center align-middle ${arrowIcon}`]: true,
+          'default-icon ml-1 block h-[18px] w-4 text-base leading-4 text-center align-middle': true,
+          [arrowIcon]:true
         }"
       />
     </div>
