@@ -1,5 +1,5 @@
 import type {Meta,StoryObj} from "@storybook/vue3"
-import OptionsDropdown from "../components/OptionsDropdown.vue"
+import OptionsDropdown from "../components/OptionsDropdown"
 
 const meta: Meta<typeof OptionsDropdown> = {
     component: OptionsDropdown,
