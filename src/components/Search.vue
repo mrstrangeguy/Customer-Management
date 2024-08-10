@@ -15,11 +15,10 @@
 </template>
 
 <script setup lang="ts">
-//props
-defineProps<{
-  placeholder: string;
-}>();
+import {SearchProps} from "../types/SearchProps"
 
+//props
+defineProps<SearchProps>();
 //emits
 const emits = defineEmits(["emitInputValue"]);
 
