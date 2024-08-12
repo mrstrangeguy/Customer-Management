@@ -1,5 +1,5 @@
 <template>
-  <div class="relative z-100 cursor-pointer w-fit" style="float: left">
+  <div class="relative z-100 cursor-pointer w-fit">
     <div
       v-if="!profileUrl"
       class="relative overflow-hidden flex py-[5px] z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-[rgba(0,0,0,.08)]"
@@ -61,7 +61,11 @@ const toggleContentVisibility = () => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.j {
+  color: #e0e0e0;
+}
+</style>
 
 <!-- <options-dropdown
     text="ALL"
