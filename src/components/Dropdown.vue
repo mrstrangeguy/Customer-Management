@@ -1,17 +1,18 @@
 <template>
-  <div :class="`cursor-pointer z-100 relative ${containerStyle}`">
+  <div :class="{'cursor-pointer z-100 relative':true,[containerStyle]:true}">
     <div
-      :class="`dropdown-header z-100 relative ${headerStyle}`"
+      :class="{'dropdown-header z-100 relative':true,[headerStyle]:true}"
       @click.stop="toggleContentVisibility"
       role="button"
     >
       <div class="dropdown-header__content">
-        <i :class="`default-icon ${mainIcon}`" />
+        <i :class="{'default-icon':true,[mainIcon]:true}" />
         <span :class="textStyle">{{ text }}</span>
       </div>
       <i
         :class="{
-          [`default-icon dx-treeview-toggle-item-visibility ${arrowIcon}`]: true,
+          'default-icon dx-treeview-toggle-item-visibility': true,
+          [arrowIcon]:true,
           'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
         }"
       />
