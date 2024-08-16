@@ -1,4 +1,4 @@
-import { it, describe, expect, test } from "vitest";
+import { it, describe, expect } from "vitest";
 import { mount, shallowMount } from "@vue/test-utils";
 import Search from "../components/Search.vue";
 
@@ -19,10 +19,12 @@ describe("Search", () => {
   });
 
   it("check if input emits a function when input event is triggered", async () => {
-    const wrapper = mount(searchElement);
-    wrapper.vm.$emit("emitInputValue", "This is a value");
-    await wrapper.vm.$nextTick();
+    const searchInput = mount(searchElement);
+    searchInput.vm.$emit("emitInputValue", "This is a value");
+    await searchInput.vm.$nextTick();
 
-    expect(wrapper.emitted().emitInputValue[0]).toEqual(["This is a value"]);
+    expect(searchInput.emitted().emitInputValue[0]).toEqual([
+      "This is a value",
+    ]);
   });
 });
