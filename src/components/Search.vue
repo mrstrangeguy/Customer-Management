@@ -6,10 +6,10 @@
       class="default-icon block h-[34px] w-[34px] absolute bottom-0 py-[9px] pl-3 pr-1.5 dx-icon dx-icon-search text-center leading-4 font-normal text-[#0000008a]"
     />
     <input
-      :placeholder="placeholder"
+      :placeholder="placeholderText"
       class="search-input block z-10 w-full py-[9px] pl-[34px] pr-3 bg-transparent leading-[14px] text-xs placeholder:text-xs placeholder:text-[#00000099] outline-none"
       type="text"
-      @input="emitInputValue"
+      @input="onInput"
     />
   </div>
 </template>
@@ -20,15 +20,15 @@ import {SearchProps} from "../types/SearchProps"
 //props
 defineProps<SearchProps>();
 //emits
-const emits = defineEmits(["emitInputValue"]);
+const emits = defineEmits(["getInputValue"]);
 
 //functions
-const emitInputValue = (event: Event) => {
+const onInput = (event: Event) => {
   const el = event.target as HTMLInputElement;
-  emits("emitInputValue", el.value);
+  emits("getInputValue", el.value);
 };
 </script>
 
 <style lang="scss" scoped></style>
 
-<!-- <Search placeholder="Search"/>-->
+<!-- <Search placeholderText="Search"/>-->
