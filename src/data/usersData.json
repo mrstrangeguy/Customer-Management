@@ -3,13 +3,14 @@
         "users": [
             {
                 "isChecked": false,
+                "isSelected":false,
                 "description": {
                     "name": "Antony Remmen",
                     "position": "Support Assistant"
                 },
                 "company": "Clicker",
                 "status": "Salaried",
-                "assignedTo": "John Heart",
+                "assignedto": "John Heart",
                 "phone": "+1(213)555-4276",
                 "email": "anthonyr@dx-email.com",
                 "opportunities": {
@@ -54,13 +55,14 @@
             },
             {
                 "isChecked": false,
+                "isSelected":false,
                 "description": {
                     "name": "Amelia Harper",
                     "position": "Network Admin"
                 },
                 "company": "Clicker",
-                "status": "Salaried",
-                "assignedTo": "Samantha Bright",
+                "status": "Commission",
+                "assignedto": "Samantha Bright",
                 "phone": "+1(310)555-6625",
                 "email": "anthonyr@dx-email.com",
                 "opportunities": {
@@ -105,13 +107,14 @@
             },
             {
                 "isChecked": false,
+                "isSelected":false,
                 "description": {
                     "name": "Arnie Schwartz",
                     "position": "Engineer"
                 },
-                "company": "Screen Shop",
+                "company": "EZ Stop",
                 "status": "Salaried",
-                "assignedTo": "John Heart",
+                "assignedto": "John Heart",
                 "phone": "+1(714)555-8882",
                 "email": "arnolds@dx-email.com",
                 "opportunities": {
@@ -156,13 +159,14 @@
             },
             {
                 "isChecked": false,
+                "isSelected":false,
                 "description": {
                     "name": "Arthur Miller",
                     "position": "CTO"
                 },
-                "company": "Super Mart of the West",
-                "status": "Salaried",
-                "assignedTo": "Samantha Bright",
+                "company": "Zone Toys",
+                "status": "Terminated",
+                "assignedto": "Samantha Bright",
                 "phone": "+1(310)555-8583",
                 "email": "arthurm@dx-email.com",
                 "opportunities": {
@@ -207,13 +211,1262 @@
             },
             {
                 "isChecked": false,
+                "isSelected":false,
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
                 "company": "StereoShack",
                 "status": "Salaried",
-                "assignedTo": "Samantha Bright",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
+                "phone": "+1(310)555-3355",
+                "email": "barbarab@dx-email.com",
+                "opportunities": {
+                    "title": "Opportunities",
+                    "items": [
+                        {
+                            "text": "Incoming Request for Conference Room",
+                            "price": "$2,115"
+                        },
+                        {
+                            "text": "POS Touch Screens",
+                            "price": "$1,645"
+                        }
+                    ]
+                },
+                "activities": {
+                    "title": "Activities",
+                    "items": [
+                        {
+                            "status": "Qualified",
+                            "details": {
+                                "date": "05/05/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Disqualified",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        },
+                        {
+                            "status": "Call planned",
+                            "details": {
+                                "date": "05/06/2020",
+                                "name": "Samantha Bright"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "isChecked": false,
+                "isSelected":false,
+                "description": {
+                    "name": "Barb Banks",
+                    "position": "Support Manager"
+                },
+                "company": "StereoShack",
+                "status": "Salaried",
+                "assignedto": "Samantha Bright",
                 "phone": "+1(310)555-3355",
                 "email": "barbarab@dx-email.com",
                 "opportunities": {
