@@ -47,7 +47,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import {optionsDropdownProps} from "../types/optionsDropdownProps"
+import { optionsDropdownProps } from "../types/optionsDropdownProps";
 
 withDefaults(defineProps<optionsDropdownProps>(), {
   arrowIcon: "",
@@ -61,11 +61,7 @@ const toggleContentVisibility = () => {
 };
 </script>
 
-<style lang="scss" scoped>
-.j {
-  color: #e0e0e0;
-}
-</style>
+<style lang="scss" scoped></style>
 
 <!-- <options-dropdown
     text="ALL"
