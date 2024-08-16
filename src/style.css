@@ -16,8 +16,19 @@
 
 .default-icon {
   font-style: normal;
-  font-family: 'DX Icons';
-  
+  font-family: 'DX Icons'; 
+}
+
+.dx-sort-up::before {
+  content: "";
+}
+
+.dx-sort-down::before {
+  content: "";
+}
+
+.dx-header-filter-empty::before {
+  content: "";
 }
 
 .dx-icon-menu::before {
