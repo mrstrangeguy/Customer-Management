@@ -22,6 +22,10 @@
   font-family: 'DX Icons'; 
 }
 
+.dx-datagrid-adaptive-more:before {
+  content: "";
+}
+
 .dx-sort-up::before {
   content: "";
 }
