@@ -161,7 +161,7 @@
                 </div>
               </div>
               <div
-                class="pr-5 pb-2.5 grow shrink basis-0 max-[850px]:pl-5 max-[850px]:pr-0 max-[850px]:pl-0 min-[620px]:hidden"
+                class="pr-5 pb-2.5 grow shrink basis-0 max-[850px]:pl-0 max-[850px]:pr-0 max-[850px]:pl-0 min-[620px]:hidden"
               >
                 <label
                   class="block text-xs leading-[15.4284px] text-[#00000099] px-3 pb-0.5"
@@ -170,7 +170,7 @@
                 <div class="text-[13px] leading-[26px] px-3">John Heart</div>
               </div>
               <div
-                class="pr-5 pb-2.5 grow shrink basis-0 max-[850px]:pl-5 max-[850px]:pr-0 max-[850px]:pl-0"
+                class="pr-5 pb-2.5 grow shrink basis-0 max-[850px]:pl-0 max-[850px]:pr-0 max-[850px]:pl-0"
               >
                 <label
                   class="block text-xs leading-[15.4284px] text-[#00000099] px-3 pb-0.5"
