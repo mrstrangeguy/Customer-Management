@@ -103,7 +103,7 @@
             <span
               :class="{
                 'before:w-2.5 before:h-2.5 before:mr-[5px] before:rounded-full before:inline-block text-[13px] leading-4': true,
-                [getStatusTextColor(userDetail.status)]: true,
+                ['']: true,
               }"
               >{{ userDetail.status }}</span
             >
@@ -144,7 +144,9 @@
                   class="block text-xs leading-[15.4284px] text-[#00000099] px-3 pb-0.5"
                   >Company</label
                 >
-                <div class="text-[13px] leading-[26px] px-3">ACME</div>
+                <div class="text-[13px] leading-[26px] px-3">
+                  {{ userDetail.company }}
+                </div>
               </div>
               <div
                 class="pr-5 pb-2.5 grow shrink basis-0 max-[750px]:pl-0 max-[750px]:pr-0 max-[750px]:pl-0 min-[750px]:hidden"
@@ -155,8 +157,11 @@
                 >
                 <div class="leading-[26px]">
                   <span
-                    class="before:w-2.5 before:h-2.5 before:mr-[5px] before:rounded-full before:inline-block text-[13px] leading-4 before:bg-[#2eb52c] text-[#2eb52c]"
-                    >Salaried</span
+                    :class="{
+                      'before:w-2.5 before:h-2.5 before:mr-[5px] before:rounded-full before:inline-block text-[13px] leading-4': true,
+                      [getStatusTextColor(userDetail.status)]: true,
+                    }"
+                    >{{ userDetail.status }}</span
                   >
                 </div>
               </div>
@@ -362,7 +367,6 @@ const getStatusTextColor = (text: string) => {
   return "before:bg-[#2eb52c] text-[#2eb52c]";
 };
 
-//"Name","Company","Status","Assigned to","Phone","Email"
 const getResponsiveThStyle = (attribute: string) => {
   const editedAttribute = attribute.toLowerCase().replace(/\s/g, "");
 
@@ -397,10 +401,4 @@ const getResponsiveColsSpan = () => {
 };
 </script>
 
-<style scoped>
-.hey {
-  color: #0000008a;
-  color: #fafafa;
-  color: #00000099;
-}
-</style>
+<style scoped></style>
