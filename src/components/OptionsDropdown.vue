@@ -1,5 +1,5 @@
 <template>
-  <div class="relative z-100 cursor-pointer w-fit" style="float: left">
+  <div class="relative z-100 cursor-pointer w-fit">
     <div
       v-if="!profileUrl"
       class="relative overflow-hidden flex py-[5px] z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-[rgba(0,0,0,.08)]"
@@ -48,13 +48,13 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import {optionsDropdownProps} from "../types/optionsDropdownProps"
+import { optionsDropdownProps } from "../types/optionsDropdownProps";
 
 withDefaults(defineProps<optionsDropdownProps>(), {
   arrowIcon: "",
   icon: "",
-  profileUrl:"",
-  text:""
+  profileUrl: "",
+  text: "",
 });
 
 const isHeaderClicked = ref(false);
