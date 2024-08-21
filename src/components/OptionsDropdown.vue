@@ -53,6 +53,8 @@ import {optionsDropdownProps} from "../types/optionsDropdownProps"
 withDefaults(defineProps<optionsDropdownProps>(), {
   arrowIcon: "",
   icon: "",
+  profileUrl:"",
+  text:""
 });
 
 const isHeaderClicked = ref(false);
