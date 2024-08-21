@@ -60,7 +60,7 @@
     </thead>
 
     <tbody class="border-t-0 border border-y">
-      <template v-for="(userDetail, index) in userDetails">
+      <template v-for="(userDetail, index) in userDetails" :key="userDetail.id">
         <tr
           @click="selectContact(index)"
           :class="{
@@ -172,7 +172,7 @@
                   class="block text-xs leading-[15.4284px] text-[#00000099] px-3 pb-0.5"
                   >Assigned to</label
                 >
-                <div class="text-[13px] leading-[26px] px-3">John Heart</div>
+                <div class="text-[13px] leading-[26px] px-3">{{ userDetail.assignedto }}</div>
               </div>
               <div
                 class="pr-5 pb-2.5 grow shrink basis-0 max-[850px]:pl-0 max-[850px]:pr-0 max-[850px]:pl-0"
@@ -182,7 +182,7 @@
                   >Email</label
                 >
                 <div class="text-[13px] leading-[26px] px-3">
-                  arthurm@dx-email.com
+                  {{ userDetail.email }}
                 </div>
               </div>
               <div
@@ -193,7 +193,7 @@
                   >Phone</label
                 >
                 <div class="text-[13px] leading-[26px] px-3">
-                  +1(310)555-8583
+                  {{ userDetail.phone }}
                 </div>
               </div>
             </div>
@@ -232,6 +232,7 @@ type Activities = {
 };
 
 type UserDetail = {
+  id:number;
   isChecked: boolean;
   isSelected: boolean;
   isResponsiveSelected: boolean;
