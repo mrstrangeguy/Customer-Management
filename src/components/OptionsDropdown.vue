@@ -4,6 +4,7 @@
       v-if="!profileUrl"
       class="relative overflow-hidden flex py-[5px] z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-[rgba(0,0,0,.08)]"
       @click="toggleContentVisibility"
+      role="button"
     >
       <i
         v-if="icon"
