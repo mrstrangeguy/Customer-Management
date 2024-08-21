@@ -72,4 +72,15 @@ describe("OptionsDropdown", () => {
   it("check the snapshot variant 2",() => {
     expect(secondVariant.element).toMatchSnapshot()
   })
+
+  const profileVariant = mount(OptionsDropdown,{
+    props:{
+      profileUrl:"https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png"
+    }
+  })
+
+  it("check the snapshot of profile variant",() => {
+    expect(profileVariant.element).toMatchSnapshot()
+  })
+   
 });
