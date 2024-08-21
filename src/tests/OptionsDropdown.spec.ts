@@ -59,7 +59,6 @@ describe("OptionsDropdown", () => {
     },
   });
 
-  
   const profileVariant = mount(OptionsDropdown, {
     props: {
       profileUrl:
@@ -94,13 +93,17 @@ describe("OptionsDropdown", () => {
     expect(secondVariant.element).toMatchSnapshot();
   });
 
-
   it("check the snapshot of profile variant", () => {
     expect(profileVariant.element).toMatchSnapshot();
   });
 
-  // it('check profile click event',() => {
-  //   const header = firstVariant.element
-  // })
+  it("check profile click event", async () => {
+    const headerWrapper = firstVariant.find("div:nth-of-type(1)");
+    const header = headerWrapper.find("div:nth-of-type(1)");
+    const body = headerWrapper.find("div:nth-of-type(2)");
 
+    await header.trigger("click", async () => {
+      expect(body.element.classList.contains("opacity-100")).toBeTruthy();
+    });
+  });
 });
