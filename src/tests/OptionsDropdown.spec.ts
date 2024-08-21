@@ -1,9 +1,9 @@
 import { it, expect, describe } from "vitest";
-import { shallowMount } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import OptionsDropdown from "../components/OptionsDropdown.vue";
 
 describe("OptionsDropdown", () => {
-  const optionsDropdown = shallowMount(OptionsDropdown, {
+  const optionsDropdown = mount(OptionsDropdown, {
     props: {
       text: "This is header text",
     },
@@ -17,4 +17,5 @@ describe("OptionsDropdown", () => {
       "This is header text"
     );
   });
+
 });
