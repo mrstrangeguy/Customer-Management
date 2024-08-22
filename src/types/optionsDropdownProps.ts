@@ -1,6 +1,6 @@
 export type optionsDropdownProps = {
     text: string;
-    arrowIcon: string; 
+    arrowIcon: string;
     icon: string;
     profileUrl: string;
 };
