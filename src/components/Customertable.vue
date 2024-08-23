@@ -4,7 +4,7 @@
       class="z-100 border border-b-0 border-[#e0e0e0] outline outline-1 outline-[#e0e0e0] sticky top-0 bg-[#fff] z-40"
       role="presentation"
     >
-      <tr role="row" class="bg-[#fff] relative">
+      <tr role="row" class="bg-white relative">
         <th
           class="w-[38px] min-w-[38px] max-w-[70px] text-center p-0 bg-[#fff]"
           role="columnheader"
@@ -12,17 +12,17 @@
           <i
             @click="
               isAllCheckboxesEnabled
-                ? disableAllCheckboxes()
-                : enableAllCheckboxes()
+                ? toggleCheckboxesVisibility(false)
+                : toggleCheckboxesVisibility(true)
             "
             :class="{
-              'inline-block default-icon cursor-pointer relative after:block after:transition-all after:duration-300 after:absolute after:w-8 after:h-8 after:left-[50%] after:top-[50%] after:mt-[-16px] after:ml-[-16px] after:rounded-full align-middle w-4 h-4 rounded-sm': true,
-              'border-2 border-[#0000008a]':
+              'inline-block default-icon cursor-pointer relative after:block after:transition-all after:duration-300 after:absolute after:w-8 after:h-8 after:left-2 after:top-2 after:-mt-4 after:-ml-4 after:rounded-full align-middle w-4 h-4 rounded-sm': true,
+              'border-2 border-default-color':
                 !isAllCheckboxesEnabled && !isAnyCheckboxesEnabled,
               'after:scale-50': !isAllCheckboxesEnabled,
-              [`after:bg-[#03a6ef1a] after:scale-100 before:relative befoe:z-50 before:content-[''] before:block before:h-[14px] before:w-[14px]  bg-[#03a9f4] border-0 before:block before:relative before:top-[50%] before:mt-[-7px] before:ml-[-7px] before:right-[-50%] before:h-[14px] before:w-[14px] before:text-[14px] before:leading-[14px] before:text-[#fff] before:content-[''] text-center`]:
+              [`after:bg-checkbox-after-selected after:scale-100 before:relative before:z-50 before:content-[''] before:block before:h-3.5 before:w-3.5 bg-checkbox-selected-bg border-0 before:block before:relative before:top-2 before:mt-[-7px] before:ml-[-7px] before:-right-2 before:h-3.5 before:w-3.5 before:text-sm before:leading-[14px] before:text-white before:content-[''] text-center`]:
                 isAllCheckboxesEnabled,
-              [`before:relative before:block  bg-[#03a9f4] border-0 before:block before:relative  before:text-[#fff] before:content-[''] before:text-base before:w-2.5 before:h-[2px] before:bg-[#fff] before:top-[50%] before:left-[50%] before:ml-[-5px] before:mt-[-1px] leading-[0px]  text-center`]:
+              [`before:relative before:block bg-checkbox-selected-bg border-0 before:block before:relative before:text-white before:content-[''] before:text-base before:w-2.5 before:h-0.5 before:bg-white before:top-2 before:left-2 before:ml-[-5px] before:-mt-px leading-zero text-center`]:
                 !isAllCheckboxesEnabled && isAnyCheckboxesEnabled,
             }"
           />
@@ -31,7 +31,7 @@
           @click="sortCustomerTable(index)"
           v-for="(userAttribute, index) in userAttributes"
           :class="{
-            'group py-3 px-[11px] leading-[16px] cursor-pointer hover:bg-[#f2f2f2] text-left': true,
+            'group py-3 px-[11px] leading-4 cursor-pointer hover:bg-th-hover-color text-left': true,
             [getResponsiveThStyle(userAttribute)]: true,
           }"
           role="columnheader"
@@ -64,27 +64,27 @@
         <tr
           @click="selectContact(index)"
           :class="{
-            'border-b border-b-[#e0e0e0] cursor-pointer': true,
+            'border-b border-b-tr-border cursor-pointer': true,
             'bg-[#03a9f40a]': userDetail.isChecked,
             'bg-[#cdeefd]': userDetail.isSelected,
           }"
         >
           <td
             @click="addContact(index)"
-            class="w-[38px] text-center border-b border-b-[#e0e0e0]"
+            class="w-[38px] text-center border-b border-b-tr-border"
             role="columnheader"
           >
             <i
               :class="{
-                'inline-block default-icon cursor-pointer relative after:block after:transition-all after:absolute after:w-8 after:h-8 after:left-[50%] after:top-[50%] after:mt-[-16px] after:ml-[-16px] after:rounded-full align-middle w-4 h-4 rounded-sm': true,
-                'border-2 border-[#0000008a] after:scale-50':
+                'inline-block default-icon cursor-pointer relative after:block after:transition-all after:absolute after:w-8 after:h-8 after:left-2 after:top-2 after:-mt-4 after:-ml-4 after:rounded-full align-middle w-4 h-4 rounded-sm': true,
+                'border-2 border-default-color after:scale-50':
                   !userDetail.isChecked,
-                [`after:bg-[#03a6ef1a] after:scale-100 before:relative before:content-[''] before:block before:h-[14px] before:w-[14px]  bg-[#03a9f4] border-0 before:block before:relative before:top-[50%] before:mt-[-7px] before:ml-[-7px] before:right-[-50%] before:h-[14px] before:w-[14px] before:text-[14px] before:leading-[14px] before:text-[#fff] before:content-[''] text-center`]:
+                [`after:bg-checkbox-after-selected after:scale-100 before:relative before:content-[''] before:block before:h-3.5 before:w-3.5  bg-checkbox-selected-bg border-0 before:block before:relative before:top-2 before:mt-[-7px] before:ml-[-7px] before:-right-2 before:h-3.5 before:w-3.5 before:text-sm before:leading-[14px] before:text-white before:content-[''] text-center`]:
                   userDetail.isChecked,
               }"
             />
           </td>
-          <td class="py-2.5 px-[11px] border-b border-b-[#e0e0e0]">
+          <td class="py-2.5 px-[11px] border-b border-b-tr-border">
             <div class="text-[13px] leading-4">
               {{ userDetail.description.name }}
             </div>
@@ -93,35 +93,35 @@
             </div>
           </td>
           <td
-            class="max-[448px]:hidden py-2.5 px-[11px] border-b border-b-[#e0e0e0]"
+            class="max-[448px]:hidden py-2.5 px-[11px] border-b border-b-tr-border"
           >
             <span class="text-[13px] leading-4">{{ userDetail.company }}</span>
           </td>
           <td
-            class="max-[750px]:hidden py-2.5 px-[11px] border-b border-b-[#e0e0e0]"
+            class="max-[750px]:hidden py-2.5 px-[11px] border-b border-b-tr-border"
           >
             <span
               :class="{
                 'before:w-2.5 before:h-2.5 before:mr-[5px] before:rounded-full before:inline-block text-[13px] leading-4': true,
-                ['']: true,
+                [getStatusTextColor(userDetail.status)]: true,
               }"
               >{{ userDetail.status }}</span
             >
           </td>
           <td
-            class="max-[620px]:hidden py-2.5 px-[11px] border-b border-b-[#e0e0e0]"
+            class="max-[620px]:hidden py-2.5 px-[11px] border-b border-b-tr-border"
           >
             <span class="text-[13px] leading-4">{{
               userDetail.assignedto
             }}</span>
           </td>
           <td
-            class="max-[850px]:hidden py-2.5 px-[11px] border-b border-b-[#e0e0e0]"
+            class="max-[850px]:hidden py-2.5 px-[11px] border-b border-b-tr-border"
           >
             <span class="text-[13px] leading-4">{{ userDetail.phone }}</span>
           </td>
           <td
-            class="max-[1372px]:hidden py-2.5 px-[11px] border-b border-b-[#e0e0e0]"
+            class="max-[1372px]:hidden py-2.5 px-[11px] border-b border-b-tr-border"
           >
             <span class="text-[13px] leading-4">{{ userDetail.email }}</span>
           </td>
@@ -213,6 +213,7 @@ type UserOpportunityItem = {
   text: string;
   price: string;
 };
+
 type UserOpportunities = {
   title: string;
   items: UserOpportunityItem[];
@@ -233,15 +234,17 @@ type Activities = {
   items: ActivityItem[];
 };
 
+type Description = {
+  name: string;
+  position: string;
+};
+
 type UserDetail = {
   id: number;
   isChecked: boolean;
   isSelected: boolean;
   isResponsiveSelected: boolean;
-  description: {
-    name: string;
-    position: string;
-  };
+  description: Description;
   company: string;
   status: string;
   assignedto: string;
@@ -319,9 +322,11 @@ const sortCustomerTable = (index: number) => {
     return value1 < value2 ? 1 : -1;
   });
 
-  if (selectedAttributeObject.value.order === 1)
+  if (selectedAttributeObject.value.order === 1) {
     selectedAttributeObject.value.order = -1;
-  else selectedAttributeObject.value.order = 1;
+  } else {
+    selectedAttributeObject.value.order = 1;
+  }
 };
 
 const isDownArrowPresent = (index: number) => {
@@ -331,12 +336,8 @@ const isDownArrowPresent = (index: number) => {
   );
 };
 
-const enableAllCheckboxes = () => {
-  userDetails.value?.forEach((elem: UserDetail) => (elem.isChecked = true));
-};
-
-const disableAllCheckboxes = () => {
-  userDetails.value?.forEach((elem: UserDetail) => (elem.isChecked = false));
+const toggleCheckboxesVisibility = (value: boolean) => {
+  userDetails.value?.forEach((elem: UserDetail) => (elem.isChecked = value));
 };
 
 const addContact = (index: number) => {

@@ -16,14 +16,7 @@
 
 .default-icon {
   font-style: normal;
-<<<<<<< HEAD
-  font-family: 'DX Icons';
-=======
   font-family: 'DX Icons'; 
-}
-
-.dx-datagrid-adaptive-more:before {
-  content: "";
 }
 
 .dx-sort-up::before {
@@ -36,7 +29,6 @@
 
 .dx-header-filter-empty::before {
   content: "";
->>>>>>> 324f966 (save commit)
 }
 
 .dx-icon-menu::before {
