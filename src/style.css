@@ -16,11 +16,7 @@
 
 .default-icon {
   font-style: normal;
-  font-family: "DX Icons";
-}
-
-.dx-icon-search::before {
-  content: "";
+  font-family: 'DX Icons';
 }
 
 .dx-icon-menu::before {
