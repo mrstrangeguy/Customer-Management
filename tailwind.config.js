@@ -8,7 +8,8 @@ export default {
         'checkbox-after-selected':'#03a6ef1a',
         'checkbox-selected-bg':'#03a9f4',
         'th-hover-color':'#f2f2f2',
-        'tr-border':'#e0e0e0'
+        'tr-border':'#e0e0e0',
+        'tbody-outline':'#e0e0e0'
       },
       lineHeight: {
         'zero':'0px'

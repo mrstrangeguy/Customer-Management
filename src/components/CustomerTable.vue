@@ -1,12 +1,12 @@
 <template>
   <table class="relative w-full table-fixed overflow-auto">
     <thead
-      class="z-100 border border-b-0 border-[#e0e0e0] outline outline-1 outline-[#e0e0e0] sticky top-0 bg-[#fff] z-40"
+      class="z-100 border border-b-0 border-[#e0e0e0] outline outline-1 outline-tbody-outline sticky top-0 bg-white z-40"
       role="presentation"
     >
       <tr role="row" class="bg-white relative">
         <th
-          class="w-[38px] min-w-[38px] max-w-[70px] text-center p-0 bg-[#fff]"
+          class="w-[38px] min-w-[38px] max-w-[70px] text-center p-0 bg-white"
           role="columnheader"
         >
           <i
@@ -16,11 +16,11 @@
                 : toggleCheckboxesVisibility(true)
             "
             :class="{
-              'inline-block default-icon cursor-pointer relative after:block after:transition-all after:duration-300 after:absolute after:w-8 after:h-8 after:left-2 after:top-2 after:-mt-4 after:-ml-4 after:rounded-full align-middle w-4 h-4 rounded-sm': true,
+              'inline-block default-icon cursor-pointer icon-bg relative align-middle w-4 h-4 rounded-sm': true,
               'border-2 border-default-color':
                 !isAllCheckboxesEnabled && !isAnyCheckboxesEnabled,
               'after:scale-50': !isAllCheckboxesEnabled,
-              [`after:bg-checkbox-after-selected after:scale-100 before:relative before:z-50 before:content-[''] before:block before:h-3.5 before:w-3.5 bg-checkbox-selected-bg border-0 before:block before:relative before:top-2 before:mt-[-7px] before:ml-[-7px] before:-right-2 before:h-3.5 before:w-3.5 before:text-sm before:leading-[14px] before:text-white before:content-[''] text-center`]:
+              [`bg-checkbox-selected-bg border-0 checkbox-icon text-center`]:
                 isAllCheckboxesEnabled,
               [`before:relative before:block bg-checkbox-selected-bg border-0 before:block before:relative before:text-white before:content-[''] before:text-base before:w-2.5 before:h-0.5 before:bg-white before:top-2 before:left-2 before:ml-[-5px] before:-mt-px leading-zero text-center`]:
                 !isAllCheckboxesEnabled && isAnyCheckboxesEnabled,
@@ -405,4 +405,51 @@ const getResponsiveColsSpan = () => {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+/*
+after:block after:transition-all after:duration-300 after:absolute after:w-8 after:h-8 after:left-2 after:top-2 after:-mt-4 after:-ml-4 after:rounded-full 
+
+after:bg-checkbox-after-selected after:scale-100 before:relative before:z-50 before:content-[''] before:block before:h-3.5 before:w-3.5 bg-checkbox-selected-bg border-0 before:block before:relative before:top-2 before:mt-[-7px] before:ml-[-7px] before:-right-2 before:h-3.5 before:w-3.5 before:text-sm before:leading-[14px] before:text-white before:content-['']
+*/
+.icon-bg {
+
+  &::after {
+   content: '';
+   display: block;
+   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+   position: absolute;
+   width: 32px;
+   height: 32px;
+   left: 8px;
+   top: 8px;
+   margin-top: -16px;
+   margin-left: -16px;
+   border-radius: 50%;
+  }
+}
+
+.checkbox-icon {
+  &::after {
+    background-color: #03a6ef1a;
+  }
+
+  &::before {
+    display: block;
+    position: relative;
+    z-index: 50;
+    content: '';
+    display: block;
+    height: 14px;
+    width: 14px;
+    top: 8px;
+    margin-top: -7px;
+    margin-left: -7px;
+    right: -8px;
+    height: 14px;
+    width: 14px;
+    font-size: 14px;
+    line-height: 14px;
+    color: white;
+  }
+}
+</style>
