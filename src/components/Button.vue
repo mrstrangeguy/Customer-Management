@@ -1,16 +1,27 @@
 <template>
   <button
-    :class="{'button-default':true ,[currentButtonClass()]:true}"
+    :class="{ 'button-default': true, [currentButtonClass()]: true }"
     :style="{ backgroundColor: bgColor }"
   >
-    <i :class="{'default-icon':true, [icon]:true}" />
+    <i :class="{ 'default-icon': true, [icon]: true }" />
     <span class="text-style">{{ text }}</span>
   </button>
 </template>
 
 <script setup lang="ts">
-import { Buttonvariants } from "../types/buttonTypes";
-import { buttonsProps } from "../types/buttonProps";
+//types
+interface buttonsProps {
+  text?: string;
+  icon?: string;
+  variant?: string;
+  bgColor?: string;
+}
+
+enum Buttonvariants {
+  PRIMARY = "Primary",
+  SECONDARY = "Secondary",
+  ICON = "Icon",
+}
 
 const props = withDefaults(defineProps<buttonsProps>(), {
   text: "",
@@ -59,8 +70,6 @@ const currentButtonClass = () => {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
   height: 28px;
   color: white;
-  display: flex;
-  align-items: center;
 
   &:hover {
     background-color: rgb(2, 139, 201) !important;
