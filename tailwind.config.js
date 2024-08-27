@@ -5,7 +5,20 @@ export default {
     './src/**/*.{vue,js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor:{
+        'hover':'#00000014'
+      },
+      fontSize:{
+        'title':'13px'
+      },
+      lineHeight:{
+        '4.5':'18px'
+      },
+      letterSpacing:{
+        'title':'0.52px'
+      }
+    },
   },
   plugins: [],
 }

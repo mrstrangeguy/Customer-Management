@@ -2,25 +2,25 @@
   <div class="relative z-100 cursor-pointer w-fit">
     <div
       v-if="!profileUrl"
-      class="relative overflow-hidden flex py-[5px] z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-[rgba(0,0,0,.08)]"
+      class="relative overflow-hidden flex py-1.5 z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-hover"
       @click="toggleContentVisibility"
       role="button"
     >
       <i
         v-if="icon"
         :class="{
-          'default-icon block font-normal block h-[18px] w-4 text-base leading-4 align-middle text-center': true,
+          'default-icon block font-normal block w-4 text-base leading-4 align-middle text-center': true,
           [icon]: true,
         }"
       />
       <span
         id="heading-text"
-        class="block text-[13px] leading-[18px] text-black font-medium tracking-[0.52px]"
+        class="block text-title leading-4.5 text-black font-medium tracking-title"
         >{{ text }}</span
       >
       <i
         :class="{
-          'default-icon ml-1 block h-[18px] w-4 text-base leading-4 text-center align-middle': true,
+          'default-icon ml-1 block w-4 text-base leading-4 text-center align-middle': true,
           [arrowIcon]: true,
         }"
       />
