@@ -1,6 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import uiData from "./data/uiData.json";
+import usersData from "./data/usersData.json";
+import CustomerTable from "./components/CustomerTable.vue";
 
-<template></template>
+const { userAttributes } = uiData.usersPageData;
+const { users } = usersData.userDetails; 
+</script>
+
+<template>
+
+
+<customer-table :user-attributes="userAttributes" :users-details="users" />
+</template>
 
 <style lang="scss" scoped></style>
 
