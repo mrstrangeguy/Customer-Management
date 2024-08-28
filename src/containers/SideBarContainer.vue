@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="w-sidebar h-full bg-red-200">
 
     </div>
 </template>
