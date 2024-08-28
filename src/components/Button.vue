@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 //types
-interface buttonsProps {
+interface ButtonsProps {
   text?: string;
   icon?: string;
   variant?: string;
@@ -23,7 +23,7 @@ enum Buttonvariants {
   ICON = "Icon",
 }
 
-const props = withDefaults(defineProps<buttonsProps>(), {
+const props = withDefaults(defineProps<ButtonsProps>(), {
   text: "",
   icon: "",
   variant: "",
