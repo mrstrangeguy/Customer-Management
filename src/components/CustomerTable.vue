@@ -55,7 +55,7 @@
             class="inline-block align-top default-icon dx-header-filter-empty text-3.75 w-3.75 h-3.75"
           />
         </th>
-        <th class="desktop:hidden w-10" />
+        <th class="laptop:hidden w-10" />
       </tr>
     </thead>
 
@@ -124,7 +124,7 @@
             <span class="text-3.25 leading-4">{{ userDetail.email }}</span>
           </td>
           <td
-            class="desktop:hidden table-cell min-w-10 w-10 text-center"
+            class="laptop:hidden table-cell min-w-10 w-10 text-center"
             @click="openResponsiveContainer(index)"
           >
             <span
