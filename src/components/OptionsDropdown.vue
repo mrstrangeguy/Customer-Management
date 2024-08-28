@@ -16,8 +16,8 @@
       <span
         id="heading-text"
         class="block text-title leading-4.5 text-black font-medium tracking-title"
-        >{{ text }}</span
-      >
+        >{{ text }}
+      </span>
       <i
         :class="{
           'default-icon ml-1 block w-4 text-base leading-4 text-center align-middle': true,
@@ -27,18 +27,17 @@
     </div>
     <img
       v-if="profileUrl"
-      class="block w-[28px] h-[28px] object-cover object-top aspect-square border rounded-full"
+      class="block w-7 h-7 object-cover object-top aspect-square border rounded-full"
       :src="profileUrl"
       alt="profile-img"
       @click="toggleContentVisibility"
     />
-
     <div
       :class="{
-        'absolute cursor-pointer bg-white transition-all duration-[200ms] border-b w-auto p-px shadow-[0_2px_4px_rgba(0,0,0,.2)]': true,
-        'opacity-100 z-[1502]': isHeaderClicked,
-        'opacity-0 z-[-1]': !isHeaderClicked,
-        'top-[26px] left-0': !profileUrl,
+        'absolute cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-dropdown1': true,
+        'opacity-100 z-150': isHeaderClicked,
+        'opacity-0 z-behind': !isHeaderClicked,
+        'top-7 left-0': !profileUrl,
         'right-0': profileUrl,
       }"
     >
@@ -49,9 +48,16 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { optionsDropdownProps } from "../types/optionsDropdownProps";
 
-withDefaults(defineProps<optionsDropdownProps>(), {
+//types
+type OptionsDropdownProps = {
+  text: string;
+  arrowIcon: string;
+  icon: string;
+  profileUrl: string;
+};
+
+withDefaults(defineProps<OptionsDropdownProps>(), {
   arrowIcon: "",
   icon: "",
   profileUrl: "",
