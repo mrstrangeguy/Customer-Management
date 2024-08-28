@@ -2,7 +2,7 @@
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; 
 
 @font-face {
   font-family: "DX Icons";
@@ -12,7 +12,7 @@
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-}
+} 
 
 .default-icon {
   font-style: normal;
@@ -80,7 +80,7 @@
 }
 
 .dx-icon-plus:before {
-  content: "";
+  content: "";
 }
 
 .dx-icon-tel:before {
@@ -99,6 +99,9 @@
   content: "";
 }
 
-.dx-icon-xlsxfile::before {
-  content: "";
+.button-default {
+  display: block;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
