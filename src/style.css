@@ -2,7 +2,7 @@
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; 
 
 @font-face {
   font-family: "DX Icons";
@@ -12,11 +12,11 @@
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-}
+} 
 
 .default-icon {
   font-style: normal;
-  font-family: 'DX Icons';
+  font-family: "DX Icons";
 }
 
 .dx-icon-menu::before {
@@ -76,7 +76,7 @@
 }
 
 .dx-icon-plus:before {
-  content: "";
+  content: "";
 }
 
 .dx-icon-tel:before {
@@ -93,4 +93,11 @@
 
 .dx-icon-edit:before {
   content: "";
+}
+
+.button-default {
+  display: block;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
