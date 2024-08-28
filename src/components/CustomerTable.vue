@@ -1,12 +1,12 @@
 <template>
   <table class="relative w-full table-fixed overflow-auto">
     <thead
-      class="z-100 border border-b-0 border-[#e0e0e0] outline outline-1 outline-tbody-outline sticky top-0 bg-white z-40"
+      class="z-100 border border-b-0 border-b-color outline outline-1 outline-b-color sticky top-0 bg-white z-40"
       role="presentation"
     >
       <tr role="row" class="bg-white relative">
         <th
-          class="w-[38px] min-w-[38px] max-w-[70px] text-center p-0 bg-white"
+          class="w-9.5 min-w-9.5 max-w-17.5 text-center p-0 bg-white"
           role="columnheader"
         >
           <i
@@ -16,13 +16,13 @@
                 : toggleCheckboxesVisibility(true)
             "
             :class="{
-              'inline-block default-icon cursor-pointer icon-bg relative align-middle w-4 h-4 rounded-sm': true,
+              'inline-block default-icon cursor-pointer icon relative align-middle w-4 h-4 rounded-sm': true,
               'border-2 border-default-color':
                 !isAllCheckboxesEnabled && !isAnyCheckboxesEnabled,
               'after:scale-50': !isAllCheckboxesEnabled,
               [`bg-checkbox-selected-bg border-0 checkbox-icon text-center`]:
                 isAllCheckboxesEnabled,
-              [`before:relative before:block bg-checkbox-selected-bg border-0 before:block before:relative before:text-white before:content-[''] before:text-base before:w-2.5 before:h-0.5 before:bg-white before:top-2 before:left-2 before:ml-[-5px] before:-mt-px leading-zero text-center`]:
+              [`dash-icon before:relative bg-checkbox-selected-bg border-0 leading-zero text-center`]:
                 !isAllCheckboxesEnabled && isAnyCheckboxesEnabled,
             }"
           />
@@ -31,31 +31,31 @@
           @click="sortCustomerTable(index)"
           v-for="(userAttribute, index) in userAttributes"
           :class="{
-            'group py-3 px-[11px] leading-4 cursor-pointer hover:bg-th-hover-color text-left': true,
+            'group py-3 px-2.75 leading-4 cursor-pointer hover:bg-th-hover-color text-left': true,
             [getResponsiveThStyle(userAttribute)]: true,
           }"
           role="columnheader"
         >
           <span
             :class="{
-              'inline-block z-10 align-top text-[#00000099] text-[13px] leading-4 font-medium mr-[3px] group-hover:text-[#000000de]': true,
-              'text-[#000000de]': selectedAttributeObject.index === index,
+              'inline-block z-10 align-top text-label text-3.25 leading-4 font-medium mr-0.75 group-hover:text-hover1': true,
+              'text-hover1': selectedAttributeObject.index === index,
             }"
-            >{{ userAttribute }}</span
-          >
+            >{{ userAttribute }}
+          </span>
           <i
             v-if="isArrowIconPresent(index)"
             :class="{
-              'inline-block w-[15px] align-top text-[15px] text-[#000000de] group-hover:text-[#00000061] font-normal h-[15px] leading-[15px] default-icon dx-sort': true,
+              'inline-block w-3.75 align-top text-3.75 text-hover1 group-hover:text-hover2 font-normal h-3.75 leading-l3 default-icon dx-sort': true,
               'dx-sort-up': isDownArrowPresent(index),
               'dx-sort-down': !isDownArrowPresent(index),
             }"
           />
           <i
-            class="inline-block align-top default-icon dx-header-filter-empty text-[15px] w-[15px] h-[15px]"
+            class="inline-block align-top default-icon dx-header-filter-empty text-3.75 w-3.75 h-3.75"
           />
         </th>
-        <th class="min-[1372px]:hidden w-10"></th>
+        <th class="desktop:hidden w-10" />
       </tr>
     </thead>
 
@@ -65,136 +65,122 @@
           @click="selectContact(index)"
           :class="{
             'border-b border-b-tr-border cursor-pointer': true,
-            'bg-[#03a9f40a]': userDetail.isChecked,
-            'bg-[#cdeefd]': userDetail.isSelected,
+            'bg-checked': userDetail.isChecked,
+            'bg-selected': userDetail.isSelected,
           }"
         >
           <td
             @click="addContact(index)"
-            class="w-[38px] text-center border-b border-b-tr-border"
+            class="w-9.5 text-center border-b border-b-tr-border"
             role="columnheader"
           >
             <i
               :class="{
-                'inline-block default-icon cursor-pointer relative after:block after:transition-all after:absolute after:w-8 after:h-8 after:left-2 after:top-2 after:-mt-4 after:-ml-4 after:rounded-full align-middle w-4 h-4 rounded-sm': true,
+                'inline-block default-icon cursor-pointer relative icon align-middle w-4 h-4 rounded-sm': true,
                 'border-2 border-default-color after:scale-50':
                   !userDetail.isChecked,
-                [`after:bg-checkbox-after-selected after:scale-100 before:relative before:content-[''] before:block before:h-3.5 before:w-3.5  bg-checkbox-selected-bg border-0 before:block before:relative before:top-2 before:mt-[-7px] before:ml-[-7px] before:-right-2 before:h-3.5 before:w-3.5 before:text-sm before:leading-[14px] before:text-white before:content-[''] text-center`]:
+                'checkbox-icon text-center bg-checkbox-selected-bg':
                   userDetail.isChecked,
               }"
             />
           </td>
-          <td class="py-2.5 px-[11px] border-b border-b-tr-border">
-            <div class="text-[13px] leading-4">
+          <td class="py-2.5 px-2.75 border-b border-b-tr-border">
+            <div class="text-3.25 leading-4">
               {{ userDetail.description.name }}
             </div>
-            <div class="text-xs leading-4 text-[#00000099]">
+            <div class="text-xs leading-4 text-label">
               {{ userDetail.description.position }}
             </div>
           </td>
           <td
-            class="max-[448px]:hidden py-2.5 px-[11px] border-b border-b-tr-border"
+            class="mobile:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-[13px] leading-4">{{ userDetail.company }}</span>
+            <span class="text-3.25 leading-4">{{ userDetail.company }}</span>
           </td>
           <td
-            class="max-[750px]:hidden py-2.5 px-[11px] border-b border-b-tr-border"
+            class="laptop-mid:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
             <span
               :class="{
-                'before:w-2.5 before:h-2.5 before:mr-[5px] before:rounded-full before:inline-block text-[13px] leading-4': true,
+                'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-3.25 leading-4': true,
                 [getStatusTextColor(userDetail.status)]: true,
               }"
-              >{{ userDetail.status }}</span
-            >
+              >{{ userDetail.status }}
+            </span>
           </td>
           <td
-            class="max-[620px]:hidden py-2.5 px-[11px] border-b border-b-tr-border"
+            class="tablet:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-[13px] leading-4">{{
-              userDetail.assignedto
-            }}</span>
+            <span class="text-3.25 leading-4">{{ userDetail.assignedto }}</span>
           </td>
           <td
-            class="max-[850px]:hidden py-2.5 px-[11px] border-b border-b-tr-border"
+            class="laptop:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-[13px] leading-4">{{ userDetail.phone }}</span>
+            <span class="text-3.25 leading-4">{{ userDetail.phone }}</span>
           </td>
           <td
-            class="max-[1372px]:hidden py-2.5 px-[11px] border-b border-b-tr-border"
+            class="desktop:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-[13px] leading-4">{{ userDetail.email }}</span>
+            <span class="text-3.25 leading-4">{{ userDetail.email }}</span>
           </td>
           <td
-            class="min-[1372px]:hidden min-w-10 w-10 text-center"
+            class="desktop:hidden table-cell min-w-10 w-10 text-center"
             @click="openResponsiveContainer(index)"
           >
             <span
-              class="default-icon dx-datagrid-adaptive-more text-[18px] text-[#0000008a] text-center align-middle"
-            ></span>
+              class="default-icon dx-datagrid-adaptive-more text-4.25 text-default-color text-center align-middle"
+            />
           </td>
         </tr>
-        <tr v-if="userDetail.isResponsiveSelected" class="min-[1372px]:hidden">
-          <td class="bg-[#fafafa] p-4 leading-4 border-y" :colspan="colspan">
-            <div class="flex max-[850px]:flex-row-reverse max-[768px]:block">
-              <div
-                class="pr-5 pb-2.5 grow shrink basis-0 max-[448px]:pl-0 max-[448px]:pr-0 max-[448px]:pl-0 min-[448px]:hidden"
-              >
-                <label
-                  class="block text-xs leading-[15.4284px] text-[#00000099] px-3 pb-0.5"
-                  >Company</label
-                >
-                <div class="text-[13px] leading-[26px] px-3">
+        <tr
+          v-if="userDetail.isResponsiveSelected"
+          class="desktop:hidden table-row"
+        >
+          <td class="bg-td-bg p-4 leading-4 border-y" :colspan="colspan">
+            <div class="laptop:flex laptop-mid:flex-row-reverse block">
+              <div class="pr-5 pb-2.5 mobile:hidden grow shrink basis-0">
+                <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
+                  Company
+                </label>
+                <div class="text-3.25 leading-l2 px-3">
                   {{ userDetail.company }}
                 </div>
               </div>
-              <div
-                class="pr-5 pb-2.5 grow shrink basis-0 max-[750px]:pl-0 max-[750px]:pr-0 max-[750px]:pl-0 min-[750px]:hidden"
-              >
-                <label
-                  class="block text-xs leading-[15.4284px] text-[#00000099] px-3 pb-0.5"
-                  >Status</label
-                >
-                <div class="leading-[26px]">
+              <div class="pr-5 pb-2.5 grow shrink basis-0 laptop-mid:hidden">
+                <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
+                  Status
+                </label>
+                <div class="leading-l2">
                   <span
                     :class="{
-                      'before:w-2.5 before:h-2.5 before:mr-[5px] before:rounded-full before:inline-block text-[13px] leading-4': true,
+                      'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-3.25 leading-4': true,
                       [getStatusTextColor(userDetail.status)]: true,
                     }"
-                    >{{ userDetail.status }}</span
-                  >
+                    >{{ userDetail.status }}
+                  </span>
                 </div>
               </div>
-              <div
-                class="pr-5 pb-2.5 grow shrink basis-0 max-[850px]:pl-0 max-[850px]:pr-0 max-[850px]:pl-0 min-[620px]:hidden"
-              >
-                <label
-                  class="block text-xs leading-[15.4284px] text-[#00000099] px-3 pb-0.5"
-                  >Assigned to</label
-                >
-                <div class="text-[13px] leading-[26px] px-3">
+              <div class="pr-5 pb-2.5 grow shrink basis-0 tablet:hidden">
+                <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
+                  Assigned to
+                </label>
+                <div class="text-3.25 leading-l2 px-3">
                   {{ userDetail.assignedto }}
                 </div>
               </div>
-              <div
-                class="pr-5 pb-2.5 grow shrink basis-0 max-[850px]:pl-0 max-[850px]:pr-0 max-[850px]:pl-0"
-              >
-                <label
-                  class="block text-xs leading-[15.4284px] text-[#00000099] px-3 pb-0.5"
-                  >Email</label
-                >
-                <div class="text-[13px] leading-[26px] px-3">
+              <div class="pr-5 pb-2.5 grow shrink basis-0 desktop:hidden">
+                <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
+                  Email
+                </label>
+                <div class="text-3.25 leading-l2 px-3">
                   {{ userDetail.email }}
                 </div>
               </div>
-              <div
-                class="pl-5 pb-2.5 grow shrink basis-0 min-[850px]:hidden max-[850px]:pr-5 max-[850px]:pl-0"
-              >
-                <label
-                  class="block text-xs leading-[15.4284px] text-[#00000099] px-3 pb-0.5"
-                  >Phone</label
-                >
-                <div class="text-[13px] leading-[26px] px-3">
+              <div class="pr-5 pb-2.5 grow shrink basis-0 laptop:hidden">
+                <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
+                  Phone
+                </label>
+                <div class="text-3.25 leading-l2 px-3">
                   {{ userDetail.phone }}
                 </div>
               </div>
@@ -364,11 +350,11 @@ const openResponsiveContainer = (index: number) => {
 
 const getStatusTextColor = (text: string) => {
   if (text.toLocaleLowerCase() === "commission") {
-    return "before:bg-[#03a9f4] text-[#03a9f4]";
+    return "before:bg-commission text-commission";
   } else if (text.toLocaleLowerCase() === "terminated") {
-    return "before:bg-[#de8e8c] text-[#de8e8c]";
+    return "before:bg-terminated text-terminated";
   }
-  return "before:bg-[#2eb52c] text-[#2eb52c]";
+  return "before:bg-salaried text-salaried";
 };
 
 const getResponsiveThStyle = (attribute: string) => {
@@ -376,15 +362,15 @@ const getResponsiveThStyle = (attribute: string) => {
 
   switch (editedAttribute) {
     case "email":
-      return "max-[1372px]:hidden";
+      return "desktop:table-cell hidden";
     case "phone":
-      return "max-[850px]:hidden";
+      return "laptop:table-cell hidden";
     case "status":
-      return "max-[750px]:hidden";
+      return "laptop-mid:table-cell hidden";
     case "assignedto":
-      return "max-[620px]:hidden";
+      return "tablet:table-cell hidden";
     case "company":
-      return "max-[448px]:hidden";
+      return "mobile:table-cell hidden";
     default:
       return "";
   }
@@ -406,25 +392,19 @@ const getResponsiveColsSpan = () => {
 </script>
 
 <style lang="scss" scoped>
-/*
-after:block after:transition-all after:duration-300 after:absolute after:w-8 after:h-8 after:left-2 after:top-2 after:-mt-4 after:-ml-4 after:rounded-full 
-
-after:bg-checkbox-after-selected after:scale-100 before:relative before:z-50 before:content-[''] before:block before:h-3.5 before:w-3.5 bg-checkbox-selected-bg border-0 before:block before:relative before:top-2 before:mt-[-7px] before:ml-[-7px] before:-right-2 before:h-3.5 before:w-3.5 before:text-sm before:leading-[14px] before:text-white before:content-['']
-*/
-.icon-bg {
-
+.icon {
   &::after {
-   content: '';
-   display: block;
-   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-   position: absolute;
-   width: 32px;
-   height: 32px;
-   left: 8px;
-   top: 8px;
-   margin-top: -16px;
-   margin-left: -16px;
-   border-radius: 50%;
+    content: "";
+    display: block;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 8px;
+    top: 8px;
+    margin-top: -16px;
+    margin-left: -16px;
+    border-radius: 50%;
   }
 }
 
@@ -432,12 +412,11 @@ after:bg-checkbox-after-selected after:scale-100 before:relative before:z-50 bef
   &::after {
     background-color: #03a6ef1a;
   }
-
   &::before {
     display: block;
     position: relative;
     z-index: 50;
-    content: '';
+    content: "";
     display: block;
     height: 14px;
     width: 14px;
@@ -450,6 +429,24 @@ after:bg-checkbox-after-selected after:scale-100 before:relative before:z-50 bef
     font-size: 14px;
     line-height: 14px;
     color: white;
+  }
+}
+
+.dash-icon {
+  &::before {
+    content: "";
+    position: relative;
+    display: block;
+    color: white;
+    font-size: 16px;
+    line-height: 24px;
+    width: 10px;
+    height: 2px;
+    background-color: white;
+    top: 8px;
+    left: 8px;
+    margin-left: -5px;
+    margin-top: -1px;
   }
 }
 </style>
