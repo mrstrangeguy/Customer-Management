@@ -9,13 +9,7 @@
 </template>
 
 <script setup lang="ts">
-//types
-interface ButtonsProps {
-  text?: string;
-  icon?: string;
-  variant?: string;
-  bgColor?: string;
-}
+import { ButtonsProps } from "../types/ButtonProps";
 
 enum Buttonvariants {
   PRIMARY = "Primary",

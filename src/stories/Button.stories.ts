@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import {buttonsProps} from "../types/buttonProps"
+import { ButtonsProps } from "../types/ButtonProps";
 import Button from "../components/Button.vue";
 
 const meta: Meta<typeof Button> = {
@@ -10,7 +10,7 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
-  render: (args: buttonsProps) => ({
+  render: (args: ButtonsProps) => ({
     components: { Button },
     setup() {
       return { args };
@@ -25,7 +25,7 @@ export const Primary: Story = {
 };
 
 export const Secondary: Story = {
-  render: (args: buttonsProps) => ({
+  render: (args: ButtonsProps) => ({
     components: { Button },
     setup() {
       return { args };
@@ -39,7 +39,7 @@ export const Secondary: Story = {
 };
 
 export const Icon: Story = {
-  render: (args: buttonsProps) => ({
+  render: (args: ButtonsProps) => ({
     components: { Button },
     setup() {
       return { args };
