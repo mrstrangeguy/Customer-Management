@@ -1,6 +1,8 @@
 <template>
-    <div class="w-sidebar h-full bg-red-200">
+    <div class="w-full h-full overflow-hidden">
+    <div class="relative w-sidebar h-full bg-red-200">
 
+    </div>
     </div>
 </template>
 
