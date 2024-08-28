@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<buttonsProps>(), {
   bgColor: "",
 });
 
-//computed
+//functions
 const currentButtonClass = () => {
   if (props.variant === Buttonvariants.SECONDARY) {
     return "common-secondary";
