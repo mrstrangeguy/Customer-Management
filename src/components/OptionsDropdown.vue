@@ -1,7 +1,7 @@
 <template>
   <div class="relative z-100 cursor-pointer w-fit">
     <div
-      v-if="!profileUrl"
+      v-if="!profileURL"
       class="relative overflow-hidden flex py-1.5 z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-hover"
       @click="toggleContentVisibility"
       role="button"
@@ -26,9 +26,9 @@
       />
     </div>
     <img
-      v-if="profileUrl"
+      v-if="profileURL"
       class="block w-7 h-7 object-cover object-top aspect-square border rounded-full"
-      :src="profileUrl"
+      :src="profileURL"
       alt="profile-img"
       @click="toggleContentVisibility"
     />
@@ -37,8 +37,8 @@
         'absolute cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-dropdown1': true,
         'opacity-100 z-150': isHeaderClicked,
         'opacity-0 z-behind': !isHeaderClicked,
-        'top-7 left-0': !profileUrl,
-        'right-0': profileUrl,
+        'top-7 left-0': !profileURL,
+        'right-0': profileURL,
       }"
     >
       <slot name="dropdown-items" />
@@ -54,13 +54,13 @@ type OptionsDropdownProps = {
   text: string;
   arrowIcon: string;
   icon: string;
-  profileUrl: string;
+  profileURL: string;
 };
 
 withDefaults(defineProps<OptionsDropdownProps>(), {
   arrowIcon: "",
   icon: "",
-  profileUrl: "",
+  profileURL: "",
   text: "",
 });
 

@@ -61,7 +61,7 @@ describe("OptionsDropdown", () => {
 
   const profileVariant = mount(OptionsDropdown, {
     props: {
-      profileUrl:
+      profileURL:
         "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png",
     },
     slots: {
