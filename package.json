@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@chromatic-com/storybook": "^1.6.1",
+    "@storybook/addon-docs": "^8.2.8",
     "@storybook/addon-essentials": "^8.2.6",
     "@storybook/addon-interactions": "^8.2.6",
     "@storybook/addon-links": "^8.2.6",
@@ -29,7 +30,9 @@
     "postcss-scss": "^4.0.9",
     "storybook-builder-vite": "^0.1.23",
     "vitest": "^2.0.5",
-    "vue": "^3.4.31"
+    "vue": "^3.4.31",
+    "vue-docgen-api": "^4.79.2",
+    "vue-docgen-loader": "^2.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
