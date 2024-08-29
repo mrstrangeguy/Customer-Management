@@ -19,6 +19,10 @@
   font-family: "DX Icons";
 }
 
+.dx-icon-search:before {
+  content: "";
+}
+
 .dx-icon-menu::before {
   content: "";
 }
