@@ -1,7 +1,7 @@
 <template>
   <table class="relative w-full table-fixed overflow-auto">
     <thead
-      class="z-100 border border-b-0 border-b-color outline outline-1 outline-b-color sticky top-0 bg-white z-40"
+      class="z-100 border border-b-0 border-table-border outline outline-1 outline-table-border sticky top-0 bg-white z-40"
       role="presentation"
     >
       <tr role="row" class="bg-white relative">
@@ -20,9 +20,9 @@
               'border-2 border-default-color':
                 !isAllCheckboxesEnabled && !isAnyCheckboxesEnabled,
               'after:scale-50': !isAllCheckboxesEnabled,
-              [`bg-checkbox-selected-bg border-0 checkbox-icon text-center`]:
+              'bg-checkbox-selected-bg border-0 checkbox-icon text-center':
                 isAllCheckboxesEnabled,
-              [`dash-icon before:relative bg-checkbox-selected-bg border-0 leading-zero text-center`]:
+              'dash-icon before:relative bg-checkbox-selected-bg border-0 leading-zero text-center':
                 !isAllCheckboxesEnabled && isAnyCheckboxesEnabled,
             }"
           />
@@ -31,22 +31,22 @@
           @click="sortCustomerTable(index)"
           v-for="(userAttribute, index) in userAttributes"
           :class="{
-            'group py-3 px-2.75 leading-4 cursor-pointer hover:bg-th-hover-color text-left': true,
+            'group py-3 px-2.75 leading-4 cursor-pointer hover:bg-table-hover-primary text-left': true,
             [getResponsiveThStyle(userAttribute)]: true,
           }"
           role="columnheader"
         >
           <span
             :class="{
-              'inline-block z-10 align-top text-label text-3.25 leading-4 font-medium mr-0.75 group-hover:text-hover1': true,
-              'text-hover1': selectedAttributeObject.index === index,
+              'inline-block z-10 align-top text-label text-3.25 leading-4 font-medium mr-0.75 group-hover:text-table-hover-primary': true,
+              'text-table-hover-primary': selectedAttributeObject.index === index,
             }"
             >{{ userAttribute }}
           </span>
           <i
             v-if="isArrowIconPresent(index)"
             :class="{
-              'inline-block w-3.75 align-top text-3.75 text-hover1 group-hover:text-hover2 font-normal h-3.75 leading-l3 default-icon dx-sort': true,
+              'inline-block w-3.75 align-top text-3.75 text-table-hover-primary group-hover:text-table-hover-secondary font-normal h-3.75 leading-l3 default-icon dx-sort': true,
               'dx-sort-up': isDownArrowPresent(index),
               'dx-sort-down': !isDownArrowPresent(index),
             }"

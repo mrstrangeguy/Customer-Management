@@ -7,14 +7,14 @@ export default {
         'default-color':'#0000008a',
         'checkbox-after-selected':'#03a6ef1a',
         'checkbox-selected-bg':'#03a9f4',
-        'th-hover-color':'#f2f2f2',
+        'table-hover-primary':'#f2f2f2', //table-hover-primary
         'td-bg':'#fafafa',
-        'b-color':'#e0e0e0',
+        'table-border':'#e0e0e0',//table-border
         'label':'#00000099',
         'checked':'#03a9f40a',
         'selected':'#cdeefd',
-        'hover1':'#000000de',
-        'hover2':'#00000061',
+        'table-hover-primary':'#000000de',//table-hover-primary
+        'table-hover-secondary':'#00000061',//table-hover-secondary
         'commission':'#03a9f4',
         'terminated':'#de8e8c',
         'salaried':'#2eb52c'
