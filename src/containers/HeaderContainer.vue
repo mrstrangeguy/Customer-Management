@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="flex items-center pr-6">
-      <div class="w-45 flex items-center mr-3.5">
+      <div class="w-45 flex items-center mr-4">
         <Search placeholder-text="Search" />
       </div>
       <div class="px-px">
