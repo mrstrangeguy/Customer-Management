@@ -110,7 +110,7 @@ export const Secondary: Story = {
 
 export const Profile: Story = {
   args: {
-    profileUrl:
+    profileURL:
       "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png",
   },
   render: (args) => ({
@@ -119,7 +119,7 @@ export const Profile: Story = {
       return { args };
     },
     template: `
-    <OptionsDropdown v-bind="args" class="ml-[80px]">
+    <OptionsDropdown profileURL="https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png" class="ml-[80px]">
     <template v-slot:dropdown-items>
     <div class="py-2.5 px-[11px] border-b border-[#e0e0e0]">
     <span class="block font-normal text-nowrap font-sm leading-[17.9998px] text-[14px] text-center">John Heart</span>
