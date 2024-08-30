@@ -34,7 +34,7 @@
     />
     <div
       :class="{
-        'absolute cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-dropdown1': true,
+        'absolute cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-options-dropdown': true,
         'opacity-100 z-150': isHeaderClicked,
         'opacity-0 z-behind': !isHeaderClicked,
         'top-7 left-0': !profileURL,

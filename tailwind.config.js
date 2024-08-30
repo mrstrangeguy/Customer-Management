@@ -71,7 +71,7 @@ export default {
         '200':'200ms'
       },
       boxShadow: {
-        'dropdown1':'0_2px_4px_rgba(0,0,0,.2)'
+        'options-dropdown':'0 2px 4px rgba(0,0,0,.2)'
       },
       zIndex: {
         '150':'150',
