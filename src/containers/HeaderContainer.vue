@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="flex items-center pr-6">
-      <div class="w-45 flex items-center mr-4">
+      <div class="sm:block hidden w-45 flex items-center mr-4">
         <Search placeholder-text="Search" />
       </div>
       <div class="px-px">
@@ -22,7 +22,14 @@
       <div class="pl-1.5 pr-px">
         <Button variant="Icon" icon="dx-icon dx-icon-belloutline" />
       </div>
-      <div class="w-9.5"></div>
+      <div class="sm:block hidden pl-2.5">
+        <options-dropdown
+          profileURL="https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png"
+        />
+      </div>
+      <div class="sm:hidden block pl-1.75">
+        <Button variant="Icon" icon="dx-icon dx-icon-overflow" />
+      </div>
     </div>
   </div>
 </template>
@@ -30,6 +37,7 @@
 <script setup lang="ts">
 import Button from "../components/Button.vue";
 import Search from "../components/Search.vue";
+import OptionsDropdown from "../components/OptionsDropdown.vue";
 </script>
 
 <style scoped></style>

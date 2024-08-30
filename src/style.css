@@ -39,6 +39,10 @@
   content: "";
 }
 
+.dx-icon-overflow::before {
+  content: "";
+}
+
 .dx-icon-search:before {
   content: "";
 }
