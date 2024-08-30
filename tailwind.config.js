@@ -23,7 +23,8 @@ export default {
         'zero':'0px',
         'l1':'15.4284px',
         'l2':'26px',
-        'l3':'15px'
+        'l3':'15px',
+        '4.5':'18px'
       },
       height:{
         '3.75':'15px'
@@ -56,6 +57,28 @@ export default {
       margin: {
         '1.25':'5px',
         '0.75':'3px'
+      },
+      backgroundColor:{
+        'hover':'#00000014'
+      },
+      fontSize:{
+        'title':'13px'
+      },
+      letterSpacing:{
+        'title':'0.52px'
+      },
+      transitionDuration: {
+        '200':'200ms'
+      },
+      boxShadow: {
+        'dropdown1':'0_2px_4px_rgba(0,0,0,.2)'
+      },
+      zIndex: {
+        '150':'150',
+        'behind':'-1'
+      },
+      spacing: {
+        '6.5':'26px'
       }
     },
   },

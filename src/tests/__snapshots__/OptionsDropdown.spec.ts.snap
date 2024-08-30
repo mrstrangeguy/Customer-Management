@@ -1,0 +1,163 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`OptionsDropdown > check the snapshot of profile variant 1`] = `
+<div
+  class="relative z-100 cursor-pointer w-fit"
+>
+  <!--v-if-->
+  <img
+    alt="profile-img"
+    class="block w-[28px] h-[28px] object-cover object-top aspect-square border rounded-full"
+    src="https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png"
+  />
+  <div
+    class="absolute cursor-pointer bg-white transition-all duration-[200ms] border-b w-auto p-px shadow-[0_2px_4px_rgba(0,0,0,.2)] opacity-0 z-[-1] right-0"
+  >
+    
+    <div
+      class="py-2.5 px-[11px] border-b border-[#e0e0e0]"
+    >
+      <span
+        class="block font-normal text-nowrap font-sm leading-[17.9998px] text-[14px] text-center"
+      >
+        John Heart
+      </span>
+    </div>
+    <div
+      class="my-1"
+    >
+      <div
+        class="px-[11px] pt-2.5 pb-[9px] flex items-center"
+      >
+        <div
+          class="w-[29px] h-[18px]"
+        >
+          <i
+            class="default-icon dx-icon dx-icon-runner dx-list-item-icon leading-[18px] w-[18px] h-[18px] text-[18px] mr-4"
+          />
+        </div>
+        <span
+          class="block leading-4 text-[13px]"
+        >
+          Logout
+        </span>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`OptionsDropdown > check the snapshot variant 1 1`] = `
+<div
+  class="relative z-100 cursor-pointer w-fit"
+>
+  <div
+    class="relative overflow-hidden flex py-[5px] z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-[rgba(0,0,0,.08)]"
+    role="button"
+  >
+    <!--v-if-->
+    <span
+      class="block text-[13px] leading-[18px] text-black font-medium tracking-[0.52px]"
+      id="heading-text"
+    >
+      This is header text
+    </span>
+    <i
+      class="default-icon ml-1 block h-[18px] w-4 text-base leading-4 text-center align-middle dx-icon dx-icon-spindown dx-icon-right"
+    />
+  </div>
+  <!--v-if-->
+  <div
+    class="absolute cursor-pointer bg-white transition-all duration-[200ms] border-b w-auto p-px shadow-[0_2px_4px_rgba(0,0,0,.2)] opacity-0 z-[-1] top-[26px] left-0"
+  >
+    
+    <div
+      class="w-[94.97px] bg-[rgba(0,0,0,.12)] mt-1"
+    >
+      <span
+        class="block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px]"
+      >
+        All
+      </span>
+    </div>
+    <div
+      class="w-[94.97px] mt-1"
+    >
+      <span
+        class="block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px]"
+      >
+        All
+      </span>
+    </div>
+    <div
+      class="w-[94.97px] mt-1"
+    >
+      <span
+        class="block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px]"
+      >
+        All
+      </span>
+    </div>
+    <div
+      class="w-[94.97px] mt-1"
+    >
+      <span
+        class="block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px]"
+      >
+        All
+      </span>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`OptionsDropdown > check the snapshot variant 2 1`] = `
+<div
+  class="relative z-100 cursor-pointer w-fit"
+>
+  <div
+    class="relative overflow-hidden flex py-[5px] z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-[rgba(0,0,0,.08)]"
+    role="button"
+  >
+    <i
+      class="default-icon block font-normal block h-[18px] w-4 text-base leading-4 align-middle text-center dx-icon dx-icon-export"
+    />
+    <span
+      class="block text-[13px] leading-[18px] text-black font-medium tracking-[0.52px]"
+      id="heading-text"
+    />
+    <i
+      class="default-icon ml-1 block h-[18px] w-4 text-base leading-4 text-center align-middle dx-icon dx-icon-spindown dx-icon-right"
+    />
+  </div>
+  <!--v-if-->
+  <div
+    class="absolute cursor-pointer bg-white transition-all duration-[200ms] border-b w-auto p-px shadow-[0_2px_4px_rgba(0,0,0,.2)] opacity-0 z-[-1] top-[26px] left-0"
+  >
+    
+    <div
+      class="w-[94.97px] mt-1 flex w-[220.53px]"
+    >
+      <div
+        class="flex items-center text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px]"
+      >
+        <div
+          class="w-[29px]"
+        >
+          <i
+            class="default-icon font-medium text-[#0000008a] w-[18px] h-[18px] block dx-icon dx-icon-xlsxfile dx-list-item-icon text-[18px] leading-[18px]"
+          />
+        </div>
+        <div
+          class="leading-[15px]"
+        >
+          Export all data to Excel
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;

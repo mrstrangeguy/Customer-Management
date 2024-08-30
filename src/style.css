@@ -2,7 +2,7 @@
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; 
 
 @font-face {
   font-family: "DX Icons";
@@ -12,7 +12,7 @@
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-}
+} 
 
 .default-icon {
   font-style: normal;
@@ -35,6 +35,10 @@
   content: "";
 }
 
+.dx-icon-search:before {
+  content: "";
+}
+
 .dx-icon-menu::before {
   content: "";
 }
@@ -49,6 +53,10 @@
 
 .dx-icon-user:before {
   content: "";
+}
+
+.dx-icon-runner::before {
+  content: "";
 }
 
 .dx-treeview-toggle-item-visibility:before {
@@ -92,7 +100,7 @@
 }
 
 .dx-icon-plus:before {
-  content: "";
+  content: "";
 }
 
 .dx-icon-tel:before {
@@ -109,4 +117,11 @@
 
 .dx-icon-edit:before {
   content: "";
+}
+
+.button-default {
+  display: block;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }

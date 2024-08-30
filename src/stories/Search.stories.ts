@@ -10,6 +10,6 @@ type Story = StoryObj<typeof Search>;
 
 export const Primary: Story = {
   args: {
-    placeholder: "Search",
+    placeholderText: "Search",
   },
 };
