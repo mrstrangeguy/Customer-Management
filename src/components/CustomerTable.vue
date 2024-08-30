@@ -1,7 +1,7 @@
 <template>
   <table class="relative w-full table-fixed overflow-auto">
     <thead
-      class="z-100 border border-b-0 border-b-color outline outline-1 outline-b-color sticky top-0 bg-white z-40"
+      class="z-100 border border-b-0 border-table-border outline outline-1 outline-table-border sticky top-0 bg-white z-40"
       role="presentation"
     >
       <tr role="row" class="bg-white relative">
@@ -31,22 +31,23 @@
           @click="sortCustomerTable(index)"
           v-for="(userAttribute, index) in userAttributes"
           :class="{
-            'group py-3 px-2.75 leading-4 cursor-pointer hover:bg-th-hover-color text-left': true,
+            'group py-3 px-2.75 leading-4 cursor-pointer hover:bg-table-hover-primary text-left': true,
             [getResponsiveThStyle(userAttribute)]: true,
           }"
           role="columnheader"
         >
           <span
             :class="{
-              'inline-block z-10 align-top text-label text-3.25 leading-4 font-medium mr-0.75 group-hover:text-hover1': true,
-              'text-hover1': selectedAttributeObject.index === index,
+              'inline-block z-10 align-top text-label text-3.25 leading-4 font-medium mr-0.75 group-hover:text-table-hover-tertiary': true,
+              'text-table-hover-tertiary':
+                selectedAttributeObject.index === index,
             }"
             >{{ userAttribute }}
           </span>
           <i
             v-if="isArrowIconPresent(index)"
             :class="{
-              'inline-block w-3.75 align-top text-3.75 text-hover1 group-hover:text-hover2 font-normal h-3.75 leading-l3 default-icon dx-sort': true,
+              'inline-block w-3.75 align-top text-3.75 text-table-hover-primary group-hover:text-table-hover-secondary font-normal h-3.75 leading-l3 default-icon dx-sort': true,
               'dx-sort-up': isDownArrowPresent(index),
               'dx-sort-down': !isDownArrowPresent(index),
             }"
@@ -55,10 +56,9 @@
             class="inline-block align-top default-icon dx-header-filter-empty text-3.75 w-3.75 h-3.75"
           />
         </th>
-        <th class="desktop:hidden w-10" />
+        <th class="large:hidden w-10" />
       </tr>
     </thead>
-
     <tbody class="border-t-0 border border-y">
       <template v-for="(userDetail, index) in userDetails" :key="userDetail.id">
         <tr
@@ -93,12 +93,12 @@
             </div>
           </td>
           <td
-            class="mobile:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
+            class="extra-small:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
             <span class="text-3.25 leading-4">{{ userDetail.company }}</span>
           </td>
           <td
-            class="laptop-mid:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
+            class="medium:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
             <span
               :class="{
@@ -109,22 +109,22 @@
             </span>
           </td>
           <td
-            class="tablet:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
+            class="small:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
             <span class="text-3.25 leading-4">{{ userDetail.assignedto }}</span>
           </td>
           <td
-            class="laptop:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
+            class="large:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
             <span class="text-3.25 leading-4">{{ userDetail.phone }}</span>
           </td>
           <td
-            class="desktop:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
+            class="extra-large:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
             <span class="text-3.25 leading-4">{{ userDetail.email }}</span>
           </td>
           <td
-            class="desktop:hidden table-cell min-w-10 w-10 text-center"
+            class="large:hidden table-cell min-w-10 w-10 text-center"
             @click="openResponsiveContainer(index)"
           >
             <span
@@ -134,11 +134,11 @@
         </tr>
         <tr
           v-if="userDetail.isResponsiveSelected"
-          class="desktop:hidden table-row"
+          class="extra-large:hidden table-row"
         >
           <td class="bg-td-bg p-4 leading-4 border-y" :colspan="colspan">
-            <div class="laptop:flex laptop-mid:flex-row-reverse block">
-              <div class="pr-5 pb-2.5 mobile:hidden grow shrink basis-0">
+            <div class="large:flex medium:flex-row-reverse block">
+              <div class="pr-5 pb-2.5 extra-small:hidden grow shrink basis-0">
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Company
                 </label>
@@ -146,7 +146,7 @@
                   {{ userDetail.company }}
                 </div>
               </div>
-              <div class="pr-5 pb-2.5 grow shrink basis-0 laptop-mid:hidden">
+              <div class="pr-5 pb-2.5 grow shrink basis-0 medium:hidden">
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Status
                 </label>
@@ -160,7 +160,7 @@
                   </span>
                 </div>
               </div>
-              <div class="pr-5 pb-2.5 grow shrink basis-0 tablet:hidden">
+              <div class="pr-5 pb-2.5 grow shrink basis-0 small:hidden">
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Assigned to
                 </label>
@@ -168,7 +168,7 @@
                   {{ userDetail.assignedto }}
                 </div>
               </div>
-              <div class="pr-5 pb-2.5 grow shrink basis-0 desktop:hidden">
+              <div class="pr-5 pb-2.5 grow shrink basis-0 extra-large:hidden">
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Email
                 </label>
@@ -176,7 +176,7 @@
                   {{ userDetail.email }}
                 </div>
               </div>
-              <div class="pr-5 pb-2.5 grow shrink basis-0 laptop:hidden">
+              <div class="pr-5 pb-2.5 grow shrink basis-0 large:hidden">
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Phone
                 </label>
@@ -362,15 +362,15 @@ const getResponsiveThStyle = (attribute: string) => {
 
   switch (editedAttribute) {
     case "email":
-      return "desktop:table-cell hidden";
+      return "extra-large:table-cell hidden";
     case "phone":
-      return "laptop:table-cell hidden";
+      return "large:table-cell hidden";
     case "status":
-      return "laptop-mid:table-cell hidden";
+      return "medium:table-cell hidden";
     case "assignedto":
-      return "tablet:table-cell hidden";
+      return "small:table-cell hidden";
     case "company":
-      return "mobile:table-cell hidden";
+      return "extra-small:table-cell hidden";
     default:
       return "";
   }
@@ -393,6 +393,7 @@ const getResponsiveColsSpan = () => {
 
 <style lang="scss" scoped>
 .icon {
+
   &::after {
     content: "";
     display: block;
@@ -409,9 +410,11 @@ const getResponsiveColsSpan = () => {
 }
 
 .checkbox-icon {
+
   &::after {
     background-color: #03a6ef1a;
   }
+
   &::before {
     display: block;
     position: relative;
@@ -433,6 +436,7 @@ const getResponsiveColsSpan = () => {
 }
 
 .dash-icon {
+
   &::before {
     content: "";
     position: relative;
