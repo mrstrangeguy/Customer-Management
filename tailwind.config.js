@@ -13,8 +13,8 @@ export default {
         'label':'#00000099',
         'checked':'#03a9f40a',
         'selected':'#cdeefd',
-        'table-hover-primary':'#000000de',//table-hover-primary
         'table-hover-secondary':'#00000061',//table-hover-secondary
+        'table-hover-tertiary':'#000000de',//table-hover-tertiary
         'commission':'#03a9f4',
         'terminated':'#de8e8c',
         'salaried':'#2eb52c'
@@ -36,11 +36,11 @@ export default {
         '9.5':'38px',
       },
       screens: {
-        'laptop':'850px',
-        'laptop-mid':'750px',
-        'tablet':'620px',
-        'mobile':'448px',
-        'desktop':'1372px'
+        'large':'850px',//large
+        'medium':'750px',//medium
+        'small':'620px',//small
+        'extra-small':'448px',//extra-small
+        'extra-large':'1372px'//extra-large
       },
       maxWidth: {
         '17.5':'70px',
