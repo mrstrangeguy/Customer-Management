@@ -1,7 +1,7 @@
 <template>
   <button
     :class="{ 'button-default': true, [currentButtonClass()]: true }"
-    :style="{ backgroundColor: currentBg }"
+    :style="{ backgroundColor: buttonBgColor }"
     @mouseover="setBackgroundColor(hoverBg)"
     @mouseleave="setBackgroundColor(bgColor)"
   >
@@ -24,11 +24,11 @@ const props = withDefaults(defineProps<ButtonsProps>(), {
 });
 
 //refs
-const currentBg = ref<string>("");
+const buttonBgColor = ref<string>("");
 
 //onMounted
 onMounted(() => {
-  currentBg.value = props.bgColor;
+  buttonBgColor.value = props.bgColor;
 });
 
 //functions
@@ -41,7 +41,7 @@ const currentButtonClass = () => {
 };
 
 const setBackgroundColor = (color: string) => {
-  currentBg.value = color;
+  buttonBgColor.value = color;
 };
 </script>
 
