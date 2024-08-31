@@ -122,7 +122,6 @@ const setBackgroundColor = (color: string) => {
 
 .button-default.icon {
   padding: 5px;
-  border-radius: 50%;
   transition: 0.4s ease;
   line-height: 16px;
 
