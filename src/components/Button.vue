@@ -21,19 +21,25 @@
         'mr-0': !text,
       }"
     />
-    <span class="text-style">{{ text }}</span>
+    <span
+      :class="{
+        'text-style w-full overflow-hidden text-nowrap text-ellipsis': true,
+        'text-left': isNormalVariant,
+      }"
+      >{{ text }}</span
+    >
   </button>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { ButtonsProps } from "../types/ButtonProps";
 import { ButtonVariants } from "../Constants";
 
 const props = withDefaults(defineProps<ButtonsProps>(), {
   text: "",
   icon: "",
-  variant: "",
+  variant: ButtonVariants.Normal,
   bgColor: "",
   hoverBg: "#028bc9",
   isRounded: false,
@@ -52,6 +58,7 @@ onMounted(() => {
 const emit = defineEmits<{
   (e: "buttonClicked", event: Event): void;
 }>();
+const isNormalVariant = computed(() => props.variant === ButtonVariants.Normal);
 
 //functions
 const onButtonClick = (event: Event) => {
