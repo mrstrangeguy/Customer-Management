@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import { ButtonsProps } from "../types/ButtonProps";
+import { Buttonvariants } from '../components/Button.vue'
 import Button from "../components/Button.vue";
 
 const meta: Meta<typeof Button> = {
@@ -9,7 +10,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
+export const Normal: Story = {
   render: (args: ButtonsProps) => ({
     components: { Button },
     setup() {
@@ -24,7 +25,7 @@ export const Primary: Story = {
   },
 };
 
-export const Secondary: Story = {
+export const Outlined: Story = {
   render: (args: ButtonsProps) => ({
     components: { Button },
     setup() {
@@ -34,20 +35,6 @@ export const Secondary: Story = {
   }),
   args: {
     text: "details",
-    variant: "Secondary",
-  },
-};
-
-export const Icon: Story = {
-  render: (args: ButtonsProps) => ({
-    components: { Button },
-    setup() {
-      return { args };
-    },
-    template: '<Button v-bind="args"/>',
-  }),
-  args: {
-    icon: "dx-icon dx-icon-moon",
-    variant: "Icon",
+    variant: Buttonvariants.Outlined,
   },
 };

@@ -11,10 +11,9 @@
 <script setup lang="ts">
 import { ButtonsProps } from "../types/ButtonProps";
 
-enum Buttonvariants {
-  PRIMARY = "Primary",
-  SECONDARY = "Secondary",
-  ICON = "Icon",
+export enum Buttonvariants {
+  Normal = "Normal",
+  Outlined = "Outlined",
 }
 
 const props = withDefaults(defineProps<ButtonsProps>(), {
@@ -26,10 +25,8 @@ const props = withDefaults(defineProps<ButtonsProps>(), {
 
 //functions
 const currentButtonClass = () => {
-  if (props.variant === Buttonvariants.SECONDARY) {
+  if (props.variant === Buttonvariants.Outlined) {
     return "common-secondary";
-  } else if (props.variant === Buttonvariants.ICON) {
-    return "icon";
   }
 
   return "common-primary";
