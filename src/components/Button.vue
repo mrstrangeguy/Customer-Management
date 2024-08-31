@@ -1,7 +1,9 @@
 <template>
   <button
     :class="{ 'button-default': true, [currentButtonClass()]: true }"
-    :style="{ backgroundColor: bgColor }"
+    :style="{ backgroundColor: currentBg }"
+    @mouseover="setBackgroundColor(hoverBg)"
+    @mouseleave="setBackgroundColor(bgColor)"
   >
     <i :class="{ 'default-icon': true, [icon]: true }" />
     <span class="text-style">{{ text }}</span>
@@ -9,6 +11,7 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from "vue";
 import { ButtonsProps } from "../types/ButtonProps";
 import { ButtonVariants } from "../Constants";
 
@@ -17,6 +20,15 @@ const props = withDefaults(defineProps<ButtonsProps>(), {
   icon: "",
   variant: "",
   bgColor: "",
+  hoverBg: "#028bc9",
+});
+
+//refs
+const currentBg = ref<string>("");
+
+//onMounted
+onMounted(() => {
+  currentBg.value = props.bgColor;
 });
 
 //functions
@@ -26,6 +38,10 @@ const currentButtonClass = () => {
   }
 
   return "common-primary";
+};
+
+const setBackgroundColor = (color: string) => {
+  currentBg.value = color;
 };
 </script>
 
