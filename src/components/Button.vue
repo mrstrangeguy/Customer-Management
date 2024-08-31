@@ -11,7 +11,14 @@
     @mouseleave="setBackgroundColor(bgColor)"
     @click="onButtonClick"
   >
-    <i :class="{ 'default-icon': true, [icon]: true }" />
+    <i
+      :class="{
+        'default-icon': true,
+        [icon]: true,
+        'mr-1': text,
+        'mr-0': !text,
+      }"
+    />
     <span class="text-style">{{ text }}</span>
   </button>
 </template>
@@ -94,7 +101,6 @@ const setBackgroundColor = (color: string) => {
   }
 
   .default-icon {
-    margin-right: 4px;
     color: white;
     height: 16px;
     width: 16px;
@@ -110,7 +116,6 @@ const setBackgroundColor = (color: string) => {
   padding: 5px 12px;
   border: 1px solid rgba(0, 0, 0, 0.24);
   color: rgba(0, 0, 0, 0.87);
-  min-width: 90px;
   justify-content: center;
   height: 26px;
 }
