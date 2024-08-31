@@ -10,11 +10,7 @@
 
 <script setup lang="ts">
 import { ButtonsProps } from "../types/ButtonProps";
-
-export enum Buttonvariants {
-  Normal = "Normal",
-  Outlined = "Outlined",
-}
+import { Buttonvariants } from "../types/ButtonVariants";
 
 const props = withDefaults(defineProps<ButtonsProps>(), {
   text: "",
