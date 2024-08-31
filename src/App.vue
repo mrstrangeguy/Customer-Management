@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Buttonvariants } from "./types/ButtonVariants";
+import { Buttonvariants } from "./types/Constants";
 import Button from "./components/Button.vue";
 </script>
 

@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { ButtonsProps } from "../types/ButtonProps";
-import { Buttonvariants } from "../types/ButtonVariants";
+import { Buttonvariants } from "../types/Constants";
 
 const props = withDefaults(defineProps<ButtonsProps>(), {
   text: "",
