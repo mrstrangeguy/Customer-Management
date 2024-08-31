@@ -15,7 +15,7 @@ export const Normal: Story = {
   argTypes: {
     variant: {
       options: Object.values(ButtonVariants),
-      control:{type:'select'}
+      control: { type: "select" },
     },
   },
   render: (args: ButtonsProps) => ({
