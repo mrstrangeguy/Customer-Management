@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import { ButtonsProps } from "../types/ButtonProps";
-import { Buttonvariants } from '../types/Constants'
+import { ButtonVariants } from '../Constants'
 import Button from "../components/Button.vue";
 
 const meta: Meta<typeof Button> = {
@@ -35,6 +35,6 @@ export const Outlined: Story = {
   }),
   args: {
     text: "details",
-    variant: Buttonvariants.Outlined,
+    variant: ButtonVariants.Outlined,
   },
 };

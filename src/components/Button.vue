@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { ButtonsProps } from "../types/ButtonProps";
-import { Buttonvariants } from "../types/Constants";
+import { ButtonVariants } from "../Constants";
 
 const props = withDefaults(defineProps<ButtonsProps>(), {
   text: "",
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<ButtonsProps>(), {
 
 //functions
 const currentButtonClass = () => {
-  if (props.variant === Buttonvariants.Outlined) {
+  if (props.variant === ButtonVariants.Outlined) {
     return "common-secondary";
   }
 

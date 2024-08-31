@@ -1,5 +1,5 @@
 //Button variants enum
-export enum Buttonvariants {
+export enum ButtonVariants {
     Normal = "Normal",
     Outlined = "Outlined",
 }
