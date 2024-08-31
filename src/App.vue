@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ButtonVariants } from "./Constants";
 import Button from "./components/Button.vue";
+import { ButtonVariants } from "./Constants";
 </script>
 
 <template>
