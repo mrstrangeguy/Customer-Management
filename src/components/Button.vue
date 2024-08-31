@@ -10,12 +10,7 @@
 
 <script setup lang="ts">
 import { ButtonsProps } from "../types/ButtonProps";
-
-enum Buttonvariants {
-  PRIMARY = "Primary",
-  SECONDARY = "Secondary",
-  ICON = "Icon",
-}
+import { ButtonVariants } from "../Constants";
 
 const props = withDefaults(defineProps<ButtonsProps>(), {
   text: "",
@@ -26,10 +21,8 @@ const props = withDefaults(defineProps<ButtonsProps>(), {
 
 //functions
 const currentButtonClass = () => {
-  if (props.variant === Buttonvariants.SECONDARY) {
+  if (props.variant === ButtonVariants.Outlined) {
     return "common-secondary";
-  } else if (props.variant === Buttonvariants.ICON) {
-    return "icon";
   }
 
   return "common-primary";
