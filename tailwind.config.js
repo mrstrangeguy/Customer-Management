@@ -23,11 +23,12 @@ export default {
         'zero':'0px',
         'l1':'15.4284px',
         'l2':'26px',
-        'l3':'15px',
+        '3.75':'15px',
         '4.5':'18px'
       },
       height:{
-        '3.75':'15px'
+        '3.75':'15px',
+        '4.5':'18px'
       },
       width: {
         '9.5':'38px',
@@ -47,7 +48,8 @@ export default {
         '17.5':'70px',
       },
       padding:{
-        '2.75':'11px'
+        '2.75':'11px',
+        '2.25':'9px'
       },
       fontSize: {
         '3.25':'13px',
@@ -61,14 +63,13 @@ export default {
       backgroundColor:{
         'hover':'#00000014'
       },
-      fontSize:{
-        'title':'13px'
-      },
       letterSpacing:{
         'title':'0.52px'
       },
       transitionDuration: {
-        '200':'200ms'
+        '200':'200ms',
+        '1200':'1200ms',
+        '1500':'1500ms'
       },
       boxShadow: {
         'options-dropdown':'0 2px 4px rgba(0,0,0,.2)'
@@ -79,6 +80,9 @@ export default {
       },
       spacing: {
         '6.5':'26px'
+      },
+      maxHeight: {
+        '1000':'1000px'
       }
     },
   },

@@ -1,20 +1,32 @@
 <template>
   <div
-    :class="{ 'cursor-pointer z-100 relative': true, [containerStyle]: true }"
+    :class="{
+      'cursor-pointer z-100 relative': true,
+      [getContainerStyle()]: true,
+    }"
   >
     <div
-      :class="{ 'dropdown-header z-100 relative': true, [headerStyle]: true }"
+      :class="{
+        'dropdown-header z-100 relative': true,
+        [getHeaderStyle()]: true,
+      }"
       @click.stop="toggleContentVisibility"
       role="button"
     >
       <div class="dropdown-header__content">
         <i :class="{ 'default-icon': true, [mainIcon]: true }" />
-        <span :class="textStyle">{{ text }}</span>
+        <span
+          :class="{
+            'text-3.25 font-bold leading-3.75':
+              props.variant === Dropdownvariants.Primary,
+          }"
+          >{{ text }}</span
+        >
       </div>
       <i
         :class="{
           'default-icon dx-treeview-toggle-item-visibility': true,
-          [arrowIcon]: true,
+          [getArrowIconWithStyles()]: true,
           'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
         }"
       />
@@ -22,8 +34,8 @@
     <div
       :class="{
         'dropdown__content relative overflow-hidden transition-all': true,
-        'max-h-[1000px] duration-[1200ms] ease-in': isHeaderClicked,
-        'max-h-0 duration-[1500ms] ease-out': !isHeaderClicked,
+        'max-h-1000 duration-1200 ease-in': isHeaderClicked,
+        'max-h-0 duration-1500 ease-out': !isHeaderClicked,
       }"
     >
       <slot name="dropdown-items" />
@@ -34,17 +46,15 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
+import { Dropdownvariants } from "../Constants";
+
 const isHeaderClicked = ref(false);
 
 const toggleContentVisibility = () => {
   isHeaderClicked.value = !isHeaderClicked.value;
 };
 
-defineProps({
-  headerStyle: {
-    type: String,
-    required: true,
-  },
+const props = defineProps({
   mainIcon: {
     type: String,
     default: "",
@@ -53,19 +63,36 @@ defineProps({
     type: String,
     default: "",
   },
-  textStyle: {
+  variant: {
     type: String,
-    default: "",
-  },
-  arrowIcon: {
-    type: String,
-    default: "",
-  },
-  containerStyle: {
-    type: String,
-    default: "",
+    default: Dropdownvariants.Primary,
   },
 });
+
+//functions
+const getContainerStyle = () => {
+  if (props.variant === Dropdownvariants.Secondary) {
+    return "shadow";
+  }
+
+  return "";
+};
+
+const getHeaderStyle = () => {
+  if (props.variant === Dropdownvariants.Primary) {
+    return "py-2.25 pr-4 bg-zinc-100";
+  }
+
+  return "py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10";
+};
+
+const getArrowIconWithStyles = () => {
+  if (props.variant === Dropdownvariants.Secondary) {
+    return "text-base text-black font-normal leading-4";
+  }
+
+  return "text-4.5 block h-4.5 leading-4.5 dx-treeview-toggle-item-visibility";
+};
 </script>
 
 <style lang="scss" scoped>
