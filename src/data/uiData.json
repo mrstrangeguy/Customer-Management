@@ -96,32 +96,79 @@
         "filterDropDown": {
             "title": "ALL",
             "exportIcon": "dx-icon dx-icon-export",
-            "userStatuses":["All","Salaried","Commission","Terminated"] 
+            "userStatuses": [
+                {
+                    "prependIcon": "",
+                    "text": "All",
+                    "appendIcon": ""
+                },
+                {
+                    "prependIcon": "",
+                    "text": "Salaried",
+                    "appendIcon": ""
+                },
+                {
+                    "prependIcon": "",
+                    "text": "Commission",
+                    "appendIcon": ""
+                },
+                {
+                    "prependIcon": "",
+                    "text": "Terminated",
+                    "appendIcon": ""
+                }
+            ]
         },
         "exportOptionsDetails": {
             "titleIcon": "dx-icon dx-icon-export",
             "exportOptions": [
                 {
-                    "icon": "dx-icon dx-icon-xlsxfile dx-list-item-icon",
-                    "text": "Export all data to Excel"
+                    "prependIcon": "dx-icon dx-icon-xlsxfile dx-list-item-icon",
+                    "text": "Export all data to Excel",
+                    "appendIcon": ""
                 },
                 {
-                    "icon": "dx-icon dx-icon-exportselected dx-list-item-icon",
-                    "text": "Export selected rows to Excel"
+                    "prependIcon": "dx-icon dx-icon-exportselected dx-list-item-icon",
+                    "text": "Export selected rows to Excel",
+                    "appendIcon": ""
                 },
                 {
-                    "icon": "dx-icon dx-icon-pdffile dx-list-item-icon",
-                    "text": "Export all data to PDF"
+                    "prependIcon": "dx-icon dx-icon-pdffile dx-list-item-icon",
+                    "text": "Export all data to PDF",
+                    "appendIcon": ""
                 },
                 {
-                    "icon": "dx-icon dx-icon-exportselected dx-list-item-icon",
-                    "text": "Export selected rows to PDF"
+                    "prependIcon": "dx-icon dx-icon-exportselected dx-list-item-icon",
+                    "text": "Export selected rows to PDF",
+                    "appendIcon": ""
                 }
             ]
         },
-        "refreshIcon":"dx-icon dx-icon-refresh",
-        "columnChooserIcon":"dx-icon dx-icon-column-chooser",
-        "userAttributes":["Name","Company","Status","Assigned to","Phone","Email"]
+        "refreshIcon": "dx-icon dx-icon-refresh",
+        "columnChooserIcon": "dx-icon dx-icon-column-chooser",
+        "userAttributes": [
+            "Name",
+            "Company",
+            "Status",
+            "Assigned to",
+            "Phone",
+            "Email"
+        ],
+        "userProfileData": {
+          "profileImg":"../../assets/images/employee.png",
+          "details":[
+            {
+                "prependIcon": "",
+                "text": "John Heart",
+                "appendIcon": ""
+            },
+            {
+                "prependIcon": "dx-icon dx-icon-runner dx-list-item-icon",
+                "text": "Logout",
+                "appendIcon": ""
+            }
+          ]
+        }
+
     }
- 
 }
