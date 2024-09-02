@@ -1,6 +1,11 @@
 <template>
   <button
-    :class="{ 'button-default': true, [currentButtonClass()]: true }"
+    :class="{
+      'button-default': true,
+      [currentButtonClass()]: true,
+      'rounded-full': isRounded && !props.text,
+      'rounded-sm': !isRounded,
+    }"
     :style="{ backgroundColor: buttonBgColor }"
     @mouseover="setBackgroundColor(hoverBg)"
     @mouseleave="setBackgroundColor(bgColor)"
@@ -21,6 +26,7 @@ const props = withDefaults(defineProps<ButtonsProps>(), {
   variant: "",
   bgColor: "",
   hoverBg: "#028bc9",
+  isRounded: false,
 });
 
 //refs
@@ -61,7 +67,6 @@ const setBackgroundColor = (color: string) => {
 
 .button-default.common-primary,
 .button-default.common-secondary {
-  border-radius: 2px;
   display: flex;
   align-items: center;
   text-transform: uppercase;
