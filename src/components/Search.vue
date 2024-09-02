@@ -29,7 +29,8 @@ const onInput = (event: Event) => {
 };
 
 const removeWhiteSpace = (text: string) => {
-  return text.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
+  const whiteSpaceRegex = /^\s+|\s+$|\s+(?=\s)/g;
+  return text.replace(whiteSpaceRegex, "");
 };
 </script>
 
