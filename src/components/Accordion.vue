@@ -26,7 +26,7 @@
       <i
         :class="{
           'default-icon': true,
-          [getArrowIconWithStyles()]: true,
+          [getIconStyles()]: true,
           'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
         }"
       />
@@ -48,26 +48,25 @@ import { ref } from "vue";
 
 import { Dropdownvariants } from "../Constants";
 
+//refs
 const isHeaderClicked = ref(false);
+
+//types
+type props = {
+  mainIcon?: string;
+  text?: string;
+  variant?: string;
+};
+
+const props = withDefaults(defineProps<props>(), {
+  mainIcon: "",
+  text: "",
+  variant: Dropdownvariants.Primary,
+});
 
 const toggleContentVisibility = () => {
   isHeaderClicked.value = !isHeaderClicked.value;
 };
-
-const props = defineProps({
-  mainIcon: {
-    type: String,
-    default: "",
-  },
-  text: {
-    type: String,
-    default: "",
-  },
-  variant: {
-    type: String,
-    default: Dropdownvariants.Primary,
-  },
-});
 
 //functions
 const getContainerStyle = () => {
@@ -86,7 +85,7 @@ const getHeaderStyle = () => {
   return "py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10";
 };
 
-const getArrowIconWithStyles = () => {
+const getIconStyles = () => {
   if (props.variant === Dropdownvariants.Secondary) {
     return "text-base text-black font-normal leading-4 dx-accordion-item-title";
   }
