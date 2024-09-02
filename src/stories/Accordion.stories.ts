@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import Accordion from "../components/Accordion.vue";
 
+import { Dropdownvariants } from "../Constants";
+
 const meta: Meta<typeof Accordion> = {
   component: Accordion,
 };
@@ -9,13 +11,16 @@ export default meta;
 type Story = StoryObj<typeof Accordion>;
 
 export const Primary: Story = {
+  argTypes: {
+    variant: {
+      options: Object.values(Dropdownvariants),
+      control: { type: "select" },
+    },
+  },
   args: {
-    headerStyle: "py-[9px] pr-4 bg-[#0000000a]",
     mainIcon:
       "dx-icon dx-icon-user block text-black w-12 h-[18px] leading-[18px] text-[18px] text-center",
-    textStyle: "text-[13px] font-bold leading-[15px]",
     text: "CRM",
-    arrowIcon: "text-[18px] block h-[18px] leading-[18px]",
   },
   render: (args) => ({
     components: { Accordion },
@@ -42,10 +47,14 @@ export const Primary: Story = {
 };
 
 export const Secondary: Story = {
+  argTypes: {
+    variant: {
+      options: Object.values(Dropdownvariants),
+      control: { type: "select" },
+    },
+  },
   args: {
-    containerStyle: "shadow-[0_2px_4px_0_rgba(0,0,0,.2)]",
-    headerStyle: "py-1.5 pl-[11px] pr-2.5 text-[13px] min-h-10",
-    arrowIcon: "text-base text-[rgba(0, 0, 0, 0.87)] font-normal leading-4",
+    variant: Dropdownvariants.Secondary,
     text: "Opportunities",
   },
   render: (args) => ({

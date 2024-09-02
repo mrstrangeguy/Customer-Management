@@ -25,7 +25,7 @@
       </div>
       <i
         :class="{
-          'default-icon dx-treeview-toggle-item-visibility': true,
+          'default-icon': true,
           [getArrowIconWithStyles()]: true,
           'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
         }"
@@ -88,7 +88,7 @@ const getHeaderStyle = () => {
 
 const getArrowIconWithStyles = () => {
   if (props.variant === Dropdownvariants.Secondary) {
-    return "text-base text-black font-normal leading-4";
+    return "text-base text-black font-normal leading-4 dx-accordion-item-title";
   }
 
   return "text-4.5 block h-4.5 leading-4.5 dx-treeview-toggle-item-visibility";
