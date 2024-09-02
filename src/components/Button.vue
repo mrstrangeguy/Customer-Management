@@ -5,6 +5,7 @@
       [currentButtonClass()]: true,
       'rounded-full': isRounded && !props.text,
       'rounded-sm': !isRounded,
+      [buttonStyle]: true,
     }"
     :style="{ backgroundColor: buttonBgColor }"
     @mouseover="setBackgroundColor(hoverBg)"
@@ -35,6 +36,7 @@ const props = withDefaults(defineProps<ButtonsProps>(), {
   bgColor: "",
   hoverBg: "#028bc9",
   isRounded: false,
+  buttonStyle: "",
 });
 
 //refs
