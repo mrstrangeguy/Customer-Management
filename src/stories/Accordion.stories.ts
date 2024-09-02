@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import Dropdown from "../components/Dropdown.vue";
+import Accordion from "../components/Accordion.vue";
 
-const meta: Meta<typeof Dropdown> = {
-  component: Dropdown,
+const meta: Meta<typeof Accordion> = {
+  component: Accordion,
 };
 
 export default meta;
-type Story = StoryObj<typeof Dropdown>;
+type Story = StoryObj<typeof Accordion>;
 
 export const Primary: Story = {
   args: {
@@ -18,7 +18,7 @@ export const Primary: Story = {
     arrowIcon: "text-[18px] block h-[18px] leading-[18px]",
   },
   render: (args) => ({
-    components: { Dropdown },
+    components: { Accordion },
     setup() {
       return { args };
     },
@@ -49,7 +49,7 @@ export const Secondary: Story = {
     text: "Opportunities",
   },
   render: (args) => ({
-    components: { Dropdown },
+    components: { Accordion },
     setup() {
       return { args };
     },
