@@ -1,7 +1,7 @@
 <template>
   <div ref="dropdownRef" class="relative z-100 cursor-pointer w-fit">
     <div
-      v-if="!imageURL"
+      v-if="!profileURL"
       class="relative overflow-hidden flex py-1.5 z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-hover"
       @click.stop="toggleContentVisibility"
       role="button"
@@ -15,9 +15,8 @@
       />
       <span
         id="heading-text"
-        class="block text-title leading-4.5 text-black font-medium tracking-title"
-      >
-        {{ text }}
+        class="block text-3.25 leading-4.5 text-black font-medium tracking-title"
+        >{{ text }}
       </span>
       <i
         :class="{
@@ -27,9 +26,9 @@
       />
     </div>
     <img
-      v-if="imageURL"
+      v-if="profileURL"
       class="block w-7 h-7 object-cover object-top aspect-square border rounded-full"
-      :src="imageURL"
+      :src="profileURL"
       alt="dropdown-image"
       @click="toggleContentVisibility"
     />
@@ -38,11 +37,20 @@
         'absolute cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-options-dropdown': true,
         'opacity-100 z-150': isHeaderClicked,
         'opacity-0 z-behind': !isHeaderClicked,
-        'top-7': !imageURL,
+        'top-7': !profileURL,
         'right-0': isContentPositionLeft,
       }"
     >
-      <slot name="dropdown-items" />
+      <!-- <slot name="dropdown-items" /> -->
+      <div
+        v-for="(dropDownItem, index) in dropDownItems"
+        :class="{ 'bg-[rgba(0,0,0,.12)]': true, 'mt-1': index === 0 }"
+      >
+        <span
+          class="block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px]"
+          >{{ dropDownItem.text }}</span
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -62,12 +70,14 @@ onUnmounted(() => {
 });
 
 //types
+type dropDownItem = { appendIcon: string; text: string; prependIcon: string };
+
 type OptionsDropdownProps = {
   text?: string;
   arrowIcon?: string;
   icon?: string;
-  imageURL?: string;
-  contentPosition?: string;
+  profileURL?: string;
+  dropDownItems?: dropDownItem[];
 };
 
 const props = withDefaults(defineProps<OptionsDropdownProps>(), {
