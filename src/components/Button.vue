@@ -4,6 +4,7 @@
     :style="{ backgroundColor: buttonBgColor }"
     @mouseover="setBackgroundColor(hoverBg)"
     @mouseleave="setBackgroundColor(bgColor)"
+    @click="onButtonClick"
   >
     <i :class="{ 'default-icon': true, [icon]: true }" />
     <span class="text-style">{{ text }}</span>
@@ -31,7 +32,16 @@ onMounted(() => {
   buttonBgColor.value = props.bgColor;
 });
 
+//emits
+const emit = defineEmits<{
+  (e: "buttonClicked", event: Event): void;
+}>();
+
 //functions
+const onButtonClick = (event: Event) => {
+  emit("buttonClicked", event);
+};
+
 const currentButtonClass = () => {
   if (props.variant === ButtonVariants.Outlined) {
     return "common-secondary";
