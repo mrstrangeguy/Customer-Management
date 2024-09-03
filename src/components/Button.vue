@@ -5,6 +5,8 @@
       [currentButtonClass()]: true,
       'rounded-full': isRounded && !props.text,
       'rounded-sm': !isRounded,
+      'common-primary': variant !== ButtonVariants.Outlined,
+      'common-secondary': variant === ButtonVariants.Outlined,
       [buttonStyle]: true,
     }"
     :style="{ backgroundColor: buttonBgColor }"
