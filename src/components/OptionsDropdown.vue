@@ -20,6 +20,7 @@
         {{ text }}
       </span>
       <i
+        v-if="arrowIcon"
         :class="{
           'default-icon ml-1 block w-4 text-base leading-4 text-center align-middle': true,
           [arrowIcon]: true,
