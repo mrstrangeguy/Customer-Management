@@ -2,15 +2,14 @@
   <div
     :class="{
       'cursor-pointer z-100 relative': true,
-      shadow: variant === DropdownVariants.Secondary,
+      shadow: isSecondaryVariant,
     }"
   >
     <div
       :class="{
         'dropdown-header z-100 relative': true,
-        'py-2.25 pr-4 bg-zinc-100': variant === DropdownVariants.Primary,
-        'py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10':
-          variant !== DropdownVariants.Primary,
+        'py-2.25 pr-4 bg-zinc-100': isPrimaryVariant,
+        'py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10': !isPrimaryVariant,
       }"
       @click.stop="toggleContentVisibility"
       role="button"
@@ -19,19 +18,19 @@
         <i :class="{ 'default-icon': true, [mainIcon]: true }" />
         <span
           :class="{
-            'text-3.25 font-bold leading-3.75':
-              props.variant === DropdownVariants.Primary,
+            'text-3.25 font-bold leading-3.75': isPrimaryVariant,
           }"
-          >{{ text }}</span
         >
+          {{ text }}
+        </span>
       </div>
       <i
         :class="{
           'default-icon': true,
           'text-base text-black font-normal leading-4 dx-accordion-item-title':
-            variant === DropdownVariants.Secondary,
+            isSecondaryVariant,
           'text-4.5 block h-4.5 leading-4.5 dx-treeview-toggle-item-visibility':
-            variant !== DropdownVariants.Secondary,
+            !isSecondaryVariant,
           'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
         }"
       />
@@ -49,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 import { DropdownVariants } from "../Constants";
 
@@ -69,9 +68,14 @@ const props = withDefaults(defineProps<props>(), {
   variant: DropdownVariants.Primary,
 });
 
-const toggleContentVisibility = () => {
-  isHeaderClicked.value = !isHeaderClicked.value;
-};
+//computed
+const isPrimaryVariant = computed(() => props.variant === DropdownVariants.Primary);
+
+const isSecondaryVariant = computed(() => props.variant === DropdownVariants.Secondary);
+
+//functions
+const toggleContentVisibility = () => isHeaderClicked.value = !isHeaderClicked.value;
+
 </script>
 
 <style lang="scss" scoped>
