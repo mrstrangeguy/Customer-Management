@@ -16,7 +16,8 @@
       <span
         id="heading-text"
         class="block text-3.25 leading-4.5 text-black font-medium tracking-title"
-        >{{ text }}
+      >
+        {{ text }}
       </span>
       <i
         :class="{
@@ -44,10 +45,15 @@
       <!-- <slot name="dropdown-items" /> -->
       <div
         v-for="(dropDownItem, index) in dropDownItems"
-        :class="{ 'bg-[rgba(0,0,0,.12)]': true, 'mt-1': index === 0 }"
+        :class="{
+          'flex items-center':true,
+          'hover:bg-zinc-100': index !== 0,
+          'mt-1 bg-zinc-200': index === 0,
+        }"
       >
+        <i v-if="dropDownItem.prependIcon" :class="{'default-icon dx-icon text-4.5':true,[dropDownItem.prependIcon]:true}"/>
         <span
-          class="block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px]"
+          class="block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px] text-nowrap"
           >{{ dropDownItem.text }}</span
         >
       </div>
@@ -70,7 +76,11 @@ onUnmounted(() => {
 });
 
 //types
-type dropDownItem = { appendIcon: string; text: string; prependIcon: string };
+type dropDownItem = {
+  appendIcon?: string;
+  text?: string;
+  prependIcon?: string;
+};
 
 type OptionsDropdownProps = {
   text?: string;

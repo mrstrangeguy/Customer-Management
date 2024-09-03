@@ -23,6 +23,10 @@
   content: "";
 }
 
+.dx-icon-xlsxfile::before {
+  content: "";
+}
+
 .dx-datagrid-adaptive-more::before {
   content: "";
 }
