@@ -36,11 +36,13 @@
       />
     </div>
     <div
+      ref="contentRef"
       :class="{
         'dropdown__content relative overflow-hidden transition-all': true,
         'max-h-1000 duration-1200 ease-in': isHeaderClicked,
         'max-h-0 duration-1500 ease-out': !isHeaderClicked,
       }"
+      :style="{ height: contentHeight }"
     >
       <slot name="dropdown-items" />
     </div>
