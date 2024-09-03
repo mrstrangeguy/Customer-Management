@@ -1,9 +1,9 @@
 import { it, expect, describe } from "vitest";
 import { mount } from "@vue/test-utils";
-import OptionsDropdown from "../components/OptionsDropdown.vue";
+import Dropdown from "../components/Dropdown.vue";
 
 describe("OptionsDropdown", () => {
-  const firstVariant = mount(OptionsDropdown, {
+  const firstVariant = mount(Dropdown, {
     props: {
       text: "This is header text",
       arrowIcon: "dx-icon dx-icon-spindown dx-icon-right",
@@ -36,7 +36,7 @@ describe("OptionsDropdown", () => {
     },
   });
 
-  const secondVariant = mount(OptionsDropdown, {
+  const secondVariant = mount(Dropdown, {
     props: {
       icon: "dx-icon dx-icon-export",
       arrowIcon: "dx-icon dx-icon-spindown dx-icon-right",
@@ -59,7 +59,7 @@ describe("OptionsDropdown", () => {
     },
   });
 
-  const profileVariant = mount(OptionsDropdown, {
+  const profileVariant = mount(Dropdown, {
     props: {
       profileURL:
         "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png",
