@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import Accordion from "../components/Accordion.vue";
 
-import { Dropdownvariants } from "../Constants";
+import { DropdownVariants } from "../Constants";
 
 const meta: Meta<typeof Accordion> = {
   component: Accordion,
@@ -13,7 +13,7 @@ type Story = StoryObj<typeof Accordion>;
 export const Primary: Story = {
   argTypes: {
     variant: {
-      options: Object.values(Dropdownvariants),
+      options: Object.values(DropdownVariants),
       control: { type: "select" },
     },
   },
@@ -49,12 +49,12 @@ export const Primary: Story = {
 export const Secondary: Story = {
   argTypes: {
     variant: {
-      options: Object.values(Dropdownvariants),
+      options: Object.values(DropdownVariants),
       control: { type: "select" },
     },
   },
   args: {
-    variant: Dropdownvariants.Secondary,
+    variant: DropdownVariants.Secondary,
     text: "Opportunities",
   },
   render: (args) => ({

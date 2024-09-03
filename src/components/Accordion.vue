@@ -2,13 +2,15 @@
   <div
     :class="{
       'cursor-pointer z-100 relative': true,
-      [getContainerStyle()]: true,
+      shadow: variant === DropdownVariants.Secondary,
     }"
   >
     <div
       :class="{
         'dropdown-header z-100 relative': true,
-        [getHeaderStyle()]: true,
+        'py-2.25 pr-4 bg-zinc-100': variant === DropdownVariants.Primary,
+        'py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10':
+          variant !== DropdownVariants.Primary,
       }"
       @click.stop="toggleContentVisibility"
       role="button"
@@ -18,7 +20,7 @@
         <span
           :class="{
             'text-3.25 font-bold leading-3.75':
-              props.variant === Dropdownvariants.Primary,
+              props.variant === DropdownVariants.Primary,
           }"
           >{{ text }}</span
         >
@@ -26,7 +28,10 @@
       <i
         :class="{
           'default-icon': true,
-          [getIconStyles()]: true,
+          'text-base text-black font-normal leading-4 dx-accordion-item-title':
+            variant === DropdownVariants.Secondary,
+          'text-4.5 block h-4.5 leading-4.5 dx-treeview-toggle-item-visibility':
+            variant !== DropdownVariants.Secondary,
           'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
         }"
       />
@@ -46,7 +51,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import { Dropdownvariants } from "../Constants";
+import { DropdownVariants } from "../Constants";
 
 //refs
 const isHeaderClicked = ref(false);
@@ -61,36 +66,11 @@ type props = {
 const props = withDefaults(defineProps<props>(), {
   mainIcon: "",
   text: "",
-  variant: Dropdownvariants.Primary,
+  variant: DropdownVariants.Primary,
 });
 
 const toggleContentVisibility = () => {
   isHeaderClicked.value = !isHeaderClicked.value;
-};
-
-//functions
-const getContainerStyle = () => {
-  if (props.variant === Dropdownvariants.Secondary) {
-    return "shadow";
-  }
-
-  return "";
-};
-
-const getHeaderStyle = () => {
-  if (props.variant === Dropdownvariants.Primary) {
-    return "py-2.25 pr-4 bg-zinc-100";
-  }
-
-  return "py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10";
-};
-
-const getIconStyles = () => {
-  if (props.variant === Dropdownvariants.Secondary) {
-    return "text-base text-black font-normal leading-4 dx-accordion-item-title";
-  }
-
-  return "text-4.5 block h-4.5 leading-4.5 dx-treeview-toggle-item-visibility";
 };
 </script>
 
