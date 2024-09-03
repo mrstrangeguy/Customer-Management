@@ -98,24 +98,16 @@
             "exportIcon": "dx-icon dx-icon-export",
             "userStatuses": [
                 {
-                    "prependIcon": "",
-                    "text": "All",
-                    "appendIcon": ""
+                    "text": "All"
                 },
                 {
-                    "prependIcon": "",
-                    "text": "Salaried",
-                    "appendIcon": ""
+                    "text": "Salaried"
                 },
                 {
-                    "prependIcon": "",
-                    "text": "Commission",
-                    "appendIcon": ""
+                    "text": "Commission"
                 },
                 {
-                    "prependIcon": "",
-                    "text": "Terminated",
-                    "appendIcon": ""
+                    "text": "Terminated"
                 }
             ]
         },
@@ -124,23 +116,19 @@
             "exportOptions": [
                 {
                     "prependIcon": "dx-icon dx-icon-xlsxfile dx-list-item-icon",
-                    "text": "Export all data to Excel",
-                    "appendIcon": ""
+                    "text": "Export all data to Excel"
                 },
                 {
                     "prependIcon": "dx-icon dx-icon-exportselected dx-list-item-icon",
-                    "text": "Export selected rows to Excel",
-                    "appendIcon": ""
+                    "text": "Export selected rows to Excel"
                 },
                 {
                     "prependIcon": "dx-icon dx-icon-pdffile dx-list-item-icon",
-                    "text": "Export all data to PDF",
-                    "appendIcon": ""
+                    "text": "Export all data to PDF"
                 },
                 {
                     "prependIcon": "dx-icon dx-icon-exportselected dx-list-item-icon",
-                    "text": "Export selected rows to PDF",
-                    "appendIcon": ""
+                    "text": "Export selected rows to PDF"
                 }
             ]
         },
@@ -155,20 +143,16 @@
             "Email"
         ],
         "userProfileData": {
-          "profileImg":"../../assets/images/employee.png",
-          "details":[
-            {
-                "prependIcon": "",
-                "text": "John Heart",
-                "appendIcon": ""
-            },
-            {
-                "prependIcon": "dx-icon dx-icon-runner dx-list-item-icon",
-                "text": "Logout",
-                "appendIcon": ""
-            }
-          ]
+            "profileImg": "../../assets/images/employee.png",
+            "details": [
+                {
+                    "text": "John Heart"
+                },
+                {
+                    "prependIcon": "dx-icon dx-icon-runner dx-list-item-icon",
+                    "text": "Logout"
+                }
+            ]
         }
-
     }
 }
