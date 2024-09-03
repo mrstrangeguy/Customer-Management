@@ -52,8 +52,7 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   args: {
-    icon: "dx-icon dx-icon-export",
-    arrowIcon: "dx-icon dx-icon-spindown dx-icon-right",
+   text:"This is text"
   },
   render: (args) => ({
     components: { Accordion },
@@ -90,36 +89,6 @@ export const Secondary: Story = {
       </div>
     </template>
   </options-dropdown> 
-    `,
-  }),
-};
-
-export const Profile: Story = {
-  args: {
-    profileURL:
-      "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png",
-  },
-  render: (args) => ({
-    components: { Dropdown },
-    setup() {
-      return { args };
-    },
-    template: `
-    <OptionsDropdown profileURL="https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png" class="ml-[80px]">
-    <template v-slot:dropdown-items>
-    <div class="py-2.5 px-[11px] border-b border-[#e0e0e0]">
-    <span class="block font-normal text-nowrap font-sm leading-[17.9998px] text-[14px] text-center">John Heart</span>
-    </div>
-    <div class="my-1">
-    <div class="px-[11px] pt-2.5 pb-[9px] flex items-center">
-    <div class="w-[29px] h-[18px]">
-    <i class="default-icon dx-icon dx-icon-runner dx-list-item-icon leading-[18px] w-[18px] h-[18px] text-[18px] mr-4"/>
-    </div>
-    <span class="block leading-4 text-[13px]">Logout</span>
-    </div>
-    </div>
-    </template>
-    </OptionsDropdown>
     `,
   }),
 };
