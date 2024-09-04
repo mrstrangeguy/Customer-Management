@@ -98,15 +98,19 @@
             "exportIcon": "dx-icon dx-icon-export",
             "userStatuses": [
                 {
+                    "isHoverable": true,
                     "text": "All"
                 },
                 {
+                    "isHoverable": true,
                     "text": "Salaried"
                 },
                 {
+                    "isHoverable": true,
                     "text": "Commission"
                 },
                 {
+                    "isHoverable": true,
                     "text": "Terminated"
                 }
             ]
@@ -115,18 +119,22 @@
             "titleIcon": "dx-icon dx-icon-export",
             "exportOptions": [
                 {
+                    "isHoverable": true,
                     "prependIcon": "dx-icon dx-icon-xlsxfile dx-list-item-icon",
                     "text": "Export all data to Excel"
                 },
                 {
+                    "isHoverable": true,
                     "prependIcon": "dx-icon dx-icon-exportselected dx-list-item-icon",
                     "text": "Export selected rows to Excel"
                 },
                 {
+                    "isHoverable": true,
                     "prependIcon": "dx-icon dx-icon-pdffile dx-list-item-icon",
                     "text": "Export all data to PDF"
                 },
                 {
+                    "isHoverable": true,
                     "prependIcon": "dx-icon dx-icon-exportselected dx-list-item-icon",
                     "text": "Export selected rows to PDF"
                 }
@@ -149,6 +157,7 @@
                     "text": "John Heart"
                 },
                 {
+                    "isHoverable": true,
                     "prependIcon": "dx-icon dx-icon-runner dx-list-item-icon",
                     "text": "Logout"
                 }
