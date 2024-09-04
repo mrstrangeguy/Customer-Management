@@ -72,8 +72,7 @@ const props = withDefaults(defineProps<props>(), {
 const isPrimaryVariant = computed(() => props.variant === DropdownVariants.Primary);
 
 //functions
-const toggleContentVisibility = () =>
-  (isHeaderClicked.value = !isHeaderClicked.value);
+const toggleContentVisibility = () => isHeaderClicked.value = !isHeaderClicked.value;
 </script>
 
 <style lang="scss" scoped>
