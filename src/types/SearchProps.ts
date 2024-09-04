@@ -1,3 +1,4 @@
 export type SearchProps = {
-    placeholderText:string
-}
+  placeholderText?: string;
+  value?: string;
+};

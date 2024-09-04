@@ -6,31 +6,59 @@
       class="default-icon block h-[34px] w-[34px] absolute bottom-0 py-[9px] pl-3 pr-1.5 dx-icon dx-icon-search text-center leading-4 font-normal text-[#0000008a]"
     />
     <input
-      :placeholder="removeWhiteSpace(placeholderText)"
+      :placeholder="capitalizeFirstLetter(placeholderText)"
+      v-model="searchValue"
       class="search-input block z-10 w-full py-[9px] pl-[34px] pr-3 bg-transparent leading-[14px] text-xs placeholder:text-xs placeholder:text-[#00000099] outline-none"
       type="text"
       @input="onInput"
+      @focusout="trimSearchInput"
     />
   </div>
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from "vue";
 import { SearchProps } from "../types/SearchProps";
 
 //props
-defineProps<SearchProps>();
+const props = withDefaults(defineProps<SearchProps>(), {
+  placeholderText: "Search",
+  value: "",
+});
+
+//onMounted
+onMounted(() => {
+  searchValue.value = props.value;
+});
+
 //emits
 const emits = defineEmits(["getInputValue"]);
+
+//refs
+const searchValue = ref<string>("");
 
 //functions
 const onInput = (event: Event) => {
   const el = event.target as HTMLInputElement;
+
   emits("getInputValue", el.value);
 };
 
 const removeWhiteSpace = (text: string) => {
   const whiteSpaceRegex = /^\s+|\s+$|\s+(?=\s)/g;
   return text.replace(whiteSpaceRegex, "");
+};
+
+const capitalizeFirstLetter = (text: string) => {
+  const editedText = text[0].toUpperCase() + text.slice(1);
+
+  return removeWhiteSpace(editedText);
+};
+
+const trimSearchInput = (event: Event) => {
+  const el = event.target as HTMLInputElement;
+
+  searchValue.value = el.value.trim();
 };
 </script>
 
