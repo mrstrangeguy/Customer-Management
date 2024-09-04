@@ -2,7 +2,7 @@
   <div
     :class="{
       'cursor-pointer z-100 relative': true,
-      shadow: isSecondaryVariant,
+      shadow: !isPrimaryVariant,
     }"
   >
     <div
@@ -28,9 +28,9 @@
         :class="{
           'default-icon': true,
           'text-base text-black font-normal leading-4 dx-accordion-item-title':
-            isSecondaryVariant,
+            !isPrimaryVariant,
           'text-4.5 block h-4.5 leading-4.5 dx-treeview-toggle-item-visibility':
-            !isSecondaryVariant,
+            isPrimaryVariant,
           'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
         }"
       />
@@ -71,11 +71,9 @@ const props = withDefaults(defineProps<props>(), {
 //computed
 const isPrimaryVariant = computed(() => props.variant === DropdownVariants.Primary);
 
-const isSecondaryVariant = computed(() => props.variant === DropdownVariants.Secondary);
-
 //functions
-const toggleContentVisibility = () => isHeaderClicked.value = !isHeaderClicked.value;
-
+const toggleContentVisibility = () =>
+  (isHeaderClicked.value = !isHeaderClicked.value);
 </script>
 
 <style lang="scss" scoped>
