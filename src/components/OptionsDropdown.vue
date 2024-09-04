@@ -45,7 +45,6 @@
         'right-0 rounded-sm': imageURL,
       }"
     >
-      <!-- <slot name="dropdown-items" /> -->
       <div
         v-for="(dropDownItem, index) in dropDownItems"
         :class="{
@@ -63,8 +62,8 @@
         />
         <span
           :class="{
-            'block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px] text-nowrap': true,
-            'text-[14px]': imageURL,
+            'block text-3.25 leading-4 px-2.75 pt-2.5 pb-2.5 text-nowrap': true,
+            'text-sm': imageURL,
           }"
         >
           {{ dropDownItem.text }}
