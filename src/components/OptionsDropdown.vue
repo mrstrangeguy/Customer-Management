@@ -1,8 +1,11 @@
 <template>
   <div ref="dropdownRef" class="relative z-100 cursor-pointer w-fit">
     <div
-      v-if="!profileURL"
-      class="relative overflow-hidden flex py-1.5 z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-hover"
+      v-if="!imageURL"
+      :class="{
+        'relative overflow-hidden flex py-1.5 z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-hover': true,
+        'pl-2': icon,
+      }"
       @click.stop="toggleContentVisibility"
       role="button"
     >
@@ -27,35 +30,44 @@
       />
     </div>
     <img
-      v-if="profileURL"
+      v-if="imageURL"
       class="block w-7 h-7 object-cover object-top aspect-square border rounded-full"
-      :src="profileURL"
+      :src="imageURL"
       alt="dropdown-image"
-      @click="toggleContentVisibility"
+      @click.stop="toggleContentVisibility"
     />
     <div
       :class="{
         'absolute cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-options-dropdown': true,
         'opacity-100 z-150': isHeaderClicked,
         'opacity-0 z-behind': !isHeaderClicked,
-        'top-7': !profileURL,
-        'right-0': isContentPositionLeft,
+        'top-7 left-0': !imageURL,
+        'right-0 rounded-sm': imageURL,
       }"
     >
       <!-- <slot name="dropdown-items" /> -->
       <div
         v-for="(dropDownItem, index) in dropDownItems"
         :class="{
-          'flex items-center':true,
-          'hover:bg-zinc-100': index !== 0,
-          'mt-1 bg-zinc-200': index === 0,
+          'flex items-center hover:bg-zinc-100': true,
+          'mt-1': index === 0,
         }"
       >
-        <i v-if="dropDownItem.prependIcon" :class="{'default-icon dx-icon text-4.5':true,[dropDownItem.prependIcon]:true}"/>
+        <i
+          v-if="dropDownItem.prependIcon"
+          :class="{
+            'default-icon dx-icon text-4.5': true,
+            [dropDownItem.prependIcon]: true,
+            'ml-2.5 text-zinc-500': dropDownItem.prependIcon,
+          }"
+        />
         <span
-          class="block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px] text-nowrap"
-          >{{ dropDownItem.text }}</span
+          :class="{'block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px] text-nowrap':true,
+            'text-[14px]':imageURL
+          }"
         >
+          {{ dropDownItem.text }}
+        </span>
       </div>
     </div>
   </div>
@@ -86,7 +98,7 @@ type OptionsDropdownProps = {
   text?: string;
   arrowIcon?: string;
   icon?: string;
-  profileURL?: string;
+  imageURL?: string;
   dropDownItems?: dropDownItem[];
 };
 

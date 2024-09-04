@@ -27,6 +27,14 @@
   content: "";
 }
 
+.dx-icon-exportselected:before {
+  content: "";
+}
+
+.dx-icon-pdffile:before {
+  content: "";
+}
+
 .dx-datagrid-adaptive-more::before {
   content: "";
 }
