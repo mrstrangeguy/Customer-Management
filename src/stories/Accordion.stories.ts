@@ -78,8 +78,7 @@ export const Secondary: Story = {
     },
     template: `
     <options-dropdown
-    icon="dx-icon dx-icon-export"
-    arrow-icon="dx-icon dx-icon-spindown dx-icon-right"
+    v-bind="args"
     >
     <template v-slot:dropdown-items>
       <div class="mt-1">
