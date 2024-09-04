@@ -62,8 +62,9 @@
           }"
         />
         <span
-          :class="{'block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px] text-nowrap':true,
-            'text-[14px]':imageURL
+          :class="{
+            'block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px] text-nowrap': true,
+            'text-[14px]': imageURL,
           }"
         >
           {{ dropDownItem.text }}
