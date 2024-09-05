@@ -23,6 +23,7 @@ export const Normal: Story = {
     text: "Add Contact",
     icon: "dx-icon dx-icon-plus",
     bgColor: "#03a9f4",
+    isRounded:false
   },
 };
 
@@ -37,5 +38,6 @@ export const Outlined: Story = {
   args: {
     text: "details",
     variant: ButtonVariants.Outlined,
+    isRounded:false
   },
 };
