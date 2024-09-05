@@ -7,6 +7,8 @@
       'common-primary': variant !== ButtonVariants.Outlined,
       'common-secondary': variant === ButtonVariants.Outlined,
       [buttonStyle]: true,
+      'button-default overflow-hidden': true,
+      'w-full': text,
     }"
     :style="{ backgroundColor: buttonBgColor }"
     @mouseover="setBackgroundColor(hoverBg)"
