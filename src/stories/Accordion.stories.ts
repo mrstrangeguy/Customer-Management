@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import Accordion from "../components/Accordion.vue";
 
+import Accordion from "../components/Accordion.vue";
 import { DropdownVariants } from "../Constants";
 
 const meta: Meta<typeof Accordion> = {
