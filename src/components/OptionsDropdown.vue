@@ -82,7 +82,11 @@ const toggleContentVisibility = () => {
 };
 
 const onOutSideClick = (event: Event) => {
-  if (dropdownRef.value && !dropdownRef.value.contains(event.target)) {
+  if (
+    dropdownRef.value &&
+    !dropdownRef.value.contains(event.target) &&
+    document.body.contains(dropdownRef.value)
+  ) {
     isHeaderClicked.value = false;
   }
 };
