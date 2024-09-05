@@ -81,17 +81,8 @@ const toggleContentVisibility = () => {
   isHeaderClicked.value = !isHeaderClicked.value;
 };
 
-const onOutSideClick = () => {
-  const appElement = document.body.firstElementChild;
-  let targetElement;
-
-  const elements = appElement?.childNodes;
-
-  elements?.forEach((elem) => {
-    if (elem === dropdownRef.value) targetElement = elem;
-  });
-
-  if (targetElement) {
+const onOutSideClick = (event: Event) => {
+  if (dropdownRef.value && !dropdownRef.value.contains(event.target)) {
     isHeaderClicked.value = false;
   }
 };
