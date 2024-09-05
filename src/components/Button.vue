@@ -59,14 +59,6 @@ const onButtonClick = (event: Event) => {
   emit("buttonClicked", event);
 };
 
-const currentButtonClass = () => {
-  if (props.variant === ButtonVariants.Outlined) {
-    return "common-secondary";
-  }
-
-  return "common-primary";
-};
-
 const setBackgroundColor = (color: string) => {
   buttonBgColor.value = color;
 };
