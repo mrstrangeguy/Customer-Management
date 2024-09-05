@@ -6,7 +6,7 @@
       class="default-icon block h-[34px] w-[34px] absolute bottom-0 py-[9px] pl-3 pr-1.5 dx-icon dx-icon-search text-center leading-4 font-normal text-[#0000008a]"
     />
     <input
-      :placeholder="placeholderText"
+      :placeholder="removeWhiteSpace(placeholderText)"
       class="search-input block z-10 w-full py-[9px] pl-[34px] pr-3 bg-transparent leading-[14px] text-xs placeholder:text-xs placeholder:text-[#00000099] outline-none"
       type="text"
       @input="onInput"
@@ -26,6 +26,11 @@ const emits = defineEmits(["getInputValue"]);
 const onInput = (event: Event) => {
   const el = event.target as HTMLInputElement;
   emits("getInputValue", el.value);
+};
+
+const removeWhiteSpace = (text: string) => {
+  const whiteSpaceRegex = /^\s+|\s+$|\s+(?=\s)/g;
+  return text.replace(whiteSpaceRegex, "");
 };
 </script>
 
