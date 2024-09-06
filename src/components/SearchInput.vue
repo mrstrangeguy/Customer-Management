@@ -6,12 +6,12 @@
       class="default-icon block h-[34px] w-[34px] absolute bottom-0 py-[9px] pl-3 pr-1.5 dx-icon dx-icon-search text-center leading-4 font-normal text-[#0000008a]"
     />
     <input
-      :placeholder="capitalizeFirstLetter(placeholderText)"
+      :placeholder="removeWhiteSpace(placeholder)"
       v-model="searchValue"
-      class="search-input block z-10 w-full py-[9px] pl-[34px] pr-3 bg-transparent leading-[14px] text-xs placeholder:text-xs placeholder:text-[#00000099] outline-none"
+      class="block placeholder:capitalize z-10 w-full py-[9px] pl-[34px] pr-3 bg-transparent leading-[14px] text-xs placeholder:text-xs placeholder:text-[#00000099] outline-none"
       type="text"
-      @input="onInput"
       @focusout="trimSearchInput"
+      @input="onInput"
     />
   </div>
 </template>
@@ -22,7 +22,7 @@ import { SearchProps } from "../types/SearchProps";
 
 //props
 const props = withDefaults(defineProps<SearchProps>(), {
-  placeholderText: "Search",
+  placeholder: "Search",
   value: "",
 });
 
@@ -49,16 +49,10 @@ const removeWhiteSpace = (text: string) => {
   return text.replace(whiteSpaceRegex, "");
 };
 
-const capitalizeFirstLetter = (text: string) => {
-  const editedText = text[0].toUpperCase() + text.slice(1);
-
-  return removeWhiteSpace(editedText);
-};
-
 const trimSearchInput = (event: Event) => {
-  const el = event.target as HTMLInputElement;
+  const inputElement = event.target as HTMLInputElement;
 
-  searchValue.value = el.value.trim();
+  searchValue.value = inputElement.value.trim();
 };
 </script>
 

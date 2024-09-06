@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import Search from "../components/Search.vue";
+import Search from "../components/SearchInput.vue";
 
 const meta: Meta<typeof Search> = {
   component: Search,
