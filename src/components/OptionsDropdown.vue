@@ -1,7 +1,7 @@
 <template>
   <div ref="dropdownRef" class="relative z-100 cursor-pointer w-fit">
     <div
-      v-if="!profileURL"
+      v-if="!imageURL"
       class="relative overflow-hidden flex py-1.5 z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-hover"
       @click.stop="toggleContentVisibility"
       role="button"
@@ -16,7 +16,8 @@
       <span
         id="heading-text"
         class="block text-title leading-4.5 text-black font-medium tracking-title"
-        >{{ text }}
+      >
+        {{ text }}
       </span>
       <i
         :class="{
@@ -26,19 +27,19 @@
       />
     </div>
     <img
-      v-if="profileURL"
+      v-if="imageURL"
       class="block w-7 h-7 object-cover object-top aspect-square border rounded-full"
-      :src="profileURL"
-      alt="profile-img"
-      @click.stop="toggleContentVisibility"
+      :src="imageURL"
+      alt="dropdown-image"
+      @click="toggleContentVisibility"
     />
     <div
       :class="{
         'absolute cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-options-dropdown': true,
         'opacity-100 z-150': isHeaderClicked,
         'opacity-0 z-behind': !isHeaderClicked,
-        'top-7 left-0': !profileURL,
-        'right-0': profileURL,
+        'top-7': !imageURL,
+        'right-0': isContentPositionLeft,
       }"
     >
       <slot name="dropdown-items" />
@@ -47,22 +48,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, Ref, ref } from "vue";
-
-//types
-type OptionsDropdownProps = {
-  text: string;
-  arrowIcon: string;
-  icon: string;
-  profileURL: string;
-};
-
-withDefaults(defineProps<OptionsDropdownProps>(), {
-  arrowIcon: "",
-  icon: "",
-  profileURL: "",
-  text: "",
-});
+import { onMounted, onUnmounted, Ref, ref,computed } from "vue";
+import { DropdownPositions } from "../Constants";
 
 //onMounted
 onMounted(() => {
@@ -73,6 +60,24 @@ onMounted(() => {
 onUnmounted(() => {
   document.removeEventListener("click", onOutSideClick);
 });
+
+//types
+type OptionsDropdownProps = {
+  text?: string;
+  arrowIcon?: string;
+  icon?: string;
+  imageURL?: string;
+  contentPosition?: string;
+};
+
+const props = withDefaults(defineProps<OptionsDropdownProps>(), {
+  arrowIcon: "",
+  icon: "",
+  imageURL: "",
+  text: "",
+  contentPosition: DropdownPositions.Right,
+});
+
 
 const isHeaderClicked = ref(false);
 const dropdownRef = ref<Ref | null>(null);
@@ -90,6 +95,11 @@ const onOutSideClick = (event: Event) => {
     isHeaderClicked.value = false;
   }
 };
+
+//computed
+const isContentPositionLeft = computed(
+  () => props.contentPosition === DropdownPositions.Left
+);
 </script>
 
 <style lang="scss" scoped></style>

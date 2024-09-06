@@ -8,3 +8,8 @@ export enum DropdownVariants {
   Primary = "Primary",
   Secondary = "Secondary",
 }
+
+export enum DropdownPositions {
+  Left = "Left",
+  Right = "Right"
+}

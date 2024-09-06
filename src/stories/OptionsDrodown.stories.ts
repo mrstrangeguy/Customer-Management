@@ -1,29 +1,29 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
-import Accordion from "../components/Accordion.vue";
-import { DropdownVariants } from "../Constants";
+import OptionsDropdown from "../components/OptionsDropdown.vue";
+import { DropdownPositions } from "../Constants";
 
-const meta: Meta<typeof Accordion> = {
-  component: Accordion,
+const meta: Meta<typeof OptionsDropdown> = {
+  component: OptionsDropdown,
 };
 
 export default meta;
-type Story = StoryObj<typeof Accordion>;
+type Story = StoryObj<typeof OptionsDropdown>;
 
 export const Primary: Story = {
   argTypes: {
-    variant: {
-      options: Object.values(DropdownVariants),
+    contentPosition: {
+      options: Object.values(DropdownPositions),
       control: { type: "select" },
     },
   },
   args: {
-    mainIcon:
+    icon:
       "dx-icon dx-icon-user block text-black w-12 h-[18px] leading-[18px] text-[18px] text-center",
     text: "CRM",
   },
   render: (args) => ({
-    components: { Accordion },
+    components: { OptionsDropdown },
     setup() {
       return { args };
     },
@@ -62,17 +62,17 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   argTypes: {
-    variant: {
-      options: Object.values(DropdownVariants),
+    contentPosition: {
+      options: Object.values(DropdownPositions),
       control: { type: "select" },
     },
   },
   args: {
-    variant: DropdownVariants.Secondary,
+    contentPosition: DropdownPositions.Left,
     text: "Opportunities",
   },
   render: (args) => ({
-    components: { Accordion },
+    components: { OptionsDropdown },
     setup() {
       return { args };
     },
@@ -105,6 +105,43 @@ export const Secondary: Story = {
       </div>
     </template>
   </options-dropdown> 
+    `,
+  }),
+};
+
+export const Profile: Story = {
+  argTypes: {
+    contentPosition: {
+      options: Object.values(DropdownPositions),
+      control: { type: "select" },
+    },
+  },
+  args: {
+    imageURL:
+      "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png",
+    contentPosition: "Left",
+  },
+  render: (args) => ({
+    components: { OptionsDropdown },
+    setup() {
+      return { args };
+    },
+    template: `
+    <options-dropdown v-bind="args">
+    <template v-slot:dropdown-items>
+    <div class="py-2.5 px-[11px] border-b border-[#e0e0e0]">
+    <span class="block font-normal text-nowrap font-sm leading-[17.9998px] text-[14px] text-center">John Heart</span>
+    </div>
+    <div class="my-1">
+    <div class="px-[11px] pt-2.5 pb-[9px] flex items-center">
+    <div class="w-[29px] h-[18px]">
+    <i class="default-icon dx-icon dx-icon-runner dx-list-item-icon leading-[18px] w-[18px] h-[18px] text-[18px] mr-4"/>
+    </div>
+    <span class="block leading-4 text-[13px]">Logout</span>
+    </div>
+    </div>
+    </template>
+    </options-dropdown>
     `,
   }),
 };
