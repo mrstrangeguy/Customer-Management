@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
+
 import Accordion from "../components/Accordion.vue";
 
 const meta: Meta<typeof Accordion> = {
@@ -18,41 +19,27 @@ export const Primary: Story = {
       return { args };
     },
     template: `
-        <OptionsDropdown v-bind="args">
-     <template v-slot:dropdown-items>
-      <div class="w-[94.97px] hover:bg-[rgba(0,0,0,.12)] mt-1">
-        <span
-          class="block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px]"
-          >All</span
-        >
-      </div>
-       <div class="w-[94.97px] hover:bg-[rgba(0,0,0,.12)] mt-1">
-        <span
-          class="block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px]"
-          >All</span
-        >
-      </div>
-       <div class="w-[94.97px] hover:bg-[rgba(0,0,0,.12)] mt-1">
-        <span
-          class="block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px]"
-          >All</span
-        >
-      </div>
-       <div class="w-[94.97px] hover:bg-[rgba(0,0,0,.12)] mt-1">
-        <span
-          class="block text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px]"
-          >All</span
-        >
-      </div>
-    </template>
-        </OptionsDropdown>
-        `,
+  <Dropdown v-bind="args">
+<template v-slot:dropdown-items>
+  <div class="py-[9px] pr-4 flex items-center bg-[#0000000a]">
+    <span class="block pl-12 text-[13px] leading-[16.7141px]"
+      >Contact List</span
+    >
+  </div>
+  <div class="py-[9px] pr-4 flex items-center bg-[#0000000a]">
+    <span class="block pl-12 text-[13px] leading-[16.7141px]"
+      >Contact List</span
+    >
+  </div>
+</template>
+</Dropdown>
+  `,
   }),
 };
 
 export const Secondary: Story = {
   args: {
-   text:"This is text"
+    text: "Opportunities",
   },
   render: (args) => ({
     components: { Accordion },
@@ -60,35 +47,26 @@ export const Secondary: Story = {
       return { args };
     },
     template: `
-    <options-dropdown
-    icon="dx-icon dx-icon-export"
-    arrow-icon="dx-icon dx-icon-spindown dx-icon-right"
-    >
-    <template v-slot:dropdown-items>
-      <div class="mt-1">
-        <div
-          class="flex items-center text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px]"
-        >
-          <div class="w-[29px]">
-            <i
-              class="default-icon font-medium text-[#0000008a] w-[18px] h-[18px] block dx-icon dx-icon-xlsxfile dx-list-item-icon text-[18px] leading-[18px]"
-            ></i>
-          </div>
-          <div class="leading-[15px] text-nowrap">Export all data to Excel</div>
-        </div>
-         <div
-          class="flex items-center text-[13px] leading-[16px] px-[11px] pt-[10px] pb-[9px] cursor-pointer hover:bg-[rgba(0,0,0,.08)]"
-        >
-          <div class="w-[29px]">
-            <i
-              class="default-icon font-medium text-[#0000008a] w-[18px] h-[18px] block dx-icon dx-icon-xlsxfile dx-list-item-icon text-[18px] leading-[18px]"
-            ></i>
-          </div>
-          <div class="leading-[15px] text-nowrap">Export selected rows to Excel</div>
-        </div>
-      </div>
-    </template>
-  </options-dropdown> 
+<Dropdown
+v-bind="args"
+>
+<template v-slot:dropdown-items>
+  <div class="p-[11px]">
+    <div class="pb-2.5">
+      <span class="block text-[13px] leading-[16.7141px]"
+        >Incoming Request for Conference Room</span
+      >
+      <span class="block text-[13px] leading-[16.7141px]">$2,115</span>
+    </div>
+    <div class="pb-[10px]">
+      <span class="block text-[13px] leading-[16.7141px]"
+        >Incoming Request for Conference Room</span
+      >
+      <span class="block text-[13px] leading-[16.7141px]">$2,115</span>
+    </div>
+  </div>
+</template>
+</Dropdown>
     `,
   }),
 };

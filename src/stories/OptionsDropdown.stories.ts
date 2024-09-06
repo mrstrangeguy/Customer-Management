@@ -1,7 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
+<<<<<<< HEAD
 
 import OptionsDropdown from "../components/OptionsDropdown.vue";
 import { DropdownPositions } from "../Constants";
+=======
+import OptionsDropdown from "../components/OptionsDropdown.vue";
+>>>>>>> c39b70b (refactor: re-add Accordion stories)
 
 const meta: Meta<typeof OptionsDropdown> = {
   component: OptionsDropdown,
@@ -11,6 +15,7 @@ export default meta;
 type Story = StoryObj<typeof OptionsDropdown>;
 
 export const Primary: Story = {
+<<<<<<< HEAD
   argTypes: {
     contentPosition: {
       options: Object.values(DropdownPositions),
@@ -21,6 +26,11 @@ export const Primary: Story = {
     icon:
       "dx-icon dx-icon-user block text-black w-12 h-[18px] leading-[18px] text-[18px] text-center",
     text: "CRM",
+=======
+  args: {
+    text: "ALL",
+    arrowIcon: "dx-icon dx-icon-spindown dx-icon-right",
+>>>>>>> c39b70b (refactor: re-add Accordion stories)
   },
   render: (args) => ({
     components: { OptionsDropdown },
@@ -61,6 +71,7 @@ export const Primary: Story = {
 };
 
 export const Secondary: Story = {
+<<<<<<< HEAD
   argTypes: {
     contentPosition: {
       options: Object.values(DropdownPositions),
@@ -70,6 +81,11 @@ export const Secondary: Story = {
   args: {
     contentPosition: DropdownPositions.Left,
     text: "Opportunities",
+=======
+  args: {
+    icon: "dx-icon dx-icon-export",
+    arrowIcon: "dx-icon dx-icon-spindown dx-icon-right",
+>>>>>>> c39b70b (refactor: re-add Accordion stories)
   },
   render: (args) => ({
     components: { OptionsDropdown },
@@ -78,7 +94,12 @@ export const Secondary: Story = {
     },
     template: `
     <options-dropdown
+<<<<<<< HEAD
     v-bind="args"
+=======
+    icon="dx-icon dx-icon-export"
+    arrow-icon="dx-icon dx-icon-spindown dx-icon-right"
+>>>>>>> c39b70b (refactor: re-add Accordion stories)
     >
     <template v-slot:dropdown-items>
       <div class="mt-1">
@@ -110,6 +131,7 @@ export const Secondary: Story = {
 };
 
 export const Profile: Story = {
+<<<<<<< HEAD
   argTypes: {
     contentPosition: {
       options: Object.values(DropdownPositions),
@@ -120,6 +142,11 @@ export const Profile: Story = {
     imageURL:
       "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png",
     contentPosition: "Left",
+=======
+  args: {
+    profileURL:
+      "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png",
+>>>>>>> c39b70b (refactor: re-add Accordion stories)
   },
   render: (args) => ({
     components: { OptionsDropdown },
@@ -127,7 +154,11 @@ export const Profile: Story = {
       return { args };
     },
     template: `
+<<<<<<< HEAD
     <options-dropdown v-bind="args">
+=======
+    <OptionsDropdown profileURL="https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png" class="ml-[80px]">
+>>>>>>> c39b70b (refactor: re-add Accordion stories)
     <template v-slot:dropdown-items>
     <div class="py-2.5 px-[11px] border-b border-[#e0e0e0]">
     <span class="block font-normal text-nowrap font-sm leading-[17.9998px] text-[14px] text-center">John Heart</span>
@@ -141,7 +172,11 @@ export const Profile: Story = {
     </div>
     </div>
     </template>
+<<<<<<< HEAD
     </options-dropdown>
+=======
+    </OptionsDropdown>
+>>>>>>> c39b70b (refactor: re-add Accordion stories)
     `,
   }),
 };
