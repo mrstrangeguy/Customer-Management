@@ -38,7 +38,7 @@
         >
           <span
             :class="{
-              'inline-block z-10 align-top text-label text-3.25 leading-4 font-medium mr-0.75 group-hover:text-table-hover-tertiary': true,
+              'inline-block z-10 align-top text-label text-sm leading-4 font-medium mr-0.75 group-hover:text-table-hover-tertiary': true,
               'text-table-hover-tertiary':
                 selectedAttributeObject.index === index,
             }"
@@ -47,13 +47,13 @@
           <i
             v-if="isArrowIconPresent(index)"
             :class="{
-              'inline-block w-3.75 align-top text-3.75 text-table-hover-primary group-hover:text-table-hover-secondary font-normal h-3.75 leading-l3 default-icon dx-sort': true,
+              'inline-block w-3.75 align-top text-sm text-table-hover-primary group-hover:text-table-hover-secondary font-normal h-3.75 leading-l3 default-icon dx-sort': true,
               'dx-sort-up': isDownArrowPresent(index),
               'dx-sort-down': !isDownArrowPresent(index),
             }"
           />
           <i
-            class="inline-block align-top default-icon dx-header-filter-empty text-3.75 w-3.75 h-3.75"
+            class="inline-block align-top default-icon dx-header-filter-empty text-sm w-3.75 h-3.75 -mt-0.5"
           />
         </th>
         <th class="large:hidden w-10" />
@@ -62,7 +62,7 @@
     <tbody class="border-t-0 border border-y">
       <template v-for="(userDetail, index) in userDetails" :key="userDetail.id">
         <tr
-          @click="selectContact(index)"
+          @click="onRowClick(userDetail, index)"
           :class="{
             'border-b border-b-tr-border cursor-pointer': true,
             'bg-checked': userDetail.isChecked,
@@ -85,7 +85,7 @@
             />
           </td>
           <td class="py-2.5 px-2.75 border-b border-b-tr-border">
-            <div class="text-3.25 leading-4">
+            <div class="text-sm leading-4">
               {{ userDetail.description.name }}
             </div>
             <div class="text-xs leading-4 text-label">
@@ -95,14 +95,14 @@
           <td
             class="extra-small:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-3.25 leading-4">{{ userDetail.company }}</span>
+            <span class="text-sm leading-4">{{ userDetail.company }}</span>
           </td>
           <td
             class="medium:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
             <span
               :class="{
-                'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-3.25 leading-4': true,
+                'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-sm leading-4': true,
                 [getStatusTextColor(userDetail.status)]: true,
               }"
               >{{ userDetail.status }}
@@ -111,17 +111,17 @@
           <td
             class="small:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-3.25 leading-4">{{ userDetail.assignedto }}</span>
+            <span class="text-sm leading-4">{{ userDetail.assignedto }}</span>
           </td>
           <td
             class="large:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-3.25 leading-4">{{ userDetail.phone }}</span>
+            <span class="text-sm leading-4">{{ userDetail.phone }}</span>
           </td>
           <td
             class="extra-large:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-3.25 leading-4">{{ userDetail.email }}</span>
+            <span class="text-sm leading-4">{{ userDetail.email }}</span>
           </td>
           <td
             class="large:hidden table-cell min-w-10 w-10 text-center"
@@ -142,7 +142,7 @@
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Company
                 </label>
-                <div class="text-3.25 leading-l2 px-3">
+                <div class="text-sm leading-l2 px-3">
                   {{ userDetail.company }}
                 </div>
               </div>
@@ -153,7 +153,7 @@
                 <div class="leading-l2">
                   <span
                     :class="{
-                      'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-3.25 leading-4': true,
+                      'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-sm leading-4': true,
                       [getStatusTextColor(userDetail.status)]: true,
                     }"
                     >{{ userDetail.status }}
@@ -164,7 +164,7 @@
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Assigned to
                 </label>
-                <div class="text-3.25 leading-l2 px-3">
+                <div class="text-sm leading-l2 px-3">
                   {{ userDetail.assignedto }}
                 </div>
               </div>
@@ -172,7 +172,7 @@
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Email
                 </label>
-                <div class="text-3.25 leading-l2 px-3">
+                <div class="text-sm leading-l2 px-3">
                   {{ userDetail.email }}
                 </div>
               </div>
@@ -180,7 +180,7 @@
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Phone
                 </label>
-                <div class="text-3.25 leading-l2 px-3">
+                <div class="text-sm leading-l2 px-3">
                   {{ userDetail.phone }}
                 </div>
               </div>
@@ -194,56 +194,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from "vue";
-
-type UserOpportunityItem = {
-  text: string;
-  price: string;
-};
-
-type UserOpportunities = {
-  title: string;
-  items: UserOpportunityItem[];
-};
-
-type ActivityItemDetail = {
-  date: string;
-  name: string;
-};
-
-type ActivityItem = {
-  status: string;
-  details: ActivityItemDetail;
-};
-
-type Activities = {
-  title: string;
-  items: ActivityItem[];
-};
-
-type Description = {
-  name: string;
-  position: string;
-};
-
-type UserDetail = {
-  id: number;
-  isChecked: boolean;
-  isSelected: boolean;
-  isResponsiveSelected: boolean;
-  description: Description;
-  company: string;
-  status: string;
-  assignedto: string;
-  phone: string;
-  email: string;
-  opportunities: UserOpportunities;
-  activities: Activities;
-};
-
-type usersData = {
-  userAttributes: string[];
-  usersDetails: UserDetail[];
-};
+import { usersData, UserDetail } from "../Constants";
 
 //props
 const props = defineProps<usersData>();
@@ -265,6 +216,11 @@ onUnmounted(() => {
     getResponsiveColsSpan();
   });
 });
+
+//emit
+const emit = defineEmits<{
+  (e: "rowClickEvent", data: UserDetail): void;
+}>();
 
 //ref
 const userAttributes = ref<string[]>();
@@ -338,6 +294,12 @@ const selectContact = (index: number) => {
   userDetails.value[index].isSelected = true;
 };
 
+const onRowClick = (data: UserDetail, index: number) => {
+  selectContact(index);
+
+  emit("rowClickEvent", data);
+};
+
 const openResponsiveContainer = (index: number) => {
   if (!userDetails.value) return;
   userDetails.value.forEach((userDetail, userDetailIndex) => {
@@ -378,10 +340,8 @@ const getResponsiveThStyle = (attribute: string) => {
 
 const getResponsiveColsSpan = () => {
   if (window.innerWidth <= 1372 && window.innerWidth > 850) {
-    colspan.value = 7;
-  } else if (window.innerWidth <= 850 && window.innerWidth > 750) {
     colspan.value = 6;
-  } else if (window.innerWidth <= 750 && window.innerWidth > 620) {
+  } else if (window.innerWidth <= 850 && window.innerWidth > 620) {
     colspan.value = 5;
   } else if (window.innerWidth <= 620 && window.innerWidth > 448) {
     colspan.value = 4;
@@ -393,7 +353,6 @@ const getResponsiveColsSpan = () => {
 
 <style lang="scss" scoped>
 .icon {
-
   &::after {
     content: "";
     display: block;
@@ -410,7 +369,6 @@ const getResponsiveColsSpan = () => {
 }
 
 .checkbox-icon {
-
   &::after {
     background-color: #03a6ef1a;
   }
@@ -436,7 +394,6 @@ const getResponsiveColsSpan = () => {
 }
 
 .dash-icon {
-
   &::before {
     content: "";
     position: relative;
