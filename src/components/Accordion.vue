@@ -21,7 +21,7 @@
     </div>
     <div
       :class="{
-        'dropdown__content z-[-1] relative overflow-hidden transition-all': true,
+        'dropdown__content relative overflow-hidden transition-all': true,
         'max-h-[1000px] duration-[1200ms] ease-in': isHeaderClicked,
         'max-h-0 duration-[1500ms] ease-out': !isHeaderClicked,
       }"
