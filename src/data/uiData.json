@@ -85,7 +85,8 @@
             "main": "dx-icon dx-icon-box",
             "subMenuItems": [
                 {
-                    "text": "User Profile"
+                    "title": "User Profile",
+                    "path": "./../"
                 }
             ]
         }

@@ -49,18 +49,30 @@ import { onMounted, ref } from "vue";
 import uiData from "../data/uiData.json";
 import Accordion from "../components/Accordion.vue";
 
-type props = {
-  isExpanded: boolean;
+type Props = {
+  isExpanded?: boolean;
 };
 
-withDefaults(defineProps<props>(), {
+type SubMenuItem = {
+  title: string;
+  path: string;
+};
+
+type SideBarItem = {
+  title: string;
+  main: string;
+  subMenuItems: SubMenuItem[];
+};
+
+withDefaults(defineProps<Props>(), {
   isExpanded: true,
 });
 
-const sideBarItems = ref();
+const sideBarItems = ref<SideBarItem[]>();
 
 onMounted(() => {
   sideBarItems.value = uiData.sidebarMenuItems;
+  console.log(sideBarItems.value);
 });
 </script>
 
