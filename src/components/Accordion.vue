@@ -77,9 +77,7 @@ const props = withDefaults(defineProps<props>(), {
 });
 
 //computed
-const isPrimaryVariant = computed(
-  () => props.variant === DropdownVariants.Primary
-);
+const isPrimaryVariant = computed(() => props.variant === DropdownVariants.Primary);
 
 //functions
 
