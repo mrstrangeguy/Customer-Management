@@ -1,9 +1,9 @@
 <template>
-  <div class="relative z-100 cursor-pointer w-fit">
+  <div ref="dropdownRef" class="relative z-100 cursor-pointer w-fit">
     <div
       v-if="!profileURL"
       class="relative overflow-hidden flex py-1.5 z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-hover"
-      @click="toggleContentVisibility"
+      @click.stop="toggleContentVisibility"
       role="button"
     >
       <i
@@ -30,7 +30,7 @@
       class="block w-7 h-7 object-cover object-top aspect-square border rounded-full"
       :src="profileURL"
       alt="profile-img"
-      @click="toggleContentVisibility"
+      @click.stop="toggleContentVisibility"
     />
     <div
       :class="{
@@ -47,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, onUnmounted, Ref, ref } from "vue";
 
 //types
 type OptionsDropdownProps = {
@@ -64,10 +64,31 @@ withDefaults(defineProps<OptionsDropdownProps>(), {
   text: "",
 });
 
+//onMounted
+onMounted(() => {
+  document.addEventListener("click", onOutSideClick);
+});
+
+//onUnMounted
+onUnmounted(() => {
+  document.removeEventListener("click", onOutSideClick);
+});
+
 const isHeaderClicked = ref(false);
+const dropdownRef = ref<Ref | null>(null);
 
 const toggleContentVisibility = () => {
   isHeaderClicked.value = !isHeaderClicked.value;
+};
+
+const onOutSideClick = (event: Event) => {
+  if (
+    dropdownRef.value &&
+    !dropdownRef.value.contains(event.target) &&
+    document.body.contains(dropdownRef.value)
+  ) {
+    isHeaderClicked.value = false;
+  }
 };
 </script>
 
