@@ -30,5 +30,3 @@ withDefaults(defineProps<Props>(), {
   assignedTo: "",
 });
 </script>
-
-<style scoped></style>
