@@ -7,18 +7,24 @@
   >
     <div
       :class="{
-        'dropdown-header z-100 relative flex items-center': true,
+        'z-100 relative flex items-center justify-between': true,
         'py-2.25 pr-4 bg-zinc-100': isPrimaryVariant,
         'py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10': !isPrimaryVariant,
       }"
       @click.stop="toggleContentVisibility"
       role="button"
     >
-      <div class="dropdown-header__content">
-        <i :class="{ 'default-icon': true, [mainIcon]: true }" />
+      <div class="flex items-center">
+        <i
+          v-if="mainIcon"
+          :class="{
+            'default-icon block w-12 leading-4 text-center': true,
+            [mainIcon]: true,
+          }"
+        />
         <span
           :class="{
-            'text-3.25 font-bold leading-3.75': isPrimaryVariant,
+            'text-3.25 font-bold leading-3.75 block': isPrimaryVariant,
           }"
         >
           {{ text }}
@@ -29,7 +35,7 @@
           'default-icon': true,
           'text-base text-black font-normal leading-4 dx-accordion-item-title':
             !isPrimaryVariant,
-          'text-4.5 block h-4.5 leading-4.5 dx-treeview-toggle-item-visibility':
+          'text-4.5 block h-4.5 text-gray-400 leading-4.5 dx-treeview-toggle-item-visibility':
             isPrimaryVariant,
           'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
         }"
@@ -38,7 +44,7 @@
     <div
       ref="contentRef"
       :class="{
-        'dropdown__content relative overflow-hidden transition-all': true,
+        'relative overflow-hidden transition-all': true,
         'max-h-1000 duration-1200 ease-in': isHeaderClicked,
         'max-h-0 duration-1500 ease-out': !isHeaderClicked,
       }"
@@ -71,7 +77,9 @@ const props = withDefaults(defineProps<props>(), {
 });
 
 //computed
-const isPrimaryVariant = computed(() => props.variant === DropdownVariants.Primary);
+const isPrimaryVariant = computed(
+  () => props.variant === DropdownVariants.Primary
+);
 
 //functions
 
