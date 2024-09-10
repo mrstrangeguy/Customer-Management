@@ -3,12 +3,12 @@
     <i
       v-if="icon"
       :class="{
-        'default-icon block leading-[18px] text-center  text-[#0000001a]': true,
+        'default-icon block leading-5 text-center text-zinc-200': true,
         [icon]: true,
         [iconStyle]: true,
       }"
     />
-    <span class="block text-2.5 leading-2.5 text-[#00000099]">{{ label }}</span>
+    <span class="block text-2.5 leading-2.5 text-black">{{ label }}</span>
     <div
       :class="{
         'text-xs': true,
