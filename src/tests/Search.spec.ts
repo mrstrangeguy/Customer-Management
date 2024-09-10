@@ -1,6 +1,6 @@
 import { it, describe, expect } from "vitest";
 import { mount, shallowMount } from "@vue/test-utils";
-import Search from "../components/Search.vue";
+import Search from "../components/SearchInput.vue";
 
 describe("Search", () => {
   const searchElement = shallowMount(Search, {
