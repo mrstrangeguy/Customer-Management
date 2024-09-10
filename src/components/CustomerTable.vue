@@ -111,7 +111,7 @@
           <td
             class="small:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-sm leading-4">{{ userDetail.assignedto }}</span>
+            <span class="text-sm leading-4">{{ userDetail.assignedTo }}</span>
           </td>
           <td
             class="large:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
@@ -165,7 +165,7 @@
                   Assigned to
                 </label>
                 <div class="text-sm leading-l2 px-3">
-                  {{ userDetail.assignedto }}
+                  {{ userDetail.assignedTo }}
                 </div>
               </div>
               <div class="pr-5 pb-2.5 grow shrink basis-0 extra-large:hidden">

@@ -57,7 +57,7 @@ export type UserDetail = {
   description: Description;
   company: string;
   status: string;
-  assignedto: string;
+  assignedTo: string;
   phone: string;
   email: string;
   opportunities: UserOpportunities;
