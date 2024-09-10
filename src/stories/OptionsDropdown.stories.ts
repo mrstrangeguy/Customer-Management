@@ -1,30 +1,26 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
+
 import OptionsDropdown from "../components/OptionsDropdown.vue";
+import { DropdownPositions } from "../Constants";
 
 const meta: Meta<typeof OptionsDropdown> = {
   component: OptionsDropdown,
-  parameters: {
-    slots: {
-      "dropdown-items": {
-        description: "Default slot",
-        components: { OptionsDropdown },
-        template: `<OptionsDropdown>
-            <template v-slot:dropdown-items>
-            <div>This is new</div>
-            </template>
-            </OptionsDropdown>`,
-      },
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof OptionsDropdown>;
 
 export const Primary: Story = {
+  argTypes: {
+    contentPosition: {
+      options: Object.values(DropdownPositions),
+      control: { type: "select" },
+    },
+  },
   args: {
-    text: "ALL",
-    arrowIcon: "dx-icon dx-icon-spindown dx-icon-right",
+    icon:
+      "dx-icon dx-icon-user block text-black w-12 h-[18px] leading-[18px] text-[18px] text-center",
+    text: "CRM",
   },
   render: (args) => ({
     components: { OptionsDropdown },
@@ -65,9 +61,15 @@ export const Primary: Story = {
 };
 
 export const Secondary: Story = {
+  argTypes: {
+    contentPosition: {
+      options: Object.values(DropdownPositions),
+      control: { type: "select" },
+    },
+  },
   args: {
-    icon: "dx-icon dx-icon-export",
-    arrowIcon: "dx-icon dx-icon-spindown dx-icon-right",
+    contentPosition: DropdownPositions.Left,
+    text: "Opportunities",
   },
   render: (args) => ({
     components: { OptionsDropdown },
@@ -76,8 +78,7 @@ export const Secondary: Story = {
     },
     template: `
     <options-dropdown
-    icon="dx-icon dx-icon-export"
-    arrow-icon="dx-icon dx-icon-spindown dx-icon-right"
+    v-bind="args"
     >
     <template v-slot:dropdown-items>
       <div class="mt-1">
@@ -109,9 +110,16 @@ export const Secondary: Story = {
 };
 
 export const Profile: Story = {
+  argTypes: {
+    contentPosition: {
+      options: Object.values(DropdownPositions),
+      control: { type: "select" },
+    },
+  },
   args: {
-    profileURL:
+    imageURL:
       "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png",
+    contentPosition: "Left",
   },
   render: (args) => ({
     components: { OptionsDropdown },
@@ -119,7 +127,7 @@ export const Profile: Story = {
       return { args };
     },
     template: `
-    <OptionsDropdown profileURL="https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png" class="ml-[80px]">
+    <options-dropdown v-bind="args">
     <template v-slot:dropdown-items>
     <div class="py-2.5 px-[11px] border-b border-[#e0e0e0]">
     <span class="block font-normal text-nowrap font-sm leading-[17.9998px] text-[14px] text-center">John Heart</span>
@@ -133,7 +141,7 @@ export const Profile: Story = {
     </div>
     </div>
     </template>
-    </OptionsDropdown>
+    </options-dropdown>
     `,
   }),
 };
