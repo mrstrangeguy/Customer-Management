@@ -9,8 +9,9 @@
       :placeholder="placeholder"
       v-model="searchValue"
       class="block placeholder:capitalize z-10 w-full py-2.25 pl-8.5 pr-3 bg-transparent leading-3 text-xs placeholder:text-xs placeholder:text-gray-500 outline-none"
-      type="text"
       @input="handleInput"
+      @keydown="onKeyDown"
+      :type="type"
       @focusout="trimSearchInput"
     />
   </div>
@@ -48,5 +49,15 @@ const trimSearchInput = (event: Event) => {
   const inputElement = event.target as HTMLInputElement;
 
   searchValue.value = inputElement.value.trim();
+};
+
+const onKeyDown = (event: KeyboardEvent) => {
+  if (
+    event.key === "ArrowUp" ||
+    event.key === "ArrowDown" ||
+    event.key.toLocaleLowerCase() === "e"
+  ) {
+    event.preventDefault();
+  }
 };
 </script>
