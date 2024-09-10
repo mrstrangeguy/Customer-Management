@@ -32,7 +32,10 @@ onMounted(() => {
 });
 
 //emits
-const emits = defineEmits(["getInputValue"]);
+// const emits = defineEmits(["getInputValue"]);
+const emits = defineEmits<{
+  (event: "getInputValue", inputValue: string): void;
+}>();
 
 //refs
 const searchValue = ref<string>("");
