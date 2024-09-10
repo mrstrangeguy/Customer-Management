@@ -1,20 +1,36 @@
 <template>
   <div
-    :class="{ 'cursor-pointer z-100 relative': true, [containerStyle]: true }"
+    :class="{
+      'cursor-pointer z-100 relative': true,
+      shadow: !isPrimaryVariant,
+    }"
   >
     <div
-      :class="{ 'dropdown-header z-100 relative': true, [headerStyle]: true }"
+      :class="{
+        'dropdown-header z-100 relative': true,
+        'py-2.25 pr-4 bg-zinc-100': isPrimaryVariant,
+        'py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10': !isPrimaryVariant,
+      }"
       @click.stop="toggleContentVisibility"
       role="button"
     >
       <div class="dropdown-header__content">
         <i :class="{ 'default-icon': true, [mainIcon]: true }" />
-        <span :class="textStyle">{{ text }}</span>
+        <span
+          :class="{
+            'text-3.25 font-bold leading-3.75': isPrimaryVariant,
+          }"
+        >
+          {{ text }}
+        </span>
       </div>
       <i
         :class="{
-          'default-icon dx-treeview-toggle-item-visibility': true,
-          [arrowIcon]: true,
+          'default-icon': true,
+          'text-base text-black font-normal leading-4 dx-accordion-item-title':
+            !isPrimaryVariant,
+          'text-4.5 block h-4.5 leading-4.5 dx-treeview-toggle-item-visibility':
+            isPrimaryVariant,
           'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
         }"
       />
@@ -22,8 +38,8 @@
     <div
       :class="{
         'dropdown__content relative overflow-hidden transition-all': true,
-        'max-h-[1000px] duration-[1200ms] ease-in': isHeaderClicked,
-        'max-h-0 duration-[1500ms] ease-out': !isHeaderClicked,
+        'max-h-1000 duration-1200 ease-in': isHeaderClicked,
+        'max-h-0 duration-1500 ease-out': !isHeaderClicked,
       }"
     >
       <slot name="dropdown-items" />
@@ -32,40 +48,31 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
+import { DropdownVariants } from "../Constants";
+
+//refs
 const isHeaderClicked = ref(false);
 
-const toggleContentVisibility = () => {
-  isHeaderClicked.value = !isHeaderClicked.value;
+//types
+type props = {
+  mainIcon?: string;
+  text?: string;
+  variant?: string;
 };
 
-defineProps({
-  headerStyle: {
-    type: String,
-    required: true,
-  },
-  mainIcon: {
-    type: String,
-    default: "",
-  },
-  text: {
-    type: String,
-    default: "",
-  },
-  textStyle: {
-    type: String,
-    default: "",
-  },
-  arrowIcon: {
-    type: String,
-    default: "",
-  },
-  containerStyle: {
-    type: String,
-    default: "",
-  },
+const props = withDefaults(defineProps<props>(), {
+  mainIcon: "",
+  text: "",
+  variant: DropdownVariants.Primary,
 });
+
+//computed
+const isPrimaryVariant = computed(() => props.variant === DropdownVariants.Primary);
+
+//functions
+const toggleContentVisibility = () => isHeaderClicked.value = !isHeaderClicked.value;
 </script>
 
 <style lang="scss" scoped>

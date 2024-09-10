@@ -2,7 +2,7 @@
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
 
 @font-face {
   font-family: "DX Icons";
@@ -12,11 +12,15 @@
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-} 
+}
 
 .default-icon {
   font-style: normal;
-  font-family: 'DX Icons'; 
+  font-family: "DX Icons";
+}
+
+.dx-accordion-item-title:before {
+  content: "";
 }
 
 .dx-datagrid-adaptive-more::before {
@@ -63,7 +67,7 @@
   content: "";
 }
 
-.dx-treeview-toggle-item-visibility.dx-treeview-toggle-item-visibility-opened:before {
+.dx-treeview-toggle-item-visibility-opened:before {
   content: "";
 }
 
