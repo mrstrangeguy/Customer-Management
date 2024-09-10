@@ -7,7 +7,7 @@
   >
     <div
       :class="{
-        'dropdown-header z-100 relative': true,
+        'dropdown-header z-100 relative flex items-center': true,
         'py-2.25 pr-4 bg-zinc-100': isPrimaryVariant,
         'py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10': !isPrimaryVariant,
       }"
