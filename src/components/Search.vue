@@ -9,7 +9,7 @@
       :placeholder="removeWhiteSpace(placeholder)"
       class="search-input block z-10 w-full py-[9px] pl-[34px] pr-3 bg-transparent leading-[14px] text-xs placeholder:text-xs placeholder:text-[#00000099] outline-none"
       :type="type"
-      @keydown="preventArrowKeyInput"
+      @keydown="onKeyDown"
       @input="onInput"
     />
   </div>
@@ -37,7 +37,7 @@ const removeWhiteSpace = (text: string) => {
   return text.replace(whiteSpaceRegex, "");
 }
 
-const preventArrowKeyInput = (event: KeyboardEvent) => {
+const onKeyDown = (event: KeyboardEvent) => {
   if (
     event.key === "ArrowUp" ||
     event.key === "ArrowDown" ||
