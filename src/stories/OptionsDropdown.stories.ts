@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 import OptionsDropdown from "../components/OptionsDropdown.vue";
-import { DropdownPositions } from "../Constants";
 
 const meta: Meta<typeof OptionsDropdown> = {
   component: OptionsDropdown,
@@ -11,12 +10,6 @@ export default meta;
 type Story = StoryObj<typeof OptionsDropdown>;
 
 export const Primary: Story = {
-  argTypes: {
-    contentPosition: {
-      options: Object.values(DropdownPositions),
-      control: { type: "select" },
-    },
-  },
   args: {
     icon:
       "dx-icon dx-icon-user block text-black w-12 h-[18px] leading-[18px] text-[18px] text-center",
@@ -61,14 +54,8 @@ export const Primary: Story = {
 };
 
 export const Secondary: Story = {
-  argTypes: {
-    contentPosition: {
-      options: Object.values(DropdownPositions),
-      control: { type: "select" },
-    },
-  },
+ 
   args: {
-    contentPosition: DropdownPositions.Left,
     text: "Opportunities",
   },
   render: (args) => ({
@@ -110,16 +97,10 @@ export const Secondary: Story = {
 };
 
 export const Profile: Story = {
-  argTypes: {
-    contentPosition: {
-      options: Object.values(DropdownPositions),
-      control: { type: "select" },
-    },
-  },
+
   args: {
     imageURL:
       "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png",
-    contentPosition: "Left",
   },
   render: (args) => ({
     components: { OptionsDropdown },

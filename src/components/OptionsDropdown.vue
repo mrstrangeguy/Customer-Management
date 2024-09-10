@@ -114,9 +114,7 @@ const props = withDefaults(defineProps<OptionsDropdownProps>(), {
 const isHeaderClicked = ref(false);
 const dropdownRef = ref<Ref | null>(null);
 
-const toggleContentVisibility = () => {
-  isHeaderClicked.value = !isHeaderClicked.value;
-};
+const toggleContentVisibility = () => isHeaderClicked.value = !isHeaderClicked.value;
 
 const onOutSideClick = (event: Event) => {
   if (
