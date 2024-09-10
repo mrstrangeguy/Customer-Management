@@ -350,11 +350,11 @@ const openResponsiveContainer = (index: number) => {
 
 const getStatusTextColor = (text: string) => {
   if (text.toLocaleLowerCase() === "commission") {
-    return "before:bg-commission text-commission";
+    return "before:bg-democrat text-democrat";
   } else if (text.toLocaleLowerCase() === "terminated") {
-    return "before:bg-terminated text-terminated";
+    return "before:bg-tuscan-image text-tuscan-image";
   }
-  return "before:bg-salaried text-salaried";
+  return "before:bg-wageningen-green text-wageningen-green";
 };
 
 const getResponsiveThStyle = (attribute: string) => {

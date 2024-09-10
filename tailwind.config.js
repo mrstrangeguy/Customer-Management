@@ -15,9 +15,8 @@ export default {
         'selected':'#cdeefd',
         'table-hover-secondary':'#00000061',
         'table-hover-tertiary':'#000000de',
-        'commission':'#03a9f4',
-        'terminated':'#de8e8c',
-        'salaried':'#2eb52c',
+        'tuscan-image':'#de8e8c',
+        'wageningen-green':'#2eb52c',
         'democrat':'#03a9f4',
       },
       lineHeight: {
