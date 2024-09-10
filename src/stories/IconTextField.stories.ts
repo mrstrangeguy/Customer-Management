@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import Text from "../components/Text.vue";
+import IconTextField from "../components/IconTextField.vue";
 
 const meta: Meta<typeof Text> = {
-  component: Text,
+  component: IconTextField,
 };
 
 export default meta;

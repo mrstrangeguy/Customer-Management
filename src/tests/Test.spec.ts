@@ -1,6 +1,6 @@
 import { it, describe, expect } from "vitest";
 import { shallowMount } from "@vue/test-utils";
-import Text from "../components/Text.vue";
+import Text from "../components/IconTextField.vue";
 
 describe("Text", () => {
   const primaryText = shallowMount(Text, {
