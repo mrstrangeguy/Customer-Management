@@ -1,20 +1,15 @@
 <template>
-  <div :class="{ 'h-8': true, 'flex items-center': !isColumn }">
+  <div :class="['h-8', !isColumn && 'flex items-center']">
     <i
       v-if="icon"
-      :class="{
-        'default-icon block leading-5 text-center text-zinc-200': true,
-        [icon]: true,
-        [iconStyle]: true,
-      }"
+      :class="[
+        'default-icon block leading-5 text-center text-zinc-200',
+        icon,
+        iconStyle,
+      ]"
     />
     <span class="block text-2.5 leading-2.5 text-black">{{ label }}</span>
-    <div
-      :class="{
-        'text-xs': true,
-        [textStyle]: true,
-      }"
-    >
+    <div :class="['text-xs', textStyle]">
       {{ text }}
     </div>
   </div>
@@ -39,8 +34,3 @@ withDefaults(defineProps<IconTextFieldProps>(), {
   isColumn: false,
 });
 </script>
-
-<style scoped></style>
-
-<!-- <Text title="Position" description="ACME" description-color="#03a9f4" />
-<Text icon="dx-icon dx-icon-tel" description="sample5@gmail.com" /> -->
