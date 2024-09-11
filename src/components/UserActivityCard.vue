@@ -19,14 +19,10 @@
 
 <script setup lang="ts">
 type Props = {
-  status: string;
+  status?: string;
   date: string;
   assignedTo: string;
 };
 
-withDefaults(defineProps<Props>(), {
-  status: "",
-  date: "",
-  assignedTo: "",
-});
+defineProps<Props>();
 </script>
