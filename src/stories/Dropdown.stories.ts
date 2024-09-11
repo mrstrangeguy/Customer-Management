@@ -1,22 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
-import OptionsDropdown from "../components/OptionsDropdown.vue";
+import Dropdown from "../components/Dropdown.vue";
 
-const meta: Meta<typeof OptionsDropdown> = {
-  component: OptionsDropdown,
+const meta: Meta<typeof Dropdown> = {
+  component: Dropdown,
 };
 
 export default meta;
-type Story = StoryObj<typeof OptionsDropdown>;
+type Story = StoryObj<typeof Dropdown>;
 
 export const Primary: Story = {
   args: {
-    icon:
-      "dx-icon dx-icon-user block text-black w-12 h-[18px] leading-[18px] text-[18px] text-center",
+    icon: "dx-icon dx-icon-user block text-black w-12 h-[18px] leading-[18px] text-[18px] text-center",
     text: "CRM",
   },
   render: (args) => ({
-    components: { OptionsDropdown },
+    components: { Dropdown },
     setup() {
       return { args };
     },
@@ -54,12 +53,11 @@ export const Primary: Story = {
 };
 
 export const Secondary: Story = {
- 
   args: {
     text: "Opportunities",
   },
   render: (args) => ({
-    components: { OptionsDropdown },
+    components: { Dropdown },
     setup() {
       return { args };
     },
@@ -97,13 +95,12 @@ export const Secondary: Story = {
 };
 
 export const Profile: Story = {
-
   args: {
     imageURL:
       "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png",
   },
   render: (args) => ({
-    components: { OptionsDropdown },
+    components: { Dropdown },
     setup() {
       return { args };
     },
