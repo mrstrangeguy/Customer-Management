@@ -7,14 +7,14 @@
         </div>
       </div>
       <div>
-        <span class="block leading-leading1 text-4 font-medium"
-          >UI Template Gallery</span
-        >
+        <span class="block leading-leading1 text-4 font-medium">
+          UI Template Gallery
+        </span>
       </div>
     </div>
     <div class="flex items-center pr-6">
       <div class="sm:block hidden w-45 flex items-center mr-4">
-        <Search placeholder-text="Search" />
+        <SearchInput placeholder-text="Search" />
       </div>
       <div class="px-px">
         <Button variant="Icon" icon="dx-icon dx-icon-moon" />
@@ -26,9 +26,9 @@
         <options-dropdown
           profileURL="https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png"
         >
-        <template v-slot:dropdown-items>
-        <div class="py-2.5 px-2.75">John Heart</div>
-        </template>
+          <template v-slot:dropdown-items>
+            <div class="py-2.5 px-2.75">John Heart</div>
+          </template>
         </options-dropdown>
       </div>
       <div class="sm:hidden block pl-1.75">
@@ -40,7 +40,7 @@
 
 <script setup lang="ts">
 import Button from "../components/Button.vue";
-import Search from "../components/Search.vue";
+import SearchInput from "../components/SearchInput.vue";
 import OptionsDropdown from "../components/OptionsDropdown.vue";
 </script>
 
