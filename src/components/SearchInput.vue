@@ -20,6 +20,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { SearchProps } from "../types/SearchProps";
+import {
+  ARROW_UP_KEY,
+  ARROW_DOWN_KEY,
+  KEY_E,
+} from "../Constants";
 
 //props
 const props = withDefaults(defineProps<SearchProps>(), {
@@ -53,13 +58,9 @@ const trimSearchInput = (event: Event) => {
 };
 
 const handleKeyDown = (event: KeyboardEvent) => {
-  if(props.type !== "number") return
-  
-  if (
-    event.keyCode === 38 ||
-    event.keyCode === 40 ||
-    event.keyCode === 69
-  ) {
+  if (props.type !== "number") return;
+
+  if ([ARROW_UP_KEY, ARROW_DOWN_KEY, KEY_E].includes(event.keyCode)) {
     event.preventDefault();
   }
 };

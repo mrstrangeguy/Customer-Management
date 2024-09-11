@@ -11,7 +11,11 @@ export enum DropdownVariants {
 
 export enum DropdownPositions {
   Left = "Left",
-  Right = "Right"
+  Right = "Right",
 }
 
 export const whiteSpaceRegex = /^\s+|\s+$|\s+(?=\s)/g;
+
+export const ARROW_UP_KEY = 38;
+export const ARROW_DOWN_KEY = 40;
+export const KEY_E = 69;
