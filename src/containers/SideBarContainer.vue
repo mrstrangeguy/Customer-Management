@@ -22,7 +22,6 @@
           </template>
         </Accordion>
       </div>
-
       <div
         :class="[
           'absolute text-gray-500 Z-50 bottom-0 left-0 w-full pt-5 py-4 pl-4 text-xs text-sidebar-text leading-4',
