@@ -10,17 +10,16 @@
       v-model="searchValue"
       class="block placeholder:capitalize z-10 w-full py-2.25 pl-8.5 pr-3 bg-transparent leading-3 text-xs placeholder:text-xs placeholder:text-gray-500 outline-none"
       type="text"
+      @input="handleInput"
       @focusout="trimSearchInput"
-      @input="onInput"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref, onMounted } from "vue";
 import { SearchProps } from "../types/SearchProps";
 
-//props
 const props = withDefaults(defineProps<SearchProps>(), {
   placeholder: "Search",
   value: "",
@@ -33,17 +32,16 @@ onMounted(() => {
 
 //emits
 const emits = defineEmits<{
-  (event: "getInputValue", inputValue: string): void;
+  (event: "input", inputValue: string): void;
 }>();
 
 //refs
 const searchValue = ref<string>("");
 
 //functions
-const onInput = (event: Event) => {
+const handleInput = (event: Event) => {
   const inputElement = event.target as HTMLInputElement;
-
-  emits("getInputValue", inputElement.value);
+  emits("input", inputElement.value);
 };
 
 const trimSearchInput = (event: Event) => {
@@ -52,7 +50,3 @@ const trimSearchInput = (event: Event) => {
   searchValue.value = inputElement.value.trim();
 };
 </script>
-
-<style lang="scss" scoped></style>
-
-<!-- <Search placeholderText="Search"/>-->
