@@ -16,6 +16,6 @@ export enum DropdownPositions {
 
 export const whiteSpaceRegex = /^\s+|\s+$|\s+(?=\s)/g;
 
-export const ARROW_UP_KEY = 38;
-export const ARROW_DOWN_KEY = 40;
-export const KEY_E = 69;
+export const ARROW_UP_KEY = "ArrowUp";
+export const ARROW_DOWN_KEY = "ArrowDown";
+export const KEY_E = "KeyE";
