@@ -18,7 +18,7 @@ export const Primary: Story = {
       return { args };
     },
     template: `
-  <Dropdown v-bind="args">
+  <Accordion v-bind="args">
 <template v-slot:dropdown-items>
   <div class="py-[9px] pr-4 flex items-center bg-[#0000000a]">
     <span class="block pl-12 text-[13px] leading-[16.7141px]"
@@ -31,7 +31,7 @@ export const Primary: Story = {
     >
   </div>
 </template>
-</Dropdown>
+</Accordion>
   `,
   }),
 };
