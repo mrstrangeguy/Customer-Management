@@ -1,35 +1,54 @@
 <template>
   <div
-    class="search-input-wrapper relative bg-[#f2f2f2] hover:bg-[#0000001f] before:absolute before:bottom-0 before:border-b before:w-full before:border-b-[#0000006b] hover:before:border-b-[#000000de] after:absolute after:bottom-0 after:border-b after:w-full after:border-b-[#000000de] after:scale-0 focus-within:after:transition-transform focus-within:after:duration-[600ms] focus-within:after:scale-100 focus-within:after:border-b-2 focus-within:after:border-b-[#03a9f4]"
+    class="search-input-wrapper relative bg-zinc-100 hover:bg-zinc-200 before:absolute before:bottom-0 before:border-b before:w-full before:border-b-zinc-900 hover:before:border-b-black after:absolute after:bottom-0 after:border-b after:w-full after:border-b-zinc-900 after:scale-0 focus-within:after:transition-transform focus-within:after:duration-700 focus-within:after:scale-100 focus-within:after:border-b-2 focus-within:after:border-b-democrat"
   >
     <div
-      class="default-icon block h-[34px] w-[34px] absolute bottom-0 py-[9px] pl-3 pr-1.5 dx-icon dx-icon-search text-center leading-4 font-normal text-[#0000008a]"
+      class="default-icon block h-8.5 w-8 absolute bottom-0 py-2.25 pl-3 pr-1.5 dx-icon dx-icon-search text-center leading-4 font-normal text-slate-500"
     />
     <input
-      :placeholder="removeWhiteSpace(placeholderText)"
-      class="search-input block z-10 w-full py-[9px] pl-[34px] pr-3 bg-transparent leading-[14px] text-xs placeholder:text-xs placeholder:text-[#00000099] outline-none"
+      :placeholder="placeholder"
+      v-model="searchValue"
+      class="block placeholder:capitalize z-10 w-full py-2.25 pl-8.5 pr-3 bg-transparent leading-3 text-xs placeholder:text-xs placeholder:text-gray-500 outline-none"
       type="text"
       @input="handleInput"
+      @focusout="trimSearchInput"
     />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref,onMounted } from "vue";
 import { SearchProps } from "../types/SearchProps";
 
-//props
-defineProps<SearchProps>();
+
+const props = withDefaults(defineProps<SearchProps>(), {
+  placeholder: "Search",
+  value: "",
+});
+
+//onMounted
+onMounted(() => {
+  searchValue.value = props.value;
+});
+
 //emits
-const emits = defineEmits(["getInputValue"]);
+const emits = defineEmits<{
+  (event: "input", inputValue: string): void;
+}>();
+
+//refs
+const searchValue = ref<string>("");
 
 //functions
 const handleInput = (event: Event) => {
-  const el = event.target as HTMLInputElement;
-  emits("getInputValue", el.value);
+  const inputElement = event.target as HTMLInputElement;
+  emits("input", inputElement.value);
 };
 
-const removeWhiteSpace = (text: string) => {
-  const whiteSpaceRegex = /^\s+|\s+$|\s+(?=\s)/g;
-  return text.replace(whiteSpaceRegex, "");
-};
+const trimSearchInput = (event: Event) => {
+  const inputElement = event.target as HTMLInputElement;
+
+  searchValue.value = inputElement.value.trim();
+}
+
 </script>
