@@ -2,7 +2,10 @@
   <div ref="dropdownRef" class="relative z-100 cursor-pointer w-fit">
     <div
       v-if="!imageURL"
-      class="relative overflow-hidden flex py-1.5 z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-hover"
+      :class="{
+        'relative overflow-hidden flex py-1.5 z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-hover': true,
+        'pl-2': icon,
+      }"
       @click.stop="toggleContentVisibility"
       role="button"
     >
@@ -15,7 +18,7 @@
       />
       <span
         id="heading-text"
-        class="block text-title leading-4.5 text-black font-medium tracking-title"
+        class="block text-3.25 leading-4.5 text-black font-medium tracking-title"
       >
         {{ text }}
       </span>
@@ -32,18 +35,41 @@
       class="block w-7 h-7 object-cover object-top aspect-square border rounded-full"
       :src="imageURL"
       alt="dropdown-image"
-      @click="toggleContentVisibility"
+      @click.stop="toggleContentVisibility"
     />
     <div
       :class="{
         'absolute cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-options-dropdown': true,
         'opacity-100 z-150': isHeaderClicked,
         'opacity-0 z-behind': !isHeaderClicked,
-        'top-7': !imageURL,
-        'right-0': isContentPositionLeft,
+        'top-7 left-0': !imageURL,
+        'right-0 rounded-sm': imageURL,
       }"
     >
-      <slot name="dropdown-items" />
+      <div
+        v-for="(dropDownItem, index) in dropDownItems"
+        :class="{
+          'flex items-center hover:bg-zinc-100': true,
+          'mt-1': index === 0,
+        }"
+      >
+        <i
+          v-if="dropDownItem.prependIcon"
+          :class="{
+            'default-icon dx-icon text-4.5': true,
+            [dropDownItem.prependIcon]: true,
+            'ml-2.5 text-zinc-500': dropDownItem.prependIcon,
+          }"
+        />
+        <span
+          :class="{
+            'block text-3.25 leading-4 px-2.75 pt-2.5 pb-2.5 text-nowrap': true,
+            'text-sm': imageURL,
+          }"
+        >
+          {{ dropDownItem.text }}
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -63,12 +89,18 @@ onUnmounted(() => {
 });
 
 //types
+type dropDownItem = {
+  appendIcon?: string;
+  text?: string;
+  prependIcon?: string;
+};
+
 type OptionsDropdownProps = {
   text?: string;
   arrowIcon?: string;
   icon?: string;
   imageURL?: string;
-  contentPosition?: string;
+  dropDownItems?: dropDownItem[];
 };
 
 const props = withDefaults(defineProps<OptionsDropdownProps>(), {
