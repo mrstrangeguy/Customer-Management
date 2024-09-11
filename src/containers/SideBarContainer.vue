@@ -30,9 +30,9 @@
             : 'opacity-0',
         ]"
       >
-        Copyright © 2024
+        {{ copyrightText }}
         <br />
-        Developer Express Inc.
+        {{ companyName }}
       </div>
     </div>
   </div>
@@ -63,5 +63,6 @@ withDefaults(defineProps<Props>(), {
   isExpanded: true,
 });
 
+const { copyrightText, companyName } = UiData.sidebarFooterTexts;
 const sideBarItems = ref<SideBarItem[]>(UiData.sidebarMenuItems);
 </script>

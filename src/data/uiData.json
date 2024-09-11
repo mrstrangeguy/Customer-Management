@@ -91,6 +91,10 @@
             ]
         }
     ],
+    "sidebarFooterTexts":{
+        "copyrightText":" Copyright © 2024 ",
+        "companyName":" Developer Express Inc. "
+    },
     "usersPageData": {
         "title": "Contacts",
         "searchBarPlaceholder": "Contact Search",
