@@ -19,8 +19,13 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { SearchProps } from "../types/SearchProps";
 import { ARROW_UP_KEY, ARROW_DOWN_KEY, KEY_E } from "../Constants";
+
+type SearchProps = {
+  placeholder?: string;
+  value?: string;
+  type?: string;
+};
 
 //props
 const props = withDefaults(defineProps<SearchProps>(), {
