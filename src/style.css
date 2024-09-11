@@ -35,6 +35,17 @@
   content: "";
 }
 
+.contact-status {
+  border-radius: 50%;
+}
+
+.contact-status::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+}
+
 .dx-datagrid-adaptive-more::before {
   content: "";
 }

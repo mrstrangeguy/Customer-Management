@@ -393,7 +393,6 @@ const getResponsiveColsSpan = () => {
 
 <style lang="scss" scoped>
 .icon {
-
   &::after {
     content: "";
     display: block;
@@ -410,7 +409,6 @@ const getResponsiveColsSpan = () => {
 }
 
 .checkbox-icon {
-
   &::after {
     background-color: #03a6ef1a;
   }
@@ -436,7 +434,6 @@ const getResponsiveColsSpan = () => {
 }
 
 .dash-icon {
-
   &::before {
     content: "";
     position: relative;

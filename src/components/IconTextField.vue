@@ -1,42 +1,36 @@
 <template>
-  <div :class="{ 'h-8': true, 'flex items-center': icon }">
-    <div v-if="icon" class="p-1.5 align-middle flex items-center">
-      <i
-        :class="{
-          'default-icon block leading-[18px] h-4 w-4 text-center  text-[#0000001a]': true,
-          [icon]: true,
-        }"
-      />
-    </div>
-    <span v-if="!icon" class="block text-[10px] leading-2.5 text-[#00000099]">{{
-      title
-    }}</span>
-    <div
-      :style="{ color: descriptionColor }"
-      :class="{
-        ['text-xs']: true,
-        'mt-1': !icon,
-        'py-[9px] leading-[14px] px-3': icon,
-      }"
-    >
-      {{ description }}
+  <div :class="['h-8', !isColumn && 'flex items-center']">
+    <i
+      v-if="icon"
+      :class="[
+        'default-icon block leading-5 text-center text-zinc-200',
+        icon,
+        iconStyle,
+      ]"
+    />
+    <span class="block text-2.5 leading-2.5 text-black">{{ label }}</span>
+    <div :class="['text-xs', textStyle]">
+      {{ text }}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps({
-  icon: String,
-  title: String,
-  description: String,
-  descriptionColor: {
-    type: String,
-    default: "#000",
-  },
+type IconTextFieldProps = {
+  icon?: string;
+  label?: string;
+  text?: string;
+  textStyle?: string;
+  iconStyle?: string;
+  isColumn?: boolean;
+};
+
+withDefaults(defineProps<IconTextFieldProps>(), {
+  icon: "",
+  label: "",
+  text: "",
+  textStyle: "",
+  iconStyle: "",
+  isColumn: false,
 });
 </script>
-
-<style scoped></style>
-
-<!-- <Text title="Position" description="ACME" description-color="#03a9f4" />
-<Text icon="dx-icon dx-icon-tel" description="sample5@gmail.com" /> -->

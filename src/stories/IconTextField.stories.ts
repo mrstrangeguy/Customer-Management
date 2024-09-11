@@ -1,24 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import IconTextField from "../components/IconTextField.vue";
 
-const meta: Meta<typeof Text> = {
+const meta: Meta<typeof IconTextField> = {
   component: IconTextField,
 };
 
 export default meta;
-type Story = StoryObj<typeof Text>;
+type Story = StoryObj<typeof IconTextField>;
 
 export const Primary: Story = {
   args: {
-    title: "Position",
-    description: "ACME",
-    descriptionColor: "#03a9f4",
+    label: "Position",
+    text: "ACME",
+    textStyle: "text-blue-200",
   },
 };
 
 export const Secondary: Story = {
   args: {
     icon: "dx-icon dx-icon-tel",
-    description: "sample5@gmail.com",
+    label: "sample5@gmail.com",
   },
 };

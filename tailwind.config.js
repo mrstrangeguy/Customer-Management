@@ -21,6 +21,7 @@ export default {
       },
       lineHeight: {
         'zero':'0px',
+        '2.5':'10px',
         'l1':'15.4284px',
         'l2':'26px',
         '3.75':'15px',
@@ -65,6 +66,10 @@ export default {
       },
       backgroundColor:{
         'hover':'#00000014'
+      },
+      fontSize:{
+        'title':'13px',
+        '2.5':'10px'
       },
       letterSpacing:{
         'title':'0.52px'
