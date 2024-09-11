@@ -17,15 +17,15 @@
             "
             :class="[
               'inline-block default-icon cursor-pointer icon relative align-middle w-4 h-4 rounded-sm',
-              !isAllCheckboxesEnabled &&
-                !isAnyCheckboxesEnabled &&
-                'border-2 border-default-color',
-              !isAllCheckboxesEnabled && 'after:scale-50',
-              isAllCheckboxesEnabled &&
-                'bg-checkbox-selected-bg border-0 checkbox-icon text-center',
-              !isAllCheckboxesEnabled &&
-                isAnyCheckboxesEnabled &&
-                'dash-icon before:relative bg-checkbox-selected-bg border-0 leading-zero text-center',
+              {
+                'border-2 border-default-color':
+                  !isAllCheckboxesEnabled && !isAnyCheckboxesEnabled,
+                'after:scale-50': !isAllCheckboxesEnabled,
+                'bg-checkbox-selected-bg border-0 checkbox-icon text-center':
+                  isAllCheckboxesEnabled,
+                'dash-icon before:relative bg-checkbox-selected-bg border-0 leading-zero text-center':
+                  !isAllCheckboxesEnabled && isAnyCheckboxesEnabled,
+              },
             ]"
           />
         </th>
@@ -34,15 +34,17 @@
           v-for="(userAttribute, index) in userAttributes"
           :class="[
             'group py-3 px-2.75 leading-4 cursor-pointer hover:bg-table-hover-primary text-left',
-            getResponsiveThStyle(userAttribute),
+            getResponsiveTableHeaderStyle(userAttribute),
           ]"
           role="columnheader"
         >
           <span
             :class="[
               'inline-block z-10 align-top text-label text-sm leading-4 font-medium mr-0.75 group-hover:text-table-hover-tertiary',
-              selectedAttributeObject.index === index &&
-                'text-table-hover-tertiary',
+              {
+                'text-table-hover-tertiary':
+                  selectedAttributeObject.index === index,
+              },
             ]"
             >{{ userAttribute }}
           </span>
@@ -50,7 +52,10 @@
             v-if="isArrowIconPresent(index)"
             :class="[
               'inline-block w-3.75 align-top text-sm text-table-hover-primary group-hover:text-table-hover-secondary font-normal h-3.75 leading-l3 default-icon dx-sort',
-              isDownArrowPresent(index) ? 'dx-sort-up' : 'dx-sort-down',
+              {
+                'dx-sort-up': isDownArrowPresent(index),
+                'dx-sort-down': !isDownArrowPresent(index),
+              },
             ]"
           />
           <i
@@ -66,8 +71,10 @@
           @click="handleRowClick(userDetail, index)"
           :class="[
             'border-b border-b-tr-border cursor-pointer',
-            userDetail.isChecked && 'bg-checked',
-            userDetail.isSelected && 'bg-selected',
+            {
+              'bg-checked': userDetail.isChecked,
+              'bg-selected': userDetail.isSelected,
+            },
           ]"
         >
           <td
@@ -78,9 +85,12 @@
             <i
               :class="[
                 'inline-block default-icon cursor-pointer relative icon align-middle w-4 h-4 rounded-sm',
-                userDetail.isChecked
-                  ? 'checkbox-icon text-center bg-checkbox-selected-bg'
-                  : 'border-2 border-default-color after:scale-50',
+                {
+                  'checkbox-icon text-center bg-checkbox-selected-bg':
+                    userDetail.isChecked,
+                  'border-2 border-default-color after:scale-50':
+                    !userDetail.isChecked,
+                },
               ]"
             />
           </td>
@@ -194,7 +204,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from "vue";
-import { usersData, UserDetail } from "../Constants";
+import { usersData, UserDetail } from "../types/TableProps";
 
 //props
 const props = defineProps<usersData>();
@@ -317,7 +327,7 @@ const getStatusTextColor = (text: string) => {
   return "before:bg-wageningen-green text-wageningen-green";
 };
 
-const getResponsiveThStyle = (attribute: string) => {
+const getResponsiveTableHeaderStyle = (attribute: string) => {
   const editedAttribute = attribute.toLowerCase().replace(/\s/g, "");
 
   switch (editedAttribute) {
