@@ -9,7 +9,7 @@
       :placeholder="removeWhiteSpace(placeholderText)"
       class="search-input block z-10 w-full py-[9px] pl-[34px] pr-3 bg-transparent leading-[14px] text-xs placeholder:text-xs placeholder:text-[#00000099] outline-none"
       type="text"
-      @input="onInput"
+      @input="handleInput"
     />
   </div>
 </template>
@@ -23,7 +23,7 @@ defineProps<SearchProps>();
 const emits = defineEmits(["getInputValue"]);
 
 //functions
-const onInput = (event: Event) => {
+const handleInput = (event: Event) => {
   const el = event.target as HTMLInputElement;
   emits("getInputValue", el.value);
 };
@@ -33,7 +33,3 @@ const removeWhiteSpace = (text: string) => {
   return text.replace(whiteSpaceRegex, "");
 };
 </script>
-
-<style lang="scss" scoped></style>
-
-<!-- <Search placeholderText="Search"/>-->
