@@ -2,9 +2,11 @@
   <button
     :class="{
       'button-default': true,
-      [currentButtonClass()]: true,
       'rounded-full': isRounded && !props.text,
       'rounded-sm': !isRounded,
+      'common-primary': variant !== ButtonVariants.Outlined,
+      'common-secondary': variant === ButtonVariants.Outlined,
+      [buttonStyle]: true,
     }"
     :style="{ backgroundColor: buttonBgColor }"
     @mouseover="setBackgroundColor(hoverBg)"
@@ -35,6 +37,7 @@ const props = withDefaults(defineProps<ButtonsProps>(), {
   bgColor: "",
   hoverBg: "#028bc9",
   isRounded: false,
+  buttonStyle: "!px-1.5",
 });
 
 //refs
@@ -53,14 +56,6 @@ const emit = defineEmits<{
 //functions
 const onButtonClick = (event: Event) => {
   emit("buttonClicked", event);
-};
-
-const currentButtonClass = () => {
-  if (props.variant === ButtonVariants.Outlined) {
-    return "common-secondary";
-  }
-
-  return "common-primary";
 };
 
 const setBackgroundColor = (color: string) => {
@@ -91,17 +86,11 @@ const setBackgroundColor = (color: string) => {
 }
 
 .button-default.common-primary {
-  padding: 5px 12px 5px 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
   height: 28px;
   color: white;
 
-  &:hover {
-    background-color: rgb(2, 139, 201) !important;
-  }
-
   .default-icon {
-    color: white;
     height: 16px;
     width: 16px;
     line-height: 16px;
@@ -113,7 +102,6 @@ const setBackgroundColor = (color: string) => {
 }
 
 .button-default.common-secondary {
-  padding: 5px 12px;
   border: 1px solid rgba(0, 0, 0, 0.24);
   color: rgba(0, 0, 0, 0.87);
   justify-content: center;

@@ -5,4 +5,5 @@ export interface ButtonsProps {
   bgColor?: string;
   hoverBg?: string;
   isRounded?: boolean;
+  buttonStyle?: string;
 }
