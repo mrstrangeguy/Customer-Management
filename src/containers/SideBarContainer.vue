@@ -11,14 +11,12 @@
           :main-icon="sideBarItem.main"
         >
           <template v-slot:dropdown-items>
-            <div class="py-[9px] pr-4 flex items-center bg-[#0000000a]">
-              <span class="block pl-12 text-[13px] leading-[16.7141px]">
-                Contact List
-              </span>
-            </div>
-            <div class="py-[9px] pr-4 flex items-center bg-[#0000000a]">
-              <span class="block pl-12 text-[13px] leading-[16.7141px]">
-                Contact List
+            <div
+              v-for="subMenuItem in sideBarItem.subMenuItems"
+              class="py-2.25 pr-4 flex items-center"
+            >
+              <span class="block pl-12 text-3.25 leading-4">
+                {{ subMenuItem.title }}
               </span>
             </div>
           </template>
@@ -26,11 +24,12 @@
       </div>
 
       <div
-        :class="{
-          'absolute text-gray-500 Z-50 bottom-0 left-0 w-full pt-5 py-4 pl-4 text-xs text-sidebar-text leading-4': true,
-          'opacity-1 delay-200 transition-all duration-500': isExpanded,
-          'opacity-0': !isExpanded,
-        }"
+        :class="[
+          'absolute text-gray-500 Z-50 bottom-0 left-0 w-full pt-5 py-4 pl-4 text-xs text-sidebar-text leading-4',
+          isExpanded
+            ? 'opacity-1 delay-200 transition-all duration-500'
+            : 'opacity-0',
+        ]"
       >
         Copyright © 2024
         <br />
@@ -41,9 +40,9 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 
-import uiData from "../data/uiData.json";
+import UiData from "../data/uiData.json";
 import Accordion from "../components/Accordion.vue";
 
 type Props = {
@@ -65,7 +64,5 @@ withDefaults(defineProps<Props>(), {
   isExpanded: true,
 });
 
-const sideBarItems = ref(uiData.sidebarMenuItems);
+const sideBarItems = ref<SideBarItem[]>(UiData.sidebarMenuItems);
 </script>
-
-<style scoped></style>
