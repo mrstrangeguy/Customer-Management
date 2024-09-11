@@ -10,7 +10,7 @@
       v-model="searchValue"
       class="block placeholder:capitalize z-10 w-full py-2.25 pl-8.5 pr-3 bg-transparent leading-3 text-xs placeholder:text-xs placeholder:text-gray-500 outline-none"
       @input="handleInput"
-      @keydown="onKeyDown"
+      @keydown="handleKeyDown"
       :type="type"
       @focusout="trimSearchInput"
     />
@@ -21,6 +21,7 @@
 import { ref, onMounted } from "vue";
 import { SearchProps } from "../types/SearchProps";
 
+//props
 const props = withDefaults(defineProps<SearchProps>(), {
   placeholder: "Search",
   value: "",
@@ -51,11 +52,13 @@ const trimSearchInput = (event: Event) => {
   searchValue.value = inputElement.value.trim();
 };
 
-const onKeyDown = (event: KeyboardEvent) => {
+const handleKeyDown = (event: KeyboardEvent) => {
+  if(props.type !== "number") return
+  
   if (
-    event.key === "ArrowUp" ||
-    event.key === "ArrowDown" ||
-    event.key.toLocaleLowerCase() === "e"
+    event.keyCode === 38 ||
+    event.keyCode === 40 ||
+    event.keyCode === 69
   ) {
     event.preventDefault();
   }

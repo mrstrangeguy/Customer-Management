@@ -13,3 +13,5 @@ export enum DropdownPositions {
   Left = "Left",
   Right = "Right"
 }
+
+export const whiteSpaceRegex = /^\s+|\s+$|\s+(?=\s)/g;
