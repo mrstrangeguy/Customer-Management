@@ -6,12 +6,9 @@
     <div class="relative h-full bg-sidebar pt-4 pb-17.5">
       <div>
         <Accordion
-          v-for="item in sideBarItems"
-          header-style="py-[9px] pr-4 hover:bg-[#0000000a]"
-          main-icon="dx-icon dx-icon-user block text-black w-12 h-[18px] leading-[18px] text-[18px] text-center"
-          text-style="text-[13px] font-bold leading-[15px]"
-          text="CRM"
-          arrow-icon="text-[18px] block h-[18px] leading-[18px]"
+          v-for="sideBarItem in sideBarItems"
+          :text="sideBarItem.title"
+          :main-icon="sideBarItem.main"
         >
           <template v-slot:dropdown-items>
             <div class="py-[9px] pr-4 flex items-center bg-[#0000000a]">
@@ -68,12 +65,7 @@ withDefaults(defineProps<Props>(), {
   isExpanded: true,
 });
 
-const sideBarItems = ref<SideBarItem[]>();
-
-onMounted(() => {
-  sideBarItems.value = uiData.sidebarMenuItems;
-  console.log(sideBarItems.value);
-});
+const sideBarItems = ref(uiData.sidebarMenuItems);
 </script>
 
 <style scoped></style>
