@@ -17,9 +17,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref,onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { SearchProps } from "../types/SearchProps";
-
 
 const props = withDefaults(defineProps<SearchProps>(), {
   placeholder: "Search",
@@ -49,6 +48,5 @@ const trimSearchInput = (event: Event) => {
   const inputElement = event.target as HTMLInputElement;
 
   searchValue.value = inputElement.value.trim();
-}
-
+};
 </script>
