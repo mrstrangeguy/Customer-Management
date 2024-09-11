@@ -15,42 +15,43 @@
                 ? toggleCheckboxesVisibility(false)
                 : toggleCheckboxesVisibility(true)
             "
-            :class="{
-              'inline-block default-icon cursor-pointer icon relative align-middle w-4 h-4 rounded-sm': true,
-              'border-2 border-default-color':
-                !isAllCheckboxesEnabled && !isAnyCheckboxesEnabled,
-              'after:scale-50': !isAllCheckboxesEnabled,
-              'bg-checkbox-selected-bg border-0 checkbox-icon text-center':
-                isAllCheckboxesEnabled,
-              'dash-icon before:relative bg-checkbox-selected-bg border-0 leading-zero text-center':
-                !isAllCheckboxesEnabled && isAnyCheckboxesEnabled,
-            }"
+            :class="[
+              'inline-block default-icon cursor-pointer icon relative align-middle w-4 h-4 rounded-sm',
+              !isAllCheckboxesEnabled &&
+                !isAnyCheckboxesEnabled &&
+                'border-2 border-default-color',
+              !isAllCheckboxesEnabled && 'after:scale-50',
+              isAllCheckboxesEnabled &&
+                'bg-checkbox-selected-bg border-0 checkbox-icon text-center',
+              !isAllCheckboxesEnabled &&
+                isAnyCheckboxesEnabled &&
+                'dash-icon before:relative bg-checkbox-selected-bg border-0 leading-zero text-center',
+            ]"
           />
         </th>
         <th
           @click="sortCustomerTable(index)"
           v-for="(userAttribute, index) in userAttributes"
-          :class="{
-            'group py-3 px-2.75 leading-4 cursor-pointer hover:bg-table-hover-primary text-left': true,
-            [getResponsiveThStyle(userAttribute)]: true,
-          }"
+          :class="[
+            'group py-3 px-2.75 leading-4 cursor-pointer hover:bg-table-hover-primary text-left',
+            getResponsiveThStyle(userAttribute),
+          ]"
           role="columnheader"
         >
           <span
-            :class="{
-              'inline-block z-10 align-top text-label text-sm leading-4 font-medium mr-0.75 group-hover:text-table-hover-tertiary': true,
-              'text-table-hover-tertiary':
-                selectedAttributeObject.index === index,
-            }"
+            :class="[
+              'inline-block z-10 align-top text-label text-sm leading-4 font-medium mr-0.75 group-hover:text-table-hover-tertiary',
+              selectedAttributeObject.index === index &&
+                'text-table-hover-tertiary',
+            ]"
             >{{ userAttribute }}
           </span>
           <i
             v-if="isArrowIconPresent(index)"
-            :class="{
-              'inline-block w-3.75 align-top text-sm text-table-hover-primary group-hover:text-table-hover-secondary font-normal h-3.75 leading-l3 default-icon dx-sort': true,
-              'dx-sort-up': isDownArrowPresent(index),
-              'dx-sort-down': !isDownArrowPresent(index),
-            }"
+            :class="[
+              'inline-block w-3.75 align-top text-sm text-table-hover-primary group-hover:text-table-hover-secondary font-normal h-3.75 leading-l3 default-icon dx-sort',
+              isDownArrowPresent(index) ? 'dx-sort-up' : 'dx-sort-down',
+            ]"
           />
           <i
             class="inline-block align-top default-icon dx-header-filter-empty text-sm w-3.75 h-3.75 -mt-0.5"
@@ -62,12 +63,12 @@
     <tbody class="border-t-0 border border-y">
       <template v-for="(userDetail, index) in userDetails" :key="userDetail.id">
         <tr
-          @click="onRowClick(userDetail, index)"
-          :class="{
-            'border-b border-b-tr-border cursor-pointer': true,
-            'bg-checked': userDetail.isChecked,
-            'bg-selected': userDetail.isSelected,
-          }"
+          @click="handleRowClick(userDetail, index)"
+          :class="[
+            'border-b border-b-tr-border cursor-pointer',
+            userDetail.isChecked && 'bg-checked',
+            userDetail.isSelected && 'bg-selected',
+          ]"
         >
           <td
             @click="addContact(index)"
@@ -75,13 +76,12 @@
             role="columnheader"
           >
             <i
-              :class="{
-                'inline-block default-icon cursor-pointer relative icon align-middle w-4 h-4 rounded-sm': true,
-                'border-2 border-default-color after:scale-50':
-                  !userDetail.isChecked,
-                'checkbox-icon text-center bg-checkbox-selected-bg':
-                  userDetail.isChecked,
-              }"
+              :class="[
+                'inline-block default-icon cursor-pointer relative icon align-middle w-4 h-4 rounded-sm',
+                userDetail.isChecked
+                  ? 'checkbox-icon text-center bg-checkbox-selected-bg'
+                  : 'border-2 border-default-color after:scale-50',
+              ]"
             />
           </td>
           <td class="py-2.5 px-2.75 border-b border-b-tr-border">
@@ -101,10 +101,10 @@
             class="medium:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
             <span
-              :class="{
-                'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-sm leading-4': true,
-                [getStatusTextColor(userDetail.status)]: true,
-              }"
+              :class="[
+                'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-sm leading-4',
+                getStatusTextColor(userDetail.status),
+              ]"
               >{{ userDetail.status }}
             </span>
           </td>
@@ -152,10 +152,10 @@
                 </label>
                 <div class="leading-l2">
                   <span
-                    :class="{
-                      'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-sm leading-4': true,
-                      [getStatusTextColor(userDetail.status)]: true,
-                    }"
+                    :class="[
+                      'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-sm leading-4',
+                      getStatusTextColor(userDetail.status),
+                    ]"
                     >{{ userDetail.status }}
                   </span>
                 </div>
@@ -205,8 +205,6 @@ onMounted(() => {
     getResponsiveColsSpan();
   });
   getResponsiveColsSpan();
-  userAttributes.value = props.userAttributes;
-  userDetails.value = props.usersDetails;
   sortCustomerTable(0);
 });
 
@@ -219,12 +217,12 @@ onUnmounted(() => {
 
 //emit
 const emit = defineEmits<{
-  (e: "rowClickEvent", data: UserDetail): void;
+  (e: "select-data", data: UserDetail): void;
 }>();
 
 //ref
-const userAttributes = ref<string[]>();
-const userDetails = ref<UserDetail[]>();
+const userAttributes = ref<string[]>(props.userAttributes);
+const userDetails = ref<UserDetail[]>(props.usersDetails);
 const selectedAttributeObject = ref({ index: 0, order: 1 });
 const colspan = ref<number>(7);
 
@@ -294,10 +292,10 @@ const selectContact = (index: number) => {
   userDetails.value[index].isSelected = true;
 };
 
-const onRowClick = (data: UserDetail, index: number) => {
+const handleRowClick = (data: UserDetail, index: number) => {
   selectContact(index);
 
-  emit("rowClickEvent", data);
+  emit("select-data", data);
 };
 
 const openResponsiveContainer = (index: number) => {
