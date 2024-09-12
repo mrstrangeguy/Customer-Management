@@ -8,17 +8,11 @@ const meta: Meta<typeof IconTextField> = {
 export default meta;
 type Story = StoryObj<typeof IconTextField>;
 
-export const Primary: Story = {
+export const IconTextFieldComponent: Story = {
   args: {
     label: "Position",
     text: "ACME",
     textStyle: "text-blue-200",
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    icon: "dx-icon dx-icon-tel",
-    label: "sample5@gmail.com",
+    isColumn: true,
   },
 };
