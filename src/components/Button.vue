@@ -1,33 +1,39 @@
 <template>
   <button
-    :class="{
-      'button-default': true,
-      'rounded-full': isRounded && !props.text,
-      'rounded-sm': !isRounded,
-      'common-primary': variant !== ButtonVariants.Outlined,
-      'common-secondary': variant === ButtonVariants.Outlined,
-      [buttonStyle]: true,
-      'overflow-hidden': true,
-      'w-full': text,
-    }"
+    :class="[
+      'button-default',
+      buttonStyle,
+      'overflow-hidden',
+      {
+        'rounded-full': isRounded && !props.text,
+        'rounded-sm': !isRounded,
+        'common-primary': variant !== ButtonVariants.Outlined,
+        'common-secondary': variant === ButtonVariants.Outlined,
+        'w-full': text,
+      },
+    ]"
     :style="{ backgroundColor: buttonBgColor }"
     @mouseover="setBackgroundColor(hoverBg)"
     @mouseleave="setBackgroundColor(bgColor)"
-    @click="onButtonClick"
+    @click="handleButtonClick"
   >
     <i
-      :class="{
-        'default-icon': true,
-        [icon]: true,
-        'mr-1': text,
-        'mr-0': !text,
-      }"
+      :class="[
+        'default-icon',
+        icon,
+        {
+          'mr-1': text,
+          'mr-0': !text,
+        },
+      ]"
     />
     <span
-      :class="{
-        'text-style w-full overflow-hidden text-nowrap text-ellipsis': true,
-        'text-left': isNormalVariant,
-      }"
+      :class="[
+        'text-style w-full overflow-hidden text-nowrap text-ellipsis',
+        {
+          'text-left': isNormalVariant,
+        },
+      ]"
       >{{ text }}</span
     >
   </button>
@@ -63,7 +69,7 @@ const emit = defineEmits<{
 const isNormalVariant = computed(() => props.variant === ButtonVariants.Normal);
 
 //functions
-const onButtonClick = (event: Event) => {
+const handleButtonClick = (event: Event) => {
   emit("buttonClicked", event);
 };
 
