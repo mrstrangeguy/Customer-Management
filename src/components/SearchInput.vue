@@ -9,8 +9,9 @@
       :placeholder="placeholder"
       v-model="searchValue"
       class="block placeholder:capitalize z-10 w-full py-2.25 pl-8.5 pr-3 bg-transparent leading-3 text-xs placeholder:text-xs placeholder:text-gray-500 outline-none"
-      type="text"
       @input="handleInput"
+      @keydown="handleKeyDown"
+      :type="type"
       @focusout="trimSearchInput"
     />
   </div>
@@ -18,8 +19,15 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { SearchProps } from "../types/SearchProps";
+import { ARROW_UP_KEY, ARROW_DOWN_KEY, KEY_E } from "../Constants";
 
+type SearchProps = {
+  placeholder?: string;
+  value?: string;
+  type?: string;
+};
+
+//props
 const props = withDefaults(defineProps<SearchProps>(), {
   placeholder: "Search",
   value: "",
@@ -48,5 +56,13 @@ const trimSearchInput = (event: Event) => {
   const inputElement = event.target as HTMLInputElement;
 
   searchValue.value = inputElement.value.trim();
+};
+
+const handleKeyDown = (event: KeyboardEvent) => {
+  if (props.type !== "number") return;
+
+  if ([ARROW_UP_KEY, ARROW_DOWN_KEY, KEY_E].includes(event.code)) {
+    event.preventDefault();
+  }
 };
 </script>

@@ -11,5 +11,11 @@ export enum AccordionVariants {
 
 export enum DropdownPositions {
   Left = "Left",
-  Right = "Right"
+  Right = "Right",
 }
+
+export const whiteSpaceRegex = /^\s+|\s+$|\s+(?=\s)/g;
+
+export const ARROW_UP_KEY = "ArrowUp";
+export const ARROW_DOWN_KEY = "ArrowDown";
+export const KEY_E = "KeyE";
