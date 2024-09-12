@@ -14,6 +14,11 @@ export enum DropdownPositions {
   Right = "Right",
 }
 
+export enum SearchTypes {
+  Text = "text",
+  Number = "number",
+}
+
 export const whiteSpaceRegex = /^\s+|\s+$|\s+(?=\s)/g;
 
 export const ARROW_UP_KEY = "ArrowUp";
