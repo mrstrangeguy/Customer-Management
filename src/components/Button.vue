@@ -64,13 +64,13 @@ onMounted(() => {
 
 //emits
 const emit = defineEmits<{
-  (e: "buttonClicked", event: Event): void;
+  (e: "button-click", event: Event): void;
 }>();
 const isNormalVariant = computed(() => props.variant === ButtonVariants.Normal);
 
 //functions
 const handleButtonClick = (event: Event) => {
-  emit("buttonClicked", event);
+  emit("button-click", event);
 };
 
 const setBackgroundColor = (color: string) => {
