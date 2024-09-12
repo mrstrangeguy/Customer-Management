@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import "../style.css";
 
 import { ButtonsProps } from "../types/ButtonProps";
 import Button from "../components/Button.vue";
@@ -31,6 +30,7 @@ export const Normal: Story = {
     icon: "dx-icon dx-icon-plus",
     bgColor: "#03a9f4",
     isRounded: false,
+    buttonStyle: "!px-1.5 text-white",
   },
 };
 
@@ -52,7 +52,7 @@ export const Outlined: Story = {
     text: "details",
     variant: ButtonVariants.Outlined,
     isRounded: false,
-    hoverBg:"#f2f2f2",
+    hoverBg: "#f2f2f2",
     buttonStyle: "text-black",
   },
 };

@@ -1,14 +1,13 @@
 <template>
   <button
     :class="[
-      'button-default',
+      'button-default overflow-hidden',
       buttonStyle,
-      'overflow-hidden',
       {
         'rounded-full': isRounded && !props.text,
         'rounded-sm': !isRounded,
-        'common-primary': variant !== ButtonVariants.Outlined,
-        'common-secondary': variant === ButtonVariants.Outlined,
+        'button-normal': isNormalVariant,
+        'button-outlined': !isNormalVariant,
         'w-full': text,
       },
     ]"
@@ -41,6 +40,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
+
 import { ButtonsProps } from "../types/ButtonProps";
 import { ButtonVariants } from "../Constants";
 
@@ -66,6 +66,8 @@ onMounted(() => {
 const emit = defineEmits<{
   (e: "button-click", event: Event): void;
 }>();
+
+//computed
 const isNormalVariant = computed(() => props.variant === ButtonVariants.Normal);
 
 //functions
@@ -88,15 +90,15 @@ const setBackgroundColor = (color: string) => {
   display: block;
 }
 
-.button-default.common-primary,
-.button-default.common-secondary {
+.button-default.button-normal,
+.button-default.button-outlined {
   display: flex;
   align-items: center;
   text-transform: uppercase;
   font-weight: 500;
 }
 
-.button-default.common-primary {
+.button-default.button-normal {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
   height: 28px;
 
@@ -111,7 +113,7 @@ const setBackgroundColor = (color: string) => {
   }
 }
 
-.button-default.common-secondary {
+.button-default.button-outlined {
   border: 1px solid rgba(0, 0, 0, 0.24);
   justify-content: center;
   height: 26px;
