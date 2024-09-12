@@ -28,7 +28,7 @@ type UserOpportunityItem = {
     position: string;
   };
   
-  export type usersData = {
+  export type UsersData = {
     userAttributes: string[];
     usersDetails: UserDetail[];
   };

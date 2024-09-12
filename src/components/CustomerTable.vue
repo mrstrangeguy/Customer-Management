@@ -204,10 +204,10 @@
 
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from "vue";
-import { usersData, UserDetail } from "../types/table";
+import { UsersData, UserDetail } from "../types/table";
 
 //props
-const props = defineProps<usersData>();
+const props = defineProps<UsersData>();
 
 //onMounted
 onMounted(() => {
