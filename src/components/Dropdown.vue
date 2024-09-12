@@ -1,71 +1,78 @@
 <template>
-  <div ref="dropdownRef" class="relative z-100 cursor-pointer w-fit">
+  <div ref="dropdownRef" class="relative z-100 cursor-pointer w-full">
     <div
-      v-if="!imageURL"
-      :class="{
-        'relative overflow-hidden flex py-1.5 z-50 rounded-sm transition-all cursor-pointer pl-3 pr-2 w-fit hover:bg-hover': true,
-        'pl-2': icon,
-      }"
+      :class="[
+        'relative overflow-hidden flex items-center z-50 rounded-sm transition-all cursor-pointer w-fit',
+        headerStyle,
+        {
+          'pl-2': icon,
+        },
+      ]"
       @click.stop="toggleContentVisibility"
       role="button"
     >
       <i
         v-if="icon"
-        :class="{
-          'default-icon block font-normal block w-4 text-base leading-4 align-middle text-center': true,
-          [icon]: true,
-        }"
+        :class="[
+          'default-icon block font-normal block w-4.5 text-base leading-4 text-center -mt-0.5',
+          icon,
+        ]"
+      />
+      <img
+        v-if="imageURL"
+        class="block w-7 h-7 object-cover object-top aspect-square border rounded-full"
+        :src="imageURL"
+        alt="dropdown-image"
+        @click.stop="toggleContentVisibility"
       />
       <span
         id="heading-text"
-        class="block text-3.25 leading-4.5 text-black font-medium tracking-title"
+        class="block text-3.25 leading-4 text-black font-medium tracking-title"
       >
         {{ text }}
       </span>
       <i
-        v-if="arrowIcon"
-        :class="{
-          'default-icon ml-1 block w-4 text-base leading-4 text-center align-middle': true,
-          [arrowIcon]: true,
-        }"
+        v-if="shouldArrowIconPresent"
+        class="default-icon ml-1 block w-4 text-base leading-4 dx-icon-spindown dx-icon-right text-center -mt-0.5"
       />
     </div>
-    <img
-      v-if="imageURL"
-      class="block w-7 h-7 object-cover object-top aspect-square border rounded-full"
-      :src="imageURL"
-      alt="dropdown-image"
-      @click.stop="toggleContentVisibility"
-    />
     <div
-      :class="{
-        'absolute cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-options-dropdown': true,
-        'opacity-100 z-150': isHeaderClicked,
-        'opacity-0 z-behind': !isHeaderClicked,
-        'top-7 left-0': !imageURL,
-        'right-0 rounded-sm': imageURL,
-      }"
+      :class="[
+        'absolute cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-options-dropdown',
+        {
+          'opacity-100 z-150': isHeaderClicked,
+          'opacity-0 z-behind': !isHeaderClicked,
+          'right-0': isContentPositionLeft,
+        },
+      ]"
     >
       <div
         v-for="(dropDownItem, index) in dropDownItems"
-        :class="{
-          'flex items-center hover:bg-zinc-100': true,
-          'mt-1': index === 0,
-        }"
+        :class="[
+          'flex items-center',
+          {
+            'hover:bg-zinc-100': dropDownItem.isHoverable,
+            'mt-1': index === 0,
+          },
+        ]"
       >
         <i
           v-if="dropDownItem.prependIcon"
-          :class="{
-            'default-icon dx-icon text-4.5': true,
-            [dropDownItem.prependIcon]: true,
-            'ml-2.5 text-zinc-500': dropDownItem.prependIcon,
-          }"
+          :class="[
+            'default-icon dx-icon text-4.5',
+            dropDownItem.prependIcon,
+            {
+              'ml-2.5 text-zinc-500': dropDownItem.prependIcon,
+            },
+          ]"
         />
         <span
-          :class="{
-            'block text-3.25 leading-4 px-2.75 pt-2.5 pb-2.5 text-nowrap': true,
-            'text-sm': imageURL,
-          }"
+          :class="[
+            'block text-3.25 leading-4 px-2.75 pt-2.5 pb-2.5 text-nowrap',
+            {
+              'text-sm': imageURL,
+            },
+          ]"
         >
           {{ dropDownItem.text }}
         </span>
@@ -75,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, Ref, ref,computed } from "vue";
+import { onMounted, onUnmounted, Ref, ref, computed } from "vue";
 import { DropdownPositions } from "../Constants";
 
 //onMounted
@@ -93,29 +100,33 @@ type dropDownItem = {
   appendIcon?: string;
   text?: string;
   prependIcon?: string;
+  isHoverable?: boolean;
 };
 
-type OptionsDropdownProps = {
+type DropdownProps = {
   text?: string;
-  arrowIcon?: string;
+  headerStyle?: string;
+  shouldArrowIconPresent?: boolean;
   icon?: string;
   imageURL?: string;
   dropDownItems?: dropDownItem[];
+  contentPosition?: string;
 };
 
-const props = withDefaults(defineProps<OptionsDropdownProps>(), {
-  arrowIcon: "",
+const props = withDefaults(defineProps<DropdownProps>(), {
+  shouldArrowIconPresent: true,
+  headerStyle: "",
   icon: "",
   imageURL: "",
   text: "",
   contentPosition: DropdownPositions.Right,
 });
 
-
 const isHeaderClicked = ref(false);
 const dropdownRef = ref<Ref | null>(null);
 
-const toggleContentVisibility = () => isHeaderClicked.value = !isHeaderClicked.value;
+const toggleContentVisibility = () =>
+  (isHeaderClicked.value = !isHeaderClicked.value);
 
 const onOutSideClick = (event: Event) => {
   if (
