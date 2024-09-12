@@ -1,33 +1,38 @@
 <template>
   <button
-    :class="{
-      'button-default': true,
-      'rounded-full': isRounded && !props.text,
-      'rounded-sm': !isRounded,
-      'common-primary': variant !== ButtonVariants.Outlined,
-      'common-secondary': variant === ButtonVariants.Outlined,
-      [buttonStyle]: true,
-      'overflow-hidden': true,
-      'w-full': text,
-    }"
+    :class="[
+      'button-default overflow-hidden',
+      buttonStyle,
+      {
+        'rounded-full': isRounded && !props.text,
+        'rounded-sm': !isRounded,
+        'button-normal': isNormalVariant,
+        'button-outlined': !isNormalVariant,
+        'w-full': text,
+      },
+    ]"
     :style="{ backgroundColor: buttonBgColor }"
     @mouseover="setBackgroundColor(hoverBg)"
     @mouseleave="setBackgroundColor(bgColor)"
-    @click="onButtonClick"
+    @click="handleButtonClick"
   >
     <i
-      :class="{
-        'default-icon': true,
-        [icon]: true,
-        'mr-1': text,
-        'mr-0': !text,
-      }"
+      :class="[
+        'default-icon',
+        icon,
+        {
+          'mr-1': text,
+          'mr-0': !text,
+        },
+      ]"
     />
     <span
-      :class="{
-        'text-style w-full overflow-hidden text-nowrap text-ellipsis': true,
-        'text-left': isNormalVariant,
-      }"
+      :class="[
+        'text-style w-full overflow-hidden text-nowrap text-ellipsis',
+        {
+          'text-left': isNormalVariant,
+        },
+      ]"
       >{{ text }}</span
     >
   </button>
@@ -35,6 +40,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
+
 import { ButtonsProps } from "../types/ButtonProps";
 import { ButtonVariants } from "../Constants";
 
@@ -45,7 +51,7 @@ const props = withDefaults(defineProps<ButtonsProps>(), {
   bgColor: "",
   hoverBg: "#028bc9",
   isRounded: false,
-  buttonStyle: "!px-1.5",
+  buttonStyle: "!px-1.5 text-white",
 });
 
 //refs
@@ -58,13 +64,15 @@ onMounted(() => {
 
 //emits
 const emit = defineEmits<{
-  (e: "buttonClicked", event: Event): void;
+  (e: "button-click", event: Event): void;
 }>();
+
+//computed
 const isNormalVariant = computed(() => props.variant === ButtonVariants.Normal);
 
 //functions
-const onButtonClick = (event: Event) => {
-  emit("buttonClicked", event);
+const handleButtonClick = (event: Event) => {
+  emit("button-click", event);
 };
 
 const setBackgroundColor = (color: string) => {
@@ -82,22 +90,17 @@ const setBackgroundColor = (color: string) => {
   display: block;
 }
 
-.enable-right-margin {
-  margin-right: 4px;
-}
-
-.button-default.common-primary,
-.button-default.common-secondary {
+.button-default.button-normal,
+.button-default.button-outlined {
   display: flex;
   align-items: center;
   text-transform: uppercase;
   font-weight: 500;
 }
 
-.button-default.common-primary {
+.button-default.button-normal {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
   height: 28px;
-  color: white;
 
   .default-icon {
     height: 16px;
@@ -110,21 +113,10 @@ const setBackgroundColor = (color: string) => {
   }
 }
 
-.button-default.common-secondary {
+.button-default.button-outlined {
   border: 1px solid rgba(0, 0, 0, 0.24);
-  color: rgba(0, 0, 0, 0.87);
   justify-content: center;
   height: 26px;
-}
-
-.button-default.icon {
-  padding: 5px;
-  transition: 0.4s ease;
-  line-height: 16px;
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.12);
-  }
 }
 
 .text-style {

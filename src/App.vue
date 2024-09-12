@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import HeaderContainer from './containers/HeaderContainer.vue';
+import Button from './components/Button.vue';
 </script>
 
 <template>
-<header-container/>
+<Button text="Add Contact"/>
 </template>
 
 <style lang="scss" scoped>

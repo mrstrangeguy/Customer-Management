@@ -29,11 +29,18 @@ export const Normal: Story = {
     text: "Add Contact",
     icon: "dx-icon dx-icon-plus",
     bgColor: "#03a9f4",
-    isRounded:false
+    isRounded: false,
+    buttonStyle: "!px-1.5 text-white",
   },
 };
 
 export const Outlined: Story = {
+  argTypes: {
+    variant: {
+      options: Object.values(ButtonVariants),
+      control: { type: "select" },
+    },
+  },
   render: (args: ButtonsProps) => ({
     components: { Button },
     setup() {
@@ -44,6 +51,8 @@ export const Outlined: Story = {
   args: {
     text: "details",
     variant: ButtonVariants.Outlined,
-    isRounded:false
+    isRounded: false,
+    hoverBg: "#f2f2f2",
+    buttonStyle: "text-black",
   },
 };
