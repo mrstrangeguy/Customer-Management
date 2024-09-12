@@ -27,7 +27,7 @@ export const Primary: Story = {
     },
     template: `
   <Accordion v-bind="args">
-<template v-slot:dropdown-items>
+<template #dropdown-items>
   <div class="py-2.25 pr-4 flex items-center bg-zinc-100 hover:bg-zinc-200">
     <span class="block pl-12 text-3.25 leading-4.5">
     Contact List
@@ -64,7 +64,7 @@ export const Secondary: Story = {
 <Accordion
 v-bind="args"
 >
-<template v-slot:dropdown-items>
+<template #dropdown-items>
   <div class="p-2.75">
     <div class="pb-2.5">
       <span class="block text-3.25 leading-4">
