@@ -87,6 +87,27 @@ export default {
       },
       maxHeight: {
         '1000':'1000px'
+      },
+      height:{
+        '9.5':'38px'
+      },
+      width: {
+        '45':'180px',
+        '9.5':'38px'
+      },
+      margin: {
+         '2.75':'11px'
+      },
+      maxWidth: {
+        '35':'140px'
+      },
+      padding: {
+        '1.25':'5px',
+        '1.75':'7px',
+        '2.75':'11px',
+      },
+      boxShadow: {
+        'header':'0 4px 8px rgba(0,0,0,.05),0 0 4px rgba(0,0,0,.15)'
       }
     },
   },
