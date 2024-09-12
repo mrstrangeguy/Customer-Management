@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import SideBarContainer from './containers/SideBarContainer.vue'
+import IndividualProfileContainer from './containers/IndividualProfileContainer.vue';
 </script>
 
 <template>
-<SideBarContainer/>
+    <individual-profile-container/>
 </template>
 
 <style lang="scss" scoped>

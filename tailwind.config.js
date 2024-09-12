@@ -32,14 +32,18 @@ export default {
         '3.75':'15px',
         '4.5':'18px',
         '8.5':'34px',
-        '9.5':'38px'
+        '9.5':'38px',
+        '31':'124px'
       },
       width: {
+        '3.75':'15px',
         '9.5':'38px',
-        '3.75':'15px'
+        '31':'124px',
+        '45':'180px',
       },
       minWidth: {
         '9.5':'38px',
+        '22.5':'90px'
       },
       screens: {
         'large':'850px',
@@ -70,6 +74,7 @@ export default {
       margin: {
         '0.75':'3px',
         '1.25':'5px',
+        '0.75':'3px',
         '2.75':'11px'
       },
       backgroundColor:{
@@ -95,8 +100,12 @@ export default {
         '6.5':'26px'
       },
       maxHeight: {
-        '1000':'1000px'
+        '1000':'1000px',
+        '31':'124px'
       },
+      boxShadow: {
+        'header':'0 4px 8px rgba(0,0,0,.05),0 0 4px rgba(0,0,0,.15)'
+      }
     },
   },
   plugins: [],

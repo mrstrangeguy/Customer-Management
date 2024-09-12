@@ -28,6 +28,14 @@ body {
   font-family: "DX Icons";
 }
 
+.dx-icon-unpin::before {
+  content: "";
+}
+
+.dx-icon-close::before {
+  content: "";
+}
+
 .dx-accordion-item-title:before {
   content: "";
 }
