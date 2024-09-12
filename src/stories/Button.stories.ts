@@ -52,6 +52,7 @@ export const Outlined: Story = {
     text: "details",
     variant: ButtonVariants.Outlined,
     isRounded: false,
+    hoverBg:"#f2f2f2",
     buttonStyle: "text-black",
   },
 };
