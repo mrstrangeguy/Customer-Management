@@ -204,7 +204,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from "vue";
-import { usersData, UserDetail } from "../types/TableProps";
+import { usersData, UserDetail } from "../types/table";
 
 //props
 const props = defineProps<usersData>();
