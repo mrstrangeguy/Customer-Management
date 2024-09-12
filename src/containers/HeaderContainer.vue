@@ -23,13 +23,13 @@
         <Button variant="Icon" icon="dx-icon dx-icon-belloutline" />
       </div>
       <div class="sm:block hidden pl-2.5">
-        <options-dropdown
+        <Dropdown
           profileURL="https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png"
         >
           <template v-slot:dropdown-items>
             <div class="py-2.5 px-2.75">John Heart</div>
           </template>
-        </options-dropdown>
+        </Dropdown>
       </div>
       <div class="sm:hidden block pl-1.75">
         <Button variant="Icon" icon="dx-icon dx-icon-overflow" />
@@ -41,7 +41,7 @@
 <script setup lang="ts">
 import Button from "../components/Button.vue";
 import SearchInput from "../components/SearchInput.vue";
-import OptionsDropdown from "../components/OptionsDropdown.vue";
+import Dropdown from "../components/Dropdown.vue";
 </script>
 
 <style scoped></style>
