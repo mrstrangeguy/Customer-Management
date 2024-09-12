@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
+import "../style.css";
 
 import { ButtonsProps } from "../types/ButtonProps";
 import Button from "../components/Button.vue";
@@ -29,11 +30,17 @@ export const Normal: Story = {
     text: "Add Contact",
     icon: "dx-icon dx-icon-plus",
     bgColor: "#03a9f4",
-    isRounded:false
+    isRounded: false,
   },
 };
 
 export const Outlined: Story = {
+  argTypes: {
+    variant: {
+      options: Object.values(ButtonVariants),
+      control: { type: "select" },
+    },
+  },
   render: (args: ButtonsProps) => ({
     components: { Button },
     setup() {
@@ -44,6 +51,7 @@ export const Outlined: Story = {
   args: {
     text: "details",
     variant: ButtonVariants.Outlined,
-    isRounded:false
+    isRounded: false,
+    buttonStyle: "text-black",
   },
 };

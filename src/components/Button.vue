@@ -45,7 +45,7 @@ const props = withDefaults(defineProps<ButtonsProps>(), {
   bgColor: "",
   hoverBg: "#028bc9",
   isRounded: false,
-  buttonStyle: "!px-1.5",
+  buttonStyle: "!px-1.5 text-white",
 });
 
 //refs
@@ -82,10 +82,6 @@ const setBackgroundColor = (color: string) => {
   display: block;
 }
 
-.enable-right-margin {
-  margin-right: 4px;
-}
-
 .button-default.common-primary,
 .button-default.common-secondary {
   display: flex;
@@ -97,7 +93,6 @@ const setBackgroundColor = (color: string) => {
 .button-default.common-primary {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
   height: 28px;
-  color: white;
 
   .default-icon {
     height: 16px;
@@ -112,19 +107,8 @@ const setBackgroundColor = (color: string) => {
 
 .button-default.common-secondary {
   border: 1px solid rgba(0, 0, 0, 0.24);
-  color: rgba(0, 0, 0, 0.87);
   justify-content: center;
   height: 26px;
-}
-
-.button-default.icon {
-  padding: 5px;
-  transition: 0.4s ease;
-  line-height: 16px;
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.12);
-  }
 }
 
 .text-style {
