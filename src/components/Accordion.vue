@@ -48,7 +48,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 
-import { DropdownVariants } from "../Constants";
+import { AccordionVariants } from "../Constants";
 
 //refs
 const isHeaderClicked = ref(false);
@@ -63,11 +63,11 @@ type props = {
 const props = withDefaults(defineProps<props>(), {
   mainIcon: "",
   text: "",
-  variant: DropdownVariants.Primary,
+  variant: AccordionVariants.Primary,
 });
 
 //computed
-const isPrimaryVariant = computed(() => props.variant === DropdownVariants.Primary);
+const isPrimaryVariant = computed(() => props.variant === AccordionVariants.Primary);
 
 //functions
 
