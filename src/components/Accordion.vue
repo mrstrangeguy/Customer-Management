@@ -1,13 +1,14 @@
 <template>
   <div
-    :class="['cursor-pointer z-100 relative', !isPrimaryVariant && 'shadow']"
+    :class="['cursor-pointer z-100 relative', { shadow: !isPrimaryVariant }]"
   >
     <div
       :class="[
         'z-100 relative flex items-center justify-between',
-        isPrimaryVariant
-          ? 'py-2.25 pr-4 bg-zinc-100'
-          : 'py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10',
+        {
+          'py-2.25 pr-4 bg-zinc-100': isPrimaryVariant,
+          'py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10': !isPrimaryVariant,
+        },
       ]"
       @click.stop="toggleContentVisibility"
       role="button"
@@ -19,7 +20,9 @@
         />
         <span
           :class="[
-            isPrimaryVariant && 'text-3.25 font-bold leading-3.75 block',
+            {
+              'text-3.25 font-bold leading-3.75 block': isPrimaryVariant,
+            },
           ]"
         >
           {{ text }}
@@ -28,10 +31,13 @@
       <i
         :class="[
           'default-icon',
-          isPrimaryVariant
-            ? 'text-4.5 block h-4.5 text-gray-400 leading-4.5 dx-treeview-toggle-item-visibility'
-            : 'text-base text-black font-normal leading-4 dx-accordion-item-title',
-          isHeaderClicked && 'dx-treeview-toggle-item-visibility-opened',
+          {
+            'text-4.5 block h-4.5 text-gray-400 leading-4.5 dx-treeview-toggle-item-visibility':
+              isPrimaryVariant,
+            'text-base text-black font-normal leading-4 dx-accordion-item-title':
+              !isPrimaryVariant,
+            'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
+          },
         ]"
       />
     </div>
@@ -67,7 +73,9 @@ const props = withDefaults(defineProps<props>(), {
 });
 
 //computed
-const isPrimaryVariant = computed(() => props.variant === AccordionVariants.Primary);
+const isPrimaryVariant = computed(
+  () => props.variant === AccordionVariants.Primary
+);
 
 //functions
 
