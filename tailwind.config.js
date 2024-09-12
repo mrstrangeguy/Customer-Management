@@ -53,13 +53,12 @@ export default {
         '2.25':'9px',
         '2.75':'11px',
         '8.5':'34px',
-        '2.25':'9px'
       },
       fontSize: {
+        '2.5':'10px',
         '3.25':'13px',
         '3.75':'15px',
         '4.5':'18px',
-        '3.25':'13px'
       },
       margin: {
         '1.25':'5px',
@@ -67,10 +66,6 @@ export default {
       },
       backgroundColor:{
         'hover':'#00000014'
-      },
-      fontSize:{
-        'title':'13px',
-        '2.5':'10px'
       },
       letterSpacing:{
         'title':'0.52px'

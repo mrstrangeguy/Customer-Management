@@ -4,7 +4,7 @@ export enum ButtonVariants {
   Outlined = "Outlined",
 }
 
-export enum DropdownVariants {
+export enum AccordionVariants {
   Primary = "Primary",
   Secondary = "Secondary",
 }
