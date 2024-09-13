@@ -85,11 +85,16 @@
             "main": "dx-icon dx-icon-box",
             "subMenuItems": [
                 {
-                    "text": "User Profile"
+                    "title": "User Profile",
+                    "path": "./../"
                 }
             ]
         }
     ],
+    "sidebarFooterTexts":{
+        "copyrightText":" Copyright © 2024 ",
+        "companyName":" Developer Express Inc. "
+    },
     "usersPageData": {
         "title": "Contacts",
         "searchBarPlaceholder": "Contact Search",

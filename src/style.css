@@ -14,6 +14,15 @@
   font-family: "Roboto", sans-serif;
 }
 
+#app {
+  height: 100%;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+}
+
 .default-icon {
   font-style: normal;
   font-family: "DX Icons";

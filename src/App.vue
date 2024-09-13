@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Button from './components/Button.vue';
+import SideBarContainer from './containers/SideBarContainer.vue'
 </script>
 
 <template>
-<Button text="Add Contact"/>
+<SideBarContainer/>
 </template>
 
 <style lang="scss" scoped>
