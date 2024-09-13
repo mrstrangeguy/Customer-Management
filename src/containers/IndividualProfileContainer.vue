@@ -97,7 +97,7 @@
           <Button
             text="Edit"
             icon="dx-icon-edit"
-            button-style="!pl-2 !pr-3 !flex !justify-center"
+            button-style="!pl-2 !pr-3 !flex !justify-center !text-white"
             bg-color="#03a9f4"
           />
         </div>
@@ -107,6 +107,7 @@
             :variant="ButtonVariants.Outlined"
             button-style="!pl-2 !pr-3 !flex !justify-center"
             bg-color="#fff"
+            hover-bg="rgba(0,0,0,.08)"
           />
         </div>
       </div>
