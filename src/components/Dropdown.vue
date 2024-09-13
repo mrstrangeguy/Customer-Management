@@ -32,7 +32,7 @@
         {{ text }}
       </span>
       <i
-        v-if="shouldArrowIcon"
+        v-if="shouldShowArrowIcon"
         class="default-icon ml-1 block w-4 text-base leading-4 dx-icon-spindown dx-icon-right text-center -mt-0.5"
       />
     </div>
@@ -106,7 +106,7 @@ type dropDownItem = {
 type DropdownProps = {
   text?: string;
   headerStyle?: string;
-  shouldArrowIcon?: boolean;
+  shouldShowArrowIcon?: boolean;
   icon?: string;
   imageURL?: string;
   dropDownItems?: dropDownItem[];
