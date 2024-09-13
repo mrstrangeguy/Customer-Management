@@ -17,6 +17,7 @@
     @click="handleButtonClick"
   >
     <i
+      v-if="icon"
       :class="[
         'default-icon',
         icon,
@@ -26,15 +27,9 @@
         },
       ]"
     />
-    <span
-      :class="[
-        'text-style w-full overflow-hidden text-nowrap text-ellipsis',
-        {
-          'text-left': isNormalVariant,
-        },
-      ]"
-      >{{ text }}</span
-    >
+    <span class="text-style overflow-hidden text-nowrap text-ellipsis">
+      {{ text }}
+    </span>
   </button>
 </template>
 
