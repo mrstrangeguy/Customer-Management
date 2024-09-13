@@ -114,7 +114,7 @@ type DropdownProps = {
 };
 
 const props = withDefaults(defineProps<DropdownProps>(), {
-  shouldArrowIconPresent: true,
+  shouldShowArrowIcon: true,
   headerStyle: "",
   icon: "",
   imageURL: "",

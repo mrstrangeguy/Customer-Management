@@ -25,7 +25,7 @@ export const DropdownComponent: Story = {
     headerStyle: "hover:bg-slate-200 py-1.5 pl-3 pr-2",
     dropDownItems: userStatuses,
     contentPosition:DropdownPositions.Left,
-    shouldArrowIconPresent:true
+    shouldShowArrowIcon:true
   },
   render: (args) => ({
     components: { Dropdown },
@@ -33,7 +33,7 @@ export const DropdownComponent: Story = {
       return { args };
     },
     template: `
-        <Dropdown v-bind="args" style="width:28px"/>
+        <Dropdown v-bind="args" />
         `,
   }),
 };
