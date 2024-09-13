@@ -30,7 +30,9 @@ export default {
       },
       height:{
         '3.75':'15px',
-        '4.5':'18px'
+        '4.5':'18px',
+        '8.5':'34px',
+        '9.5':'38px'
       },
       width: {
         '9.5':'38px',
@@ -47,9 +49,14 @@ export default {
         'extra-large':'1372px'
       },
       maxWidth: {
+        '9.5':'38px',
         '17.5':'70px',
+        '35':'140px',
+        '45':'180px',
       },
       padding:{
+        '1.25':'5px',
+        '1.75':'7px',
         '2.25':'9px',
         '2.75':'11px',
         '8.5':'34px',
@@ -61,8 +68,9 @@ export default {
         '4.5':'18px',
       },
       margin: {
+        '0.75':'3px',
         '1.25':'5px',
-        '0.75':'3px'
+        '2.75':'11px'
       },
       backgroundColor:{
         'hover':'#00000014'
@@ -76,7 +84,8 @@ export default {
         '1500':'1500ms'
       },
       boxShadow: {
-        'options-dropdown':'0 2px 4px rgba(0,0,0,.2)'
+        'options-dropdown':'0 2px 4px rgba(0,0,0,.2)',
+        'header':'0 4px 8px rgba(0,0,0,.05),0 0 4px rgba(0,0,0,.15)'
       },
       zIndex: {
         '150':'150',
@@ -88,27 +97,6 @@ export default {
       maxHeight: {
         '1000':'1000px'
       },
-      height:{
-        '9.5':'38px'
-      },
-      width: {
-        '45':'180px',
-        '9.5':'38px'
-      },
-      margin: {
-         '2.75':'11px'
-      },
-      maxWidth: {
-        '35':'140px'
-      },
-      padding: {
-        '1.25':'5px',
-        '1.75':'7px',
-        '2.75':'11px',
-      },
-      boxShadow: {
-        'header':'0 4px 8px rgba(0,0,0,.05),0 0 4px rgba(0,0,0,.15)'
-      }
     },
   },
   plugins: [],

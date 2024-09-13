@@ -2,9 +2,10 @@
     "headerNavData": {
         "title": "UI Template Gallery",
         "menuIcon": "dx-icon dx-icon-menu",
+        "searchPlaceholder":"Search",
         "displayMode": {
-            "lightModeIcon": "dx-icon dx-icon-moon",
-            "darkModeIcon": "dx-icon dx-icon-sun"
+            "lightModeIcon": "dx-icon dx-icon-sun",
+            "darkModeIcon": "dx-icon dx-icon-moon"
         },
         "notification": "dx-icon dx-icon-belloutline",
         "profile": {
