@@ -32,7 +32,7 @@
         {{ text }}
       </span>
       <i
-        v-if="shouldArrowIconPresent"
+        v-if="shouldArrowIcon"
         class="default-icon ml-1 block w-4 text-base leading-4 dx-icon-spindown dx-icon-right text-center -mt-0.5"
       />
     </div>
@@ -82,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, Ref, ref, computed } from "vue";
+import { computed, onMounted, onUnmounted, Ref, ref } from "vue";
 import { DropdownPositions } from "../Constants";
 
 //onMounted
@@ -106,7 +106,7 @@ type dropDownItem = {
 type DropdownProps = {
   text?: string;
   headerStyle?: string;
-  shouldArrowIconPresent?: boolean;
+  shouldArrowIcon?: boolean;
   icon?: string;
   imageURL?: string;
   dropDownItems?: dropDownItem[];
