@@ -163,5 +163,20 @@
                 }
             ]
         }
+    },
+    "individualProfileData": {
+        "actionsDropdown": {
+            "title": "ACTIONS",
+            "values": [
+                "Call",
+                "Send Fax",
+                "Send Email",
+                "Make a Meeting"
+            ]
+        },
+        "editButton": {
+            "icon": "dx-icon-edit",
+            "text": "details"
+        }
     }
 }
