@@ -65,7 +65,7 @@
         <div>
           <icon-text-field
             icon="dx-icon-tel"
-            icon-style="px-1.5"
+            icon-style="px-1.5 text-slate-300"
             text="+1(714)555-8882"
             text-style="pl-4"
           />
@@ -73,7 +73,7 @@
         <div class="mt-5">
           <icon-text-field
             icon="dx-icon-email"
-            icon-style="px-1.5"
+            icon-style="px-1.5 text-slate-200"
             text="arnolds@dx-email.com"
             text-style="pl-4"
           />
@@ -81,7 +81,7 @@
         <div class="mt-5">
           <icon-text-field
             icon="dx-icon-tel"
-            icon-style="px-1.5"
+            icon-style="px-1.5 text-slate-200"
             text="125 W Elm St"
             text-style="pl-4"
           />
