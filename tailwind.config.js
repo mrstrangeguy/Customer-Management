@@ -76,7 +76,6 @@ export default {
       margin: {
         '0.75':'3px',
         '1.25':'5px',
-        '0.75':'3px',
         '2.75':'11px'
       },
       backgroundColor:{
@@ -105,9 +104,6 @@ export default {
         '1000':'1000px',
         '31':'124px'
       },
-      boxShadow: {
-        'header':'0 4px 8px rgba(0,0,0,.05),0 0 4px rgba(0,0,0,.15)'
-      }
     },
   },
   plugins: [],
