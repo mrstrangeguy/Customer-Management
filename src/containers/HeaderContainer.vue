@@ -3,33 +3,45 @@
     <div class="flex items-center">
       <div class="w-12 h-9.5 flex">
         <div class="p-1.25 flex justify-center items-center w-full">
-          <Button icon="dx-icon dx-icon-menu" variant="Icon" />
+          <Button
+            :icon="menuIcon"
+            is-rounded
+            hover-bg="rgba(0, 0, 0, 0.08)"
+            button-style="!shadow-none !px-1.5 !text-slate-700"
+          />
         </div>
       </div>
       <div>
         <span class="block leading-leading1 text-4 font-medium">
-          UI Template Gallery
+          {{ title }}
         </span>
       </div>
     </div>
     <div class="flex items-center pr-6">
       <div class="sm:block hidden w-45 flex items-center mr-4">
-        <SearchInput placeholder-text="Search" />
+        <SearchInput :placeholder="searchPlaceholder" />
       </div>
-      <div class="px-px">
-        <Button variant="Icon" icon="dx-icon dx-icon-moon" />
+      <div class="-mr-px">
+        <Button
+          :icon="displayMode.darkModeIcon"
+          is-rounded
+          hover-bg="rgba(0, 0, 0, 0.08)"
+          button-style="!shadow-none !px-1.5 !text-slate-700"
+        />
       </div>
-      <div class="pl-1.5 pr-px">
-        <Button variant="Icon" icon="dx-icon dx-icon-belloutline" />
+      <div class="pl-1.5">
+        <Button
+          :icon="notification"
+          is-rounded
+          hover-bg="rgba(0, 0, 0, 0.08)"
+          button-style="!shadow-none !px-1.5 !text-slate-700"
+        />
       </div>
       <div class="sm:block hidden pl-2.5">
         <Dropdown
-          profileURL="https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png"
-        >
-          <template v-slot:dropdown-items>
-            <div class="py-2.5 px-2.75">John Heart</div>
-          </template>
-        </Dropdown>
+          :image-u-r-l="userProfileData.profileImg"
+          :drop-down-items="userProfileData.details"
+        />
       </div>
       <div class="sm:hidden block pl-1.75">
         <Button variant="Icon" icon="dx-icon dx-icon-overflow" />
@@ -42,6 +54,8 @@
 import Button from "../components/Button.vue";
 import SearchInput from "../components/SearchInput.vue";
 import Dropdown from "../components/Dropdown.vue";
-</script>
+import uiData from "../data/uiData.json";
 
-<style scoped></style>
+const { userProfileData } = uiData.usersPageData;
+const { title, menuIcon, displayMode, notification, searchPlaceholder } = uiData.headerNavData;
+</script>
