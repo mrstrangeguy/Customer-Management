@@ -68,7 +68,7 @@
         />
         <span
           :class="[
-            'block text-3.25 leading-4 px-2.75 pt-2.5 pb-2.5 text-nowrap',
+            'block text-3.25 leading-4 px-2.75 py-2.5 text-nowrap',
             {
               'text-sm': imageURL,
             },
