@@ -59,5 +59,3 @@ import uiData from "../data/uiData.json";
 const { userProfileData } = uiData.usersPageData;
 const { title, menuIcon, displayMode, notification, searchPlaceholder } = uiData.headerNavData;
 </script>
-
-<style scoped></style>
