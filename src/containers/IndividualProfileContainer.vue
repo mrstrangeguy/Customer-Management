@@ -149,8 +149,7 @@ import { UserDetail } from "../types/table";
 import { individualProfileData } from "../data/uiData.json";
 import { ButtonVariants, AccordionVariants } from "../Constants";
 
-const { pinButton, closeButton, actionsDropdown, editButton, detailsButton } =
-  individualProfileData;
+const { pinButton, closeButton, actionsDropdown, editButton, detailsButton } = individualProfileData;
 
 type Props = {
   userDetail: UserDetail;
