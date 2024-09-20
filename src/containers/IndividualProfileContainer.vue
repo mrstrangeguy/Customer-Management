@@ -84,7 +84,7 @@
         </div>
         <div class="ml-1.25 min-w-22.5">
           <Button
-            text="details"
+            :text="detailsButton.text"
             :variant="ButtonVariants.Outlined"
             button-style="!pl-2 !pr-3 !justify-center"
             bg-color="#fff"
