@@ -2,7 +2,7 @@
     "headerNavData": {
         "title": "UI Template Gallery",
         "menuIcon": "dx-icon dx-icon-menu",
-        "searchPlaceholder":"Search",
+        "searchPlaceholder": "Search",
         "displayMode": {
             "lightModeIcon": "dx-icon dx-icon-sun",
             "darkModeIcon": "dx-icon dx-icon-moon"
@@ -92,9 +92,9 @@
             ]
         }
     ],
-    "sidebarFooterTexts":{
-        "copyrightText":" Copyright © 2024 ",
-        "companyName":" Developer Express Inc. "
+    "sidebarFooterTexts": {
+        "copyrightText": " Copyright © 2024 ",
+        "companyName": " Developer Express Inc. "
     },
     "usersPageData": {
         "title": "Contacts",
@@ -171,13 +171,31 @@
         }
     },
     "individualProfileData": {
+        "pinButton": {
+            "icon": "dx-icon-unpin"
+        },
+        "closeButton": {
+            "icon": "dx-icon-close"
+        },
         "actionsDropdown": {
             "title": "ACTIONS",
-            "values": [
-                "Call",
-                "Send Fax",
-                "Send Email",
-                "Make a Meeting"
+            "details": [
+                {
+                    "isHoverable": true,
+                    "text": "Call"
+                },
+                {
+                    "isHoverable": true,
+                    "text": "Send Fax"
+                },
+                {
+                    "isHoverable": true,
+                    "text": "Send Email"
+                },
+                {
+                    "isHoverable": true,
+                    "text": "Make a Meeting"
+                }
             ]
         },
         "editButton": {

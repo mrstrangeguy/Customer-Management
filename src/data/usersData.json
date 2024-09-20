@@ -2,15 +2,43 @@
     "userDetails": {
         "users": [
             {
-                "id":1,
+                "id": 1,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Antony Remmen",
                     "position": "Support Assistant"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "Clicker",
                 "status": "Salaried",
                 "assignedTo": "John Heart",
@@ -57,15 +85,43 @@
                 }
             },
             {
-                "id":2,
+                "id": 2,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Amelia Harper",
                     "position": "Network Admin"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "Clicker",
                 "status": "Commission",
                 "assignedTo": "Samantha Bright",
@@ -112,15 +168,43 @@
                 }
             },
             {
-                "id":3,
+                "id": 3,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Arnie Schwartz",
                     "position": "Engineer"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "EZ Stop",
                 "status": "Salaried",
                 "assignedTo": "John Heart",
@@ -167,15 +251,43 @@
                 }
             },
             {
-                "id":4,
+                "id": 4,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Arthur Miller",
                     "position": "CTO"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "Zone Toys",
                 "status": "Terminated",
                 "assignedTo": "Samantha Bright",
@@ -222,15 +334,43 @@
                 }
             },
             {
-                "id":5,
+                "id": 5,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -277,15 +417,43 @@
                 }
             },
             {
-                "id":6,
+                "id": 6,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -332,15 +500,43 @@
                 }
             },
             {
-                "id":7,
+                "id": 7,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -387,15 +583,43 @@
                 }
             },
             {
-                "id":8,
+                "id": 8,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -442,15 +666,43 @@
                 }
             },
             {
-                "id":9,
+                "id": 9,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -497,15 +749,43 @@
                 }
             },
             {
-                "id":10,
+                "id": 10,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -552,15 +832,43 @@
                 }
             },
             {
-                "id":11,
+                "id": 11,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "StereoShack"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -607,15 +915,43 @@
                 }
             },
             {
-                "id":12,
+                "id": 12,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -662,15 +998,43 @@
                 }
             },
             {
-                "id":13,
+                "id": 13,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -717,15 +1081,43 @@
                 }
             },
             {
-                "id":14,
+                "id": 14,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -772,15 +1164,43 @@
                 }
             },
             {
-                "id":15,
+                "id": 15,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -827,15 +1247,43 @@
                 }
             },
             {
-                "id":16,
+                "id": 16,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -882,15 +1330,43 @@
                 }
             },
             {
-                "id":17,
+                "id": 17,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -937,15 +1413,43 @@
                 }
             },
             {
-                "id":18,
+                "id": 18,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -992,15 +1496,43 @@
                 }
             },
             {
-                "id":19,
+                "id": 19,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -1047,15 +1579,43 @@
                 }
             },
             {
-                "id":20,
+                "id": 20,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -1102,15 +1662,43 @@
                 }
             },
             {
-                "id":21,
+                "id": 21,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -1157,15 +1745,43 @@
                 }
             },
             {
-                "id":22,
+                "id": 22,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -1212,15 +1828,43 @@
                 }
             },
             {
-                "id":23,
+                "id": 23,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -1267,15 +1911,43 @@
                 }
             },
             {
-                "id":24,
+                "id": 24,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -1322,15 +1994,43 @@
                 }
             },
             {
-                "id":25,
+                "id": 25,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -1377,15 +2077,43 @@
                 }
             },
             {
-                "id":26,
+                "id": 26,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -1432,15 +2160,43 @@
                 }
             },
             {
-                "id":27,
+                "id": 27,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -1487,15 +2243,43 @@
                 }
             },
             {
-                "id":28,
+                "id": 28,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
@@ -1542,15 +2326,43 @@
                 }
             },
             {
-                "id":29,
+                "id": 29,
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image":"../../assets/images/individual_container_employee.png",
+                "image": "../../assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Barb Banks",
                     "position": "Support Manager"
                 },
+                "statusDetails": [
+                    {
+                        "label": "Company",
+                        "text": "Clicker"
+                    },
+                    {
+                        "label": "Position",
+                        "text": "Engineer"
+                    },
+                    {
+                        "label": "Assgined to",
+                        "text": "John Heart"
+                    }
+                ],
+                "contactDetails": [
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "+1(714)555-8882"
+                    },
+                    {
+                        "icon": "dx-icon-email",
+                        "text": "arnolds@dx-email.com"
+                    },
+                    {
+                        "icon": "dx-icon-tel",
+                        "text": "125 W Elm St"
+                    }
+                ],
                 "company": "StereoShack",
                 "status": "Salaried",
                 "assignedTo": "Samantha Bright",
