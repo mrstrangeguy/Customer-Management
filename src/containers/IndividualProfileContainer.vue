@@ -44,7 +44,7 @@
             <icon-text-field
               :label="statusDetail.label"
               :text="statusDetail.text"
-              text-style="mt-1 !text-democrat"
+              text-style="mt-1 text-democrat"
               is-column
             />
           </div>
@@ -76,9 +76,9 @@
       <div class="ml-4 flex items-center">
         <div class="w-22.5">
           <Button
-            text="Edit"
-            icon="dx-icon-edit"
-            button-style="!pl-2 !pr-3 !flex !justify-center !text-white"
+            :text="editButton.text"
+            :icon="editButton.icon"
+            button-style="!pl-2 !pr-3 !justify-center !text-white"
             bg-color="#03a9f4"
           />
         </div>
@@ -86,7 +86,7 @@
           <Button
             text="details"
             :variant="ButtonVariants.Outlined"
-            button-style="!pl-2 !pr-3 !flex !justify-center"
+            button-style="!pl-2 !pr-3 !justify-center"
             bg-color="#fff"
             hover-bg="rgba(0,0,0,.08)"
           />
@@ -108,9 +108,9 @@
                 <span class="block text-3.25 leading-4">
                   {{ opportunityItem.text }}
                 </span>
-                <span class="block text-3.25 leading-4">{{
-                  opportunityItem.price
-                }}</span>
+                <span class="block text-3.25 leading-4">
+                  {{ opportunityItem.price }}
+                </span>
               </div>
             </div>
           </template>
@@ -149,7 +149,8 @@ import { UserDetail } from "../types/table";
 import { individualProfileData } from "../data/uiData.json";
 import { ButtonVariants, AccordionVariants } from "../Constants";
 
-const { pinButton, closeButton, actionsDropdown } = individualProfileData;
+const { pinButton, closeButton, actionsDropdown, editButton, detailsButton } =
+  individualProfileData;
 
 type Props = {
   userDetail: UserDetail;

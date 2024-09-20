@@ -200,7 +200,10 @@
         },
         "editButton": {
             "icon": "dx-icon-edit",
-            "text": "details"
+            "text": "edit"
+        },
+        "detailsButton": {
+            "text":"details"
         }
     }
 }
