@@ -39,6 +39,7 @@
         <div class="pl-5">
           <div
             v-for="(statusDetail, index) in userDetail.statusDetails"
+            :key="`${statusDetail.label}${index}`"
             :class="{ 'mt-5': index !== 0 }"
           >
             <icon-text-field
@@ -53,6 +54,7 @@
       <div class="py-4">
         <div
           v-for="(contactDetail, index) in userDetail.contactDetails"
+          :key="`${contactDetail.text}${index}`"
           :class="{ 'mt-5': index !== 0 }"
         >
           <icon-text-field
@@ -102,7 +104,9 @@
           <template #dropdown-items>
             <div class="p-2.75">
               <div
-                v-for="opportunityItem in userDetail.opportunities.items"
+                v-for="(opportunityItem, index) in userDetail.opportunities
+                  .items"
+                :key="`${opportunityItem.text}${index}`"
                 class="pb-2.5"
               >
                 <span class="block text-3.25 leading-4">
@@ -123,10 +127,11 @@
         <template #dropdown-items>
           <div class="p-2.5">
             <div
-              v-for="activityItem in userDetail.activities.items"
+              v-for="(activityItem, index) in userDetail.activities.items"
+              :key="`${activityItem.status}${index}`"
               class="my-2.5"
             >
-              <UserActivityCard
+              <user-activity-card
                 :status="activityItem.status"
                 :date="activityItem.details.date"
                 :assigned-to="activityItem.details.name"
@@ -178,12 +183,12 @@ const getTextStyle = (status: string) => {
   const basicStyle = "text-3.25 font-normal";
 
   if (status.toLowerCase() === EmployeeStatuses.Commission) {
-    return basicStyle + " " + StatusTextStyles.Commission;
+    return `${basicStyle} ${StatusTextStyles.Commission}`;
   } else if (status.toLowerCase() === EmployeeStatuses.Terminated) {
-    return basicStyle + " " + StatusTextStyles.Terminated;
+    return `${basicStyle} ${StatusTextStyles.Terminated}`;
   }
 
-  return basicStyle + " " + StatusTextStyles.Salaried;
+  return `${basicStyle} ${StatusTextStyles.Salaried}`;
 };
 </script>
 
