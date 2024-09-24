@@ -7,7 +7,7 @@
             :icon="menuIcon"
             is-rounded
             hover-bg="rgba(0, 0, 0, 0.08)"
-            button-style="!shadow-none !px-1.5 !text-slate-700"
+            button-style="custom-button"
             @button-click="handleMenuButtonClick"
           />
         </div>
@@ -27,7 +27,7 @@
           :icon="displayMode.darkModeIcon"
           is-rounded
           hover-bg="rgba(0, 0, 0, 0.08)"
-          button-style="!shadow-none !px-1.5 !text-slate-700"
+          button-style="custom-button"
         />
       </div>
       <div class="pl-1.5">
@@ -35,7 +35,7 @@
           :icon="notification"
           is-rounded
           hover-bg="rgba(0, 0, 0, 0.08)"
-          button-style="!shadow-none !px-1.5 !text-slate-700"
+          button-style="custom-button"
         />
       </div>
       <div class="sm:block hidden pl-2.5">
@@ -69,3 +69,11 @@ const handleMenuButtonClick = (event: Event) => {
   emit("menu-button-click", event);
 };
 </script>
+
+<style>
+.custom-button {
+  box-shadow: none !important;
+  padding: 0px 6px !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+</style>
