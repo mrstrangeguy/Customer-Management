@@ -98,7 +98,7 @@
     },
     "usersPageData": {
         "title": "Contacts",
-        "searchBarPlaceholder": "Contact Search",
+        "searchbarPlaceholder": "Contact Search",
         "addButton":{
          "icon":"dx-icon-plus",
          "text":"add button"

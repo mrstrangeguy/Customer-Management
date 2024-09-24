@@ -51,7 +51,7 @@
         <div class="pl-1.25 md:block hidden">
           <div class="w-40 ml-4">
             <search-input
-              :placeholder="searchBarPlaceholder"
+              :placeholder="searchbarPlaceholder"
               @input="getInputValue"
             />
           </div>
@@ -75,7 +75,7 @@ import Dropdown from "../components/Dropdown.vue";
 import Button from "../components/Button.vue";
 import SearchInput from "../components/SearchInput.vue";
 
-const { addButton, filterDropDown, searchBarPlaceholder, title } =
+const { addButton, filterDropDown, searchbarPlaceholder, title } =
   usersPageData;
 const { chooser, exportIcon, overflow, refresh } = usersPageData.icons;
 
