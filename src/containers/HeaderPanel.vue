@@ -28,7 +28,7 @@
             :icon="refresh"
             hover-bg="rgba(0, 0, 0, 0.08)"
             is-rounded
-            button-style="text-black custom-button shadow-none"
+            button-style="text-black custom-button"
           />
         </div>
         <div class="h-6 ml-1.25 w-px bg-gray-300 hidden extra-small:block" />
@@ -45,7 +45,7 @@
             :icon="chooser"
             hover-bg="rgba(0, 0, 0, 0.08)"
             is-rounded
-            button-style="text-black custom-button shadow-none"
+            button-style="text-black custom-button"
           />
         </div>
         <div class="pl-1.25 md:block hidden">
@@ -61,7 +61,7 @@
             :icon="overflow"
             hover-bg="rgba(0, 0, 0, 0.08)"
             is-rounded
-            button-style="text-black custom-button shadow-none"
+            button-style="text-black custom-button"
           />
         </div>
       </div>
