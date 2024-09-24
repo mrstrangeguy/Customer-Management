@@ -8,6 +8,7 @@
             is-rounded
             hover-bg="rgba(0, 0, 0, 0.08)"
             button-style="!shadow-none !px-1.5 !text-slate-700"
+            @button-click="handleMenuButtonClick"
           />
         </div>
       </div>
@@ -57,5 +58,14 @@ import Dropdown from "../components/Dropdown.vue";
 import uiData from "../data/uiData.json";
 
 const { userProfileData } = uiData.usersPageData;
-const { title, menuIcon, displayMode, notification, searchPlaceholder } = uiData.headerNavData;
+const { title, menuIcon, displayMode, notification, searchPlaceholder } =
+  uiData.headerNavData;
+
+const emit = defineEmits<{
+  (event: "menu-button-click", clickEvent: Event): void;
+}>();
+
+const handleMenuButtonClick = (event: Event) => {
+  emit("menu-button-click", event);
+};
 </script>
