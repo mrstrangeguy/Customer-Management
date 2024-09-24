@@ -50,7 +50,7 @@
         </div>
         <div class="pl-1.25 md:block hidden">
           <div class="w-40 ml-4">
-            <SearchInput
+            <search-input
               :placeholder="searchBarPlaceholder"
               @input="getInputValue"
             />
@@ -80,11 +80,11 @@ const { addButton, filterDropDown, searchBarPlaceholder, title } =
 const { chooser, exportIcon, overflow, refresh } = usersPageData.icons;
 
 const emit = defineEmits<{
-  (event: "inputValue", inputValue: string): void;
+  (event: "input-value", inputValue: string): void;
 }>();
 
 const getInputValue = (value: string) => {
-  emit("inputValue", value);
+  emit("input-value", value);
 };
 </script>
 
