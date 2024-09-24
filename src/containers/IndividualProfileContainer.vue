@@ -16,14 +16,14 @@
         <Button
           :icon="pinButton.icon"
           hover-bg="#00000014"
-          button-style="!px-1.5 !shadow-none !text-slate-700"
+          button-style="custom-button--primary"
           is-rounded
         />
         <div class="pl-1.5">
           <Button
             :icon="closeButton.icon"
             hover-bg="#00000014"
-            button-style="!px-1.5 !shadow-none !text-slate-700"
+            button-style="custom-button--primary"
             is-rounded
           />
         </div>
@@ -39,7 +39,7 @@
         <div class="pl-5">
           <div
             v-for="(statusDetail, index) in userDetail.statusDetails"
-            :class="index !== 0 && 'mt-5'"
+            :class="{ 'mt-5': index !== 0 }"
           >
             <icon-text-field
               :label="statusDetail.label"
@@ -53,7 +53,7 @@
       <div class="py-4">
         <div
           v-for="(contactDetail, index) in userDetail.contactDetails"
-          :class="index !== 0 && 'mt-5'"
+          :class="{ 'mt-5': index !== 0 }"
         >
           <icon-text-field
             :icon="contactDetail.icon"
@@ -78,7 +78,7 @@
           <Button
             :text="editButton.text"
             :icon="editButton.icon"
-            button-style="!pl-2 !pr-3 !justify-center !text-white"
+            button-style="custom-button--secondary custom-button--text-white"
             bg-color="#03a9f4"
           />
         </div>
@@ -86,7 +86,7 @@
           <Button
             :text="detailsButton.text"
             :variant="ButtonVariants.Outlined"
-            button-style="!pl-2 !pr-3 !justify-center"
+            button-style="custom-button--secondary"
             bg-color="#fff"
             hover-bg="rgba(0,0,0,.08)"
           />
@@ -147,9 +147,16 @@ import Dropdown from "../components/Dropdown.vue";
 import UserActivityCard from "../components/UserActivityCard.vue";
 import { UserDetail } from "../types/table";
 import { individualProfileData } from "../data/uiData.json";
-import { ButtonVariants, AccordionVariants } from "../Constants";
+import {
+  AccordionVariants,
+  ButtonVariants,
+  EmployeeStatuses,
+  StatusIconStyles,
+  StatusTextStyles,
+} from "../Constants";
 
-const { pinButton, closeButton, actionsDropdown, editButton, detailsButton } = individualProfileData;
+const { pinButton, closeButton, actionsDropdown, editButton, detailsButton } =
+  individualProfileData;
 
 type Props = {
   userDetail: UserDetail;
@@ -158,26 +165,43 @@ type Props = {
 defineProps<Props>();
 
 const getStatusIconStyle = (status: string) => {
-  if (status.toLocaleLowerCase() === "commission") {
-    return "mr-1.25 bg-democrat";
-  } else if (status.toLowerCase() === "terminated") {
-    return "mr-1.25 bg-tuscan-image";
+  if (status.toLocaleLowerCase() === EmployeeStatuses.Commission) {
+    return StatusIconStyles.Commission;
+  } else if (status.toLowerCase() === EmployeeStatuses.Terminated) {
+    return StatusIconStyles.Terminated;
   }
 
-  return "mr-1.25 bg-wageningen-green";
+  return StatusIconStyles.Salaried;
 };
 
 const getTextStyle = (status: string) => {
   const basicStyle = "text-3.25 font-normal";
 
-  if (status.toLowerCase() === "commission") {
-    return basicStyle + " text-democrat";
-  } else if (status.toLowerCase() === "terminated") {
-    return basicStyle + " text-tuscan-image";
+  if (status.toLowerCase() === EmployeeStatuses.Commission) {
+    return basicStyle + " " + StatusTextStyles.Commission;
+  } else if (status.toLowerCase() === EmployeeStatuses.Terminated) {
+    return basicStyle + " " + StatusTextStyles.Terminated;
   }
 
-  return basicStyle + " text-wageningen-green";
+  return basicStyle + " " + StatusTextStyles.Salaried;
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.custom-button {
+  &--primary {
+    color: rgba(0, 0, 0, 0.87) !important;
+    box-shadow: none !important;
+    padding: 0px 6px !important;
+  }
+
+  &--secondary {
+    padding: 0px 12px 0px 8px !important;
+    justify-content: center !important;
+  }
+
+  &--text-white {
+    color: white !important;
+  }
+}
+</style>
