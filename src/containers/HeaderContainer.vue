@@ -62,11 +62,11 @@ const { title, menuIcon, displayMode, notification, searchPlaceholder } =
   uiData.headerNavData;
 
 const emit = defineEmits<{
-  (event: "menu-button-click", clickEvent: Event): void;
+  (event: "menu-click", clickEvent: Event): void;
 }>();
 
 const handleMenuButtonClick = (event: Event) => {
-  emit("menu-button-click", event);
+  emit("menu-click", event);
 };
 </script>
 
