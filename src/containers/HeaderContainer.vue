@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="flex items-center pr-6">
-      <div class="sm:block hidden w-45 flex items-center mr-4">
+      <div class="search-container sm:block hidden w-45 flex items-center mr-4">
         <SearchInput :placeholder="searchPlaceholder" />
       </div>
       <div class="-mr-px">
@@ -42,10 +42,17 @@
         <Dropdown
           :image-u-r-l="userProfileData.profileImg"
           :drop-down-items="userProfileData.details"
+          :should-show-arrow-icon="false"
+          :content-position="DropdownPositions.Left"
         />
       </div>
       <div class="sm:hidden block pl-1.75">
-        <Button variant="Icon" icon="dx-icon dx-icon-overflow" />
+        <Button
+          icon="dx-icon dx-icon-overflow"
+          is-rounded
+          button-style="custom-button"
+          hover-bg="rgba(0, 0, 0, 0.08)"
+        />
       </div>
     </div>
   </div>
@@ -56,6 +63,7 @@ import Button from "../components/Button.vue";
 import SearchInput from "../components/SearchInput.vue";
 import Dropdown from "../components/Dropdown.vue";
 import uiData from "../data/uiData.json";
+import { DropdownPositions } from "../Constants";
 
 const { userProfileData } = uiData.usersPageData;
 const { title, menuIcon, displayMode, notification, searchPlaceholder } =
@@ -71,9 +79,13 @@ const handleMenuButtonClick = (event: Event) => {
 </script>
 
 <style>
+.search-container {
+  width: 180px;
+}
+
 .custom-button {
   box-shadow: none !important;
-  padding: 0px 6px !important;
-  color: rgba(0, 0, 0, 0.87) !important;
+  padding: 0px 6px;
+  color: rgba(0, 0, 0, 0.87);
 }
 </style>
