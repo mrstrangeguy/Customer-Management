@@ -1,13 +1,13 @@
 <template>
   <button
     :class="[
-      'button-default overflow-hidden',
+      'overflow-hidden flex items-center uppercase font-medium cursor-pointer',
       buttonStyle,
       {
         'rounded-full': isRounded && !props.text,
         'rounded-sm': !isRounded,
-        'button-normal': isNormalVariant,
-        'button-outlined': !isNormalVariant,
+        'button-normal h-7': isNormalVariant,
+        'justify-center': !isNormalVariant,
         'w-full': text,
       },
     ]"
@@ -19,15 +19,23 @@
     <i
       v-if="icon"
       :class="[
-        'default-icon',
+        'default-icon text-base',
         icon,
         {
-          'mr-1': text,
+          'mr-1 -mt-0.5': text,
           'mr-0': !text,
+          'h-4 2-4 leading-4': isNormalVariant,
         },
       ]"
     />
-    <span class="text-style overflow-hidden text-nowrap text-ellipsis">
+    <span
+      :class="[
+        'overflow-hidden text-nowrap text-ellipsis block',
+        {
+          'leading-4': isNormalVariant,
+        },
+      ]"
+    >
       {{ text }}
     </span>
   </button>
@@ -46,7 +54,7 @@ const props = withDefaults(defineProps<ButtonsProps>(), {
   bgColor: "",
   hoverBg: "#028bc9",
   isRounded: false,
-  buttonStyle: "!px-1.5 text-white",
+  buttonStyle: "text-white",
 });
 
 //refs
@@ -74,51 +82,3 @@ const setBackgroundColor = (color: string) => {
   buttonBgColor.value = color;
 };
 </script>
-
-<style lang="scss" scoped>
-.button-default {
-  cursor: pointer;
-}
-
-.default-icon {
-  font-size: 16px;
-  display: block;
-}
-
-.button-default.button-normal,
-.button-default.button-outlined {
-  display: flex;
-  align-items: center;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-.button-default.button-normal {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
-  height: 28px;
-
-  .default-icon {
-    height: 16px;
-    width: 16px;
-    line-height: 16px;
-  }
-
-  .text-style {
-    line-height: 15px;
-  }
-}
-
-.button-default.button-outlined {
-  border: 1px solid rgba(0, 0, 0, 0.24);
-  justify-content: center;
-  height: 26px;
-}
-
-.text-style {
-  text-transform: uppercase;
-  font-size: 13px;
-  font-weight: 500;
-  display: block;
-  letter-spacing: 0.52px;
-}
-</style>
