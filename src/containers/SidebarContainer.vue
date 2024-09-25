@@ -4,12 +4,8 @@
     :style="{ width: isExpanded ? '250px' : '48px' }"
   >
     <div class="relative h-full bg-sidebar pt-4 pb-17.5">
-      <div>
-        <Accordion
-          v-for="sideBarItem in sideBarItems"
-          :text="sideBarItem.title"
-          :main-icon="sideBarItem.main"
-        >
+      <div v-for="sideBarItem in sideBarItems" class="border-b">
+        <Accordion :text="sideBarItem.title" :main-icon="sideBarItem.main">
           <template v-slot:dropdown-items>
             <div
               v-for="subMenuItem in sideBarItem.subMenuItems"
@@ -24,7 +20,7 @@
       </div>
       <div
         :class="[
-          'absolute text-gray-500 Z-50 bottom-0 left-0 w-full pt-5 py-4 pl-4 text-xs text-sidebar-text leading-4',
+          'absolute text-gray-500 Z-50 bottom-0 left-0 w-full pt-5 py-4 pl-4 text-xs text-sidebar-text leading-4 bg-zinc-100',
           isExpanded
             ? 'opacity-1 delay-200 transition-all duration-500'
             : 'opacity-0',
