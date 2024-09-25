@@ -84,7 +84,7 @@ const handleMenuButtonClick = (event: Event) => {
 }
 
 .custom-button {
-  box-shadow: none !important;
+  box-shadow: none;
   padding: 0px 6px;
   color: rgba(0, 0, 0, 0.87);
 }

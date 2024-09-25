@@ -15,12 +15,13 @@
       </div>
     </div>
     <div class="flex items-center">
-      <div class="pl-4 flex items-center justify-end">
-        <div class="w-32 hidden extra-small:block">
+      <div class="flex items-center justify-end">
+        <div class="hidden extra-small:block">
           <Button
             :icon="addButton.icon"
             bg-color="rgb(3, 169, 244)"
-            text="add contact"
+            :text="addButton.text"
+            button-style="custom-button--normal text-white"
           />
         </div>
         <div class="pl-1.5 hidden extra-small:block">
@@ -88,9 +89,15 @@ const getInputValue = (value: string) => {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .custom-button {
-  box-shadow: none !important;
-  padding: 0px 6px !important;
+  box-shadow: none;
+  padding: 0px 6px;
+
+  &--normal {
+    padding: 5px 12px 5px 8px;
+    font-size: 13px;
+    letter-spacing: 0.52px;
+  }
 }
 </style>
