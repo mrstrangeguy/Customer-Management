@@ -28,7 +28,10 @@
         class="profile-container-wrapper absolute bg-white z-100 h-full z-150 transition-all duration-700 overflow-y-auto"
         :style="{ right: profileWrapperPosition }"
       >
-        <individual-profile-container :user-detail="currentProfileDetails" />
+        <individual-profile-container
+          @close-button-click="handleCloseButtonClick"
+          :user-detail="currentProfileDetails"
+        />
       </div>
     </div>
   </div>
@@ -78,6 +81,10 @@ const handleDataSelection = (data: UserDetail) => {
 
 const toggleProfilWrapperPosition = (value: string) => {
   profileWrapperPosition.value = value;
+};
+
+const handleCloseButtonClick = () => {
+  toggleProfilWrapperPosition("-100%");
 };
 </script>
 
