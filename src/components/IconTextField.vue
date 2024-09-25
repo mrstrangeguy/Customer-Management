@@ -5,7 +5,7 @@
       :class="['default-icon block leading-5 text-center', icon, iconStyle]"
     />
     <span class="block text-2.5 leading-2.5 text-black">{{ label }}</span>
-    <div :class="['text-xs', textStyle]">
+    <div :class="textStyle">
       {{ text }}
     </div>
   </div>
