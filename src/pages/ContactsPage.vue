@@ -1,29 +1,87 @@
 <template>
-    <div class="h-full">
+    <div class="h-full overflow-hidden">
     <div class="h-14 bg-blue-300">
-
+    <button @click="toggleSidebarWidth">Toggle</button>
+    <span>{{ isResponsive }}</span>
     </div>
-    <div class="h-full flex">
-    <div class="h-full bg-red-500 w-[250px] min-h-full">
-    <side-bar-container/>
+    <div class="contents-wrapper relative flex">
+    <div :class="['h-full bg-red-500 hidden extra-small:block',{'pr-12':isResponsive}]">
+    <side-bar-container :is-expanded="isSidebarExpanded" :class="{'absolute z-150':isResponsive}" />
     </div>
     <div class="px-8 w-full">
     <div style="height: 86px;" class="bg-red-200"></div>
-    <div>
-    <customer-table :user-attributes="uiData.usersPageData.userAttributes" :users-details="UsersData.userDetails.users"/>
+    <div class="table-container overflow-y-auto">
+    <customer-table @select-data="handleDataSelection" :user-attributes="uiData.usersPageData.userAttributes" :users-details="UsersData.userDetails.users"/>
     </div>
+    </div>
+    <div class="profile-container-wrapper bg-green-200 absolute h-full z-150 transition-all duration-700" :style="{right:profileWrapperPosition}">
+        <button @click="toggleProfilWrapperPosition('-100%')" >close</button>
     </div>
     </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
+
 import SideBarContainer from '../containers/SideBarContainer.vue';
 import CustomerTable from '../components/CustomerTable.vue';
 import uiData from '../data/uiData.json'
 import UsersData from '../data/usersData.json'
+import { UserDetail } from '../types/table';
+
+const isSidebarExpanded = ref<boolean>(true);
+const isResponsive  = ref<boolean>(false)
+const profileWrapperPosition = ref<string>('-100%')
+
+//onMounted
+onMounted(() => {
+    window.addEventListener('resize',onResponsive)
+})
+
+const onResponsive = () => {
+    if(window.innerWidth <= 1200 && window.innerWidth >= 0) {
+        isResponsive.value = true
+    }
+    else {
+        isResponsive.value = false
+    }
+}
+
+const toggleSidebarWidth = () => {
+   isSidebarExpanded.value = !isSidebarExpanded.value
+}
+
+const handleDataSelection = (data:UserDetail) => {
+  toggleProfilWrapperPosition('0%')
+}
+
+const toggleProfilWrapperPosition = (value:string) => {
+  profileWrapperPosition.value = value
+}
 </script>
 
 <style scoped>
+.table-container::-webkit-scrollbar {
+    display:none;
+}
 
+.table-container {
+    height: calc(100% - 86px);
+}
+
+.contents-wrapper {
+    height: calc(100% - 56px);
+}
+
+.profile-container-wrapper {
+    width: 350px;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,.04),0 4px 4px 0 rgba(0,0,0,.12);
+}
+
+@media screen and (max-width:480px) {
+    .profile-container-wrapper {
+        width: 100%;
+    }
+}
 </style>
