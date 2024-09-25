@@ -10,6 +10,7 @@
         <Dropdown
           :text="filterDropDown.title"
           header-style="pl-3 pr-2 py-1.25 hover:bg-gray-200"
+          should-show-arrow-icon
           :drop-down-items="filterDropDown.userStatuses"
         />
       </div>
@@ -37,7 +38,8 @@
           <Dropdown
             :icon="exportIcon"
             header-style="pl-3 pr-2 py-1.5 hover:bg-gray-200"
-            :drop-down-items="exportOptionsDetails.exportOptions"
+            should-show-arrow-icon
+            :drop-down-items="filterDropDown.userStatuses"
           />
         </div>
         <div class="h-6 ml-1.25 w-px bg-gray-300 hidden sm:block" />

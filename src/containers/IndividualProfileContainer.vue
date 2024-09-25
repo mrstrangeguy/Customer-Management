@@ -73,6 +73,7 @@
           :text="actionsDropdown.title"
           arrow-icon="dx-icon-spindown"
           header-style="py-1.5 pl-2 pr-3 hover:bg-slate-200"
+          should-show-arrow-icon
           :drop-down-items="actionsDropdown.details"
         />
       </div>

@@ -42,7 +42,6 @@
         <Dropdown
           :image-u-r-l="userProfileData.profileImg"
           :drop-down-items="userProfileData.details"
-          :should-show-arrow-icon="false"
           :content-position="DropdownPositions.Left"
         />
       </div>
