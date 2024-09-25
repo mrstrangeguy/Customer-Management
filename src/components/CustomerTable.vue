@@ -46,7 +46,8 @@
                   selectedAttributeObject.index === index,
               },
             ]"
-            >{{ userAttribute }}
+          >
+            {{ userAttribute }}
           </span>
           <i
             v-if="isArrowIconPresent(index)"
@@ -62,7 +63,7 @@
             class="inline-block align-top default-icon dx-header-filter-empty text-sm w-3.75 h-3.75 -mt-0.5"
           />
         </th>
-        <th class="large:hidden w-10" />
+        <th class="extra-large:hidden w-10" />
       </tr>
     </thead>
     <tbody class="border-t-0 border border-y">
@@ -133,7 +134,7 @@
             <span class="text-3.25 leading-4">{{ userDetail.email }}</span>
           </td>
           <td
-            class="large:hidden table-cell min-w-10 w-10 text-center"
+            class="extra-large:hidden table-cell min-w-10 w-10 text-center"
             @click="openResponsiveContainer(index)"
           >
             <span
@@ -151,7 +152,7 @@
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Company
                 </label>
-                <div class="text-sm leading-l2 px-3">
+                <div class="text-3.25 leading-l2 px-3">
                   {{ userDetail.company }}
                 </div>
               </div>
@@ -160,20 +161,19 @@
                   Status
                 </label>
                 <div class="leading-l2">
-                  <span
-                    :class="[
-                      'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-sm leading-4',
-                      getStatusTextColor(userDetail.status),
-                    ]"
-                    >{{ userDetail.status }}
-                  </span>
+                  <icon-text-field
+                    icon="contact-status"
+                    :text="userDetail.status"
+                    :icon-style="getStatusIconStyle(userDetail.status)"
+                    :text-style="getTextStyle(userDetail.status)"
+                  />
                 </div>
               </div>
               <div class="pr-5 pb-2.5 grow shrink basis-0 small:hidden">
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Assigned to
                 </label>
-                <div class="text-sm leading-l2 px-3">
+                <div class="text-3.25 leading-l2 px-3">
                   {{ userDetail.assignedTo }}
                 </div>
               </div>
@@ -181,7 +181,7 @@
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Email
                 </label>
-                <div class="text-sm leading-l2 px-3">
+                <div class="text-3.25 leading-l2 px-3">
                   {{ userDetail.email }}
                 </div>
               </div>
@@ -189,7 +189,7 @@
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Phone
                 </label>
-                <div class="text-sm leading-l2 px-3">
+                <div class="text-3.25 leading-l2 px-3">
                   {{ userDetail.phone }}
                 </div>
               </div>
@@ -205,7 +205,11 @@
 import { computed, onMounted, onUnmounted, ref } from "vue";
 
 import { UsersData, UserDetail } from "../types/table";
-import {EmployeeStatuses,StatusIconStyles,StatusTextStyles} from "../Constants"
+import {
+  EmployeeStatuses,
+  StatusIconStyles,
+  StatusTextStyles,
+} from "../Constants";
 import IconTextField from "./IconTextField.vue";
 
 //props
