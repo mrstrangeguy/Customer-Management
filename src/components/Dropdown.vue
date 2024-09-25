@@ -48,7 +48,7 @@
     >
       <div
         v-for="(dropDownItem, index) in dropDownItems"
-        :key="`${dropDownItem.text}${index}"
+        :key="`${dropDownItem.text}${index}`"
         role="button"
         @click="handleOptionClick(dropDownItem.text)"
         :class="[
