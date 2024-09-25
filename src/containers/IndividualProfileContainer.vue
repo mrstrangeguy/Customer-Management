@@ -25,6 +25,7 @@
             hover-bg="#00000014"
             button-style="custom-button--primary"
             is-rounded
+            @button-click="handleCloseButtonClick"
           />
         </div>
       </div>
@@ -168,6 +169,14 @@ type Props = {
 };
 
 defineProps<Props>();
+
+const emit = defineEmits<{
+  (event: "close-button-click", clickEvent: Event): void;
+}>();
+
+const handleCloseButtonClick = (event: Event) => {
+  emit("close-button-click", event);
+};
 
 const getStatusIconStyle = (status: string) => {
   if (status.toLocaleLowerCase() === EmployeeStatuses.Commission) {
