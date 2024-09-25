@@ -129,7 +129,7 @@ const isHeaderClicked = ref(false);
 const dropdownRef = ref<Ref | null>(null);
 
 const emit = defineEmits<{
-  (event: "button-click", value: string): void;
+  (event: "click", value: string): void;
 }>();
 
 const toggleContentVisibility = () =>
@@ -147,7 +147,7 @@ const onOutSideClick = (event: Event) => {
 
 const handleOptionClick = (value = "") => {
   isHeaderClicked.value = false;
-  emit("button-click", value);
+  emit("click", value);
 };
 
 //computed
