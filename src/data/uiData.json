@@ -98,7 +98,11 @@
     },
     "usersPageData": {
         "title": "Contacts",
-        "searchBarPlaceholder": "Contact Search",
+        "searchbarPlaceholder": "Contact Search",
+        "addButton":{
+         "icon":"dx-icon-plus",
+         "text":"add button"
+        },
         "filterDropDown": {
             "title": "ALL",
             "exportIcon": "dx-icon dx-icon-export",
@@ -120,6 +124,13 @@
                     "text": "Terminated"
                 }
             ]
+        },
+        "icons":{
+            "plus":"dx-icon-plus",
+            "refresh":"dx-icon-refresh",
+            "exportIcon":"dx-icon-export",
+            "chooser":"dx-icon-column-chooser",
+            "overflow":"dx-icon-overflow"
         },
         "exportOptionsDetails": {
             "titleIcon": "dx-icon dx-icon-export",
