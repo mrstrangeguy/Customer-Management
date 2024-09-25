@@ -48,6 +48,9 @@
     >
       <div
         v-for="(dropDownItem, index) in dropDownItems"
+        :key="`${dropDownItem.text}${index}`"
+        role="button"
+        @click="handleOptionClick(dropDownItem.text)"
         :class="[
           'flex items-center',
           {
@@ -125,6 +128,10 @@ const props = withDefaults(defineProps<DropdownProps>(), {
 const isHeaderClicked = ref(false);
 const dropdownRef = ref<Ref | null>(null);
 
+const emit = defineEmits<{
+  (event: "click", value: string): void;
+}>();
+
 const toggleContentVisibility = () =>
   (isHeaderClicked.value = !isHeaderClicked.value);
 
@@ -136,6 +143,11 @@ const onOutSideClick = (event: Event) => {
   ) {
     isHeaderClicked.value = false;
   }
+};
+
+const handleOptionClick = (value = "") => {
+  isHeaderClicked.value = false;
+  emit("click", value);
 };
 
 //computed
