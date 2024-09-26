@@ -8,9 +8,10 @@
       </div>
       <div class="mt-1">
         <Dropdown
-          :text="filterDropDown.title"
+          :text="filterDropdownTitle"
           header-style="pl-3 pr-2 py-1.25 hover:bg-gray-200"
           :drop-down-items="filterDropDown.userStatuses"
+          @click="handleDropdownClick"
         />
       </div>
     </div>
@@ -71,6 +72,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+
 import { usersPageData } from "../data/uiData.json";
 import Dropdown from "../components/Dropdown.vue";
 import Button from "../components/Button.vue";
@@ -78,19 +81,27 @@ import SearchInput from "../components/SearchInput.vue";
 
 const {
   addButton,
+  exportOptionsDetails,
   filterDropDown,
   searchbarPlaceholder,
   title,
-  exportOptionsDetails,
 } = usersPageData;
 const { chooser, exportIcon, overflow, refresh } = usersPageData.icons;
 
+const filterDropdownTitle = ref<string>(filterDropDown.title);
+
 const emit = defineEmits<{
   (event: "input-value", inputValue: string): void;
+  (event: "dropdown-value", dropdownValue: string): void;
 }>();
 
 const getInputValue = (value: string) => {
   emit("input-value", value);
+};
+
+const handleDropdownClick = (value: string) => {
+  filterDropdownTitle.value = value.toUpperCase();
+  emit("dropdown-value", value);
 };
 </script>
 
