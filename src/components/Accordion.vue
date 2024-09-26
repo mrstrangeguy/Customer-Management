@@ -99,17 +99,16 @@ const toggleContentVisibility = () => {
 <style lang="scss" scoped>
 .accordion-icon {
   font-size: 18px;
-  color:rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .arrow-icon {
-
   &--primary {
-  color: rgba(0, 0, 0, 0.54);
+    color: rgba(0, 0, 0, 0.54);
   }
 
   &--secondary {
-   color:rgba(0, 0, 0, 0.87);
+    color: rgba(0, 0, 0, 0.87);
   }
 }
 </style>
