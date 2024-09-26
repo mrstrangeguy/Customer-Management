@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/vue3";
 
 import Dropdown from "../components/Dropdown.vue";
 import uiData from "../data/uiData.json";
-import {DropdownPositions} from "../Constants"
+import { DropdownPositions } from "../Constants";
 
 const { userStatuses } = uiData.usersPageData.filterDropDown;
 
@@ -14,18 +14,17 @@ export default meta;
 type Story = StoryObj<typeof Dropdown>;
 
 export const DropdownComponent: Story = {
-  argTypes:{
-    contentPosition:{
-      options:Object.values(DropdownPositions),
-      control:'select'
-    }
+  argTypes: {
+    contentPosition: {
+      options: Object.values(DropdownPositions),
+      control: "select",
+    },
   },
   args: {
     text: "ALL",
     headerStyle: "hover:bg-slate-200 py-1.5 pl-3 pr-2",
     dropDownItems: userStatuses,
-    contentPosition:DropdownPositions.Left,
-    shouldShowArrowIcon:true
+    contentPosition: DropdownPositions.Left,
   },
   render: (args) => ({
     components: { Dropdown },

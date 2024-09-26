@@ -79,7 +79,7 @@
           ]"
         >
           <td
-            @click="addContact(index)"
+            @click.stop="addContact(index)"
             class="w-9.5 text-center border-b border-b-tr-border"
             role="columnheader"
           >
