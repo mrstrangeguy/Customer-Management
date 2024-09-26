@@ -1,7 +1,7 @@
 <template>
   <div class="h-full overflow-hidden">
     <div class="z-50">
-      <header-container />
+      <header-container @menu-click="toggleSidebarWidth" />
     </div>
     <div class="contents-wrapper relative flex">
       <div
