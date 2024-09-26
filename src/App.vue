@@ -5,7 +5,3 @@ import ContactsPage from './pages/ContactsPage.vue';
 <template>
 <contacts-page/>
 </template>
-
-<script setup lang="ts">
-
-</script>
