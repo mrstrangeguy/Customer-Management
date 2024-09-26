@@ -1,8 +1,9 @@
+<script setup lang="ts">
+import HeaderPanel from './containers/HeaderPanel.vue';
+</script>
+
 <template>
-  <customer-table
-    :user-attributes="uiData.usersPageData.userAttributes"
-    :users-details="usersData.userDetails.users"
-  />
+<header-panel/>
 </template>
 
 <script setup lang="ts">

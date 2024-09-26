@@ -99,7 +99,7 @@ const getInputValue = (value: string) => {
 };
 
 const handleDropdownClick = (value: string) => {
-  filterDropdownTitle.value = value;
+  filterDropdownTitle.value = value.toUpperCase();
   emit("dropdown-value", value);
 };
 </script>
