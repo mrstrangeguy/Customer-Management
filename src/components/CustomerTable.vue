@@ -40,13 +40,14 @@
         >
           <span
             :class="[
-              'inline-block z-10 align-top text-label text-sm leading-4 font-medium mr-0.75 group-hover:text-table-hover-tertiary',
+              'inline-block z-10 align-top text-label text-3.25 leading-4 font-medium mr-0.75 group-hover:text-table-hover-tertiary',
               {
                 'text-table-hover-tertiary':
                   selectedAttributeObject.index === index,
               },
             ]"
-            >{{ userAttribute }}
+          >
+            {{ userAttribute }}
           </span>
           <i
             v-if="isArrowIconPresent(index)"
@@ -62,7 +63,7 @@
             class="inline-block align-top default-icon dx-header-filter-empty text-sm w-3.75 h-3.75 -mt-0.5"
           />
         </th>
-        <th class="large:hidden w-10" />
+        <th class="extra-large:hidden w-10" />
       </tr>
     </thead>
     <tbody class="border-t-0 border border-y">
@@ -95,7 +96,7 @@
             />
           </td>
           <td class="py-2.5 px-2.75 border-b border-b-tr-border">
-            <div class="text-sm leading-4">
+            <div class="text-3.25 leading-4">
               {{ userDetail.description.name }}
             </div>
             <div class="text-xs leading-4 text-label">
@@ -105,36 +106,35 @@
           <td
             class="extra-small:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-sm leading-4">{{ userDetail.company }}</span>
+            <span class="text-3.25 leading-4">{{ userDetail.company }}</span>
           </td>
           <td
             class="medium:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span
-              :class="[
-                'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-sm leading-4',
-                getStatusTextColor(userDetail.status),
-              ]"
-              >{{ userDetail.status }}
-            </span>
+            <icon-text-field
+              icon="contact-status"
+              :text="userDetail.status"
+              :icon-style="getStatusIconStyle(userDetail.status)"
+              :text-style="getTextStyle(userDetail.status)"
+            />
           </td>
           <td
             class="small:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-sm leading-4">{{ userDetail.assignedTo }}</span>
+            <span class="text-3.25 leading-4">{{ userDetail.assignedTo }}</span>
           </td>
           <td
             class="large:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-sm leading-4">{{ userDetail.phone }}</span>
+            <span class="text-3.25 leading-4">{{ userDetail.phone }}</span>
           </td>
           <td
             class="extra-large:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-sm leading-4">{{ userDetail.email }}</span>
+            <span class="text-3.25 leading-4">{{ userDetail.email }}</span>
           </td>
           <td
-            class="large:hidden table-cell min-w-10 w-10 text-center"
+            class="extra-large:hidden table-cell min-w-10 w-10 text-center"
             @click="openResponsiveContainer(index)"
           >
             <span
@@ -152,7 +152,7 @@
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Company
                 </label>
-                <div class="text-sm leading-l2 px-3">
+                <div class="text-3.25 leading-l2 px-3">
                   {{ userDetail.company }}
                 </div>
               </div>
@@ -161,20 +161,19 @@
                   Status
                 </label>
                 <div class="leading-l2">
-                  <span
-                    :class="[
-                      'before:w-2.5 before:h-2.5 before:mr-1.25 before:rounded-full before:inline-block text-sm leading-4',
-                      getStatusTextColor(userDetail.status),
-                    ]"
-                    >{{ userDetail.status }}
-                  </span>
+                  <icon-text-field
+                    icon="contact-status"
+                    :text="userDetail.status"
+                    :icon-style="getStatusIconStyle(userDetail.status)"
+                    :text-style="getTextStyle(userDetail.status)"
+                  />
                 </div>
               </div>
               <div class="pr-5 pb-2.5 grow shrink basis-0 small:hidden">
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Assigned to
                 </label>
-                <div class="text-sm leading-l2 px-3">
+                <div class="text-3.25 leading-l2 px-3">
                   {{ userDetail.assignedTo }}
                 </div>
               </div>
@@ -182,7 +181,7 @@
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Email
                 </label>
-                <div class="text-sm leading-l2 px-3">
+                <div class="text-3.25 leading-l2 px-3">
                   {{ userDetail.email }}
                 </div>
               </div>
@@ -190,7 +189,7 @@
                 <label class="block text-xs leading-l1 text-label px-3 pb-0.5">
                   Phone
                 </label>
-                <div class="text-sm leading-l2 px-3">
+                <div class="text-3.25 leading-l2 px-3">
                   {{ userDetail.phone }}
                 </div>
               </div>
@@ -204,7 +203,14 @@
 
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from "vue";
+
 import { UsersData, UserDetail } from "../types/table";
+import {
+  EmployeeStatuses,
+  StatusIconStyles,
+  StatusTextStyles,
+} from "../Constants";
+import IconTextField from "./IconTextField.vue";
 
 //props
 const props = defineProps<UsersData>();
@@ -246,6 +252,28 @@ const isAnyCheckboxesEnabled = computed(() =>
 );
 
 //functions
+const getStatusIconStyle = (status: string) => {
+  if (status.toLocaleLowerCase() === EmployeeStatuses.Commission) {
+    return StatusIconStyles.Commission;
+  } else if (status.toLowerCase() === EmployeeStatuses.Terminated) {
+    return StatusIconStyles.Terminated;
+  }
+
+  return StatusIconStyles.Salaried;
+};
+
+const getTextStyle = (status: string) => {
+  const basicStyle = "text-3.25 font-normal";
+
+  if (status.toLowerCase() === EmployeeStatuses.Commission) {
+    return `${basicStyle} ${StatusTextStyles.Commission}`;
+  } else if (status.toLowerCase() === EmployeeStatuses.Terminated) {
+    return `${basicStyle} ${StatusTextStyles.Terminated}`;
+  }
+
+  return `${basicStyle} ${StatusTextStyles.Salaried}`;
+};
+
 const isArrowIconPresent = (index: number) => {
   return selectedAttributeObject.value.index === index;
 };

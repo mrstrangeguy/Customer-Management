@@ -46,7 +46,7 @@
             <icon-text-field
               :label="statusDetail.label"
               :text="statusDetail.text"
-              text-style="mt-1 text-democrat"
+              text-style="mt-1 text-democrat text-xs"
               is-column
             />
           </div>
@@ -62,7 +62,7 @@
             :icon="contactDetail.icon"
             icon-style="px-1.5 text-slate-300"
             :text="contactDetail.text"
-            text-style="pl-4"
+            text-style="pl-4 text-xs"
           />
         </div>
       </div>
