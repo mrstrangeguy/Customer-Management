@@ -13,15 +13,18 @@
       @click.stop="toggleContentVisibility"
       role="button"
     >
-      <div class="flex items-center">
+      <div class="flex items-center icon-text-wrapper">
         <i
           v-if="mainIcon"
-          :class="['default-icon block w-12 leading-4 text-center', mainIcon]"
+          :class="[
+            'accordion-icon default-icon block w-12 leading-4 text-center',
+            mainIcon,
+          ]"
         />
         <span
           :class="[
             {
-              'text-3.25 font-bold leading-3.75 block': isPrimaryVariant,
+              'text-3.25 font-bold leading-3.75 block -mt-px': isPrimaryVariant,
             },
           ]"
         >
@@ -92,3 +95,9 @@ const toggleContentVisibility = () => {
   }
 };
 </script>
+
+<style>
+.accordion-icon {
+  font-size: 18px;
+}
+</style>
