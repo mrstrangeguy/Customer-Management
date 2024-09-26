@@ -47,7 +47,7 @@
       </div>
       <div class="sm:hidden block pl-1.75">
         <Button
-          icon="dx-icon dx-icon-overflow"
+          :icon="icons.overflow"
           is-rounded
           button-style="custom-button"
           hover-bg="rgba(0, 0, 0, 0.08)"
@@ -64,7 +64,7 @@ import Dropdown from "../components/Dropdown.vue";
 import uiData from "../data/uiData.json";
 import { DropdownPositions } from "../Constants";
 
-const { userProfileData } = uiData.usersPageData;
+const { userProfileData, icons } = uiData.usersPageData;
 const { title, menuIcon, displayMode, notification, searchPlaceholder } =
   uiData.headerNavData;
 
