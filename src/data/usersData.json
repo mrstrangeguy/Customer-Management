@@ -6,7 +6,7 @@
                 "isChecked": false,
                 "isSelected": false,
                 "isResponsiveSelected": false,
-                "image": "../../assets/images/individual_container_employee.png",
+                "image": "/assets/images/individual_container_employee.png",
                 "description": {
                     "name": "Antony Remmen",
                     "position": "Support Assistant"
