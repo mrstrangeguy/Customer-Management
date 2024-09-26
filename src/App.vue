@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import HeaderPanel from './containers/HeaderPanel.vue';
+
 </script>
 
 <template>
-<header-panel/>
+
 </template>
 
 <script setup lang="ts">
