@@ -72,18 +72,19 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+
 import { usersPageData } from "../data/uiData.json";
 import Dropdown from "../components/Dropdown.vue";
 import Button from "../components/Button.vue";
 import SearchInput from "../components/SearchInput.vue";
-import { ref } from "vue";
 
 const {
   addButton,
+  exportOptionsDetails,
   filterDropDown,
   searchbarPlaceholder,
   title,
-  exportOptionsDetails,
 } = usersPageData;
 const { chooser, exportIcon, overflow, refresh } = usersPageData.icons;
 
