@@ -10,7 +10,6 @@
         <Dropdown
           :text="filterDropDown.title"
           header-style="pl-3 pr-2 py-1.25 hover:bg-gray-200"
-          should-show-arrow-icon
           :drop-down-items="filterDropDown.userStatuses"
         />
       </div>
@@ -38,7 +37,6 @@
           <Dropdown
             :icon="exportIcon"
             header-style="pl-3 pr-2 py-1.5 hover:bg-gray-200"
-            should-show-arrow-icon
             :drop-down-items="filterDropDown.userStatuses"
           />
         </div>
@@ -78,8 +76,13 @@ import Dropdown from "../components/Dropdown.vue";
 import Button from "../components/Button.vue";
 import SearchInput from "../components/SearchInput.vue";
 
-const { addButton, filterDropDown, searchbarPlaceholder, title,exportOptionsDetails } =
-  usersPageData;
+const {
+  addButton,
+  filterDropDown,
+  searchbarPlaceholder,
+  title,
+  exportOptionsDetails,
+} = usersPageData;
 const { chooser, exportIcon, overflow, refresh } = usersPageData.icons;
 
 const emit = defineEmits<{

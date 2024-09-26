@@ -43,6 +43,7 @@
           :image-u-r-l="userProfileData.profileImg"
           :drop-down-items="userProfileData.details"
           :content-position="DropdownPositions.Left"
+          should-hide-arrow-icon
         />
       </div>
       <div class="sm:hidden block pl-1.75">
