@@ -5,13 +5,18 @@
     </div>
     <div class="contents-wrapper relative flex">
       <div
+        :style="{
+          left:
+            isExtraSmallScreen && isSidebarExpanded === false ? '-100%' : '0%',
+        }"
         :class="[
-          'h-full hidden extra-small:block',
-          { 'pr-12': isSmallerScreen },
+          'h-full side-bar-wrapper',
+          { 'absolute left-0': isExtraSmallScreen },
+          { 'pr-12': isSmallerScreen && !isExtraSmallScreen },
         ]"
       >
         <side-bar-container
-          :is-expanded="isSidebarExpanded"
+          :is-expanded="isExtraSmallScreen || isSidebarExpanded"
           :class="{ 'absolute z-150': isSmallerScreen }"
         />
       </div>
@@ -41,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
 import SideBarContainer from "../containers/SidebarContainer.vue";
 import HeaderContainer from "../containers/HeaderContainer.vue";
@@ -56,17 +61,30 @@ const { users } = UsersData.userDetails;
 
 const isSidebarExpanded = ref<boolean>(true);
 const isSmallerScreen = ref<boolean>(false);
+const isExtraSmallScreen = ref<boolean>(false);
 const profileWrapperPosition = ref<string>("-100%");
 const currentProfileDetails = ref<UserDetail>(users[0]);
 
 //onMounted
 onMounted(() => {
+  onResponsive();
   window.addEventListener("resize", onResponsive);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", onResponsive);
 });
 
 const onResponsive = () => {
   if (window.innerWidth <= 1200 && window.innerWidth >= 0) {
     isSmallerScreen.value = true;
+    isSidebarExpanded.value = false;
+
+    if (window.innerWidth <= 600) {
+      isExtraSmallScreen.value = true;
+    } else {
+      isExtraSmallScreen.value = false;
+    }
   } else {
     isSmallerScreen.value = false;
   }
@@ -105,11 +123,18 @@ const handleCloseButtonClick = () => {
 }
 
 .profile-container-wrapper {
+  scrollbar-width: none;
   width: 350px;
   height: 100%;
   box-shadow:
     0 0 6px 0 rgba(0, 0, 0, 0.04),
     0 4px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+@media screen and (max-width: 590px) {
+  .side-bar-wrapper {
+    transition: all 0.5s ease;
+  }
 }
 
 @media screen and (max-width: 480px) {
