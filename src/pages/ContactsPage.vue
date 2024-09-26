@@ -43,7 +43,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 
-import SideBarContainer from "../containers/SideBarContainer.vue";
+import SideBarContainer from "../containers/SidebarContainer.vue";
 import HeaderContainer from "../containers/HeaderContainer.vue";
 import HeaderPanel from "../containers/HeaderPanel.vue";
 import IndividualProfileContainer from "../containers/IndividualProfileContainer.vue";
