@@ -81,7 +81,6 @@ import SearchInput from "../components/SearchInput.vue";
 
 const {
   addButton,
-  exportOptionsDetails,
   filterDropDown,
   searchbarPlaceholder,
   title,

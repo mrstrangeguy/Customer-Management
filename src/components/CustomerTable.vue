@@ -346,15 +346,6 @@ const openResponsiveContainer = (index: number) => {
     !userDetails.value[index].isResponsiveSelected;
 };
 
-const getStatusTextColor = (text: string) => {
-  if (text.toLocaleLowerCase() === "commission") {
-    return "before:bg-democrat text-democrat";
-  } else if (text.toLocaleLowerCase() === "terminated") {
-    return "before:bg-tuscan-image text-tuscan-image";
-  }
-  return "before:bg-wageningen-green text-wageningen-green";
-};
-
 const getResponsiveTableHeaderStyle = (attribute: string) => {
   const editedAttribute = attribute.toLowerCase().replace(/\s/g, "");
 

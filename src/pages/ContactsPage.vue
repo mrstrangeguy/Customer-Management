@@ -5,11 +5,14 @@
     </div>
     <div class="contents-wrapper relative flex">
       <div
-        :class="['h-full hidden extra-small:block', { 'pr-12': isResponsive }]"
+        :class="[
+          'h-full hidden extra-small:block',
+          { 'pr-12': isLargerScreen },
+        ]"
       >
         <side-bar-container
           :is-expanded="isSidebarExpanded"
-          :class="{ 'absolute z-150': isResponsive }"
+          :class="{ 'absolute z-150': isLargerScreen }"
         />
       </div>
       <div class="px-8 w-full">
@@ -52,7 +55,7 @@ import { UserDetail } from "../types/table";
 const { users } = UsersData.userDetails;
 
 const isSidebarExpanded = ref<boolean>(true);
-const isResponsive = ref<boolean>(false);
+const isLargerScreen = ref<boolean>(false);
 const profileWrapperPosition = ref<string>("-100%");
 const currentProfileDetails = ref<UserDetail>(users[0]);
 
@@ -63,9 +66,9 @@ onMounted(() => {
 
 const onResponsive = () => {
   if (window.innerWidth <= 1200 && window.innerWidth >= 0) {
-    isResponsive.value = true;
+    isLargerScreen.value = true;
   } else {
-    isResponsive.value = false;
+    isLargerScreen.value = false;
   }
 };
 
