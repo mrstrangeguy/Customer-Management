@@ -7,12 +7,12 @@
       <div
         :class="[
           'h-full hidden extra-small:block',
-          { 'pr-12': isLargerScreen },
+          { 'pr-12': isSmallerScreen },
         ]"
       >
         <side-bar-container
           :is-expanded="isSidebarExpanded"
-          :class="{ 'absolute z-150': isLargerScreen }"
+          :class="{ 'absolute z-150': isSmallerScreen }"
         />
       </div>
       <div class="px-8 w-full">
@@ -55,7 +55,7 @@ import { UserDetail } from "../types/table";
 const { users } = UsersData.userDetails;
 
 const isSidebarExpanded = ref<boolean>(true);
-const isLargerScreen = ref<boolean>(false);
+const isSmallerScreen = ref<boolean>(false);
 const profileWrapperPosition = ref<string>("-100%");
 const currentProfileDetails = ref<UserDetail>(users[0]);
 
@@ -66,9 +66,9 @@ onMounted(() => {
 
 const onResponsive = () => {
   if (window.innerWidth <= 1200 && window.innerWidth >= 0) {
-    isLargerScreen.value = true;
+    isSmallerScreen.value = true;
   } else {
-    isLargerScreen.value = false;
+    isSmallerScreen.value = false;
   }
 };
 
