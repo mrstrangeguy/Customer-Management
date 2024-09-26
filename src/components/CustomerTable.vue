@@ -202,15 +202,21 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from "vue";
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 
 import { UsersData, UserDetail } from "../types/table";
 import { getStatusIconStyle } from "../utils/helpers";
 import { EmployeeStatuses, StatusTextStyles } from "../Constants";
 import IconTextField from "./IconTextField.vue";
 
+type Props = {
+  userAttributes: string[];
+  usersDetails: UserDetail[];
+  userStatus:string;
+}
+
 //props
-const props = defineProps<UsersData>();
+const props = defineProps<Props>();
 
 //onMounted
 onMounted(() => {
@@ -227,6 +233,11 @@ onUnmounted(() => {
     getResponsiveColsSpan();
   });
 });
+
+//watch
+watch({status:props.userStatus},async () => {
+   filterTableByStatus(props.userStatus)
+})
 
 //emit
 const emit = defineEmits<{
