@@ -202,7 +202,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, watch } from "vue";
+import { computed, onMounted, onUnmounted, ref, watchEffect } from "vue";
 
 import { UsersData, UserDetail } from "../types/table";
 import { getStatusIconStyle } from "../utils/helpers";
@@ -212,14 +212,20 @@ import IconTextField from "./IconTextField.vue";
 type Props = {
   userAttributes: string[];
   usersDetails: UserDetail[];
-  userStatus:string;
-}
+  userStatus?: string;
+  filterText?: string;
+};
 
 //props
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  userStatus: "ALL",
+  filterText: "",
+});
 
 //onMounted
 onMounted(() => {
+  filterTableByStatus(props.userStatus);
+  filterTableByText(props.filterText);
   window.addEventListener("resize", () => {
     getResponsiveColsSpan();
   });
@@ -234,11 +240,6 @@ onUnmounted(() => {
   });
 });
 
-//watch
-watch({status:props.userStatus},async () => {
-   filterTableByStatus(props.userStatus)
-})
-
 //emit
 const emit = defineEmits<{
   (e: "select-data", data: UserDetail): void;
@@ -251,8 +252,10 @@ const selectedAttributeObject = ref({ index: 0, order: 1 });
 const colspan = ref<number>(7);
 
 //computed
-const isAllCheckboxesEnabled = computed(() =>
-  userDetails.value?.every((elem: UserDetail) => elem.isChecked)
+const isAllCheckboxesEnabled = computed(
+  () =>
+    userDetails.value.length &&
+    userDetails.value?.every((elem: UserDetail) => elem.isChecked)
 );
 
 const isAnyCheckboxesEnabled = computed(() =>
@@ -260,6 +263,50 @@ const isAnyCheckboxesEnabled = computed(() =>
 );
 
 //functions
+const filterTableByStatus = (status: string) => {
+  if (!status || status.toLowerCase() === "all") return;
+
+  userDetails.value = userDetails.value.filter((userDetail: UserDetail) => {
+    return userDetail.status.toLocaleLowerCase() === status.toLocaleLowerCase();
+  });
+};
+
+const filterTableByText = (text: string) => {
+  if (!text) return;
+
+  userDetails.value = userDetails.value.filter((userDetail: UserDetail) => {
+    const { description, company, status, assignedTo, phone, email } =
+      userDetail;
+    const userDetailValues = [
+      description.name,
+      company,
+      status,
+      assignedTo,
+      phone,
+      email,
+    ];
+
+    const result = userDetailValues.find((value: string) => {
+      return value
+        .toLocaleLowerCase()
+        .trim()
+        .includes(text.toLocaleLowerCase().trim());
+    });
+
+    return result;
+  });
+};
+
+const getStatusIconStyle = (status: string) => {
+  if (status.toLocaleLowerCase() === EmployeeStatuses.Commission) {
+    return StatusIconStyles.Commission;
+  } else if (status.toLowerCase() === EmployeeStatuses.Terminated) {
+    return StatusIconStyles.Terminated;
+  }
+
+  return StatusIconStyles.Salaried;
+};
+
 const getTextStyle = (status: string) => {
   const basicStyle = "text-3.25 font-normal";
 
@@ -374,6 +421,13 @@ const getResponsiveColsSpan = () => {
     colspan.value = 3;
   }
 };
+
+//watchEffect
+watchEffect(() => {
+  userDetails.value = props.usersDetails;
+  filterTableByStatus(props.userStatus);
+  filterTableByText(props.filterText);
+});
 </script>
 
 <style lang="scss" scoped>

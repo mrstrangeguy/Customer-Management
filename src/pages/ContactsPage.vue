@@ -17,10 +17,15 @@
       </div>
       <div class="px-8 w-full">
         <div>
-          <header-panel />
+          <header-panel
+            @dropdown-value="handleDropdownClick"
+            @input-value="handleInputValue"
+          />
         </div>
         <div class="table-container overflow-y-auto">
           <customer-table
+            :user-status="userStatus"
+            :filter-text="filterText"
             @select-data="handleDataSelection"
             :user-attributes="uiData.usersPageData.userAttributes"
             :users-details="UsersData.userDetails.users"
@@ -58,6 +63,8 @@ const isSidebarExpanded = ref<boolean>(true);
 const isSmallerScreen = ref<boolean>(false);
 const profileWrapperPosition = ref<string>("-100%");
 const currentProfileDetails = ref<UserDetail>(users[0]);
+const userStatus = ref<string>("All");
+const filterText = ref<string>("");
 
 //onMounted
 onMounted(() => {
@@ -70,6 +77,10 @@ const onResponsive = () => {
   } else {
     isSmallerScreen.value = false;
   }
+};
+
+const handleDropdownClick = (value: string) => {
+  userStatus.value = value;
 };
 
 const toggleSidebarWidth = () => {
@@ -88,6 +99,10 @@ const toggleProfilWrapperPosition = (value: string) => {
 
 const handleCloseButtonClick = () => {
   toggleProfilWrapperPosition("-100%");
+};
+
+const handleInputValue = (value: string) => {
+  filterText.value = value;
 };
 </script>
 
