@@ -15,12 +15,13 @@
       </div>
     </div>
     <div class="flex items-center">
-      <div class="pl-4 flex items-center justify-end">
-        <div class="w-32 hidden extra-small:block">
+      <div class="flex items-center justify-end">
+        <div class="hidden extra-small:block">
           <Button
             :icon="addButton.icon"
             bg-color="rgb(3, 169, 244)"
-            text="add contact"
+            :text="addButton.text"
+            button-style="custom-button--normal text-white"
           />
         </div>
         <div class="pl-1.5 hidden extra-small:block">
@@ -36,7 +37,7 @@
           <Dropdown
             :icon="exportIcon"
             header-style="pl-3 pr-2 py-1.5 hover:bg-gray-200"
-            :drop-down-items="exportOptionsDetails.exportOptions"
+            :drop-down-items="filterDropDown.userStatuses"
           />
         </div>
         <div class="h-6 ml-1.25 w-px bg-gray-300 hidden sm:block" />
@@ -75,8 +76,13 @@ import Dropdown from "../components/Dropdown.vue";
 import Button from "../components/Button.vue";
 import SearchInput from "../components/SearchInput.vue";
 
-const { addButton, filterDropDown, searchbarPlaceholder, title,exportOptionsDetails } =
-  usersPageData;
+const {
+  addButton,
+  filterDropDown,
+  searchbarPlaceholder,
+  title,
+  exportOptionsDetails,
+} = usersPageData;
 const { chooser, exportIcon, overflow, refresh } = usersPageData.icons;
 
 const emit = defineEmits<{
@@ -88,9 +94,15 @@ const getInputValue = (value: string) => {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .custom-button {
-  box-shadow: none !important;
-  padding: 0px 6px !important;
+  box-shadow: none;
+  padding: 0px 6px;
+
+  &--normal {
+    padding: 5px 12px 5px 8px;
+    font-size: 13px;
+    letter-spacing: 0.52px;
+  }
 }
 </style>

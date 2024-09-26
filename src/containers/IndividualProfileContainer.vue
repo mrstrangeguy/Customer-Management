@@ -81,7 +81,7 @@
           <Button
             :text="editButton.text"
             :icon="editButton.icon"
-            button-style="custom-button--secondary custom-button--text-white"
+            button-style="custom-button--normal custom-button--text-white"
             bg-color="#03a9f4"
           />
         </div>
@@ -89,7 +89,7 @@
           <Button
             :text="detailsButton.text"
             :variant="ButtonVariants.Outlined"
-            button-style="custom-button--secondary"
+            button-style="custom-button--outlined"
             bg-color="#fff"
             hover-bg="rgba(0,0,0,.08)"
           />
@@ -204,18 +204,32 @@ const getTextStyle = (status: string) => {
 <style lang="scss" scoped>
 .custom-button {
   &--primary {
-    color: rgba(0, 0, 0, 0.87) !important;
-    box-shadow: none !important;
-    padding: 0px 6px !important;
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: none;
+    padding: 0px 6px;
   }
 
-  &--secondary {
-    padding: 0px 12px 0px 8px !important;
-    justify-content: center !important;
+  &--normal,
+  &--outlined {
+    justify-content: center;
+    letter-spacing: 0.52px;
+    font-size: 13px;
+  }
+
+  &--normal {
+    padding: 0px 12px 0px 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 3px 0px;
+  }
+
+  &--outlined {
+    box-shadow: none;
+    padding: 5px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    height: 26px;
   }
 
   &--text-white {
-    color: white !important;
+    color: white;
   }
 }
 </style>

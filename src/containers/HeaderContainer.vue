@@ -7,7 +7,8 @@
             :icon="menuIcon"
             is-rounded
             hover-bg="rgba(0, 0, 0, 0.08)"
-            button-style="!shadow-none !px-1.5 !text-slate-700"
+            button-style="custom-button"
+            @button-click="handleMenuButtonClick"
           />
         </div>
       </div>
@@ -18,7 +19,7 @@
       </div>
     </div>
     <div class="flex items-center pr-6">
-      <div class="sm:block hidden w-45 flex items-center mr-4">
+      <div class="search-container sm:block hidden w-45 flex items-center mr-4">
         <SearchInput :placeholder="searchPlaceholder" />
       </div>
       <div class="-mr-px">
@@ -26,7 +27,7 @@
           :icon="displayMode.darkModeIcon"
           is-rounded
           hover-bg="rgba(0, 0, 0, 0.08)"
-          button-style="!shadow-none !px-1.5 !text-slate-700"
+          button-style="custom-button"
         />
       </div>
       <div class="pl-1.5">
@@ -34,17 +35,24 @@
           :icon="notification"
           is-rounded
           hover-bg="rgba(0, 0, 0, 0.08)"
-          button-style="!shadow-none !px-1.5 !text-slate-700"
+          button-style="custom-button"
         />
       </div>
       <div class="sm:block hidden pl-2.5">
         <Dropdown
           :image-u-r-l="userProfileData.profileImg"
           :drop-down-items="userProfileData.details"
+          :content-position="DropdownPositions.Left"
+          should-hide-arrow-icon
         />
       </div>
       <div class="sm:hidden block pl-1.75">
-        <Button variant="Icon" icon="dx-icon dx-icon-overflow" />
+        <Button
+          :icon="icons.overflow"
+          is-rounded
+          button-style="custom-button"
+          hover-bg="rgba(0, 0, 0, 0.08)"
+        />
       </div>
     </div>
   </div>
@@ -55,7 +63,29 @@ import Button from "../components/Button.vue";
 import SearchInput from "../components/SearchInput.vue";
 import Dropdown from "../components/Dropdown.vue";
 import uiData from "../data/uiData.json";
+import { DropdownPositions } from "../Constants";
 
-const { userProfileData } = uiData.usersPageData;
-const { title, menuIcon, displayMode, notification, searchPlaceholder } = uiData.headerNavData;
+const { userProfileData, icons } = uiData.usersPageData;
+const { title, menuIcon, displayMode, notification, searchPlaceholder } =
+  uiData.headerNavData;
+
+const emit = defineEmits<{
+  (event: "menu-click", clickEvent: Event): void;
+}>();
+
+const handleMenuButtonClick = (event: Event) => {
+  emit("menu-click", event);
+};
 </script>
+
+<style>
+.search-container {
+  width: 180px;
+}
+
+.custom-button {
+  box-shadow: none;
+  padding: 0px 6px;
+  color: rgba(0, 0, 0, 0.87);
+}
+</style>

@@ -101,7 +101,7 @@
         "searchbarPlaceholder": "Contact Search",
         "addButton":{
          "icon":"dx-icon-plus",
-         "text":"add button"
+         "text":"add contact"
         },
         "filterDropDown": {
             "title": "ALL",
