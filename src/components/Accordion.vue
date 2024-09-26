@@ -35,9 +35,9 @@
         :class="[
           'default-icon',
           {
-            'text-4.5 block h-4.5 text-gray-400 leading-4.5 dx-treeview-toggle-item-visibility':
+            'text-4.5 block h-4.5 arrow-icon--primary leading-4.5 dx-treeview-toggle-item-visibility':
               isPrimaryVariant,
-            'text-base text-black font-normal leading-4 dx-accordion-item-title':
+            'text-base arrow-icon--secondary font-normal leading-4 dx-accordion-item-title':
               !isPrimaryVariant,
             'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
           },
@@ -96,8 +96,20 @@ const toggleContentVisibility = () => {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .accordion-icon {
   font-size: 18px;
+  color:rgba(0, 0, 0, 0.87);
+}
+
+.arrow-icon {
+
+  &--primary {
+  color: rgba(0, 0, 0, 0.54);
+  }
+
+  &--secondary {
+   color:rgba(0, 0, 0, 0.87);
+  }
 }
 </style>
