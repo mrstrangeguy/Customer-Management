@@ -1,8 +1,8 @@
 <template>
-  <div ref="dropdownRef" class="relative z-100 cursor-pointer w-full">
+  <div ref="dropdownRef" class="relative cursor-pointer w-full">
     <div
       :class="[
-        'relative overflow-hidden flex items-center z-50 rounded-sm transition-all cursor-pointer w-fit',
+        'relative overflow-hidden flex items-center rounded-sm transition-all cursor-pointer w-fit',
         headerStyle,
         {
           'pl-2': icon,
@@ -40,7 +40,7 @@
       :class="[
         'absolute cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-options-dropdown',
         {
-          'opacity-100 z-150': isHeaderClicked,
+          'opacity-100 z-20': isHeaderClicked,
           'opacity-0 z-behind': !isHeaderClicked,
           'right-0': isContentPositionLeft,
         },

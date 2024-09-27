@@ -1,13 +1,16 @@
 <template>
   <div class="h-full relative overflow-hidden">
-    <div class="z-50">
+    <div>
       <header-container @menu-click="toggleSidebarWidth" />
     </div>
     <div class="contents-wrapper relative flex">
       <div
         :class="[
           'dark-overlay',
-          { 'opacity-0': !isSidebarExpanded, 'opacity-1': isSidebarExpanded },
+          {
+            'opacity-0 invisible': !isSidebarExpanded,
+            'opacity-1 visible': isSidebarExpanded,
+          },
         ]"
       />
       <div
@@ -111,9 +114,11 @@ const handleCloseButtonClick = () => {
 
 .contents-wrapper {
   height: calc(100% - 56px);
+  z-index: 10;
 }
 
 .profile-container-wrapper {
+  z-index: 12;
   scrollbar-width: none;
   width: 350px;
   height: 100%;
@@ -129,13 +134,13 @@ const handleCloseButtonClick = () => {
   top: 0%;
   width: 100%;
   height: 100%;
-  z-index: 120;
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 0.5s ease;
+  z-index: 11;
 }
 
 .side-bar-wrapper {
-  z-index: 150;
+  z-index: 13;
 }
 
 @media screen and (max-width: 1200px) {
@@ -149,7 +154,7 @@ const handleCloseButtonClick = () => {
 
   .sidebar {
     position: absolute;
-    z-index: 150;
+    z-index: 11;
   }
 }
 
