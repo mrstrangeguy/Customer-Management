@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="search-input-wrapper relative bg-zinc-100 hover:bg-zinc-200 before:absolute before:bottom-0 before:w-full hover:before:border-b-black after:absolute after:bottom-0 after:border-b after:w-full after:border-b-zinc-900 after:scale-0 focus-within:after:transition-transform focus-within:after:duration-700 focus-within:after:scale-100 focus-within:after:border-b-2 focus-within:after:border-b-democrat"
-  >
+  <div class="search-input-wrapper">
     <div
       class="search-icon default-icon block absolute bottom-0 dx-icon-search text-center text-slate-500"
     />
@@ -67,9 +65,39 @@ const handleKeyDown = (event: KeyboardEvent) => {
 };
 </script>
 
-<style lang="scss">
-.search-input-wrapper::before {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+<style lang="scss" scoped>
+.search-input-wrapper {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.04);
+
+  &::before,
+  &::after {
+    content: "";
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  &::after {
+    scale: 0;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.07);
+
+    &::before {
+      border-bottom-color: black;
+    }
+  }
+
+  &:focus-within {
+    &::after {
+      transition: scale 0.7s ease;
+      scale: 1;
+      border-bottom: 2px solid #03a9f4;
+    }
+  }
 }
 
 .search-icon {
