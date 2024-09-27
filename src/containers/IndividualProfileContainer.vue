@@ -153,11 +153,11 @@ import Dropdown from "../components/Dropdown.vue";
 import UserActivityCard from "../components/UserActivityCard.vue";
 import { UserDetail } from "../types/table";
 import { individualProfileData } from "../data/uiData.json";
+import { getStatusIconStyle } from "../utils/helpers";
 import {
   AccordionVariants,
   ButtonVariants,
   EmployeeStatuses,
-  StatusIconStyles,
   StatusTextStyles,
 } from "../Constants";
 
@@ -176,16 +176,6 @@ const emit = defineEmits<{
 
 const handleCloseButtonClick = (event: Event) => {
   emit("close-button-click", event);
-};
-
-const getStatusIconStyle = (status: string) => {
-  if (status.toLowerCase() === EmployeeStatuses.Commission) {
-    return StatusIconStyles.Commission;
-  } else if (status.toLowerCase() === EmployeeStatuses.Terminated) {
-    return StatusIconStyles.Terminated;
-  }
-
-  return StatusIconStyles.Salaried;
 };
 
 const getTextStyle = (status: string) => {
