@@ -13,15 +13,18 @@
       @click.stop="toggleContentVisibility"
       role="button"
     >
-      <div class="flex items-center">
+      <div class="flex items-center icon-text-wrapper">
         <i
           v-if="mainIcon"
-          :class="['default-icon block w-12 leading-4 text-center', mainIcon]"
+          :class="[
+            'accordion-icon default-icon block w-12 leading-4 text-center',
+            mainIcon,
+          ]"
         />
         <span
           :class="[
             {
-              'text-3.25 font-bold leading-3.75 block': isPrimaryVariant,
+              'text-3.25 font-bold leading-3.75 block -mt-px': isPrimaryVariant,
             },
           ]"
         >
@@ -32,9 +35,9 @@
         :class="[
           'default-icon',
           {
-            'text-4.5 block h-4.5 text-gray-400 leading-4.5 dx-treeview-toggle-item-visibility':
+            'text-4.5 block h-4.5 arrow-icon--primary leading-4.5 dx-treeview-toggle-item-visibility':
               isPrimaryVariant,
-            'text-base text-black font-normal leading-4 dx-accordion-item-title':
+            'text-base arrow-icon--secondary font-normal leading-4 dx-accordion-item-title':
               !isPrimaryVariant,
             'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
           },
@@ -92,3 +95,20 @@ const toggleContentVisibility = () => {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.accordion-icon {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.arrow-icon {
+  &--primary {
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  &--secondary {
+    color: rgba(0, 0, 0, 0.87);
+  }
+}
+</style>

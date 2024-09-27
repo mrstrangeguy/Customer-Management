@@ -1,9 +1,11 @@
 <template>
   <div
-    class="w-full h-full overflow-hidden bg-zinc-100 transition-all duration-500"
+    class="sidebar-wrapper relative w-full h-full overflow-hidden transition-all duration-500"
     :style="{ width: isExpanded ? '250px' : '48px' }"
   >
-    <div class="relative h-full bg-sidebar pt-4 pb-17.5">
+    <div
+      class="accordion-group-wrapper h-full overflow-y-auto bg-sidebar pt-4 pb-17.5"
+    >
       <div v-for="sidebar in sideBarItems" class="border-b">
         <Accordion :text="sidebar.title" :main-icon="sidebar.main">
           <template v-slot:dropdown-items>
@@ -11,26 +13,26 @@
               v-for="subMenuItem in sidebar.subMenuItems"
               class="py-2.25 pr-4 flex items-center"
             >
-              <span class="block pl-12 text-3.25 leading-4">
+              <span class="block pl-12 text-3.25 accordion-content-text">
                 {{ subMenuItem.title }}
               </span>
             </div>
           </template>
         </Accordion>
       </div>
-      <div
-        :class="[
-          'absolute text-gray-500 Z-50 bottom-0 left-0 w-full pt-5 py-4 pl-4 text-xs text-sidebar-text leading-4 bg-zinc-100',
-          {
-            'opacity-1 delay-200 transition-all duration-500': isExpanded,
-            'opacity-0': !isExpanded,
-          },
-        ]"
-      >
-        {{ copyrightText }}
-        <br />
-        {{ companyName }}
-      </div>
+    </div>
+    <div
+      :class="[
+        'sidebar-footer absolute text-gray-500 Z-50 bottom-0 left-0 w-full text-3.25 text-sidebar-text leading-4 bg-zinc-100',
+        {
+          'opacity-1 delay-200 transition-all duration-500': isExpanded,
+          'opacity-0': !isExpanded,
+        },
+      ]"
+    >
+      {{ copyrightText }}
+      <br />
+      {{ companyName }}
     </div>
   </div>
 </template>
@@ -63,3 +65,23 @@ withDefaults(defineProps<Props>(), {
 const { copyrightText, companyName } = UiData.sidebarFooterTexts;
 const sideBarItems = ref<SideBarItem[]>(UiData.sidebarMenuItems);
 </script>
+
+<style>
+.accordion-group-wrapper {
+  padding-bottom: 70px;
+  scrollbar-width: none;
+}
+
+.sidebar-wrapper {
+  background-color: rgb(242, 242, 242);
+}
+
+.accordion-content-text {
+  line-height: 18px;
+}
+
+.sidebar-footer {
+  padding: 20px 0px 16px 15px;
+  line-height: 17px;
+}
+</style>
