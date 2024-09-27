@@ -79,8 +79,8 @@ const onResponsive = () => {
   }
 };
 
-const handleDropdownClick = (value: string) => {
-  userStatus.value = value;
+const handleDropdownClick = (status: string) => {
+  userStatus.value = status;
 };
 
 const toggleSidebarWidth = () => {
@@ -101,8 +101,8 @@ const handleCloseButtonClick = () => {
   toggleProfilWrapperPosition("-100%");
 };
 
-const handleInputValue = (value: string) => {
-  filterText.value = value;
+const handleInputValue = (searchText: string) => {
+  filterText.value = searchText;
 };
 </script>
 

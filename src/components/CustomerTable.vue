@@ -225,7 +225,7 @@ const props = withDefaults(defineProps<Props>(), {
 //onMounted
 onMounted(() => {
   filterTableByStatus(props.userStatus);
-  filterTableByText(props.filterText);
+  filterCustomersBySearchText(props.filterText);
   window.addEventListener("resize", () => {
     getResponsiveColsSpan();
   });
@@ -267,12 +267,12 @@ const filterTableByStatus = (status: string) => {
   if (!status || status.toLowerCase() === "all") return;
 
   userDetails.value = userDetails.value.filter((userDetail: UserDetail) => {
-    return userDetail.status.toLocaleLowerCase() === status.toLocaleLowerCase();
+    return userDetail.status.toLowerCase() === status.toLowerCase();
   });
 };
 
-const filterTableByText = (text: string) => {
-  if (!text) return;
+const filterCustomersBySearchText = (searchText: string) => {
+  if (!searchText) return;
 
   userDetails.value = userDetails.value.filter((userDetail: UserDetail) => {
     const { description, company, status, assignedTo, phone, email } =
@@ -288,9 +288,9 @@ const filterTableByText = (text: string) => {
 
     const result = userDetailValues.find((value: string) => {
       return value
-        .toLocaleLowerCase()
+        .toLowerCase()
         .trim()
-        .includes(text.toLocaleLowerCase().trim());
+        .includes(searchText.toLowerCase().trim());
     });
 
     return result;
@@ -298,7 +298,7 @@ const filterTableByText = (text: string) => {
 };
 
 const getStatusIconStyle = (status: string) => {
-  if (status.toLocaleLowerCase() === EmployeeStatuses.Commission) {
+  if (status.toLowerCase() === EmployeeStatuses.Commission) {
     return StatusIconStyles.Commission;
   } else if (status.toLowerCase() === EmployeeStatuses.Terminated) {
     return StatusIconStyles.Terminated;
@@ -426,7 +426,7 @@ const getResponsiveColsSpan = () => {
 watchEffect(() => {
   userDetails.value = props.usersDetails;
   filterTableByStatus(props.userStatus);
-  filterTableByText(props.filterText);
+  filterCustomersBySearchText(props.filterText);
 });
 </script>
 
