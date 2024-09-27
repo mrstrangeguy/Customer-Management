@@ -50,8 +50,8 @@
             button-style="text-black custom-button"
           />
         </div>
-        <div class="pl-1.25 md:block hidden">
-          <div class="header-panel-search-wrapper w-40">
+        <div class="pl-5 md:block hidden">
+          <div class="w-40">
             <search-input
               :placeholder="searchbarPlaceholder"
               @input="getInputValue"
@@ -121,10 +121,6 @@ const handleDropdownClick = (value: string) => {
 
 .header-panel-buttons-wrapper {
   padding-left: 15px;
-}
-
-.header-panel-search-wrapper {
-  margin-left: 15px;
 }
 
 .dropdown-header {
