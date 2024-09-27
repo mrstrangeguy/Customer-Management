@@ -253,7 +253,7 @@ const isAnyCheckboxesEnabled = computed(() =>
 
 //functions
 const getStatusIconStyle = (status: string) => {
-  if (status.toLocaleLowerCase() === EmployeeStatuses.Commission) {
+  if (status.toLowerCase() === EmployeeStatuses.Commission) {
     return StatusIconStyles.Commission;
   } else if (status.toLowerCase() === EmployeeStatuses.Terminated) {
     return StatusIconStyles.Terminated;
