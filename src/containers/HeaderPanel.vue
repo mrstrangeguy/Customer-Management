@@ -6,7 +6,7 @@
           {{ title }}
         </span>
       </div>
-      <div class="mt-px">
+      <div class="status-dropdown-wrapper mt-px">
         <Dropdown
           :text="filterDropdownTitle"
           header-style="dropdown-header hover:bg-gray-200"
@@ -134,5 +134,11 @@ const handleDropdownClick = (value: string) => {
 
 .icon-dropdown {
   padding-left: 8px;
+}
+
+@media screen and (max-width: 380px) {
+  .status-dropdown-wrapper {
+    display: none;
+  }
 }
 </style>
