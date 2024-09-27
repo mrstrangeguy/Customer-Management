@@ -224,7 +224,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 //onMounted
 onMounted(() => {
-  filterTableByStatus(props.userStatus);
+  filterCustomersByStatus(props.userStatus);
   filterCustomersBySearchText(props.filterText);
   window.addEventListener("resize", () => {
     getResponsiveColsSpan();
@@ -263,7 +263,7 @@ const isAnyCheckboxesEnabled = computed(() =>
 );
 
 //functions
-const filterTableByStatus = (status: string) => {
+const filterCustomersByStatus = (status: string) => {
   if (!status || status.toLowerCase() === "all") return;
 
   userDetails.value = userDetails.value.filter((userDetail: UserDetail) => {
@@ -425,7 +425,7 @@ const getResponsiveColsSpan = () => {
 //watchEffect
 watchEffect(() => {
   userDetails.value = props.usersDetails;
-  filterTableByStatus(props.userStatus);
+  filterCustomersByStatus(props.userStatus);
   filterCustomersBySearchText(props.filterText);
 });
 </script>
