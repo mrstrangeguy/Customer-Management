@@ -1,8 +1,8 @@
 <template>
   <div class="bg-white">
     <div class="p-2 pl-4 flex items-center justify-between">
-      <div class="pr-4 flex h-10 items-center">
-        <div class="text-3.25 font-bold mr-3">
+      <div class="name-status-wrapper pr-4 flex items-center">
+        <div class="text-3.25 font-bold profile-title">
           {{ userDetail.description.name }}
         </div>
         <icon-text-field
@@ -19,7 +19,7 @@
           button-style="custom-button--primary"
           is-rounded
         />
-        <div class="pl-1.5">
+        <div class="pl-1.25">
           <Button
             :icon="closeButton.icon"
             hover-bg="#00000014"
@@ -37,7 +37,7 @@
           :src="userDetail.image"
           alt="profile-image"
         />
-        <div class="pl-5">
+        <div class="pl-3">
           <div
             v-for="(statusDetail, index) in userDetail.statusDetails"
             :key="`${statusDetail.label}${index}`"
@@ -46,13 +46,13 @@
             <icon-text-field
               :label="statusDetail.label"
               :text="statusDetail.text"
-              text-style="mt-1 text-democrat text-xs"
+              :text-style="`mt-1 ${getUserDetailColor(statusDetail.label)} text-xs`"
               is-column
             />
           </div>
         </div>
       </div>
-      <div class="py-4">
+      <div class="user-contact-details">
         <div
           v-for="(contactDetail, index) in userDetail.contactDetails"
           :key="`${contactDetail.text}${index}`"
@@ -60,19 +60,19 @@
         >
           <icon-text-field
             :icon="contactDetail.icon"
-            icon-style="px-1.5 text-slate-300"
+            icon-style="px-1.5 text-zinc-200"
             :text="contactDetail.text"
-            text-style="pl-4 text-xs"
+            text-style="pl-3 text-xs"
           />
         </div>
       </div>
     </div>
     <div class="py-2.5 px-4 flex items-center justify-between border-b mb-6">
-      <div class="pr-4 h-10 flex items-center">
+      <div class="actions-dropdown-wrapper h-10 flex items-center">
         <Dropdown
           :text="actionsDropdown.title"
           arrow-icon="dx-icon-spindown"
-          header-style="py-1.5 pl-2 pr-3 hover:bg-slate-200"
+          header-style="py-1.5 pl-3 pr-2 hover:bg-slate-200"
           :drop-down-items="actionsDropdown.details"
         />
       </div>
@@ -96,8 +96,8 @@
         </div>
       </div>
     </div>
-    <div class="px-4">
-      <div class="mb-2">
+    <div class="accordions-wrapper">
+      <div class="mb-2 w-full">
         <Accordion
           :text="userDetail.opportunities.title"
           :variant="AccordionVariants.Secondary"
@@ -199,9 +199,22 @@ const getTextStyle = (status: string) => {
 
   return `${basicStyle} ${StatusTextStyles.Salaried}`;
 };
+
+const getUserDetailColor = (status: string) => {
+  if (status.toLowerCase() === "position") {
+    return "text-black";
+  }
+
+  return "text-democrat";
+};
 </script>
 
 <style lang="scss" scoped>
+.name-status-wrapper,
+.actions-dropdown-wrapper {
+  height: 38px;
+}
+
 .custom-button {
   &--primary {
     color: rgba(0, 0, 0, 0.87);
@@ -231,5 +244,21 @@ const getTextStyle = (status: string) => {
   &--text-white {
     color: white;
   }
+}
+
+.profile-title {
+  margin-right: 13px;
+}
+
+.user-contact-details {
+  padding: 15px 0px;
+}
+
+.actions-dropdown-wrapper {
+  padding-right: 15px;
+}
+
+.accordions-wrapper {
+  padding: 0px 19px;
 }
 </style>

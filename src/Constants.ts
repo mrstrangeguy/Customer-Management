@@ -26,9 +26,9 @@ export enum EmployeeStatuses {
 }
 
 export enum StatusIconStyles {
-  Salaried = "mr-1.25 bg-wageningen-green",
-  Commission = "mr-1.25 bg-democrat",
-  Terminated = "mr-1.25 bg-tuscan-image"
+  Salaried = "mr-1.25 -mt-0.5 bg-wageningen-green",
+  Commission = "mr-1.25 -mt-0.5 bg-democrat",
+  Terminated = "mr-1.25 -mt-0.5 bg-tuscan-image"
 }
 
 export enum StatusTextStyles {
