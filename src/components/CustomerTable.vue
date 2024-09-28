@@ -16,7 +16,7 @@
                 : toggleCheckboxesVisibility(true)
             "
             :class="[
-              'inline-block default-icon cursor-pointer icon relative align-middle w-4 h-4 rounded-sm',
+              'inline-block default-icon cursor-pointer icon relative align-middle w-4 h-4 rounded-sm -mt-px',
               {
                 'border-2 border-default-color':
                   !isAllCheckboxesEnabled && !isAnyCheckboxesEnabled,
@@ -33,35 +33,42 @@
           @click="sortCustomerTable(index)"
           v-for="(userAttribute, index) in userAttributes"
           :class="[
-            'group py-3 px-2.75 leading-4 cursor-pointer hover:bg-table-hover-primary text-left',
+            'table-header-cell group py-3 px-2.75 leading-4 cursor-pointer hover:bg-table-hover-primary text-left',
             getResponsiveTableHeaderStyle(userAttribute),
           ]"
           role="columnheader"
         >
-          <span
+          <div
             :class="[
-              'inline-block z-10 align-top text-label text-3.25 leading-4 font-medium mr-0.75 group-hover:text-table-hover-tertiary',
-              {
-                'text-table-hover-tertiary':
-                  selectedAttributeObject.index === index,
-              },
+              'flex items-center pl-px',
+              { 'name-heading-wrapper': index === 0 },
             ]"
           >
-            {{ userAttribute }}
-          </span>
-          <i
-            v-if="isArrowIconPresent(index)"
-            :class="[
-              'inline-block w-3.75 align-top text-sm text-table-hover-primary group-hover:text-table-hover-secondary font-normal h-3.75 leading-l3 default-icon dx-sort',
-              {
-                'dx-sort-up': isDownArrowPresent(index),
-                'dx-sort-down': !isDownArrowPresent(index),
-              },
-            ]"
-          />
-          <i
-            class="inline-block align-top default-icon dx-header-filter-empty text-sm w-3.75 h-3.75 -mt-0.5"
-          />
+            <span
+              :class="[
+                'block z-10 align-top text-label text-3.25 leading-4 font-medium mr-0.75 group-hover:text-table-hover-tertiary -ml-px',
+                {
+                  'text-table-hover-tertiary':
+                    selectedAttributeObject.index === index,
+                },
+              ]"
+            >
+              {{ userAttribute }}
+            </span>
+            <i
+              v-if="isArrowIconPresent(index)"
+              :class="[
+                'table-header-icon default-icon dx-sort',
+                {
+                  'dx-sort-up': !isDownArrowPresent(index),
+                  'dx-sort-down': isDownArrowPresent(index),
+                },
+              ]"
+            />
+            <i
+              class="block default-icon dx-header-filter-empty table-filter-icon"
+            />
+          </div>
         </th>
         <th class="extra-large:hidden w-10" />
       </tr>
@@ -71,8 +78,9 @@
         <tr
           @click="handleRowClick(userDetail, index)"
           :class="[
-            'border-b border-b-tr-border cursor-pointer',
+            'border-b border-tr-border cursor-pointer',
             {
+              'border-t': index !== 0,
               'bg-checked': userDetail.isChecked,
               'bg-selected': userDetail.isSelected,
             },
@@ -96,11 +104,13 @@
             />
           </td>
           <td class="py-2.5 px-2.75 border-b border-b-tr-border">
-            <div class="text-3.25 leading-4">
-              {{ userDetail.description.name }}
-            </div>
-            <div class="text-xs leading-4 text-label">
-              {{ userDetail.description.position }}
+            <div class="-mb-px mt-px name-position-wrapper">
+              <div class="text-3.25 leading-4">
+                {{ userDetail.description.name }}
+              </div>
+              <div class="text-xs leading-4 text-label">
+                {{ userDetail.description.position }}
+              </div>
             </div>
           </td>
           <td
@@ -436,5 +446,41 @@ const getResponsiveColsSpan = () => {
     margin-left: -5px;
     margin-top: -1px;
   }
+}
+//inline-block w-3.75 align-top text-sm text-table-hover-primary group-hover:text-table-hover-secondary font-normal h-3.75 leading-l3 default-icon dx-sort
+.table-header-cell {
+  &:hover {
+    .table-header-icon {
+      color: #00000061;
+    }
+  }
+}
+
+.table-header-icon {
+  display: block;
+  width: 15px;
+  height: 15px;
+  font-size: 15px;
+  color: black;
+  line-height: 15px;
+  color: #f2f2f2;
+  color: rgba(0, 0, 0, 0.87);
+  // margin-left: -1px;
+  margin-top: -1px;
+  font-weight: 500;
+}
+
+.table-filter-icon {
+  height: 15px;
+  width: 15px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.72);
+  margin-top: -1px;
+  font-weight: 400;
+}
+
+.name-position-wrapper,
+.name-heading-wrapper {
+  margin-left: 0.5px;
 }
 </style>
