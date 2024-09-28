@@ -255,11 +255,11 @@ const colspan = ref<number>(7);
 const isAllCheckboxesEnabled = computed(
   () =>
     userDetails.value.length &&
-    userDetails.value?.every((elem: UserDetail) => elem.isChecked)
+    userDetails.value?.every((user: UserDetail) => user.isChecked)
 );
 
 const isAnyCheckboxesEnabled = computed(() =>
-  userDetails.value?.some((elem: UserDetail) => elem.isChecked)
+  userDetails.value?.some((user: UserDetail) => user.isChecked)
 );
 
 //functions
@@ -360,7 +360,7 @@ const isDownArrowPresent = (index: number) => {
 };
 
 const toggleCheckboxesVisibility = (value: boolean) => {
-  userDetails.value?.forEach((elem: UserDetail) => (elem.isChecked = value));
+  userDetails.value?.forEach((user: UserDetail) => (user.isChecked = value));
 };
 
 const addContact = (index: number) => {
@@ -371,7 +371,7 @@ const addContact = (index: number) => {
 const selectContact = (index: number) => {
   if (!userDetails.value) return;
 
-  userDetails.value?.forEach((elem) => (elem.isSelected = false));
+  userDetails.value?.forEach((user) => (user.isSelected = false));
   userDetails.value[index].isSelected = true;
 };
 
