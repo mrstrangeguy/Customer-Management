@@ -7,7 +7,13 @@
       class="accordion-group-wrapper h-full overflow-y-auto bg-sidebar pt-4 pb-17.5"
     >
       <div v-for="sidebar in sideBarItems" class="border-b">
-        <Accordion :text="sidebar.title" :main-icon="sidebar.main">
+        <Accordion
+          :text="sidebar.title"
+          :main-icon="sidebar.main"
+          :id="sidebar.id"
+          :is-expanded="sidebar.isExpanded"
+          @accordion-click="handleAccordionClick"
+        >
           <template v-slot:dropdown-items>
             <div
               v-for="subMenuItem in sidebar.subMenuItems"
@@ -38,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 
 import UiData from "../data/uiData.json";
 import Accordion from "../components/Accordion.vue";
@@ -53,17 +59,50 @@ type SubMenuItem = {
 };
 
 type SideBarItem = {
+  id: number;
   title: string;
   main: string;
+  isExpanded: boolean;
   subMenuItems: SubMenuItem[];
 };
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
+  id: 1,
   isExpanded: true,
 });
 
 const { copyrightText, companyName } = UiData.sidebarFooterTexts;
 const sideBarItems = ref<SideBarItem[]>(UiData.sidebarMenuItems);
+
+//emit
+const emit = defineEmits<{
+  (event: "accordion-click", isExpanded: boolean): void;
+}>();
+
+//functions
+const handleAccordionClick = (accordionId: number) => {
+  const currentAccordionData = sideBarItems.value.find(
+    (sidebar) => sidebar.id === accordionId
+  );
+
+  if (!currentAccordionData) return;
+  currentAccordionData.isExpanded = !currentAccordionData?.isExpanded;
+  emit("accordion-click", props.isExpanded);
+};
+
+const setAllAccordions = (value: boolean) => {
+  sideBarItems.value.forEach((sidebar) => (sidebar.isExpanded = value));
+};
+
+//watchEffect
+watchEffect(() => {
+  console.log("working 2");
+  if (!props.isExpanded) {
+    setAllAccordions(false);
+  } else {
+    sideBarItems.value[0].isExpanded = true;
+  }
+});
 </script>
 
 <style>

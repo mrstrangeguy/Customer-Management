@@ -61,6 +61,7 @@
                     "title": "Activities",
                     "items": [
                         {
+                            "id":1,
                             "status": "Qualified",
                             "details": {
                                 "date": "02/26/2020",
@@ -68,6 +69,7 @@
                             }
                         },
                         {
+                            "id":2,
                             "status": "Disqualified",
                             "details": {
                                 "date": "02/26/2020",
