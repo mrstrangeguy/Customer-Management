@@ -447,7 +447,7 @@ const getResponsiveColsSpan = () => {
     margin-top: -1px;
   }
 }
-//inline-block w-3.75 align-top text-sm text-table-hover-primary group-hover:text-table-hover-secondary font-normal h-3.75 leading-l3 default-icon dx-sort
+
 .table-header-cell {
   &:hover {
     .table-header-icon {
@@ -465,7 +465,6 @@ const getResponsiveColsSpan = () => {
   line-height: 15px;
   color: #f2f2f2;
   color: rgba(0, 0, 0, 0.87);
-  // margin-left: -1px;
   margin-top: -1px;
   font-weight: 500;
 }
