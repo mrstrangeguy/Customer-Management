@@ -41,7 +41,7 @@
           <div
             :class="[
               'flex items-center pl-px',
-              { 'name-heading-wrapper': index === 0 },
+              { 'name-heading-wrapper': !index },
             ]"
           >
             <span
@@ -80,7 +80,7 @@
           :class="[
             'border-b border-tr-border cursor-pointer',
             {
-              'border-t': index !== 0,
+              'border-t': index,
               'bg-checked': userDetail.isChecked,
               'bg-selected': userDetail.isSelected,
             },
