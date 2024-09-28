@@ -12,13 +12,15 @@
           />
         </div>
       </div>
-      <div>
-        <span class="block leading-leading1 text-4 font-medium">
+      <div class="header-title-wrapper">
+        <span
+          class="header-title block leading-leading1 text-4 font-medium overflow-hidden text-ellipsis text-nowrap"
+        >
           {{ title }}
         </span>
       </div>
     </div>
-    <div class="flex items-center pr-6">
+    <div class="flex items-center pr-6 pl-4">
       <div class="search-container sm:block hidden w-45 flex items-center mr-4">
         <SearchInput :placeholder="searchPlaceholder" />
       </div>
@@ -78,7 +80,7 @@ const handleMenuButtonClick = (event: Event) => {
 };
 </script>
 
-<style>
+<style lang="scss">
 .search-container {
   width: 180px;
 }
@@ -87,5 +89,16 @@ const handleMenuButtonClick = (event: Event) => {
   box-shadow: none;
   padding: 0px 6px;
   color: rgba(0, 0, 0, 0.87);
+}
+
+.header-title {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+@media screen and (max-width: 320px) {
+  .header-title-wrapper {
+    max-width: 100px;
+    flex-shrink: 1;
+  }
 }
 </style>

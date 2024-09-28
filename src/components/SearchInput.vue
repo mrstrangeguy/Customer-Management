@@ -1,9 +1,7 @@
 <template>
-  <div
-    class="search-input-wrapper relative bg-zinc-100 hover:bg-zinc-200 before:absolute before:bottom-0 before:border-b before:w-full before:border-b-zinc-900 hover:before:border-b-black after:absolute after:bottom-0 after:border-b after:w-full after:border-b-zinc-900 after:scale-0 focus-within:after:transition-transform focus-within:after:duration-700 focus-within:after:scale-100 focus-within:after:border-b-2 focus-within:after:border-b-democrat"
-  >
+  <div class="search-input-wrapper">
     <div
-      class="default-icon block h-8.5 w-8 absolute bottom-0 py-2.25 pl-3 pr-1.5 dx-icon dx-icon-search text-center leading-4 font-normal text-slate-500"
+      class="search-icon default-icon block absolute bottom-0 dx-icon-search text-center text-slate-500"
     />
     <input
       :placeholder="placeholder"
@@ -66,3 +64,52 @@ const handleKeyDown = (event: KeyboardEvent) => {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.search-input-wrapper {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.04);
+
+  &::before,
+  &::after {
+    content: "";
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  &::after {
+    scale: 0;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.07);
+
+    &::before {
+      border-bottom-color: black;
+    }
+  }
+
+  &:focus-within {
+    &::after {
+      transition: scale 0.7s ease;
+      scale: 1;
+      border-bottom: 2px solid #03a9f4;
+    }
+  }
+}
+
+.search-icon {
+  padding: 9px 6px 9px 12px;
+  height: 34px;
+  width: 34px;
+
+  &::before {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-top: -3px;
+  }
+}
+</style>

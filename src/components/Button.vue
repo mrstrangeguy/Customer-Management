@@ -22,9 +22,9 @@
         'default-icon text-base',
         icon,
         {
-          'mr-1 -mt-0.5': text,
+          'mr-1': text,
           'mr-0': !text,
-          'h-4 2-4 leading-4': isNormalVariant,
+          'h-4 w-4 2-4 leading-4': isNormalVariant,
         },
       ]"
     />
@@ -32,7 +32,7 @@
       :class="[
         'overflow-hidden text-nowrap text-ellipsis block',
         {
-          'leading-4': isNormalVariant,
+          'text-normal': isNormalVariant,
         },
       ]"
     >
@@ -82,3 +82,9 @@ const setBackgroundColor = (color: string) => {
   buttonBgColor.value = color;
 };
 </script>
+
+<style>
+.text-normal {
+  line-height: 15px;
+}
+</style>
