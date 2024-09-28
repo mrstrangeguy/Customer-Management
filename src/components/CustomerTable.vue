@@ -205,11 +205,8 @@
 import { computed, onMounted, onUnmounted, ref } from "vue";
 
 import { UsersData, UserDetail } from "../types/table";
-import {
-  EmployeeStatuses,
-  StatusIconStyles,
-  StatusTextStyles,
-} from "../Constants";
+import { getStatusIconStyle } from "../utils/helpers";
+import { EmployeeStatuses, StatusTextStyles } from "../Constants";
 import IconTextField from "./IconTextField.vue";
 
 //props
@@ -252,16 +249,6 @@ const isAnyCheckboxesEnabled = computed(() =>
 );
 
 //functions
-const getStatusIconStyle = (status: string) => {
-  if (status.toLocaleLowerCase() === EmployeeStatuses.Commission) {
-    return StatusIconStyles.Commission;
-  } else if (status.toLowerCase() === EmployeeStatuses.Terminated) {
-    return StatusIconStyles.Terminated;
-  }
-
-  return StatusIconStyles.Salaried;
-};
-
 const getTextStyle = (status: string) => {
   const basicStyle = "text-3.25 font-normal";
 

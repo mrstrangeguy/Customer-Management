@@ -22,13 +22,13 @@ export enum SearchTypes {
 export enum EmployeeStatuses {
   Salaried = "salaried",
   Commission = "commission",
-  Terminated = "terminated"
+  Terminated = "terminated",
 }
 
-export enum StatusIconStyles {
-  Salaried = "mr-1.25 bg-wageningen-green",
-  Commission = "mr-1.25 bg-democrat",
-  Terminated = "mr-1.25 bg-tuscan-image"
+export enum StatusIconColors {
+  Salaried = "bg-wageningen-green",
+  Commission = "bg-democrat",
+  Terminated = "bg-tuscan-image",
 }
 
 export enum StatusTextStyles {
