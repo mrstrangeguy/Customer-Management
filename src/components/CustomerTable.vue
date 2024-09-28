@@ -1,7 +1,7 @@
 <template>
   <table class="relative w-full table-fixed overflow-auto">
     <thead
-      class="border border-b-0 border-table-border outline outline-1 outline-table-border sticky top-0 bg-white"
+      class="border border-b-0 border-table-border outline outline-1 outline-table-border sticky top-0 bg-white z-10"
       role="presentation"
     >
       <tr role="row" class="bg-white relative">
@@ -78,7 +78,7 @@
         <th class="extra-large:hidden w-10" />
       </tr>
     </thead>
-    <tbody class="border-t-0 border border-y">
+    <tbody class="border-t-0 border border-y z-0">
       <template v-for="(userDetail, index) in userDetails" :key="userDetail.id">
         <tr
           @click.stop="handleRowClick(userDetail, index)"
