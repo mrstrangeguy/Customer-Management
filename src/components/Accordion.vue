@@ -39,7 +39,7 @@
               isPrimaryVariant,
             'text-base arrow-icon--secondary font-normal leading-4 dx-accordion-item-title':
               !isPrimaryVariant,
-            'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
+            'dx-treeview-toggle-item-visibility-opened': isExpanded,
           },
         ]"
       />
@@ -63,16 +63,18 @@ import { AccordionVariants } from "../Constants";
 const isHeaderClicked = ref(false);
 
 //types
-type props = {
+type Props = {
   mainIcon?: string;
   text?: string;
   variant?: string;
+  isExpanded?:boolean;
 };
 
-const props = withDefaults(defineProps<props>(), {
+const props = withDefaults(defineProps<Props>(), {
   mainIcon: "",
   text: "",
   variant: AccordionVariants.Primary,
+  isExpanded:false
 });
 
 //computed
@@ -81,13 +83,13 @@ const isPrimaryVariant = computed(
 );
 
 //functions
-
 const contentRef = ref<HTMLElement>();
 const contentHeight = ref<string>("0px");
 
 const toggleContentVisibility = () => {
   isHeaderClicked.value = !isHeaderClicked.value;
 
+  if(props.isExpanded)
   if (contentHeight.value === "0px") {
     contentHeight.value = String(contentRef?.value?.scrollHeight) + "px";
   } else {
