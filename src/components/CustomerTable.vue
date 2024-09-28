@@ -204,7 +204,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watchEffect } from "vue";
 
-import { UsersData, UserDetail } from "../types/table";
+import { UserDetail } from "../types/table";
 import { getStatusIconStyle } from "../utils/helpers";
 import { EmployeeStatuses, StatusTextStyles } from "../Constants";
 import IconTextField from "./IconTextField.vue";
@@ -295,16 +295,6 @@ const filterCustomersBySearchText = (searchText: string) => {
 
     return result;
   });
-};
-
-const getStatusIconStyle = (status: string) => {
-  if (status.toLowerCase() === EmployeeStatuses.Commission) {
-    return StatusIconStyles.Commission;
-  } else if (status.toLowerCase() === EmployeeStatuses.Terminated) {
-    return StatusIconStyles.Terminated;
-  }
-
-  return StatusIconStyles.Salaried;
 };
 
 const getTextStyle = (status: string) => {
