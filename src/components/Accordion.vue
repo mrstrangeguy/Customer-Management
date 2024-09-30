@@ -47,7 +47,9 @@
     <div
       ref="contentRef"
       class="relative overflow-hidden transition-all duration-500"
-      :style="{ height: isExpanded ? contentHeight : '0px' }"
+      :style="{
+        height: isExpanded ? contentHeight : CONTENT_CONTRACTED_HEIGHT,
+      }"
     >
       <slot name="dropdown-items" />
     </div>
@@ -82,12 +84,15 @@ const emit = defineEmits<{
 }>();
 
 onMounted(() => {
-  contentHeight.value = contentRef?.value?.scrollHeight + "px" || "0px";
+  contentHeight.value = `${contentRef?.value?.scrollHeight}px` || CONTENT_CONTRACTED_HEIGHT;
 });
+
+//constants
+const CONTENT_CONTRACTED_HEIGHT = "0px";
 
 //refs
 const contentRef = ref<HTMLDivElement | null>(null);
-const contentHeight = ref<string>("0px");
+const contentHeight = ref<string>(CONTENT_CONTRACTED_HEIGHT);
 
 //computed
 const isPrimaryVariant = computed(

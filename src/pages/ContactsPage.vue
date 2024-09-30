@@ -21,7 +21,11 @@
           },
         ]"
       >
-        <side-bar-container :is-expanded="isSidebarExpanded" class="sidebar" />
+        <side-bar-container
+          :is-expanded="isSidebarExpanded"
+          class="sidebar"
+          @accordion-click="handleAccordionClick"
+        />
       </div>
       <div class="px-8 w-full">
         <div>
@@ -68,8 +72,12 @@ import { UserDetail } from "../types/table";
 
 const { users } = UsersData.userDetails;
 
+//constants
+const PROFILE_INITIAL_POSITION = "-100%";
+const PROFILE_VISIBLE_POSITION = "0%";
+
 const isSidebarExpanded = ref<boolean>(true);
-const profileWrapperPosition = ref<string>("-100%");
+const profileWrapperPosition = ref<string>(PROFILE_INITIAL_POSITION);
 const currentProfileDetails = ref<UserDetail>(users[0]);
 const userStatus = ref<string>("All");
 const filterText = ref<string>("");
@@ -103,7 +111,7 @@ const toggleSidebarWidth = () => {
 
 const handleDataSelection = (data: UserDetail) => {
   isAllTableSelectionCleared.value = false;
-  toggleProfilWrapperPosition("0%");
+  toggleProfilWrapperPosition(PROFILE_VISIBLE_POSITION);
 
   currentProfileDetails.value = data;
 };
@@ -114,7 +122,11 @@ const toggleProfilWrapperPosition = (value: string) => {
 
 const handleCloseButtonClick = () => {
   isAllTableSelectionCleared.value = true;
-  toggleProfilWrapperPosition("-100%");
+  toggleProfilWrapperPosition(PROFILE_INITIAL_POSITION);
+};
+
+const handleAccordionClick = () => {
+  isSidebarExpanded.value = true;
 };
 
 const handleInputValueChange = (searchText: string) => {
