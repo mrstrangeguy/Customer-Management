@@ -37,6 +37,7 @@
             @select-data="handleDataSelection"
             :user-attributes="uiData.usersPageData.userAttributes"
             :users-details="UsersData.userDetails.users"
+            :is-all-selection-cleared="isAllTableSelectionCleared"
           />
         </div>
       </div>
@@ -72,6 +73,7 @@ const profileWrapperPosition = ref<string>("-100%");
 const currentProfileDetails = ref<UserDetail>(users[0]);
 const userStatus = ref<string>("All");
 const filterText = ref<string>("");
+const isAllTableSelectionCleared = ref<boolean>(false);
 
 //onMounted
 onMounted(() => {
@@ -100,6 +102,7 @@ const toggleSidebarWidth = () => {
 };
 
 const handleDataSelection = (data: UserDetail) => {
+  isAllTableSelectionCleared.value = false;
   toggleProfilWrapperPosition("0%");
 
   currentProfileDetails.value = data;
@@ -110,6 +113,7 @@ const toggleProfilWrapperPosition = (value: string) => {
 };
 
 const handleCloseButtonClick = () => {
+  isAllTableSelectionCleared.value = true;
   toggleProfilWrapperPosition("-100%");
 };
 

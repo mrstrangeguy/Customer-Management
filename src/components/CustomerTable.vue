@@ -136,7 +136,7 @@
           <td
             class="small:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-3.25 leading-4">{{ userDetail.assignedTo }}</span>
+            <span class="text-3.25 leading-4">{{ userDetail.assignedto }}</span>
           </td>
           <td
             class="large:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
@@ -189,7 +189,7 @@
                   Assigned to
                 </label>
                 <div class="text-3.25 leading-l2 px-3">
-                  {{ userDetail.assignedTo }}
+                  {{ userDetail.assignedto }}
                 </div>
               </div>
               <div class="pr-5 pb-2.5 grow shrink basis-0 extra-large:hidden">
@@ -235,6 +235,7 @@ type Props = {
 const props = withDefaults(defineProps<Props>(), {
   userStatus: "ALL",
   filterText: "",
+  isAllSelectionCleared: false,
 });
 
 //onMounted
@@ -293,13 +294,13 @@ const filterCustomersBySearchText = (searchText: string) => {
   if (!searchText) return;
 
   userDetails.value = userDetails.value.filter((userDetail: UserDetail) => {
-    const { description, company, status, assignedTo, phone, email } =
+    const { description, company, status, assignedto, phone, email } =
       userDetail;
     const userDetailValues = [
       description.name,
       company,
       status,
-      assignedTo,
+      assignedto,
       phone,
       email,
     ];
@@ -348,8 +349,10 @@ const sortCustomerTable = (index: number) => {
       b[attribute as keyof typeof b] ||
       b.description[attribute as keyof typeof b.description];
 
-    if (selectedAttributeObject.value.order === 1)
+    if (selectedAttributeObject.value.order === 1) {
       return value1 > value2 ? 1 : -1;
+    }
+
     return value1 < value2 ? 1 : -1;
   });
 
@@ -373,13 +376,18 @@ const toggleCheckboxesVisibility = (value: boolean) => {
 
 const addContact = (index: number) => {
   if (!userDetails.value) return;
+
   userDetails.value[index].isChecked = !userDetails.value[index].isChecked;
+};
+
+const clearAllSeclection = () => {
+  userDetails.value?.forEach((elem) => (elem.isSelected = false));
 };
 
 const selectContact = (index: number) => {
   if (!userDetails.value) return;
 
-  userDetails.value?.forEach((user) => (user.isSelected = false));
+  clearAllSeclection();
   userDetails.value[index].isSelected = true;
 };
 
@@ -391,6 +399,7 @@ const handleRowClick = (data: UserDetail, index: number) => {
 
 const openResponsiveContainer = (index: number) => {
   if (!userDetails.value) return;
+
   userDetails.value.forEach((userDetail, userDetailIndex) => {
     if (userDetail.isResponsiveSelected && index !== userDetailIndex)
       userDetail.isResponsiveSelected = false;
@@ -435,6 +444,9 @@ watchEffect(() => {
   userDetails.value = props.usersDetails;
   filterCustomersByStatus(props.userStatus);
   filterCustomersBySearchText(props.filterText);
+  if (props.isAllSelectionCleared) {
+    clearAllSeclection();
+  }
 });
 </script>
 
