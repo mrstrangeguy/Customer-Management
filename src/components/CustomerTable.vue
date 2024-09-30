@@ -245,11 +245,14 @@ const emit = defineEmits<{
   (e: "select-data", data: UserDetail): void;
 }>();
 
+//constants
+const INITIAL_COLSPAN = 7;
+
 //ref
 const userAttributes = ref<string[]>(props.userAttributes);
 const userDetails = ref<UserDetail[]>(props.usersDetails);
 const selectedAttributeObject = ref({ index: 0, order: 1 });
-const colspan = ref<number>(7);
+const colspan = ref<number>(INITIAL_COLSPAN);
 
 //computed
 const isAllCheckboxesEnabled = computed(

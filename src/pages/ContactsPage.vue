@@ -19,7 +19,7 @@
         <div>
           <header-panel
             @dropdown-value="handleDropdownClick"
-            @input-value="handleInputValue"
+            @input-value="handleInputValueChange"
           />
         </div>
         <div class="table-container overflow-y-auto">
@@ -101,7 +101,7 @@ const handleCloseButtonClick = () => {
   toggleProfilWrapperPosition("-100%");
 };
 
-const handleInputValue = (searchText: string) => {
+const handleInputValueChange = (searchText: string) => {
   filterText.value = searchText;
 };
 </script>
