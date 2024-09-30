@@ -221,7 +221,7 @@ import { computed, onMounted, onUnmounted, ref, watchEffect } from "vue";
 
 import { UserDetail } from "../types/table";
 import { getStatusIconStyle } from "../utils/helpers";
-import { EmployeeStatuses, StatusTextStyles } from "../Constants";
+import { EmployeeStatuses, StatusTextStyles, removeSpace } from "../Constants";
 import IconTextField from "./IconTextField.vue";
 
 type Props = {
@@ -263,11 +263,17 @@ const emit = defineEmits<{
 
 //constants
 const INITIAL_COLSPAN = 7;
+const ASCENDING_ORDER = 1;
+const DESCENDING_ORDER = -1;
+const INITIAL_INDEX = 0;
 
 //ref
 const userAttributes = ref<string[]>(props.userAttributes);
 const userDetails = ref<UserDetail[]>(props.usersDetails);
-const selectedAttributeObject = ref({ index: 0, order: 1 });
+const selectedAttributeObject = ref({
+  index: INITIAL_INDEX,
+  order: ASCENDING_ORDER,
+});
 const colspan = ref<number>(INITIAL_COLSPAN);
 
 //computed
@@ -332,7 +338,7 @@ const isArrowIconPresent = (index: number) => {
 };
 
 const removeWhiteSpace = (text: string) => {
-  return text.toLowerCase().replace(/\s/g, "");
+  return text.toLowerCase().replace(removeSpace, "");
 };
 
 const sortCustomerTable = (index: number) => {
@@ -353,17 +359,17 @@ const sortCustomerTable = (index: number) => {
       b[attribute as keyof typeof b] ||
       b.description[attribute as keyof typeof b.description];
 
-    if (selectedAttributeObject.value.order === 1) {
-      return value1 > value2 ? 1 : -1;
+    if (selectedAttributeObject.value.order === ASCENDING_ORDER) {
+      return value1 > value2 ? ASCENDING_ORDER : DESCENDING_ORDER;
     }
 
-    return value1 < value2 ? 1 : -1;
+    return value1 < value2 ? ASCENDING_ORDER : DESCENDING_ORDER;
   });
 
-  if (selectedAttributeObject.value.order === 1) {
-    selectedAttributeObject.value.order = -1;
+  if (selectedAttributeObject.value.order === ASCENDING_ORDER) {
+    selectedAttributeObject.value.order = DESCENDING_ORDER;
   } else {
-    selectedAttributeObject.value.order = 1;
+    selectedAttributeObject.value.order = ASCENDING_ORDER;
   }
 };
 
