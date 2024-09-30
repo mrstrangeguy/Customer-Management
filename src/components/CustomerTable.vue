@@ -1,7 +1,7 @@
 <template>
   <table class="relative w-full table-fixed overflow-auto">
     <thead
-      class="z-100 border border-b-0 border-table-border outline outline-1 outline-table-border sticky top-0 bg-white z-40"
+      class="border border-b-0 border-table-border outline outline-1 outline-table-border sticky top-0 bg-white z-10"
       role="presentation"
     >
       <tr role="row" class="bg-white relative">
@@ -10,7 +10,7 @@
           role="columnheader"
         >
           <i
-            @click="
+            @click.stop="
               isAllCheckboxesEnabled
                 ? toggleCheckboxesVisibility(false)
                 : toggleCheckboxesVisibility(true)
@@ -30,7 +30,7 @@
           />
         </th>
         <th
-          @click="sortCustomerTable(index)"
+          @click.stop="sortCustomerTable(index)"
           v-for="(userAttribute, index) in userAttributes"
           :class="[
             'table-header-cell group py-3 px-2.75 leading-4 cursor-pointer hover:bg-table-hover-primary text-left',
@@ -41,7 +41,12 @@
           <div
             :class="[
               'flex items-center pl-px',
-              { 'name-heading-wrapper': !index },
+
+              {
+                'name-heading-wrapper': !index,
+                'text-table-hover-tertiary':
+                  selectedAttributeObject.index === index,
+              },
             ]"
           >
             <span
@@ -73,10 +78,10 @@
         <th class="extra-large:hidden w-10" />
       </tr>
     </thead>
-    <tbody class="border-t-0 border border-y">
+    <tbody class="border-t-0 border border-y z-0">
       <template v-for="(userDetail, index) in userDetails" :key="userDetail.id">
         <tr
-          @click="handleRowClick(userDetail, index)"
+          @click.stop="handleRowClick(userDetail, index)"
           :class="[
             'border-b border-tr-border cursor-pointer',
             {
@@ -145,7 +150,7 @@
           </td>
           <td
             class="extra-large:hidden table-cell min-w-10 w-10 text-center"
-            @click="openResponsiveContainer(index)"
+            @click.stop="openResponsiveContainer(index)"
           >
             <span
               class="default-icon dx-datagrid-adaptive-more text-4.25 text-default-color text-center align-middle"
@@ -400,7 +405,6 @@ const getResponsiveColsSpan = () => {
   &::before {
     display: block;
     position: relative;
-    z-index: 50;
     content: "";
     display: block;
     height: 14px;

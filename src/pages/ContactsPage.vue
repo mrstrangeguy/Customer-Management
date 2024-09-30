@@ -1,19 +1,27 @@
 <template>
-  <div class="h-full overflow-hidden">
-    <div class="z-50">
+  <div class="h-full relative overflow-hidden">
+    <div>
       <header-container @menu-click="toggleSidebarWidth" />
     </div>
     <div class="contents-wrapper relative flex">
       <div
         :class="[
-          'h-full hidden extra-small:block',
-          { 'pr-12': isSmallerScreen },
+          'dark-overlay',
+          {
+            'opacity-0 invisible': !isSidebarExpanded,
+            'opacity-1 visible': isSidebarExpanded,
+          },
+        ]"
+      />
+      <div
+        :class="[
+          'h-full side-bar-wrapper',
+          {
+            'sidebar-wrapper-hidden': !isSidebarExpanded,
+          },
         ]"
       >
-        <side-bar-container
-          :is-expanded="isSidebarExpanded"
-          :class="{ 'absolute z-150': isSmallerScreen }"
-        />
+        <side-bar-container :is-expanded="isSidebarExpanded" class="sidebar" />
       </div>
       <div class="px-8 w-full">
         <div>
@@ -41,7 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
 import SideBarContainer from "../containers/SidebarContainer.vue";
 import HeaderContainer from "../containers/HeaderContainer.vue";
@@ -55,20 +63,24 @@ import { UserDetail } from "../types/table";
 const { users } = UsersData.userDetails;
 
 const isSidebarExpanded = ref<boolean>(true);
-const isSmallerScreen = ref<boolean>(false);
 const profileWrapperPosition = ref<string>("-100%");
 const currentProfileDetails = ref<UserDetail>(users[0]);
 
 //onMounted
 onMounted(() => {
+  onResponsive();
   window.addEventListener("resize", onResponsive);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", onResponsive);
 });
 
 const onResponsive = () => {
   if (window.innerWidth <= 1200 && window.innerWidth >= 0) {
-    isSmallerScreen.value = true;
+    isSidebarExpanded.value = false;
   } else {
-    isSmallerScreen.value = false;
+    isSidebarExpanded.value = true;
   }
 };
 
@@ -91,7 +103,7 @@ const handleCloseButtonClick = () => {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .table-container::-webkit-scrollbar {
   display: none;
 }
@@ -102,14 +114,61 @@ const handleCloseButtonClick = () => {
 
 .contents-wrapper {
   height: calc(100% - 56px);
+  z-index: 10;
 }
 
 .profile-container-wrapper {
+  z-index: 12;
+  scrollbar-width: none;
   width: 350px;
   height: 100%;
   box-shadow:
     0 0 6px 0 rgba(0, 0, 0, 0.04),
     0 4px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.dark-overlay {
+  display: none;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease;
+  z-index: 11;
+}
+
+.side-bar-wrapper {
+  z-index: 13;
+}
+
+@media screen and (max-width: 1200px) {
+  .dark-overlay {
+    display: block;
+  }
+
+  .side-bar-wrapper {
+    padding-right: 48px;
+  }
+
+  .sidebar {
+    position: absolute;
+    z-index: 11;
+  }
+}
+
+@media screen and (max-width: 665px) {
+  .side-bar-wrapper {
+    padding-right: 0px;
+    position: absolute;
+    left: 0;
+    transition: all 0.5s ease;
+  }
+
+  .sidebar-wrapper-hidden {
+    left: -100%;
+  }
 }
 
 @media screen and (max-width: 480px) {

@@ -6,7 +6,7 @@
     <input
       :placeholder="placeholder"
       v-model="searchValue"
-      class="block placeholder:capitalize z-10 w-full py-2.25 pl-8.5 pr-3 bg-transparent leading-3 text-xs placeholder:text-xs placeholder:text-gray-500 outline-none"
+      class="block placeholder:capitalize w-full py-2.25 pl-8.5 pr-3 bg-transparent leading-3 text-xs placeholder:text-xs placeholder:text-gray-500 outline-none"
       @input="handleInput"
       @keydown="handleKeyDown"
       :type="type"
