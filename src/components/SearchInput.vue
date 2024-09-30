@@ -41,13 +41,20 @@ const emits = defineEmits<{
   (event: "input", inputValue: string): void;
 }>();
 
+//constants
+const TIMEOUT_DELAY = 1000;
+
 //refs
 const searchValue = ref<string>("");
 
 //functions
 const handleInput = (event: Event) => {
+  let timeoutId;
   const inputElement = event.target as HTMLInputElement;
-  emits("input", inputElement.value);
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(() => {
+    emits("input", inputElement.value);
+  }, TIMEOUT_DELAY);
 };
 
 const trimSearchInput = (event: Event) => {

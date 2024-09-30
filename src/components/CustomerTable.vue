@@ -217,18 +217,30 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from "vue";
+import { computed, onMounted, onUnmounted, ref, watchEffect } from "vue";
 
-import { UsersData, UserDetail } from "../types/table";
+import { UserDetail } from "../types/table";
 import { getStatusIconStyle } from "../utils/helpers";
 import { EmployeeStatuses, StatusTextStyles } from "../Constants";
 import IconTextField from "./IconTextField.vue";
 
+type Props = {
+  userAttributes: string[];
+  usersDetails: UserDetail[];
+  userStatus?: string;
+  filterText?: string;
+};
+
 //props
-const props = defineProps<UsersData>();
+const props = withDefaults(defineProps<Props>(), {
+  userStatus: "ALL",
+  filterText: "",
+});
 
 //onMounted
 onMounted(() => {
+  filterCustomersByStatus(props.userStatus);
+  filterCustomersBySearchText(props.filterText);
   window.addEventListener("resize", () => {
     getResponsiveColsSpan();
   });
@@ -248,22 +260,61 @@ const emit = defineEmits<{
   (e: "select-data", data: UserDetail): void;
 }>();
 
+//constants
+const INITIAL_COLSPAN = 7;
+
 //ref
 const userAttributes = ref<string[]>(props.userAttributes);
 const userDetails = ref<UserDetail[]>(props.usersDetails);
 const selectedAttributeObject = ref({ index: 0, order: 1 });
-const colspan = ref<number>(7);
+const colspan = ref<number>(INITIAL_COLSPAN);
 
 //computed
-const isAllCheckboxesEnabled = computed(() =>
-  userDetails.value?.every((elem: UserDetail) => elem.isChecked)
+const isAllCheckboxesEnabled = computed(
+  () =>
+    userDetails.value.length &&
+    userDetails.value?.every((user: UserDetail) => user.isChecked)
 );
 
 const isAnyCheckboxesEnabled = computed(() =>
-  userDetails.value?.some((elem: UserDetail) => elem.isChecked)
+  userDetails.value?.some((user: UserDetail) => user.isChecked)
 );
 
 //functions
+const filterCustomersByStatus = (status: string) => {
+  if (!status || status.toLowerCase() === "all") return;
+
+  userDetails.value = userDetails.value.filter((userDetail: UserDetail) => {
+    return userDetail.status.toLowerCase() === status.toLowerCase();
+  });
+};
+
+const filterCustomersBySearchText = (searchText: string) => {
+  if (!searchText) return;
+
+  userDetails.value = userDetails.value.filter((userDetail: UserDetail) => {
+    const { description, company, status, assignedTo, phone, email } =
+      userDetail;
+    const userDetailValues = [
+      description.name,
+      company,
+      status,
+      assignedTo,
+      phone,
+      email,
+    ];
+
+    const result = userDetailValues.find((value: string) => {
+      const trimmedValue = value.toLowerCase().trim();
+      const trimmedSearchText = searchText.toLowerCase().trim();
+
+      return trimmedValue.includes(trimmedSearchText);
+    });
+
+    return result;
+  });
+};
+
 const getTextStyle = (status: string) => {
   const basicStyle = "text-3.25 font-normal";
 
@@ -317,7 +368,7 @@ const isDownArrowPresent = (index: number) => {
 };
 
 const toggleCheckboxesVisibility = (value: boolean) => {
-  userDetails.value?.forEach((elem: UserDetail) => (elem.isChecked = value));
+  userDetails.value?.forEach((user: UserDetail) => (user.isChecked = value));
 };
 
 const addContact = (index: number) => {
@@ -328,7 +379,7 @@ const addContact = (index: number) => {
 const selectContact = (index: number) => {
   if (!userDetails.value) return;
 
-  userDetails.value?.forEach((elem) => (elem.isSelected = false));
+  userDetails.value?.forEach((user) => (user.isSelected = false));
   userDetails.value[index].isSelected = true;
 };
 
@@ -378,6 +429,13 @@ const getResponsiveColsSpan = () => {
     colspan.value = 3;
   }
 };
+
+//watchEffect
+watchEffect(() => {
+  userDetails.value = props.usersDetails;
+  filterCustomersByStatus(props.userStatus);
+  filterCustomersBySearchText(props.filterText);
+});
 </script>
 
 <style lang="scss" scoped>

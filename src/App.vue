@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ContactsPage from './pages/ContactsPage.vue';
+import ContactsPage from "./pages/ContactsPage.vue";
 </script>
 
 <template>
-<contacts-page/>
+  <contacts-page />
 </template>
