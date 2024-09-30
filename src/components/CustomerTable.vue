@@ -294,13 +294,13 @@ const filterCustomersBySearchText = (searchText: string) => {
   if (!searchText) return;
 
   userDetails.value = userDetails.value.filter((userDetail: UserDetail) => {
-    const { description, company, status, assignedto, phone, email } =
+    const { description, company, status, assigned, phone, email } =
       userDetail;
     const userDetailValues = [
       description.name,
       company,
       status,
-      assignedto,
+      assigned,
       phone,
       email,
     ];
