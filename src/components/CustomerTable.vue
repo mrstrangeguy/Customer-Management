@@ -290,10 +290,10 @@ const filterCustomersBySearchText = (searchText: string) => {
     ];
 
     const result = userDetailValues.find((value: string) => {
-      return value
-        .toLowerCase()
-        .trim()
-        .includes(searchText.toLowerCase().trim());
+      const trimmedValue = value.toLowerCase().trim();
+      const trimmedSearchText = searchText.toLowerCase().trim();
+
+      return trimmedValue.includes(trimmedSearchText);
     });
 
     return result;
