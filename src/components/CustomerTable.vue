@@ -428,7 +428,7 @@ const getResponsiveTableHeaderStyle = (attribute: string) => {
       return "large:table-cell hidden";
     case "status":
       return "medium:table-cell hidden";
-    case "assigned":
+    case "assignedto":
       return "small:table-cell hidden";
     case "company":
       return "extra-small:table-cell hidden";
