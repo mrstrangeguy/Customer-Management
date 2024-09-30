@@ -229,7 +229,7 @@ type Props = {
   usersDetails: UserDetail[];
   userStatus?: string;
   filterText?: string;
-  isAllSelectionCleared:boolean;
+  isAllSelectionCleared: boolean;
 };
 
 //props
