@@ -46,8 +46,12 @@ const searchValue = ref<string>("");
 
 //functions
 const handleInput = (event: Event) => {
+  let timeoutId;
   const inputElement = event.target as HTMLInputElement;
-  emits("input", inputElement.value);
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(() => {
+    emits("input", inputElement.value);
+  }, 1000);
 };
 
 const trimSearchInput = (event: Event) => {
