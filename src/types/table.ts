@@ -1,4 +1,5 @@
 export type UsersData = {
+  isAllSelectionCleared?: boolean;
   userAttributes: string[];
   usersDetails: UserDetail[];
 };
@@ -54,7 +55,7 @@ export type UserDetail = {
   contactDetails: ContactDetail[];
   company: string;
   status: string;
-  assignedTo: string;
+  assigned: string;
   phone: string;
   email: string;
   opportunities: UserOpportunities;

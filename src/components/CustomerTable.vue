@@ -136,7 +136,7 @@
           <td
             class="small:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-3.25 leading-4">{{ userDetail.assignedTo }}</span>
+            <span class="text-3.25 leading-4">{{ userDetail.assigned }}</span>
           </td>
           <td
             class="large:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
@@ -189,7 +189,7 @@
                   Assigned to
                 </label>
                 <div class="text-3.25 leading-l2 px-3">
-                  {{ userDetail.assignedTo }}
+                  {{ userDetail.assigned }}
                 </div>
               </div>
               <div class="pr-5 pb-2.5 grow shrink basis-0 extra-large:hidden">
@@ -221,7 +221,7 @@ import { computed, onMounted, onUnmounted, ref, watchEffect } from "vue";
 
 import { UserDetail } from "../types/table";
 import { getStatusIconStyle } from "../utils/helpers";
-import { EmployeeStatuses, StatusTextStyles } from "../Constants";
+import { EmployeeStatuses, StatusTextStyles, removeSpace } from "../Constants";
 import IconTextField from "./IconTextField.vue";
 
 type Props = {
@@ -235,6 +235,7 @@ type Props = {
 const props = withDefaults(defineProps<Props>(), {
   userStatus: "ALL",
   filterText: "",
+  isAllSelectionCleared: false,
 });
 
 //onMounted
@@ -262,11 +263,17 @@ const emit = defineEmits<{
 
 //constants
 const INITIAL_COLSPAN = 7;
+const ASCENDING_ORDER = 1;
+const DESCENDING_ORDER = -1;
+const INITIAL_INDEX = 0;
 
 //ref
 const userAttributes = ref<string[]>(props.userAttributes);
 const userDetails = ref<UserDetail[]>(props.usersDetails);
-const selectedAttributeObject = ref({ index: 0, order: 1 });
+const selectedAttributeObject = ref({
+  index: INITIAL_INDEX,
+  order: ASCENDING_ORDER,
+});
 const colspan = ref<number>(INITIAL_COLSPAN);
 
 //computed
@@ -293,13 +300,12 @@ const filterCustomersBySearchText = (searchText: string) => {
   if (!searchText) return;
 
   userDetails.value = userDetails.value.filter((userDetail: UserDetail) => {
-    const { description, company, status, assignedTo, phone, email } =
-      userDetail;
+    const { description, company, status, assigned, phone, email } = userDetail;
     const userDetailValues = [
       description.name,
       company,
       status,
-      assignedTo,
+      assigned,
       phone,
       email,
     ];
@@ -331,14 +337,19 @@ const isArrowIconPresent = (index: number) => {
   return selectedAttributeObject.value.index === index;
 };
 
+const removeWhiteSpace = (text: string) => {
+  return text.toLowerCase().replace(removeSpace, "");
+};
+
 const sortCustomerTable = (index: number) => {
   if (!userAttributes.value || !userDetails.value) return;
 
   selectedAttributeObject.value.index = index;
 
-  const attribute = userAttributes.value[index]
-    .toLowerCase()
-    .replace(/\s/g, "");
+  const attribute =
+    removeWhiteSpace(userAttributes.value[index]) === "assignedto"
+      ? "assigned"
+      : removeWhiteSpace(userAttributes.value[index]);
 
   userDetails.value.sort((a: UserDetail, b: UserDetail) => {
     const value1 =
@@ -348,15 +359,17 @@ const sortCustomerTable = (index: number) => {
       b[attribute as keyof typeof b] ||
       b.description[attribute as keyof typeof b.description];
 
-    if (selectedAttributeObject.value.order === 1)
-      return value1 > value2 ? 1 : -1;
-    return value1 < value2 ? 1 : -1;
+    if (selectedAttributeObject.value.order === ASCENDING_ORDER) {
+      return value1 > value2 ? ASCENDING_ORDER : DESCENDING_ORDER;
+    }
+
+    return value1 < value2 ? ASCENDING_ORDER : DESCENDING_ORDER;
   });
 
-  if (selectedAttributeObject.value.order === 1) {
-    selectedAttributeObject.value.order = -1;
+  if (selectedAttributeObject.value.order === ASCENDING_ORDER) {
+    selectedAttributeObject.value.order = DESCENDING_ORDER;
   } else {
-    selectedAttributeObject.value.order = 1;
+    selectedAttributeObject.value.order = ASCENDING_ORDER;
   }
 };
 
@@ -373,13 +386,18 @@ const toggleCheckboxesVisibility = (value: boolean) => {
 
 const addContact = (index: number) => {
   if (!userDetails.value) return;
+
   userDetails.value[index].isChecked = !userDetails.value[index].isChecked;
+};
+
+const clearAllSeclection = () => {
+  userDetails.value?.forEach((user) => (user.isSelected = false));
 };
 
 const selectContact = (index: number) => {
   if (!userDetails.value) return;
 
-  userDetails.value?.forEach((user) => (user.isSelected = false));
+  clearAllSeclection();
   userDetails.value[index].isSelected = true;
 };
 
@@ -391,6 +409,7 @@ const handleRowClick = (data: UserDetail, index: number) => {
 
 const openResponsiveContainer = (index: number) => {
   if (!userDetails.value) return;
+
   userDetails.value.forEach((userDetail, userDetailIndex) => {
     if (userDetail.isResponsiveSelected && index !== userDetailIndex)
       userDetail.isResponsiveSelected = false;
@@ -400,7 +419,7 @@ const openResponsiveContainer = (index: number) => {
 };
 
 const getResponsiveTableHeaderStyle = (attribute: string) => {
-  const editedAttribute = attribute.toLowerCase().replace(/\s/g, "");
+  const editedAttribute = removeWhiteSpace(attribute);
 
   switch (editedAttribute) {
     case "email":
@@ -409,7 +428,7 @@ const getResponsiveTableHeaderStyle = (attribute: string) => {
       return "large:table-cell hidden";
     case "status":
       return "medium:table-cell hidden";
-    case "assignedto":
+    case "assigned":
       return "small:table-cell hidden";
     case "company":
       return "extra-small:table-cell hidden";
@@ -435,6 +454,9 @@ watchEffect(() => {
   userDetails.value = props.usersDetails;
   filterCustomersByStatus(props.userStatus);
   filterCustomersBySearchText(props.filterText);
+  if (props.isAllSelectionCleared) {
+    clearAllSeclection();
+  }
 });
 </script>
 

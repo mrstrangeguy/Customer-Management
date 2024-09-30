@@ -37,7 +37,7 @@ export enum StatusTextStyles {
   Terminated = "text-tuscan-image",
 }
 
-export const whiteSpaceRegex = /^\s+|\s+$|\s+(?=\s)/g;
+export const removeSpace = /\s/g;
 
 export const ARROW_UP_KEY = "ArrowUp";
 export const ARROW_DOWN_KEY = "ArrowDown";
