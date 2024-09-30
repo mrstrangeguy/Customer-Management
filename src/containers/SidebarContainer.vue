@@ -96,7 +96,6 @@ const setAllAccordions = (value: boolean) => {
 
 //watchEffect
 watchEffect(() => {
-  console.log("working 2");
   if (!props.isExpanded) {
     setAllAccordions(false);
   } else {
