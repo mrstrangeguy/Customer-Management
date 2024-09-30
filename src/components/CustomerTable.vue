@@ -294,8 +294,7 @@ const filterCustomersBySearchText = (searchText: string) => {
   if (!searchText) return;
 
   userDetails.value = userDetails.value.filter((userDetail: UserDetail) => {
-    const { description, company, status, assigned, phone, email } =
-      userDetail;
+    const { description, company, status, assigned, phone, email } = userDetail;
     const userDetailValues = [
       description.name,
       company,
@@ -386,7 +385,7 @@ const addContact = (index: number) => {
 };
 
 const clearAllSeclection = () => {
-  userDetails.value?.forEach((elem) => (elem.isSelected = false));
+  userDetails.value?.forEach((user) => (user.isSelected = false));
 };
 
 const selectContact = (index: number) => {
