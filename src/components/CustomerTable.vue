@@ -136,7 +136,7 @@
           <td
             class="small:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
           >
-            <span class="text-3.25 leading-4">{{ userDetail.assignedto }}</span>
+            <span class="text-3.25 leading-4">{{ userDetail.assigned }}</span>
           </td>
           <td
             class="large:table-cell hidden py-2.5 px-2.75 border-b border-b-tr-border"
@@ -189,7 +189,7 @@
                   Assigned to
                 </label>
                 <div class="text-3.25 leading-l2 px-3">
-                  {{ userDetail.assignedto }}
+                  {{ userDetail.assigned }}
                 </div>
               </div>
               <div class="pr-5 pb-2.5 grow shrink basis-0 extra-large:hidden">
@@ -332,14 +332,19 @@ const isArrowIconPresent = (index: number) => {
   return selectedAttributeObject.value.index === index;
 };
 
+const removeWhiteSpace = (text: string) => {
+  return text.toLowerCase().replace(/\s/g, "");
+};
+
 const sortCustomerTable = (index: number) => {
   if (!userAttributes.value || !userDetails.value) return;
 
   selectedAttributeObject.value.index = index;
 
-  const attribute = userAttributes.value[index]
-    .toLowerCase()
-    .replace(/\s/g, "");
+  const attribute =
+    removeWhiteSpace(userAttributes.value[index]) === "assignedto"
+      ? "assigned"
+      : removeWhiteSpace(userAttributes.value[index]);
 
   userDetails.value.sort((a: UserDetail, b: UserDetail) => {
     const value1 =
@@ -409,7 +414,7 @@ const openResponsiveContainer = (index: number) => {
 };
 
 const getResponsiveTableHeaderStyle = (attribute: string) => {
-  const editedAttribute = attribute.toLowerCase().replace(/\s/g, "");
+  const editedAttribute = removeWhiteSpace(attribute);
 
   switch (editedAttribute) {
     case "email":
@@ -418,7 +423,7 @@ const getResponsiveTableHeaderStyle = (attribute: string) => {
       return "large:table-cell hidden";
     case "status":
       return "medium:table-cell hidden";
-    case "assignedto":
+    case "assigned":
       return "small:table-cell hidden";
     case "company":
       return "extra-small:table-cell hidden";
