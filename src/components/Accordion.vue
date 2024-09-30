@@ -10,7 +10,7 @@
           'py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10': !isPrimaryVariant,
         },
       ]"
-      @click.stop="toggleContentVisibility(id)"
+      @click.stop="() => toggleContentVisibility(id)"
       role="button"
     >
       <div class="flex items-center icon-text-wrapper">
@@ -84,7 +84,8 @@ const emit = defineEmits<{
 }>();
 
 onMounted(() => {
-  contentHeight.value = `${contentRef?.value?.scrollHeight}px` || CONTENT_CONTRACTED_HEIGHT;
+  contentHeight.value =
+    `${contentRef?.value?.scrollHeight}px` || CONTENT_CONTRACTED_HEIGHT;
 });
 
 //constants

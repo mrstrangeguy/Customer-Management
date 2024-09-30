@@ -102,7 +102,7 @@
           :text="userDetail.opportunities.title"
           :variant="AccordionVariants.Secondary"
           :is-expanded="accordionExpansions.opportunities"
-          @accordion-click="handleAccordionClick('opportunities')"
+          @accordion-click="() => handleAccordionClick('opportunities')"
         >
           <template #dropdown-items>
             <div class="p-2.75">
@@ -127,7 +127,7 @@
         :text="userDetail.activities.title"
         :variant="AccordionVariants.Secondary"
         :is-expanded="accordionExpansions.activities"
-        @accordion-click="handleAccordionClick('activities')"
+        @accordion-click="() => handleAccordionClick('activities')"
       >
         <template #dropdown-items>
           <div class="p-2.5">
