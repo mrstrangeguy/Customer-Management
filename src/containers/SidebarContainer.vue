@@ -1,7 +1,9 @@
 <template>
   <div
     class="sidebar-wrapper relative w-full h-full overflow-hidden transition-all duration-500"
-    :style="{ width: isExpanded ? '250px' : '48px' }"
+    :style="{
+      width: isExpanded ? SIDEBAR_EXPANDED_WIDTH : SIDEBAR_CONTRACTED_WIDTH,
+    }"
   >
     <div
       class="accordion-group-wrapper h-full overflow-y-auto bg-sidebar pt-4 pb-17.5"
@@ -70,6 +72,10 @@ const props = withDefaults(defineProps<Props>(), {
   id: 1,
   isExpanded: true,
 });
+
+//constants
+const SIDEBAR_EXPANDED_WIDTH = "250px";
+const SIDEBAR_CONTRACTED_WIDTH = "48px";
 
 const { copyrightText, companyName } = UiData.sidebarFooterTexts;
 const sideBarItems = ref<SideBarItem[]>(UiData.sidebarMenuItems);
