@@ -81,7 +81,7 @@
     <tbody class="border-t-0 border border-y z-0">
       <template v-for="(userDetail, index) in userDetails" :key="userDetail.id">
         <tr
-          @click.stop="() => handleRowClick(userDetail, index)"
+          @click="handleRowClick(userDetail, index)"
           :class="[
             'border-b border-tr-border cursor-pointer',
             {

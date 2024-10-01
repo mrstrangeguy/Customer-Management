@@ -37,12 +37,14 @@
       />
     </div>
     <div
+      ref="contentRef"
+      :style="{ top: contentTopPosition }"
       :class="[
         'absolute z-20 cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-options-dropdown',
         {
-          'opacity-100 visible': isHeaderClicked,
-          'opacity-0 invisible': !isHeaderClicked,
-          'right-0': isContentPositionLeft,
+          'opacity-100 z-20': isHeaderClicked,
+          'opacity-0 z-behind': !isHeaderClicked,
+          'right-0': isContentRight,
         },
       ]"
     >
@@ -85,18 +87,55 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, Ref, ref } from "vue";
-import { DropdownPositions } from "../Constants";
+import { onMounted, onUnmounted, Ref, ref } from "vue";
 
 //onMounted
 onMounted(() => {
   document.addEventListener("click", onOutSideClick);
+  contentTopPosition.value = `${dropdownRef.value.getBoundingClientRect().height}px`;
+
+  if (window.innerWidth - dropdownRef.value.getBoundingClientRect().left > 0) {
+    handleWindowResize();
+  }
+
+  window.addEventListener("resize", handleWindowResize);
 });
 
 //onUnMounted
 onUnmounted(() => {
   document.removeEventListener("click", onOutSideClick);
 });
+
+//onUnmounted
+onUnmounted(() => {
+  document.removeEventListener("resize", handleWindowResize);
+});
+
+const handleWindowResize = () => {
+  if (contentRef.value) {
+    const positionRight =
+      window.innerWidth -
+      (dropdownRef.value.getBoundingClientRect().left +
+        contentRef.value.getBoundingClientRect().width);
+
+    const positionBottom =
+      window.innerHeight -
+      (dropdownRef.value.getBoundingClientRect().bottom +
+        contentRef.value.getBoundingClientRect().height);
+
+    if (positionRight <= 0) {
+      isContentRight.value = true;
+    } else {
+      isContentRight.value = false;
+    }
+
+    if (positionBottom <= 0) {
+      contentTopPosition.value = `-${contentRef.value.getBoundingClientRect().height}px`;
+    } else {
+      contentTopPosition.value = `${dropdownRef.value.getBoundingClientRect().height}px`;
+    }
+  }
+};
 
 //types
 type dropDownItem = {
@@ -113,20 +152,21 @@ type DropdownProps = {
   icon?: string;
   imageURL?: string;
   dropDownItems?: dropDownItem[];
-  contentPosition?: string;
 };
 
-const props = withDefaults(defineProps<DropdownProps>(), {
+withDefaults(defineProps<DropdownProps>(), {
   shouldHideArrowIcon: false,
   headerStyle: "",
   icon: "",
   imageURL: "",
   text: "",
-  contentPosition: DropdownPositions.Right,
 });
 
 const isHeaderClicked = ref(false);
 const dropdownRef = ref<Ref | null>(null);
+const contentRef = ref<HTMLDivElement | null>(null);
+const isContentRight = ref<boolean>(false);
+const contentTopPosition = ref<string>(`inherit`);
 
 const emit = defineEmits<{
   (event: "click", value: string): void;
@@ -143,15 +183,11 @@ const onOutSideClick = (event: Event) => {
   ) {
     isHeaderClicked.value = false;
   }
+  isHeaderClicked.value = false;
 };
 
 const handleOptionClick = (value = "") => {
   isHeaderClicked.value = false;
   emit("click", value);
 };
-
-//computed
-const isContentPositionLeft = computed(
-  () => props.contentPosition === DropdownPositions.Left
-);
 </script>
