@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from "vue";
+import { ref, watch, onMounted } from "vue";
 
 import UiData from "../data/uiData.json";
 import Accordion from "../components/Accordion.vue";
@@ -71,6 +71,10 @@ type SideBarItem = {
 const props = withDefaults(defineProps<Props>(), {
   id: 1,
   isExpanded: true,
+});
+
+onMounted(() => {
+  expandInitialDropDown();
 });
 
 //constants
@@ -100,14 +104,23 @@ const setAllAccordions = (value: boolean) => {
   sideBarItems.value.forEach((sidebar) => (sidebar.isExpanded = value));
 };
 
-//watchEffect
-watchEffect(() => {
-  if (!props.isExpanded) {
-    setAllAccordions(false);
-  } else {
-    sideBarItems.value[0].isExpanded = true;
+const expandInitialDropDown = () => {
+  sideBarItems.value[0].isExpanded = true;
+};
+
+//watch
+watch(
+  () => props.isExpanded,
+  (newValue, oldValue) => {
+    if (newValue !== oldValue) {
+      if (!newValue) {
+        setAllAccordions(false);
+      } else {
+        expandInitialDropDown();
+      }
+    }
   }
-});
+);
 </script>
 
 <style>
