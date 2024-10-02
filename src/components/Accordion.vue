@@ -10,7 +10,7 @@
           'py-1.5 pl-2.75 pr-2.5 text-3.25 min-h-10': !isPrimaryVariant,
         },
       ]"
-      @click.stop="toggleContentVisibility"
+      @click.stop="() => toggleContentVisibility(id)"
       role="button"
     >
       <div class="flex items-center icon-text-wrapper">
@@ -39,7 +39,7 @@
               isPrimaryVariant,
             'text-base arrow-icon--secondary font-normal leading-4 dx-accordion-item-title':
               !isPrimaryVariant,
-            'dx-treeview-toggle-item-visibility-opened': isHeaderClicked,
+            'dx-treeview-toggle-item-visibility-opened': isExpanded,
           },
         ]"
       />
@@ -47,7 +47,9 @@
     <div
       ref="contentRef"
       class="relative overflow-hidden transition-all duration-500"
-      :style="{ height: contentHeight }"
+      :style="{
+        height: isExpanded ? contentHeight : CONTENT_CONTRACTED_HEIGHT,
+      }"
     >
       <slot name="dropdown-items" />
     </div>
@@ -55,25 +57,43 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 
 import { AccordionVariants } from "../Constants";
 
-//refs
-const isHeaderClicked = ref(false);
-
 //types
-type props = {
+type Props = {
   mainIcon?: string;
   text?: string;
   variant?: string;
+  isExpanded?: boolean;
+  id?: number;
 };
 
-const props = withDefaults(defineProps<props>(), {
+const props = withDefaults(defineProps<Props>(), {
+  id: 1,
   mainIcon: "",
   text: "",
   variant: AccordionVariants.Primary,
+  isExpanded: false,
 });
+
+//emits
+const emit = defineEmits<{
+  (event: "accordion-click", accordionID: number): void;
+}>();
+
+onMounted(() => {
+  contentHeight.value =
+    `${contentRef?.value?.scrollHeight}px` || CONTENT_CONTRACTED_HEIGHT;
+});
+
+//constants
+const CONTENT_CONTRACTED_HEIGHT = "0px";
+
+//refs
+const contentRef = ref<HTMLDivElement | null>(null);
+const contentHeight = ref<string>(CONTENT_CONTRACTED_HEIGHT);
 
 //computed
 const isPrimaryVariant = computed(
@@ -81,18 +101,8 @@ const isPrimaryVariant = computed(
 );
 
 //functions
-
-const contentRef = ref<HTMLElement>();
-const contentHeight = ref<string>("0px");
-
-const toggleContentVisibility = () => {
-  isHeaderClicked.value = !isHeaderClicked.value;
-
-  if (contentHeight.value === "0px") {
-    contentHeight.value = String(contentRef?.value?.scrollHeight) + "px";
-  } else {
-    contentHeight.value = "0px";
-  }
+const toggleContentVisibility = (accordionID: number) => {
+  emit("accordion-click", accordionID);
 };
 </script>
 

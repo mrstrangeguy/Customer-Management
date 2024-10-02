@@ -38,10 +38,10 @@
     </div>
     <div
       :class="[
-        'absolute cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-options-dropdown',
+        'absolute z-20 cursor-pointer bg-white transition-all duration-200 border-b w-auto p-px shadow-options-dropdown',
         {
-          'opacity-100 z-20': isHeaderClicked,
-          'opacity-0 z-behind': !isHeaderClicked,
+          'opacity-100 visible': isHeaderClicked,
+          'opacity-0 invisible': !isHeaderClicked,
           'right-0': isContentPositionLeft,
         },
       ]"
@@ -50,7 +50,7 @@
         v-for="(dropDownItem, index) in dropDownItems"
         :key="`${dropDownItem.text}${index}`"
         role="button"
-        @click="handleOptionClick(dropDownItem.text)"
+        @click="() => handleOptionClick(dropDownItem.text)"
         :class="[
           'flex items-center',
           {

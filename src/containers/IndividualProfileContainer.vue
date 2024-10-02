@@ -101,6 +101,8 @@
         <Accordion
           :text="userDetail.opportunities.title"
           :variant="AccordionVariants.Secondary"
+          :is-expanded="accordionExpansions.opportunities"
+          @accordion-click="() => handleAccordionClick('opportunities')"
         >
           <template #dropdown-items>
             <div class="p-2.75">
@@ -124,6 +126,8 @@
       <Accordion
         :text="userDetail.activities.title"
         :variant="AccordionVariants.Secondary"
+        :is-expanded="accordionExpansions.activities"
+        @accordion-click="() => handleAccordionClick('activities')"
       >
         <template #dropdown-items>
           <div class="p-2.5">
@@ -146,6 +150,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+
 import IconTextField from "../components/IconTextField.vue";
 import Accordion from "../components/Accordion.vue";
 import Button from "../components/Button.vue";
@@ -170,12 +176,26 @@ type Props = {
 
 defineProps<Props>();
 
+const accordionExpansions = ref({
+  opportunities: false,
+  activities: false,
+});
+
 const emit = defineEmits<{
   (event: "close-button-click", clickEvent: Event): void;
 }>();
 
 const handleCloseButtonClick = (event: Event) => {
   emit("close-button-click", event);
+};
+
+const handleAccordionClick = (accordion: string) => {
+  accordionExpansions.value[
+    accordion as keyof typeof accordionExpansions.value
+  ] =
+    !accordionExpansions.value[
+      accordion as keyof typeof accordionExpansions.value
+    ];
 };
 
 const getTextStyle = (status: string) => {

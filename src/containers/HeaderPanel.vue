@@ -38,7 +38,7 @@
           <Dropdown
             :icon="exportIcon"
             header-style="dropdown-header icon-dropdown hover:bg-gray-200"
-            :drop-down-items="filterDropDown.userStatuses"
+            :drop-down-items="exportOptionsDetails.exportOptions"
           />
         </div>
         <div class="h-6 ml-1.25 w-px bg-gray-300 hidden sm:block" />
@@ -79,8 +79,13 @@ import Dropdown from "../components/Dropdown.vue";
 import Button from "../components/Button.vue";
 import SearchInput from "../components/SearchInput.vue";
 
-const { addButton, filterDropDown, searchbarPlaceholder, title } =
-  usersPageData;
+const {
+  addButton,
+  exportOptionsDetails,
+  filterDropDown,
+  searchbarPlaceholder,
+  title,
+} = usersPageData;
 const { chooser, exportIcon, overflow, refresh } = usersPageData.icons;
 
 const filterDropdownTitle = ref<string>(filterDropDown.title);

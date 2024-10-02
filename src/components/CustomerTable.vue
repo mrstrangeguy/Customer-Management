@@ -81,7 +81,7 @@
     <tbody class="border-t-0 border border-y z-0">
       <template v-for="(userDetail, index) in userDetails" :key="userDetail.id">
         <tr
-          @click.stop="handleRowClick(userDetail, index)"
+          @click.stop="() => handleRowClick(userDetail, index)"
           :class="[
             'border-b border-tr-border cursor-pointer',
             {
@@ -92,7 +92,7 @@
           ]"
         >
           <td
-            @click.stop="addContact(index)"
+            @click.stop="() => addContact(index)"
             class="w-9.5 text-center border-b border-b-tr-border"
             role="columnheader"
           >
@@ -150,7 +150,7 @@
           </td>
           <td
             class="extra-large:hidden table-cell min-w-10 w-10 text-center"
-            @click.stop="openResponsiveContainer(index)"
+            @click.stop="() => openResponsiveContainer(index)"
           >
             <span
               class="default-icon dx-datagrid-adaptive-more text-4.25 text-default-color text-center align-middle"
@@ -229,6 +229,7 @@ type Props = {
   usersDetails: UserDetail[];
   userStatus?: string;
   filterText?: string;
+  isAllSelectionCleared: boolean;
 };
 
 //props
@@ -428,7 +429,7 @@ const getResponsiveTableHeaderStyle = (attribute: string) => {
       return "large:table-cell hidden";
     case "status":
       return "medium:table-cell hidden";
-    case "assigned":
+    case "assignedto":
       return "small:table-cell hidden";
     case "company":
       return "extra-small:table-cell hidden";

@@ -14,8 +14,10 @@
     },
     "sidebarMenuItems": [
         {
+            "id":1,
             "title": "CRM",
             "main": "dx-icon dx-icon-user",
+            "isExpanded":false,
             "subMenuItems": [
                 {
                     "title": "Contact List",
@@ -28,8 +30,10 @@
             ]
         },
         {
+            "id":2,
             "title": "Planning",
             "main": "dx-icon dx-icon-event",
+            "isExpanded":false,
             "subMenuItems": [
                 {
                     "title": "Task List",
@@ -46,8 +50,10 @@
             ]
         },
         {
+            "id":3,
             "title": "Analytics",
             "main": "dx-icon dx-icon-chart",
+            "isExpanded":false,
             "subMenuItems": [
                 {
                     "title": "Dashboard",
@@ -64,8 +70,10 @@
             ]
         },
         {
+            "id":4,
             "title": "Authentication",
             "main": "dx-icon dx-icon-card",
+            "isExpanded":false,
             "subMenuItems": [
                 {
                     "title": "Sign In Form",
@@ -82,8 +90,10 @@
             ]
         },
         {
+            "id":5,
             "title": "Common",
             "main": "dx-icon dx-icon-box",
+            "isExpanded":false,
             "subMenuItems": [
                 {
                     "title": "User Profile",
