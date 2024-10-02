@@ -80,7 +80,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 //emits
 const emit = defineEmits<{
-  (event: "accordion-click", accordionId: number): void;
+  (event: "accordion-click", accordionID: number): void;
 }>();
 
 onMounted(() => {
@@ -101,8 +101,8 @@ const isPrimaryVariant = computed(
 );
 
 //functions
-const toggleContentVisibility = (accordionId: number) => {
-  emit("accordion-click", accordionId);
+const toggleContentVisibility = (accordionID: number) => {
+  emit("accordion-click", accordionID);
 };
 </script>
 
