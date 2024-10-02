@@ -113,26 +113,20 @@ onUnmounted(() => {
 
 const handleWindowResize = () => {
   if (contentRef.value) {
-    const positionRight =
-      window.innerWidth -
-      (dropdownRef.value.getBoundingClientRect().left +
-        contentRef.value.getBoundingClientRect().width);
+    const dropdownBoundingClientRect =
+      dropdownRef.value.getBoundingClientRect();
+    const contentBoundingClientRect = contentRef.value.getBoundingClientRect();
 
-    const positionBottom =
-      window.innerHeight -
-      (dropdownRef.value.getBoundingClientRect().bottom +
-        contentRef.value.getBoundingClientRect().height);
+    const positionRight = window.innerWidth - (dropdownBoundingClientRect.left + contentBoundingClientRect.width);
 
-    if (positionRight <= 0) {
-      isContentRight.value = true;
-    } else {
-      isContentRight.value = false;
-    }
+    const positionBottom = window.innerHeight - (dropdownBoundingClientRect.bottom + contentBoundingClientRect.height);
+
+    isContentRight.value = positionRight <= 0;
 
     if (positionBottom <= 0) {
-      contentTopPosition.value = `-${contentRef.value.getBoundingClientRect().height}px`;
+      contentTopPosition.value = `-${contentBoundingClientRect.height}px`;
     } else {
-      contentTopPosition.value = `${dropdownRef.value.getBoundingClientRect().height}px`;
+      contentTopPosition.value = `${dropdownBoundingClientRect.height}px`;
     }
   }
 };
@@ -166,7 +160,7 @@ const isHeaderClicked = ref(false);
 const dropdownRef = ref<Ref | null>(null);
 const contentRef = ref<HTMLDivElement | null>(null);
 const isContentRight = ref<boolean>(false);
-const contentTopPosition = ref<string>(`inherit`);
+const contentTopPosition = ref<string>("inherit");
 
 const emit = defineEmits<{
   (event: "click", value: string): void;
