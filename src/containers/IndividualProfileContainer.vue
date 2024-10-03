@@ -34,7 +34,7 @@
       <div class="flex">
         <img
           class="block w-31 h-31 max-h-31 object-cover object-top border rounded-lg mr-5"
-          :src="userDetail.image"
+          :src="getImageURL(userDetail.image)"
           alt="profile-image"
         />
         <div class="pl-3">
@@ -159,7 +159,7 @@ import Dropdown from "../components/Dropdown.vue";
 import UserActivityCard from "../components/UserActivityCard.vue";
 import { UserDetail } from "../types/table";
 import { individualProfileData } from "../data/uiData.json";
-import { getStatusIconStyle } from "../utils/helpers";
+import { getStatusIconStyle, getImageURL } from "../utils/helpers";
 import {
   AccordionVariants,
   ButtonVariants,

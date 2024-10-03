@@ -10,3 +10,7 @@ export const getStatusIconStyle = (status: string) => {
 
   return `${baseStyle} ${StatusIconColors.Salaried}`;
 };
+
+export const getImageURL = (src: string) => {
+  return `${new URL(src, import.meta.url).href}`;
+};

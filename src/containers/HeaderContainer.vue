@@ -42,7 +42,7 @@
       </div>
       <div class="sm:block hidden pl-2.5">
         <Dropdown
-          :image-u-r-l="userProfileData.profileImg"
+          :image-u-r-l="getImageURL(userProfileData.profileImg)"
           :drop-down-items="userProfileData.details"
           :content-position="DropdownPositions.Left"
           should-hide-arrow-icon
@@ -65,6 +65,7 @@ import Button from "../components/Button.vue";
 import SearchInput from "../components/SearchInput.vue";
 import Dropdown from "../components/Dropdown.vue";
 import uiData from "../data/uiData.json";
+import { getImageURL } from "../utils/helpers";
 import { DropdownPositions } from "../Constants";
 
 const { userProfileData, icons } = uiData.usersPageData;
