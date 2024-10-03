@@ -9,7 +9,7 @@
         },
         "notification": "dx-icon dx-icon-belloutline",
         "profile": {
-            "imageURL": "https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/01.png"
+            "imageURL": "/assets/images/employees/01.png"
         }
     },
     "sidebarMenuItems": [
