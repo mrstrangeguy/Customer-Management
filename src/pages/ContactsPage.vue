@@ -149,7 +149,7 @@ const handleInputValueChange = (searchText: string) => {
 }
 
 .profile-container-wrapper {
-  z-index: 12;
+  z-index: 20;
   scrollbar-width: none;
   width: 350px;
   height: 100%;
@@ -167,11 +167,11 @@ const handleInputValueChange = (searchText: string) => {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 0.5s ease;
-  z-index: 11;
+  z-index: 21;
 }
 
 .side-bar-wrapper {
-  z-index: 13;
+  z-index: 23;
 }
 
 @media screen and (max-width: 1200px) {

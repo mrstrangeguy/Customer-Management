@@ -44,7 +44,6 @@
         <Dropdown
           :image-u-r-l="userProfileData.profileImg"
           :drop-down-items="userProfileData.details"
-          :content-position="DropdownPositions.Left"
           should-hide-arrow-icon
         />
       </div>
@@ -65,7 +64,6 @@ import Button from "../components/Button.vue";
 import SearchInput from "../components/SearchInput.vue";
 import Dropdown from "../components/Dropdown.vue";
 import uiData from "../data/uiData.json";
-import { DropdownPositions } from "../Constants";
 
 const { userProfileData, icons } = uiData.usersPageData;
 const { title, menuIcon, displayMode, notification, searchPlaceholder } =
