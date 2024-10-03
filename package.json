@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "vite",
     "test": "vitest",
-    "coverage":"vitest --coverage",
+    "coverage": "vitest --coverage",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build-static-webapp":"expo build:web"
+    "build-static-webapp": "expo build:web",
+    "deploy":"gh-pages -d dist"
   },
   "dependencies": {
     "@chromatic-com/storybook": "^1.6.1",
@@ -39,6 +40,7 @@
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.19",
     "css-loader": "^7.1.2",
+    "gh-pages": "^6.1.1",
     "postcss": "^8.4.40",
     "sass": "^1.77.8",
     "sass-loader": "^16.0.0",
